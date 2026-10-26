@@ -1,0 +1,15 @@
+{
+  "name": "nextgen-english",
+  "version": "1.0.0",
+  "description": "EduPlatform Next-Gen — offline-first English learning platform for Uzbek speakers",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "start": "node scripts/serve.js",
+    "test": "node --test tests/*.test.js",
+    "test:e2e": "node tests/e2e.smoke.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
