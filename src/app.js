@@ -2,7 +2,7 @@ import { newCard, review, dueCards, isMature } from './core/srs.js';
 import { buildIndex, prefixSearch, lookup } from './core/dictionary.js';
 import { scorePronunciation } from './core/pronunciation.js';
 import { gradeExam, scoreQuestion, makeVariant, parseExam, serializeExam, validateExam, shuffle, mulberry32 } from './core/exam.js';
-import { createPlacement, nextQuestion, answerPlacement, placementResult } from './core/placement.js';
+import { createPlacement, nextQuestion, answerPlacement, placementResult, LEVELS } from './core/placement.js';
 import { renderPrintable, esc } from './core/printable.js';
 import { createStore } from './core/store.js';
 import { vocabulary, categories } from './data/vocabulary.js';
@@ -275,7 +275,8 @@ const views = {
     if (!topic) {
       const done = store.get('grammarDone', {});
       const lvl = profile().level;
-      return `<h2>📐 Grammatika</h2><div class="list">${grammar.map((t) => `<a class="row" href="#/grammar?topic=${t.id}">
+      const byLevel = [...grammar].sort((a, b) => LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level));
+      return `<h2>📐 Grammatika</h2><div class="list">${byLevel.map((t) => `<a class="row" href="#/grammar?topic=${t.id}">
         <span class="badge ${t.level === lvl ? 'hl' : ''}">${t.level}</span><b>${esc(t.title)}</b>
         <span class="muted">${done[t.id] != null ? `${done[t.id]}%` : ''}</span></a>`).join('')}</div>`;
     }

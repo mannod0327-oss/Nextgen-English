@@ -44,4 +44,29 @@ export const scenarios = [
     "I've had a headache for three days.",
     'Should I take this medicine before meals?',
   ] },
+  { id: 'restaurant', title: '🍽️ Restoranda', lines: [
+    'Could we have a table for four, please?',
+    "Excuse me, I didn't order this dish.",
+    'Is service included in the bill?',
+  ] },
+  { id: 'taxi', title: '🚕 Taksida', lines: [
+    'Could you take me to the railway station, please?',
+    'How long will it take to get there?',
+    'Please stop here, thank you.',
+  ] },
+  { id: 'bank', title: '🏦 Bankda', lines: [
+    "I'd like to open a bank account.",
+    'Can I exchange dollars here?',
+    'My card is not working. Can you help me?',
+  ] },
+  { id: 'phone', title: '📞 Telefonda', lines: [
+    'Hello, may I speak to Mr Karimov, please?',
+    "Sorry, could you repeat that? The line isn't very clear.",
+    "I'll call you back in ten minutes.",
+  ] },
+  { id: 'university', title: '🎓 Universitetda', lines: [
+    'Where can I find the admissions office?',
+    'When is the deadline for the application?',
+    'Could you explain this topic again, please?',
+  ] },
 ];

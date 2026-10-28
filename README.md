@@ -120,7 +120,7 @@ Baholash: `multiple` — noto'g'ri tanlov ball kamaytiradi; `order` va `match` �
   modelni emas. U "nima eshitildi"ni o'lchaydi, intonatsiyani emas. Nutqni aniqlash Chrome/Edge'da
   ishlaydi; boshqa brauzerlarda aytilganni yozib tekshirish mumkin.
 - **Progress** bitta brauzerda saqlanadi (sinxronizatsiya yo'q). Ko'p qurilma uchun backend kerak.
-- **Kontent hajmi** namunaviy: 9 mavzuda 75 so'z, 11 grammatika mavzusi (36 mashq), 20 ta daraja savoli, 8 vaziyatda 26 ibora.
+- **Kontent hajmi**: 14 mavzuda 125 so'z, 18 grammatika mavzusi (60 mashq, A1–C1), 30 ta daraja savoli, 13 vaziyatda 41 ibora.
   Yangi kontent `src/data/` fayllariga qo'shiladi; `npm test` uni avtomatik tekshiradi.
 - Lug'at rasmlari — emoji (litsenziyasiz). Haqiqiy rasmlar uchun `emoji` maydonini rasm URL bilan almashtirish kifoya.
 
