@@ -6,6 +6,7 @@ import { createPlacement, nextQuestion, answerPlacement, placementResult, LEVELS
 import { renderPrintable, esc } from './core/printable.js';
 import { createStore } from './core/store.js';
 import { dailyPlan } from './core/plan.js';
+import { linePoints, lastDays } from './core/chart.js';
 import { vocabulary, categories } from './data/vocabulary.js';
 import { grammar } from './data/grammar.js';
 import { placementQuestions } from './data/placement.js';
@@ -597,6 +598,7 @@ const views = {
         raw = Math.round(raw);
         const band = toBand(mock.kind, raw);
         store.set('ieltsMock', { ...store.get('ieltsMock', {}), [mockKind]: { raw, band, date: new Date().toISOString().slice(0, 10) } });
+        store.set('ieltsMockHistory', [...store.get('ieltsMockHistory', []), { key: mockKind, kind: mock.kind, raw, band, date: today() }].slice(-50));
         addXp(raw);
         app.querySelectorAll('.script').forEach((el) => { el.hidden = false; });
         $('#mock-finish').disabled = true;
@@ -836,6 +838,50 @@ const views = {
       <h3>Juftlarni mashq qiling</h3>
       <table class="tbl"><tbody>${set.pairs.map(([a, b]) => `<tr><td><button class="link" data-say="${esc(a)}">🔊</button> ${esc(a)}</td><td><button class="link" data-say="${esc(b)}">🔊</button> ${esc(b)}</td></tr>`).join('')}</tbody></table>
       <p><a class="btn" href="#/speech">🎙 Endi o'zingiz ayting — Nutq laboratoriyasi</a></p>`;
+  },
+
+  progress() {
+    const p = profile();
+    const cards = Object.values(store.get('cards', {}));
+    const avg = (o) => { const v = Object.values(o); return v.length ? Math.round(v.reduce((a, b) => a + b, 0) / v.length) : null; };
+    const grammarDone = store.get('grammarDone', {});
+    const readingDone = store.get('readingDone', {});
+    const history = store.get('ieltsMockHistory', []);
+    const activity = store.get('activity', {});
+    const days = lastDays(today(), 14);
+    const counts = days.map((d) => (activity[d] ?? []).length);
+    const maxCount = Math.max(1, ...counts);
+    const stat = (icon, label, value, sub = '') => `<div class="stat card"><span class="ico">${icon}</span><b>${value}</b><span>${label}</span>${sub ? `<span class="muted">${sub}</span>` : ''}</div>`;
+    const W = 320;
+    const H = 140;
+    const series = (kind, color) => {
+      const pts = history.filter((h) => h.kind === kind).map((h) => h.band);
+      const line = linePoints(pts, W, H, 0, 9, 18);
+      // Dots as well as the line: a single attempt is a zero-length polyline and would be invisible.
+      return pts.length ? `<polyline fill="none" stroke="${color}" stroke-width="2.5" points="${line}"/>${line.split(' ').map((xy, i) => `<circle cx="${xy.split(',')[0]}" cy="${xy.split(',')[1]}" r="3.5" fill="${color}"><title>${pts[i]}</title></circle>`).join('')}` : '';
+    };
+    return `<h2>📈 Mening progressim</h2>
+      <div class="stats-grid">
+        ${stat('🎯', 'daraja', p.level ?? '—', p.level ? '' : '<a href="#/placement">testni topshiring</a>')}
+        ${stat('⭐', 'XP', p.xp)}
+        ${stat('🔥', 'kun ketma-ket', streak(p.days))}
+        ${stat('🖼️', "so'z o'rganilmoqda", cards.length, `${cards.filter(isMature).length} ta uzoq xotirada`)}
+        ${stat('📐', 'grammatika mavzusi', Object.keys(grammarDone).length, avg(grammarDone) != null ? `o'rtacha ${avg(grammarDone)}%` : '')}
+        ${stat('📰', "o'qish / tinglash", Object.keys(readingDone).length, avg(readingDone) != null ? `o'rtacha ${avg(readingDone)}%` : '')}
+        ${stat('🧾', 'ochiq xato', Object.keys(store.get('mistakes', {})).length, '<a href="#/mistakes">ishlash →</a>')}
+        ${stat('🔁', "fe'llar testi", store.get('verbsBest', null) != null ? `${store.get('verbsBest')}%` : '—', 'eng yaxshi')}
+      </div>
+      <section class="card"><h3>🎓 IELTS sinov testlari</h3>
+        ${history.length ? `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Band natijalari grafigi">
+            ${[3, 5, 7, 9].map((b) => { const y = linePoints([b], W, H, 0, 9, 18).split(',')[1]; return `<line x1="16" x2="${W}" y1="${y}" y2="${y}" class="grid-line"/><text x="2" y="${Number(y) + 3}" class="axis">${b}</text>`; }).join('')}
+            ${series('listening', 'var(--accent)')}${series('reading', 'var(--ok)')}</svg>
+          <p class="muted"><span style="color:var(--accent)">━</span> Listening · <span style="color:var(--ok)">━</span> Reading</p>
+          <table class="tbl"><thead><tr><th>Sana</th><th>Test</th><th>Ball</th><th>Band</th></tr></thead><tbody>
+          ${history.slice().reverse().map((h) => `<tr><td>${h.date}</td><td>${esc(mockTests[h.key]?.title ?? h.key)}</td><td>${h.raw}/40</td><td><b>${h.band}</b></td></tr>`).join('')}</tbody></table>`
+          : `<p class="muted">Hali sinov testi topshirilmagan. <a href="#/ielts">IELTS bo'limida</a> boshlang — natijalar shu yerda grafikda ko'rinadi.</p>`}</section>
+      <section class="card"><h3>📅 So'nggi 14 kun faolligi</h3>
+        <div class="bars" role="img" aria-label="Kunlik faollik">${days.map((d, i) => `<div class="bar" title="${d}: ${counts[i]}"><span style="height:${Math.round((counts[i] / maxCount) * 100)}%"></span><small>${d.slice(8)}</small></div>`).join('')}</div>
+        <p class="muted">Har bir ustun — kartalar, grammatika, o'qish va testlar bo'yicha bajarilgan ishlar soni.</p></section>`;
   },
 
   mistakes() {

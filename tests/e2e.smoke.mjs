@@ -169,6 +169,9 @@ await step('ielts: hub band calculator, writing word count, speaking cue card', 
   await page.locator('[data-q="mr1"] input[value="1"]').check();
   await page.click('#mock-finish');
   if (!(await page.textContent('#mock-result')).includes('2 / 40')) throw new Error(await page.textContent('#mock-result'));
+  await page.goto(`${base}/#/progress`);
+  await page.waitForSelector('.chart circle');
+  if (!(await page.textContent('.tbl')).includes('2/40')) throw new Error('mock history missing on progress page');
   await page.goto(`${base}/#/mistakes`);
   await page.waitForSelector('[data-q="mr2"]');
   if (await page.locator('[data-q="mr8"]').count()) throw new Error('correct answer must not be in mistakes');
@@ -325,7 +328,7 @@ await step('creator: add question, validate, simulate', async () => {
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'grammar?topic=conditionals', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'mistakes', 'sounds', 'sounds?set=th-s']) {
+  for (const r of ['', 'creator', 'vocab', 'grammar?topic=conditionals', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);

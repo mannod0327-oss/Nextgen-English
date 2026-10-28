@@ -8,6 +8,7 @@ import { createPlacement, nextQuestion, answerPlacement, placementResult } from 
 import { renderPrintable, answerKey } from '../src/core/printable.js';
 import { createStore } from '../src/core/store.js';
 import { dailyPlan } from '../src/core/plan.js';
+import { linePoints, lastDays } from '../src/core/chart.js';
 import { sampleExam } from '../src/data/sample-exam.js';
 import { placementQuestions } from '../src/data/placement.js';
 
@@ -220,4 +221,12 @@ test('dailyPlan: deterministic per date, level-matched, done from activity', () 
   assert.equal(dailyPlan({ date: '2026-10-28', level: null, grammar, texts })[3].key, 'verbs', 'beginners get the verbs test');
   const done = dailyPlan({ date: '2026-10-28', level: 'B2', grammar, texts, activity: [...Array(10).fill('vocab'), a[1].key] });
   assert.deepEqual(done.map((t) => t.done), [true, true, false, false]);
+});
+
+test('chart helpers: scaled polyline points and calendar days', () => {
+  assert.equal(linePoints([], 100, 50, 0, 9), '');
+  assert.equal(linePoints([0, 9], 100, 50, 0, 9, 0), '0,50 100,0');
+  assert.equal(linePoints([4.5], 100, 50, 0, 9, 0), '50,25');
+  assert.equal(linePoints([12], 100, 50, 0, 9, 0), '50,0', 'clamped to max');
+  assert.deepEqual(lastDays('2026-03-02', 3), ['2026-02-28', '2026-03-01', '2026-03-02']);
 });
