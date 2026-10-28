@@ -130,6 +130,12 @@ await step('ielts: hub band calculator, writing word count, speaking cue card', 
   await page.click('a[href="#/ielts?w=w2-cities"]');
   await page.fill('#essay', 'one two three');
   if (!(await page.textContent('#wc')).startsWith('3 / 250')) throw new Error('word count');
+  await page.goto(`${base}/#/ielts?mock=reading`);
+  await page.waitForSelector('[data-q="mr8"]');
+  await page.fill('[data-q="mr8"] .fill', 'bundles');
+  await page.locator('[data-q="mr1"] input[value="1"]').check();
+  await page.click('#mock-finish');
+  if (!(await page.textContent('#mock-result')).includes('2 / 40')) throw new Error(await page.textContent('#mock-result'));
   await page.goto(`${base}/#/ielts?s=s-learning`);
   await page.click('#cue-start');
   await page.waitForFunction(() => document.querySelector('#cue-timer').textContent === '0:59');

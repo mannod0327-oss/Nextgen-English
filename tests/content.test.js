@@ -10,6 +10,7 @@ import { scenarios } from '../src/data/dialogues.js';
 import { guideSections, guideUnits } from '../src/data/grammar-guide.js';
 import { definitions } from '../src/data/definitions.js';
 import { writing, speaking, toBand } from '../src/data/ielts.js';
+import { mockTests } from '../src/data/ielts-mock.js';
 import { existsSync } from 'node:fs';
 import { exams } from '../src/data/exams.js';
 import { readings } from '../src/data/readings.js';
@@ -96,4 +97,22 @@ test('ielts: model answers meet word limits, speaking sets complete, band table 
   assert.equal(toBand('listening', 30), 7);
   assert.equal(toBand('reading', 0), 0);
   for (let raw = 1; raw <= 40; raw++) assert.ok(toBand('reading', raw) >= toBand('reading', raw - 1));
+});
+
+test('ielts mock tests: 40 single-answer questions each, answers findable in the source text', () => {
+  for (const [kind, mock] of Object.entries(mockTests)) {
+    const qs = mock.sections.flatMap((sec) => sec.questions);
+    assert.equal(qs.length, 40, kind);
+    assert.equal(new Set(qs.map((q) => q.id)).size, 40, `${kind} ids`);
+    assert.deepEqual(validateExam(asExam(mock.title, qs)), [], kind);
+    for (const sec of mock.sections) {
+      const src = (sec.script ?? sec.text).toLowerCase();
+      for (const q of sec.questions) {
+        assert.ok(['single', 'fill'].includes(q.type), `${q.id}: only single-answer types keep raw score 0–40`);
+        if (q.type === 'fill' && q.id !== 'ml10') {
+          assert.ok([].concat(q.answer).some((a) => src.includes(String(a).toLowerCase())), `${q.id}: answer not in text`);
+        }
+      }
+    }
+  }
 });

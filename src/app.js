@@ -14,6 +14,7 @@ import { readings } from './data/readings.js';
 import { scenarios } from './data/dialogues.js';
 import { guideSections, guideUnits } from './data/grammar-guide.js';
 import { writing, writingCriteria, speaking, officialResources, toBand } from './data/ielts.js';
+import { mockTests } from './data/ielts-mock.js';
 
 // English definitions (Open English WordNet, ~80KB gzip) load only when a view needs them.
 let defsPromise;
@@ -457,6 +458,48 @@ const views = {
         if (sec <= 0) { clearInterval(id); done?.(); }
       }, 1000);
     };
+    const mockKind = params.get('mock');
+    const mock = mockTests[mockKind];
+    if (mock) {
+      const all = mock.sections.flatMap((sec) => sec.questions);
+      let finished = false;
+      const finish = () => {
+        if (finished) return;
+        finished = true;
+        let raw = 0;
+        all.forEach((q) => {
+          const box = app.querySelector(`[data-q="${q.id}"]`);
+          const sc = scoreQuestion(q, readAnswer(q, box));
+          raw += sc;
+          box.querySelector('.fb').innerHTML = feedbackHtml(q, sc);
+        });
+        raw = Math.round(raw);
+        const band = toBand(mockKind, raw);
+        store.set('ieltsMock', { ...store.get('ieltsMock', {}), [mockKind]: { raw, band, date: new Date().toISOString().slice(0, 10) } });
+        addXp(raw);
+        app.querySelectorAll('.script').forEach((el) => { el.hidden = false; });
+        $('#mock-finish').disabled = true;
+        $('#mock-result').innerHTML = `Natija: <b>${raw} / ${all.length}</b> → taxminiy band <b class="big-band">${band}</b>`;
+        $('#mock-result').scrollIntoView({ behavior: 'smooth' });
+      };
+      queueMicrotask(() => {
+        countdown($('#mock-timer'), mock.minutes * 60, () => { $('#mock-timer').textContent = '⏰ Vaqt tugadi'; finish(); });
+        app.querySelectorAll('[data-play]').forEach((b) => {
+          const text = mock.sections[b.dataset.play].script.replace(/^[A-Z][a-z]+: /gm, '');
+          b.onclick = () => speak(text, b.dataset.slow ? 0.75 : 0.9);
+        });
+        $('#mock-finish').onclick = finish;
+      });
+      const r = rand();
+      return `<a href="#/ielts">← IELTS</a><h2>📝 ${esc(mock.title)}</h2>
+        <p class="sticky-bar card">⏱ <b id="mock-timer"></b> · ${all.length} savol · ${mock.minutes} daqiqa
+          <span class="muted">${mockKind === 'listening' ? "— har bir qismni 🔊 bir marta tinglang (haqiqiy imtihondagidek). Matnlar yakunda ochiladi." : '— har bir matnga ~20 daqiqa ajrating.'}</span></p>
+        ${mock.sections.map((sec, n) => `<section class="card"><h3>${esc(sec.title)}</h3><p class="muted">${esc(sec.intro)}</p>
+          ${sec.script ? `<p><button class="btn" data-play="${n}">🔊 Tinglash</button> <button class="btn" data-play="${n}" data-slow="1">🐢 Sekinroq</button></p>
+            <div class="reading-text script" hidden>${esc(sec.script)}</div>` : `<div class="reading-text">${esc(sec.text)}</div>`}
+          ${sec.questions.map((q) => `<div class="question" data-q="${q.id}"><b>${esc(q.prompt)}</b>${questionHtml(q, r)}<div class="fb"></div></div>`).join('')}</section>`).join('')}
+        <p><button class="btn primary" id="mock-finish">✅ Testni yakunlash</button></p><p id="mock-result" aria-live="polite"></p>`;
+    }
     const w = writing.find((x) => x.id === params.get('w'));
     if (w) {
       const drafts = store.get('ieltsDrafts', {});
@@ -527,6 +570,9 @@ const views = {
         <section class="card"><h3>📰 Reading</h3><p class="muted">True / False / Not Given va boshqa turlar.</p><div class="list">${rows(ieltsReadings)}</div>
           <p><a href="#/exam">⏱ IELTS-style imtihon (Imtihon bo'limida tanlang)</a></p></section>
         <section class="card"><h3>✍️ Writing</h3><div class="list">${writing.map((x) => `<a class="row" href="#/ielts?w=${x.id}"><span class="badge">Task ${x.task}</span><span>${esc(x.prompt.slice(0, 70))}…</span></a>`).join('')}</div></section>
+        <section class="card"><h3>📝 To'liq sinov testi</h3><p class="muted">Haqiqiy format: 40 savol, umumiy taymer, yakunda band.</p>
+          ${['listening', 'reading'].map((k) => { const res = store.get('ieltsMock', {})[k]; return `<p><a class="btn primary" href="#/ielts?mock=${k}">${k === 'listening' ? '🎧 Listening · 30 daq' : '📰 Reading · 60 daq'}</a>
+            ${res ? `<span class="badge ok">oxirgi: ${res.raw}/40 → ${res.band}</span>` : ''}</p>`; }).join('')}</section>
         <section class="card"><h3>📚 Akademik so'zlar</h3><p class="muted">IELTS Writing va Reading uchun ${vocabulary.filter((v) => v.category === "Akademik so'zlar (IELTS)").length} ta asosiy so'z — kartalar bilan yodlang.</p>
           <a class="btn primary" href="#/vocab?cat=${encodeURIComponent("Akademik so'zlar (IELTS)")}">Kartalarni boshlash →</a></section>
         <section class="card"><h3>🗣 Speaking</h3><div class="list">${speaking.map((x) => `<a class="row" href="#/ielts?s=${x.id}"><span class="badge">P1–3</span><span><b>${esc(x.topic)}</b></span></a>`).join('')}</div></section>

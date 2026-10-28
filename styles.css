@@ -121,3 +121,5 @@ pre { white-space: pre-wrap; }
 .big-band { font-size: 1.4rem; font-weight: 700; color: var(--accent); }
 .steps li { margin: .25rem 0; }
 .cue { border-left: 4px solid var(--accent); }
+.sticky-bar { position: sticky; top: 0; z-index: 5; }
+.question + .question { margin-top: 1rem; }

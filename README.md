@@ -9,7 +9,7 @@ mustaqil ravishda (clean-room) qayta qurilgan.
 
 - **Bog'liqliksiz** — hech qanday `npm install` kerak emas; faqat brauzer va Node.js ≥ 20.
 - **Oflayn** — barcha kontent va progress brauzerda (localStorage) saqlanadi.
-- **Testlangan** — 24 ta unit/kontent testi + 17 bosqichli brauzer E2E testi.
+- **Testlangan** — 25 ta unit/kontent testi + 17 bosqichli brauzer E2E testi.
 
 ## Ishga tushirish
 
@@ -30,7 +30,7 @@ npm run test:e2e     # brauzer smoke testi (Playwright + Chromium kerak; servern
 | 🌊 Immersiya o'yini    | Tarjimasiz: rasmga mos inglizcha so'zni topish.                                                                                                                                                                                                                           |
 | 📐 Grammatika          | Mavzular daraxti → qoida, jadval, ovozli misollar, avtomatik tekshiriladigan mashqlar.                                                                                                                                                                                    |
 | 📰 O'qish va tinglash  | A1–C1 matnlar (O'zbekiston hayotidan), 🔊 tinglash, matnni yashirib tinglash mashqi, tushunish savollari, istalgan so'zni bosib ma'nosini ko'rish, 🖍 IELTS'dagidek matnni belgilash. 🎧 IELTS uslubidagi tinglash mashqlari (matn javobdan keyin ochiladi).              |
-| 🎓 IELTS tayyorlov     | Listening (matn yopiq) va Reading (T/F/NG, sarlavhalarni moslash) topshiriqlari, Writing Task 1/2 (taymer, so'z hisoblagich, 4 mezon bo'yicha o'z-o'zini tekshirish, Band 7–8 namunaviy javob), Speaking Part 1–3 (cue card taymeri), ball hisoblagich. Hammasi original. |
+| 🎓 IELTS tayyorlov     | Listening (matn yopiq) va Reading (T/F/NG, sarlavhalarni moslash) topshiriqlari, Writing Task 1/2 (taymer, so'z hisoblagich, 4 mezon bo'yicha o'z-o'zini tekshirish, Band 7–8 namunaviy javob), Speaking Part 1–3 (cue card taymeri), ball hisoblagich, to'liq sinov testlari (Listening 4 qism × 10 savol / 30 daq, Reading 3 matn × 40 savol / 60 daq, yakunda band). Hammasi original. |
 | 🎙️ Nutq laboratoriyasi | Real vaziyatlar (mehmonxona, kafe, ofis…). Namuna (TTS, sekin rejim), mikrofon to'lqini, nutqni aniqlash va so'zma-so'z 0–100% baho.                                                                                                                                      |
 | 📖 Lug'at              | Saralangan prefiks indeksida ikkilik qidiruv, so'z shakllarini tanish (`studies → study`, `running → run`), xato yozilganda taklif. 1544 so'zga inglizcha ta'rif (Open English WordNet).                                                                                  |
 | ⏱️ Imtihon simulyatori | Taymer, savollar navigatsiya paneli, javoblarni saqlash, natija va xatolar ustida ishlash. JSON test faylini yuklash.                                                                                                                                                     |
