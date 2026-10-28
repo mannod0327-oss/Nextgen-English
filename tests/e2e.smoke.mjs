@@ -107,6 +107,8 @@ await step('exam: navigate, answer, restore, finish, review mistakes', async () 
   if (!(await page.locator('.question input[value="1"]').isChecked())) throw new Error('answer not restored');
   await page.screenshot({ path: `${shots}/exam.png` });
   await page.click('#finish');
+  if (!(await page.textContent('#finish')).includes('8 ta savol javobsiz')) throw new Error('no in-page confirm');
+  await page.click('#finish');
   await page.waitForSelector('.big');
   if ((await page.textContent('.big')) !== '20%') throw new Error(await page.textContent('.big'));
   if ((await page.locator('.feedback').count()) !== 8) throw new Error('mistake review count');

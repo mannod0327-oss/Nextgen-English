@@ -463,7 +463,10 @@ const views = {
         const n = Math.max(1, Math.min(5, Number($('#variants').value) || 1));
         const pages = Array.from({ length: n }, (_, k) => renderPrintable(n > 1 ? makeVariant(d, k + 1) : d));
         const w = window.open('', '_blank');
-        if (!w) return;
+        if (!w) {
+          $('#valid').innerHTML = '<span class="bad">Bu muhitda chop etish oynasi ochilmadi. Testni “Yuklab olish” bilan saqlab, oddiy brauzerda chop eting.</span>';
+          return;
+        }
         w.document.write(pages.join('<div style="break-after:page"></div>'));
         w.document.close();
         w.print();
@@ -534,10 +537,15 @@ function runExam(exam) {
     $('.qnav').onclick = (e) => { if (e.target.dataset.go) go(Number(e.target.dataset.go)); };
     $('#prev').onclick = () => go(cur - 1);
     $('#nxt').onclick = () => go(cur + 1);
-    $('#finish').onclick = () => {
+    // in-page confirmation: confirm() is unavailable in sandboxed embeds
+    $('#finish').onclick = (e) => {
       keep();
       const missing = exam.questions.filter((x) => answers[x.id] === undefined).length;
-      if (missing && !confirm(`${missing} ta savolga javob berilmagan. Yakunlaysizmi?`)) return;
+      if (missing && !e.target.dataset.armed) {
+        e.target.dataset.armed = '1';
+        e.target.textContent = `${missing} ta savol javobsiz — baribir yakunlash`;
+        return;
+      }
       finish();
     };
   };
