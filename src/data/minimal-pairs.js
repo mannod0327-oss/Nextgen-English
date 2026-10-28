@@ -1,0 +1,25 @@
+// Minimal pairs for sounds Uzbek speakers often confuse. Each word in a pair differs by one sound.
+// Played with the browser's speech synthesis (British voice by default) in the #/sounds game.
+
+export const minimalPairs = [
+  { id: 'w-v', sounds: '/w/ – /v/', tip: "O'zbek tilida /w/ yo'q. /w/ — lablar dumaloq, tishlar tegmaydi (\"u\" kabi boshlanadi); /v/ — yuqori tishlar pastki labga tegadi.",
+    pairs: [['wine', 'vine'], ['west', 'vest'], ['wet', 'vet'], ['while', 'vile'], ['wary', 'vary'], ['wail', 'veil']] },
+  { id: 'ee-i', sounds: '/iː/ – /ɪ/', tip: "/iː/ uzun va tarang (sheep), /ɪ/ qisqa va bo'sh (ship). Uzunlik ma'noni o'zgartiradi!",
+    pairs: [['sheep', 'ship'], ['leave', 'live'], ['feel', 'fill'], ['seat', 'sit'], ['heel', 'hill'], ['beat', 'bit']] },
+  { id: 'th-s', sounds: '/θ/ – /s/', tip: "/θ/ — til uchi tishlar orasida, havo chiqadi (think); /s/ — til tishlar orqasida (sink).",
+    pairs: [['think', 'sink'], ['thick', 'sick'], ['thumb', 'sum'], ['path', 'pass'], ['mouth', 'mouse'], ['faith', 'face']] },
+  { id: 'dh-d', sounds: '/ð/ – /d/', tip: "/ð/ — /θ/ ning jarangli varianti, til tishlar orasida (they); /d/ — til tish orqasidagi milkka tegadi (day).",
+    pairs: [['they', 'day'], ['then', 'den'], ['those', 'doze'], ['breathe', 'breed'], ['though', 'dough'], ['there', 'dare']] },
+  { id: 'a-e', sounds: '/æ/ – /e/', tip: "/æ/ — og'iz kengroq ochiladi, \"a\" va \"e\" orasida (bad); /e/ — og'iz kamroq ochiladi (bed).",
+    pairs: [['bad', 'bed'], ['man', 'men'], ['sad', 'said'], ['had', 'head'], ['pan', 'pen'], ['band', 'bend']] },
+  { id: 'u-ar', sounds: '/ʌ/ – /ɑː/', tip: "/ʌ/ qisqa (cut), /ɑː/ uzun va chuqur (cart). Britaniya talaffuzida \"r\" aytilmaydi.",
+    pairs: [['cut', 'cart'], ['hut', 'heart'], ['bun', 'barn'], ['much', 'march'], ['luck', 'lark'], ['cup', 'carp']] },
+  { id: 'd-t', sounds: "so'z oxiri /d/ – /t/", tip: "O'zbek tilida so'z oxiridagi jarangli undosh jarangsizlanadi (\"kitob\" → \"kitop\"). Inglizchada bad ≠ bat!",
+    pairs: [['bad', 'bat'], ['bed', 'bet'], ['card', 'cart'], ['side', 'sight'], ['need', 'neat'], ['wide', 'white']] },
+  { id: 'ng-n', sounds: '/ŋ/ – /n/', tip: "/ŋ/ — tilning orqa qismi tanglayga tegadi, \"g\" aytilmaydi (sing); /n/ — til uchi bilan (sin).",
+    pairs: [['sing', 'sin'], ['thing', 'thin'], ['wing', 'win'], ['rang', 'ran'], ['sung', 'sun'], ['bang', 'ban']] },
+  { id: 'o-or', sounds: '/ɒ/ – /ɔː/', tip: "/ɒ/ qisqa (shot), /ɔː/ uzun, lablar dumaloqroq (short).",
+    pairs: [['cot', 'caught'], ['not', 'nought'], ['shot', 'short'], ['pot', 'port'], ['cod', 'cord'], ['spot', 'sport']] },
+  { id: 'oo-u', sounds: '/uː/ – /ʊ/', tip: "/uː/ uzun, lablar oldinga (pool); /ʊ/ qisqa va bo'sh (pull).",
+    pairs: [['pool', 'pull'], ['fool', 'full'], ['Luke', 'look'], ['suit', 'soot'], ['wooed', 'wood'], ['stewed', 'stood']] },
+];

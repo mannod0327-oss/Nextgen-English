@@ -16,6 +16,7 @@ import { writingBank } from '../src/data/ielts-bank-writing.js';
 import { readingBank } from '../src/data/ielts-bank-reading.js';
 import { listeningBank } from '../src/data/ielts-bank-listening.js';
 import { irregularVerbs } from '../src/data/irregular-verbs.js';
+import { minimalPairs } from '../src/data/minimal-pairs.js';
 import { existsSync } from 'node:fs';
 import { exams } from '../src/data/exams.js';
 import { readings } from '../src/data/readings.js';
@@ -162,5 +163,16 @@ test('irregular verbs: 100+, unique base forms, complete rows, valid levels, gen
     assert.ok(LEVELS.includes(lvl), `${v1}: ${lvl}`);
     const regular = `${v1.replace(/e$/, '')}ed`;
     assert.ok(!(v2 === regular && v3 === regular), `${v1} is regular`);
+  }
+});
+
+test('minimal pairs: 8+ sound contrasts, 6 distinct pairs each, unique ids', () => {
+  assert.ok(minimalPairs.length >= 8);
+  assert.equal(new Set(minimalPairs.map((x) => x.id)).size, minimalPairs.length);
+  for (const set of minimalPairs) {
+    assert.equal(set.pairs.length, 6, set.id);
+    assert.ok(set.tip && set.sounds, set.id);
+    for (const [a, b] of set.pairs) assert.ok(a && b && a.toLowerCase() !== b.toLowerCase(), `${set.id}: ${a}/${b}`);
+    assert.equal(new Set(set.pairs.flat()).size, 12, `${set.id}: repeated word`);
   }
 });

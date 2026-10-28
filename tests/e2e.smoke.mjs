@@ -20,7 +20,7 @@ const step = async (name, fn) => { await fn(); console.log('✓', name); };
 await step('home renders tiles', async () => {
   await page.goto(base);
   await page.waitForSelector('.tile');
-  if ((await page.locator('.tile').count()) !== 11) throw new Error('expected 11 tiles');
+  if ((await page.locator('.tile').count()) !== 12) throw new Error('expected 12 tiles');
   await page.screenshot({ path: `${shots}/home.png` });
 });
 
@@ -215,6 +215,18 @@ await step('daily plan: four tasks, grammar task ticks after checking', async ()
   if (!(await page.locator('.plan .row').nth(1).getAttribute('class')).includes('done')) throw new Error('grammar task not ticked');
 });
 
+await step('minimal pairs: 10 rounds, correct picks are scored', async () => {
+  await page.goto(`${base}/#/sounds`);
+  await page.click('a[href="#/sounds?set=w-v"]');
+  for (let i = 0; i < 10; i++) {
+    await page.waitForSelector('#listen');
+    const word = await page.getAttribute('#listen', 'data-word');
+    await page.click(`.pick-word[data-w="${word}"]`);
+    await page.click('#next');
+  }
+  if ((await page.textContent('#game .score')).trim() !== '10 / 10') throw new Error('sounds score');
+});
+
 await step('dictation: text blurred until an attempt is scored', async () => {
   await page.goto(`${base}/#/speech?s=taxi`);
   await page.check('#dict');
@@ -300,7 +312,7 @@ await step('creator: add question, validate, simulate', async () => {
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'grammar?topic=conditionals', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'mistakes']) {
+  for (const r of ['', 'creator', 'vocab', 'grammar?topic=conditionals', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'mistakes', 'sounds', 'sounds?set=th-s']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);

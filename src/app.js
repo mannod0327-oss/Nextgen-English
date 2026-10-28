@@ -21,6 +21,7 @@ import { writingBank } from './data/ielts-bank-writing.js';
 import { readingBank } from './data/ielts-bank-reading.js';
 import { listeningBank } from './data/ielts-bank-listening.js';
 import { irregularVerbs } from './data/irregular-verbs.js';
+import { minimalPairs } from './data/minimal-pairs.js';
 
 // IELTS practice bank: hand-made tasks + bank items. Bank texts open in the reading view but are listed only in #/ielts.
 const allTexts = [...readings, ...readingBank, ...listeningBank];
@@ -204,6 +205,7 @@ const views = {
       ['#/grammar', '📐', 'Grammatika', `${guideUnits.length} unitli qo'llanma + ${grammar.length} ta mashqli mavzu`],
       ['#/reading', '📰', "O'qish va tinglash", `${readings.length} ta matn va tinglash (A1–C1), savollar bilan`],
       ['#/verbs', '🔁', "Noto'g'ri fe'llar", `${irregularVerbs.length} ta fe'l: jadval, tinglash va V2/V3 testi`],
+      ['#/sounds', '👂', 'Qiyin tovushlar', `${minimalPairs.length} juft tovush (w/v, θ/s, iː/ɪ…): eshiting va farqlang`],
       ['#/ielts', '🎓', 'IELTS tayyorlov', `Listening, Reading, ${writing.length} ta Writing, ${speaking.length} ta Speaking, ball hisoblagich`],
       ['#/speech', '🎙️', 'Nutq laboratoriyasi', "Real vaziyatlar, talaffuzni 0–100% baholash"],
       ['#/dictionary', '📖', "Lug'at", "Prefiks qidiruv, so'z shakllarini taniydi"],
@@ -716,6 +718,59 @@ const views = {
       ${irregularVerbs.map(([v1, v2, v3, uz, lvl]) => `<tr data-level="${lvl}" data-s="${esc(`${v1} ${v2} ${v3} ${uz}`.toLowerCase())}"><td><b>${esc(v1)}</b></td><td>${esc(v2)}</td><td>${esc(v3)}</td><td>${esc(uz)} <span class="badge">${lvl}</span></td>
         <td><button class="link" data-say="${esc(`${v1}, ${forms(v2)[0]}, ${forms(v3)[0]}`)}">🔊</button></td></tr>`).join('')}
       </tbody></table>`;
+  },
+
+  sounds(params) {
+    const best = store.get('soundsBest', {});
+    const set = minimalPairs.find((x) => x.id === params.get('set'));
+    if (!set) {
+      return `<h2>👂 Qiyin tovushlar — minimal juftlar</h2>
+        <p class="muted">Bir tovush bilan farq qiladigan so'zlar (ship / sheep). O'zbek tilida bo'lmagan yoki boshqacha aytiladigan tovushlarni quloq bilan ajratishni o'rganing — so'ng Nutq laboratoriyasida o'zingiz ayting.</p>
+        <div class="grid">${minimalPairs.map((x) => `<a class="tile" href="#/sounds?set=${x.id}"><b>${esc(x.sounds)}</b>
+          <span class="muted">${x.pairs.slice(0, 2).map((p) => p.join(' / ')).join(', ')}…</span>${best[x.id] != null ? `<span class="badge ok">eng yaxshi: ${best[x.id]}%</span>` : ''}</a>`).join('')}</div>`;
+    }
+    const ROUNDS = 10;
+    const r = rand();
+    let round = 0;
+    let score = 0;
+    const play = () => {
+      if (round === ROUNDS) {
+        const pct = Math.round((score / ROUNDS) * 100);
+        store.set('soundsBest', { ...store.get('soundsBest', {}), [set.id]: Math.max(best[set.id] ?? 0, pct) });
+        addXp(score);
+        $('#game').innerHTML = `<div class="score ${pct >= 80 ? 'ok' : pct >= 50 ? 'part' : 'bad'}">${score} / ${ROUNDS}</div>
+          <p>${pct >= 80 ? "Zo'r! Quloq bu tovushlarni ajratyapti." : "Jadvaldagi juftlarni yana tinglang va qayta urinib ko'ring."}</p><button class="btn primary" id="again">🔁 Qayta</button>`;
+        $('#again').onclick = () => { round = 0; score = 0; play(); };
+        return;
+      }
+      const pair = set.pairs[Math.floor(r() * set.pairs.length)];
+      const target = pair[Math.floor(r() * 2)];
+      const options = shuffle(pair, r);
+      $('#game').innerHTML = `<p class="muted">${round + 1} / ${ROUNDS} · to'g'ri: ${score}</p>
+        <p><button class="btn primary" id="listen" data-word="${esc(target)}">🔊 Tinglash</button> <button class="btn" id="listen-slow">🐢 Sekin</button></p>
+        <p>Qaysi so'zni eshitdingiz?</p><p>${options.map((o) => `<button class="btn pick-word" data-w="${esc(o)}">${esc(o)}</button>`).join(' ')}</p><div id="sfb"></div>`;
+      $('#listen').onclick = () => speak(target, 0.8);
+      $('#listen-slow').onclick = () => speak(target, 0.55);
+      speak(target, 0.8);
+      app.querySelectorAll('.pick-word').forEach((b) => {
+        b.onclick = () => {
+          const ok = b.dataset.w === target;
+          if (ok) score++;
+          app.querySelectorAll('.pick-word').forEach((x) => { x.disabled = true; x.classList.add(x.dataset.w === target ? 'primary' : 'muted'); });
+          $('#sfb').innerHTML = `<p class="feedback ${ok ? 'ok' : 'bad'}">${ok ? "✅ To'g'ri!" : `❌ Bu <b>${esc(target)}</b> edi.`}
+            ${pair.map((w) => `<button class="link" data-say="${esc(w)}">🔊 ${esc(w)}</button>`).join(' ')}</p><button class="btn" id="next">Keyingisi →</button>`;
+          round++;
+          $('#next').onclick = play;
+        };
+      });
+    };
+    queueMicrotask(play);
+    return `<a href="#/sounds">← Tovushlar</a><h2>👂 ${esc(set.sounds)}</h2>
+      <section class="card"><p>💡 ${esc(set.tip)}</p></section>
+      <section class="card" id="game" aria-live="polite"></section>
+      <h3>Juftlarni mashq qiling</h3>
+      <table class="tbl"><tbody>${set.pairs.map(([a, b]) => `<tr><td><button class="link" data-say="${esc(a)}">🔊</button> ${esc(a)}</td><td><button class="link" data-say="${esc(b)}">🔊</button> ${esc(b)}</td></tr>`).join('')}</tbody></table>
+      <p><a class="btn" href="#/speech">🎙 Endi o'zingiz ayting — Nutq laboratoriyasi</a></p>`;
   },
 
   mistakes() {
