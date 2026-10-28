@@ -9,7 +9,7 @@ mustaqil ravishda (clean-room) qayta qurilgan.
 
 - **Bog'liqliksiz** — hech qanday `npm install` kerak emas; faqat brauzer va Node.js ≥ 20.
 - **Oflayn** — barcha kontent va progress brauzerda (localStorage) saqlanadi.
-- **Testlangan** — 28 ta unit/kontent testi + 17 bosqichli brauzer E2E testi.
+- **Testlangan** — 29 ta unit/kontent testi + 17 bosqichli brauzer E2E testi.
 
 ## Ishga tushirish
 
@@ -156,7 +156,7 @@ Keyingi funksiyalar va ularning qabul mezonlari: [docs/SPEC.md](docs/SPEC.md).
 - **Talaffuz bahosi** brauzerning nutqni aniqlash (ASR) natijasidagi matnni taqqoslaydi, akustik
   modelni emas. U "nima eshitildi"ni o'lchaydi, intonatsiyani emas. Nutqni aniqlash Chrome/Edge'da
   ishlaydi; boshqa brauzerlarda aytilganni yozib tekshirish mumkin.
-- **Progress** bitta brauzerda saqlanadi (sinxronizatsiya yo'q). Ko'p qurilma uchun backend kerak.
+- **Progress** bitta brauzerda saqlanadi (avtomatik sinxronizatsiya yo'q). Bosh sahifadagi 💾 "Zaxira nusxa" orqali JSON faylga yuklab olib, boshqa qurilmada tiklash mumkin.
 - **Kontent hajmi**: 27 mavzuda 279 so'z (20 ta frazali fe'l va 24 ta IELTS akademik so'zi bilan), 21 grammatika mavzusi (80 mashq, jumladan "O'zbeklar ko'p qiladigan xatolar", A1–C1) + 145 unitli qo'llanma, 15 ta o'qish matni + 6 ta tinglash mashqi A1–C1 (107 savol, IELTS True/False/Not Given va form completion bilan), 40 ta daraja savoli, 5 ta tayyor imtihon (A1, A2–B1, B1, B2, IELTS B2–C1), IELTS: 6 ta Writing (namunaviy javob bilan) va 5 ta Speaking to'plami, 17 vaziyatda 53 ibora (diktant rejimi bilan).
 - **Qo'llanma sahifalarida** Nextgen'ga qaytish tugmasi yo'q — brauzerning "orqaga" tugmasidan foydalaning. Qo'llanmadagi mashq natijalari Nextgen XP'siga qo'shilmaydi.
   Yangi kontent `src/data/` fayllariga qo'shiladi; `npm test` uni avtomatik tekshiradi.

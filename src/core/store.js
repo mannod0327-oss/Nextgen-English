@@ -11,5 +11,23 @@ export function createStore(namespace = 'nge', backend = globalThis.localStorage
     mem.set(k, v);
     try { backend?.setItem(`${namespace}:${k}`, JSON.stringify(v)); } catch { /* memory only */ }
   };
-  return { get: (k, fallback) => get(k) ?? fallback, set };
+  // Backup: every key of this namespace as one JSON-able object (localStorage keys + memory fallback).
+  const snapshot = () => {
+    const data = Object.fromEntries(mem);
+    try {
+      for (let i = 0; i < (backend?.length ?? 0); i++) {
+        const key = backend.key(i);
+        if (key?.startsWith(`${namespace}:`)) data[key.slice(namespace.length + 1)] = JSON.parse(backend.getItem(key));
+      }
+    } catch { /* memory copy only */ }
+    return { format: 'nge-backup', version: 1, date: new Date().toISOString(), data };
+  };
+  const restore = (backup) => {
+    if (backup?.format !== 'nge-backup' || backup.version !== 1 || typeof backup.data !== 'object' || backup.data === null) {
+      throw new Error("Bu fayl Nextgen English zaxira nusxasi emas.");
+    }
+    for (const [k, v] of Object.entries(backup.data)) set(k, v);
+    return Object.keys(backup.data).length;
+  };
+  return { get: (k, fallback) => get(k) ?? fallback, set, snapshot, restore };
 }

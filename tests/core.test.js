@@ -190,3 +190,19 @@ test('lookupDefinition falls back to the lemma and returns null for unknown word
   assert.equal(lookupDefinition(defs, 'running').senses[0][1], 'move fast');
   assert.equal(lookupDefinition(defs, 'zzz'), null);
 });
+
+test('store: snapshot captures the namespace only, restore validates and round-trips', () => {
+  const m = new Map([['other:x', '1']]);
+  const backend = { getItem: (k) => m.get(k) ?? null, setItem: (k, v) => m.set(k, v), key: (i) => [...m.keys()][i], get length() { return m.size; } };
+  const s = createStore('t', backend);
+  s.set('xp', 42);
+  s.set('cards', { a: { due: 1 } });
+  const snap = s.snapshot();
+  assert.equal(snap.format, 'nge-backup');
+  assert.deepEqual(snap.data, { xp: 42, cards: { a: { due: 1 } } });
+  const fresh = createStore('t', { getItem: () => null, setItem() {} });
+  assert.equal(fresh.restore(JSON.parse(JSON.stringify(snap))), 2);
+  assert.equal(fresh.get('xp'), 42);
+  assert.throws(() => fresh.restore({ hello: 1 }), /zaxira/);
+  assert.throws(() => fresh.restore(null), /zaxira/);
+});

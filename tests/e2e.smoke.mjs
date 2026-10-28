@@ -24,6 +24,26 @@ await step('home renders tiles', async () => {
   await page.screenshot({ path: `${shots}/home.png` });
 });
 
+await step('backup: download progress JSON, restore it, reject a bad file', async () => {
+  await page.goto(`${base}/#/`);
+  const [dl] = await Promise.all([page.waitForEvent('download'), page.click('#backup-save')]);
+  const file = `${shots}/backup.json`;
+  await dl.saveAs(file);
+  const { readFileSync, writeFileSync } = await import('node:fs');
+  const snap = JSON.parse(readFileSync(file, 'utf8'));
+  if (snap.format !== 'nge-backup') throw new Error('bad backup format');
+  snap.data.profile = { ...(snap.data.profile ?? {}), level: 'B2', xp: 777, days: [] };
+  writeFileSync(file, JSON.stringify(snap));
+  await page.setInputFiles('#backup-load', file);
+  await page.waitForSelector('#backup-msg:has-text("Tiklandi")');
+  if (!(await page.textContent('#stats')).includes('777')) throw new Error('restore did not apply');
+  writeFileSync(`${shots}/bad.json`, '{"nope":1}');
+  await page.setInputFiles('#backup-load', `${shots}/bad.json`);
+  await page.waitForSelector('#backup-msg:has-text("zaxira nusxasi emas")');
+  await page.evaluate(() => localStorage.clear());
+  await page.reload(); // drop the in-memory copy too, so later steps start fresh
+});
+
 await step('placement: 12 questions → level shown', async () => {
   await page.goto(`${base}/#/placement`);
   for (let i = 0; i < 12; i++) {

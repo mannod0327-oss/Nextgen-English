@@ -11,7 +11,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | # | Funksiya | Nega muhim | Qabul mezonlari | Holat |
 |---|---|---|---|---|
 | 1 | **Noto'g'ri fe'llar trenajyori** (`#/verbs`) | O'zbek o'quvchilarining eng ko'p xatosi; har bir darajada kerak | ≥100 fe'l (V1/V2/V3 + o'zbekcha); jadval + test (V2/V3 yozish, 10 ta tasodifiy); xatolar daftariga tushadi; kontent testi takrorlanishni tekshiradi | ✅ |
-| 2 | **Progressni saqlash/tiklash** | Hamma narsa bitta brauzerda — telefon almashsa yo'qoladi | "Zaxira nusxa": JSON yuklab olish va qayta yuklash; noto'g'ri faylda xato xabari; unit test | ⬜ |
+| 2 | **Progressni saqlash/tiklash** | Hamma narsa bitta brauzerda — telefon almashsa yo'qoladi | "Zaxira nusxa": JSON yuklab olish va qayta yuklash; noto'g'ri faylda xato xabari; unit test | ✅ |
 | 3 | **Bugungi reja** (bosh sahifa) | Nima qilishni bilmaslik — tashlab ketishning asosiy sababi | Darajaga mos 4 ta vazifa; bajarilganlari ✅; har kuni yangilanadi (sana bo'yicha deterministik) | ⬜ |
 | 4 | **Talaffuz: minimal juftlar** (`#/sounds`) | w/v, θ/s, iː/ɪ — o'zbeklar uchun qiyin tovushlar | ≥8 tovush juftligi × 6 juft so'z; TTS bilan "qaysi so'zni eshitdingiz?"; natija % | ⬜ |
 | 5 | **Speaking: ovoz yozib olish va tinglash** | IELTS Speaking'ga tayyorlanishda o'zini eshitish | Cue card'da 🎙 yozish → ▶ tinglash (MediaRecorder); ruxsat bo'lmasa xabar | ⬜ |
@@ -23,3 +23,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 
 ## Iteratsiyalar jurnali
 - **1-iteratsiya** — `#/verbs`: 112 ta noto'g'ri fe'l (V1/V2/V3, o'zbekcha, daraja), qidiruv + daraja filtri, 🔊, 10 ta tasodifiy fe'l testi (20 savol, xatolar daftariga tushadi). Topilgan va tuzatilgan: telefonlarda keng jadvallar sahifani yonga cho'zardi → `.tbl` mobil ekranda o'zi skroll qiladi; E2E endi 11 ta sahifada mobil kenglikni tekshiradi.
+- **2-iteratsiya** — 💾 Zaxira nusxa (bosh sahifa): `store.snapshot()/restore()` (`src/core/store.js`), JSON yuklab olish va fayldan tiklash, noto'g'ri faylda o'zbekcha xato. Unit test (faqat o'z namespace'i, validatsiya, round-trip) + E2E (yuklab olish → o'zgartirish → tiklash → XP yangilanadi → yomon fayl rad etiladi).

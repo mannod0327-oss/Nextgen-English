@@ -165,6 +165,25 @@ function gradeBox(q, box, source) {
 // ---------- views ----------
 const views = {
   home() {
+    queueMicrotask(() => {
+      $('#backup-save').onclick = () => {
+        const url = URL.createObjectURL(new Blob([JSON.stringify(store.snapshot(), null, 1)], { type: 'application/json' }));
+        const link = Object.assign(document.createElement('a'), { href: url, download: `nextgen-english-${new Date().toISOString().slice(0, 10)}.json` });
+        link.click();
+        URL.revokeObjectURL(url);
+        $('#backup-msg').textContent = '✅ Fayl yuklab olindi.';
+      };
+      $('#backup-load').onchange = async (e) => {
+        try {
+          const n = store.restore(JSON.parse(await e.target.files[0].text()));
+          renderHeader();
+          route();
+          $('#backup-msg').textContent = `✅ Tiklandi: ${n} ta yozuv.`;
+        } catch (err) {
+          $('#backup-msg').textContent = `❌ ${err instanceof SyntaxError ? "Fayl o'qib bo'lmadi (JSON emas)." : err.message}`;
+        }
+      };
+    });
     const p = profile();
     const cards = store.get('cards', {});
     const due = dueCards(Object.values(cards)).length;
@@ -187,7 +206,12 @@ const views = {
       ${mature} ta so'z uzoq muddatli xotirada.</p>
       <div class="hero-actions">${p.level ? '' : '<a class="btn primary" href="#/placement">Daraja testini boshlash →</a>'}
       <a class="btn" href="grammar-guide/index.html">📚 Grammatika qo'llanmasi (${guideUnits.length} unit)</a></div></section>
-      <div class="grid">${tiles.map(([href, icon, t, d]) => `<a class="tile" href="${href}"><span class="ico">${icon}</span><b>${t}</b><span class="muted">${d}</span></a>`).join('')}</div>`;
+      <div class="grid">${tiles.map(([href, icon, t, d]) => `<a class="tile" href="${href}"><span class="ico">${icon}</span><b>${t}</b><span class="muted">${d}</span></a>`).join('')}</div>
+      <section class="card"><h3>💾 Zaxira nusxa</h3>
+        <p class="muted">Progress faqat shu brauzerda saqlanadi. Telefon yoki kompyuter almashtirsangiz, faylni yuklab oling va yangi qurilmada qayta yuklang.</p>
+        <p><button class="btn" id="backup-save">⬇ Progressni yuklab olish</button>
+          <label class="btn">⬆ Fayldan tiklash <input type="file" id="backup-load" accept="application/json,.json" hidden></label></p>
+        <p id="backup-msg" aria-live="polite"></p></section>`;
   },
 
   placement() {
