@@ -15,6 +15,7 @@ import { speakingBank } from '../src/data/ielts-bank-speaking.js';
 import { writingBank } from '../src/data/ielts-bank-writing.js';
 import { readingBank } from '../src/data/ielts-bank-reading.js';
 import { listeningBank } from '../src/data/ielts-bank-listening.js';
+import { irregularVerbs } from '../src/data/irregular-verbs.js';
 import { existsSync } from 'node:fs';
 import { exams } from '../src/data/exams.js';
 import { readings } from '../src/data/readings.js';
@@ -149,5 +150,17 @@ test('ielts bank: 200+ original tasks, every question valid and every gap-fill a
   for (const w of writingBank) {
     assert.ok(w.prompt && w.plan.length >= 2, w.id);
     if (w.table) assert.ok(w.table.every((row) => row.length === w.table[0].length), `${w.id}: ragged table`);
+  }
+});
+
+test('irregular verbs: 100+, unique base forms, complete rows, valid levels, genuinely irregular', () => {
+  assert.ok(irregularVerbs.length >= 100);
+  const bases = irregularVerbs.map((v) => v[0]);
+  assert.equal(new Set(bases).size, bases.length, 'duplicate verb');
+  for (const [v1, v2, v3, uz, lvl] of irregularVerbs) {
+    assert.ok(v1 && v2 && v3 && uz, v1);
+    assert.ok(LEVELS.includes(lvl), `${v1}: ${lvl}`);
+    const regular = `${v1.replace(/e$/, '')}ed`;
+    assert.ok(!(v2 === regular && v3 === regular), `${v1} is regular`);
   }
 });

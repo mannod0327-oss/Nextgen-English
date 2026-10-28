@@ -19,6 +19,7 @@ import { speakingBank } from './data/ielts-bank-speaking.js';
 import { writingBank } from './data/ielts-bank-writing.js';
 import { readingBank } from './data/ielts-bank-reading.js';
 import { listeningBank } from './data/ielts-bank-listening.js';
+import { irregularVerbs } from './data/irregular-verbs.js';
 
 // IELTS practice bank: hand-made tasks + bank items. Bank texts open in the reading view but are listed only in #/ielts.
 const allTexts = [...readings, ...readingBank, ...listeningBank];
@@ -174,6 +175,7 @@ const views = {
       ['#/immersion', '🌊', "Immersiya o'yini", "Tarjimasiz: rasmga mos so'zni toping"],
       ['#/grammar', '📐', 'Grammatika', `${guideUnits.length} unitli qo'llanma + ${grammar.length} ta mashqli mavzu`],
       ['#/reading', '📰', "O'qish va tinglash", `${readings.length} ta matn va tinglash (A1–C1), savollar bilan`],
+      ['#/verbs', '🔁', "Noto'g'ri fe'llar", `${irregularVerbs.length} ta fe'l: jadval, tinglash va V2/V3 testi`],
       ['#/ielts', '🎓', 'IELTS tayyorlov', `Listening, Reading, ${writing.length} ta Writing, ${speaking.length} ta Speaking, ball hisoblagich`],
       ['#/speech', '🎙️', 'Nutq laboratoriyasi', "Real vaziyatlar, talaffuzni 0–100% baholash"],
       ['#/dictionary', '📖', "Lug'at", "Prefiks qidiruv, so'z shakllarini taniydi"],
@@ -623,6 +625,53 @@ const views = {
         <p class="big-band" id="band"></p><p class="muted">Taxminiy, ochiq e'lon qilingan jadval asosida; rasmiy ball har bir test uchun biroz farq qilishi mumkin.</p></section>
       <section class="card"><h3>🔗 Rasmiy bepul materiallar</h3><ul>${officialResources.map(([t, u]) => `<li><a href="${u}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join('')}</ul>
         <p class="muted">Cambridge IELTS kitoblari mualliflik huquqi bilan himoyalangan — ularni faqat sotib olib yoki kutubxonadan foydalaning.</p></section>`;
+  },
+
+  verbs(params) {
+    const forms = (x) => x.split('/');
+    if (params.get('mode') === 'test') {
+      const r = rand();
+      const picked = shuffle(irregularVerbs, r).slice(0, 10);
+      const qs = picked.flatMap(([v1, v2, v3, uz]) => [
+        { id: `iv-${v1}-2`, type: 'fill', prompt: `${v1} (${uz}) → Past Simple (V2)`, answer: forms(v2) },
+        { id: `iv-${v1}-3`, type: 'fill', prompt: `${v1} (${uz}) → Past Participle (V3)`, answer: forms(v3) },
+      ]);
+      queueMicrotask(() => {
+        $('#check').onclick = () => {
+          let total = 0;
+          qs.forEach((q) => { total += gradeBox(q, app.querySelector(`[data-q="${q.id}"]`), "Noto'g'ri fe'llar"); });
+          const pct = Math.round((total / qs.length) * 100);
+          store.set('verbsBest', Math.max(store.get('verbsBest', 0), pct));
+          addXp(total);
+          $('#result').textContent = `Natija: ${pct}%`;
+          $('#check').disabled = true;
+        };
+      });
+      return `<a href="#/verbs">← Jadval</a><h2>🔁 Fe'llar testi</h2><p class="muted">10 ta tasodifiy fe'l — V2 va V3 shaklini yozing. Ikki shakl bo'lsa (learnt/learned), bittasini yozish kifoya.</p>
+        <div class="grid">${qs.map((q) => `<section class="card question" data-q="${q.id}"><b>${esc(q.prompt)}</b>${questionHtml(q)}<div class="fb"></div></section>`).join('')}</div>
+        <p><button class="btn primary" id="check">Tekshirish</button> <b id="result"></b> <a class="btn" href="#/">Bosh sahifa</a></p>`;
+    }
+    queueMicrotask(() => {
+      const filter = () => {
+        const q = $('#vq').value.trim().toLowerCase();
+        const lvl = $('#vl').value;
+        app.querySelectorAll('#verbs tbody tr').forEach((tr) => {
+          tr.hidden = !(tr.dataset.s.includes(q) && (!lvl || tr.dataset.level === lvl));
+        });
+      };
+      $('#vq').oninput = filter;
+      $('#vl').onchange = filter;
+    });
+    const best = store.get('verbsBest', null);
+    return `<h2>🔁 Noto'g'ri fe'llar (${irregularVerbs.length})</h2>
+      <p class="muted">O'tgan zamon (V2) va 3-shakl (V3) "-ed" bilan yasalmaydigan fe'llar. 🔊 bosib uchala shaklni tinglang.</p>
+      <p><a class="btn primary" href="#/verbs?mode=test">✍️ Test: 10 ta tasodifiy fe'l</a> ${best != null ? `<span class="badge ok">eng yaxshi: ${best}%</span>` : ''}</p>
+      <p><input id="vq" class="search" placeholder="Qidirish (inglizcha yoki o'zbekcha)…" autocomplete="off">
+        <select id="vl"><option value="">Barcha darajalar</option>${LEVELS.map((l) => `<option>${l}</option>`).join('')}</select></p>
+      <table class="tbl" id="verbs"><thead><tr><th>V1</th><th>V2</th><th>V3</th><th>O'zbekcha</th><th></th></tr></thead><tbody>
+      ${irregularVerbs.map(([v1, v2, v3, uz, lvl]) => `<tr data-level="${lvl}" data-s="${esc(`${v1} ${v2} ${v3} ${uz}`.toLowerCase())}"><td><b>${esc(v1)}</b></td><td>${esc(v2)}</td><td>${esc(v3)}</td><td>${esc(uz)} <span class="badge">${lvl}</span></td>
+        <td><button class="link" data-say="${esc(`${v1}, ${forms(v2)[0]}, ${forms(v3)[0]}`)}">🔊</button></td></tr>`).join('')}
+      </tbody></table>`;
   },
 
   mistakes() {

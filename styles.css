@@ -123,3 +123,6 @@ pre { white-space: pre-wrap; }
 .cue { border-left: 4px solid var(--accent); }
 .sticky-bar { position: sticky; top: 0; z-index: 5; }
 .question + .question { margin-top: 1rem; }
+
+/* Wide tables (verbs, grammar, IELTS Task 1) scroll inside themselves on phones instead of widening the page. */
+@media (max-width: 640px) { .tbl { display: block; overflow-x: auto; max-width: 100%; } }

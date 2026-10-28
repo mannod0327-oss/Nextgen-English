@@ -20,7 +20,7 @@ const step = async (name, fn) => { await fn(); console.log('✓', name); };
 await step('home renders tiles', async () => {
   await page.goto(base);
   await page.waitForSelector('.tile');
-  if ((await page.locator('.tile').count()) !== 10) throw new Error('expected 10 tiles');
+  if ((await page.locator('.tile').count()) !== 11) throw new Error('expected 11 tiles');
   await page.screenshot({ path: `${shots}/home.png` });
 });
 
@@ -165,6 +165,22 @@ await step('ielts: hub band calculator, writing word count, speaking cue card', 
   await page.screenshot({ path: `${shots}/ielts.png`, fullPage: true });
 });
 
+await step('irregular verbs: filter table, test grades answers', async () => {
+  await page.goto(`${base}/#/verbs`);
+  await page.fill('#vq', 'bought');
+  if ((await page.locator('#verbs tbody tr:not([hidden])').count()) !== 1) throw new Error('verb filter');
+  await page.click('a[href="#/verbs?mode=test"]');
+  await page.waitForSelector('.question');
+  const first = page.locator('.question').first();
+  const prompt = await first.locator('b').textContent();
+  const v1 = prompt.split(' (')[0];
+  const ans = await page.evaluate(async (v) => (await import('./src/data/irregular-verbs.js')).irregularVerbs.find((x) => x[0] === v)[1].split('/')[0], v1);
+  await first.locator('.fill').fill(ans);
+  await page.click('#check');
+  if (!(await first.locator('.feedback.ok').count())) throw new Error('correct V2 not accepted');
+  if (!(await page.textContent('#result')).startsWith('Natija: ')) throw new Error('verbs result');
+});
+
 await step('dictation: text blurred until an attempt is scored', async () => {
   await page.goto(`${base}/#/speech?s=taxi`);
   await page.check('#dict');
@@ -250,7 +266,7 @@ await step('creator: add question, validate, simulate', async () => {
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'grammar?topic=conditionals', 'exam']) {
+  for (const r of ['', 'creator', 'vocab', 'grammar?topic=conditionals', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'mistakes']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
