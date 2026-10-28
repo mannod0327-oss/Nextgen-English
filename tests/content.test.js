@@ -176,3 +176,15 @@ test('minimal pairs: 8+ sound contrasts, 6 distinct pairs each, unique ids', () 
     assert.equal(new Set(set.pairs.flat()).size, 12, `${set.id}: repeated word`);
   }
 });
+
+test('pwa: service worker shell, manifest icons and Pages deploy list stay in sync', async () => {
+  const { readFileSync } = await import('node:fs');
+  const root = new URL('../', import.meta.url);
+  const sw = readFileSync(new URL('sw.js', root), 'utf8');
+  const shell = JSON.parse(sw.match(/const SHELL = (\[[^\]]*\])/)[1].replace(/'/g, '"'));
+  for (const f of shell.filter((x) => x !== './')) assert.ok(existsSync(new URL(f, root)), `sw shell: ${f}`);
+  const manifest = JSON.parse(readFileSync(new URL('manifest.webmanifest', root), 'utf8'));
+  for (const icon of manifest.icons) assert.ok(existsSync(new URL(icon.src, root)), icon.src);
+  const deploy = readFileSync(new URL('.github/workflows/pages.yml', root), 'utf8');
+  for (const f of ['sw.js', 'manifest.webmanifest', ...manifest.icons.map((i) => i.src)]) assert.ok(deploy.includes(f), `pages.yml must copy ${f}`);
+});

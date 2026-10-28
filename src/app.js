@@ -1177,5 +1177,7 @@ function route() {
 // Delegated so 🔊 buttons inserted after render (definitions, reading gloss) work too.
 app.addEventListener('click', (e) => { const b = e.target.closest('[data-say]'); if (b) speak(b.dataset.say); });
 window.addEventListener('hashchange', route);
+// Offline: cache the app on first visit (service worker needs https or localhost).
+if ('serviceWorker' in navigator && location.protocol !== 'file:') navigator.serviceWorker.register('sw.js').catch(() => {});
 renderHeader();
 route();

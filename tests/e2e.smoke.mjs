@@ -337,6 +337,24 @@ await step('mobile layout has no horizontal scroll', async () => {
   await page.screenshot({ path: `${shots}/mobile.png` });
 });
 
+await step('offline: after one online visit the app reloads with no network (service worker)', async () => {
+  const ctx = await browser.newContext({ viewport: { width: 1100, height: 900 } });
+  const p = await ctx.newPage();
+  p.on('pageerror', (e) => errors.push(`offline pageerror: ${e.message}`));
+  await p.goto(`${base}/#/`);
+  await p.evaluate(() => navigator.serviceWorker.ready);
+  await p.reload(); // now controlled by the worker, which caches every module it serves
+  await p.waitForSelector('.tile');
+  for (const r of ['ielts', 'verbs', 'dictionary?q=run']) { await p.goto(`${base}/#/${r}`); await p.waitForTimeout(300); }
+  await ctx.setOffline(true);
+  await p.goto(`${base}/#/verbs`);
+  await p.waitForSelector('#verbs tbody tr');
+  await p.goto(`${base}/#/`);
+  await p.reload();
+  await p.waitForSelector('.tile');
+  await ctx.close();
+});
+
 await browser.close();
 if (errors.length) { console.error(errors.join('\n')); process.exit(1); }
 console.log('ALL E2E STEPS PASSED, no console errors');
