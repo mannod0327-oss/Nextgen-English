@@ -7,6 +7,7 @@ import { validateExam, scoreQuestion, gradeExam, makeVariant, parseExam, seriali
 import { createPlacement, nextQuestion, answerPlacement, placementResult } from '../src/core/placement.js';
 import { renderPrintable, answerKey } from '../src/core/printable.js';
 import { createStore } from '../src/core/store.js';
+import { dailyPlan } from '../src/core/plan.js';
 import { sampleExam } from '../src/data/sample-exam.js';
 import { placementQuestions } from '../src/data/placement.js';
 
@@ -205,4 +206,18 @@ test('store: snapshot captures the namespace only, restore validates and round-t
   assert.equal(fresh.get('xp'), 42);
   assert.throws(() => fresh.restore({ hello: 1 }), /zaxira/);
   assert.throws(() => fresh.restore(null), /zaxira/);
+});
+
+test('dailyPlan: deterministic per date, level-matched, done from activity', () => {
+  const grammar = [{ id: 'g1', title: 'A', level: 'A1' }, { id: 'g2', title: 'B', level: 'B2' }, { id: 'g3', title: 'C', level: 'B2' }];
+  const texts = [{ id: 'r1', title: 'R1', level: 'A1' }, { id: 'r2', title: 'R2', level: 'B2' }, { id: 'l1', title: 'L1', level: 'B1', listening: true }];
+  const a = dailyPlan({ date: '2026-10-28', level: 'B2', grammar, texts });
+  assert.deepEqual(a, dailyPlan({ date: '2026-10-28', level: 'B2', grammar, texts }));
+  assert.equal(a.length, 4);
+  assert.ok(['grammar:g2', 'grammar:g3'].includes(a[1].key), 'B2 grammar for a B2 learner');
+  assert.equal(a[2].key, 'reading:r2');
+  assert.equal(a[3].key, 'reading:l1', 'B2 learner gets listening (nearest lower level B1)');
+  assert.equal(dailyPlan({ date: '2026-10-28', level: null, grammar, texts })[3].key, 'verbs', 'beginners get the verbs test');
+  const done = dailyPlan({ date: '2026-10-28', level: 'B2', grammar, texts, activity: [...Array(10).fill('vocab'), a[1].key] });
+  assert.deepEqual(done.map((t) => t.done), [true, true, false, false]);
 });

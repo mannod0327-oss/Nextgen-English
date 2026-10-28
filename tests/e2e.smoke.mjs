@@ -201,6 +201,20 @@ await step('irregular verbs: filter table, test grades answers', async () => {
   if (!(await page.textContent('#result')).startsWith('Natija: ')) throw new Error('verbs result');
 });
 
+await step('daily plan: four tasks, grammar task ticks after checking', async () => {
+  await page.goto(`${base}/#/`);
+  await page.waitForSelector('.plan .row');
+  if ((await page.locator('.plan .row').count()) !== 4) throw new Error('plan size');
+  const href = await page.locator('.plan .row').nth(1).getAttribute('href');
+  await page.click(`.plan a[href="${href}"]`);
+  await page.waitForSelector('#check');
+  await page.click('#check');
+  await page.goto(`${base}/#/verbs`);
+  await page.goto(`${base}/#/`);
+  await page.waitForSelector('.plan .row');
+  if (!(await page.locator('.plan .row').nth(1).getAttribute('class')).includes('done')) throw new Error('grammar task not ticked');
+});
+
 await step('dictation: text blurred until an attempt is scored', async () => {
   await page.goto(`${base}/#/speech?s=taxi`);
   await page.check('#dict');

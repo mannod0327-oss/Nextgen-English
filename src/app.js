@@ -5,6 +5,7 @@ import { gradeExam, scoreQuestion, makeVariant, parseExam, serializeExam, valida
 import { createPlacement, nextQuestion, answerPlacement, placementResult, LEVELS } from './core/placement.js';
 import { renderPrintable, esc } from './core/printable.js';
 import { createStore } from './core/store.js';
+import { dailyPlan } from './core/plan.js';
 import { vocabulary, categories } from './data/vocabulary.js';
 import { grammar } from './data/grammar.js';
 import { placementQuestions } from './data/placement.js';
@@ -60,6 +61,14 @@ function streak(days) {
 function renderHeader() {
   const p = profile();
   $('#stats').innerHTML = `<span title="Daraja">🎯 ${p.level ?? '—'}</span><span title="Tajriba">⭐ ${p.xp} XP</span><span title="Ketma-ket kunlar">🔥 ${streak(p.days)}</span>`;
+}
+
+// Today's activity log for the daily plan: { 'YYYY-MM-DD': ['vocab', 'grammar:<id>', …] }, last 14 days kept.
+const today = () => new Date().toISOString().slice(0, 10);
+function logActivity(entry) {
+  const log = store.get('activity', {});
+  const days = Object.keys(log).sort().slice(-13);
+  store.set('activity', { ...Object.fromEntries(days.map((d) => [d, log[d]])), [today()]: [...(log[today()] ?? []), entry] });
 }
 
 // ---------- speech helpers ----------
@@ -201,11 +210,18 @@ const views = {
       ['#/exam', '⏱️', 'Imtihon simulyatori', "Taymer, navigatsiya, xatolar tahlili"],
       ['#/creator', '🛠️', 'Test yaratuvchi', "O'qituvchi uchun: test tuzish, variantlar, chop etish"],
     ];
+    const plan = dailyPlan({ date: today(), level: p.level, grammar, texts: allTexts, activity: store.get('activity', {})[today()] ?? [] });
+    const planDone = plan.filter((t) => t.done).length;
+    const planHtml = `<section class="card plan"><h3>📅 Bugungi reja <span class="badge ${planDone === plan.length ? 'ok' : ''}">${planDone}/${plan.length}</span></h3>
+      ${p.level ? '' : `<p class="muted">Darajangiz aniqlanmagan — reja A1 uchun. <a href="#/placement">Daraja testini topshiring</a>, reja moslashadi.</p>`}
+      <div class="list">${plan.map((t) => `<a class="row${t.done ? ' done' : ''}" href="${t.href}"><span class="badge">${t.done ? '✅' : t.icon}</span><span>${esc(t.title)}</span></a>`).join('')}</div>
+      ${planDone === plan.length ? '<p>🎉 Bugungi reja bajarildi! Ertaga yangi vazifalar.</p>' : ''}</section>`;
     return `<section class="hero"><h1>Ingliz tilini tizimli o'rganing</h1>
       <p>${p.level ? `Sizning darajangiz: <b>${p.level}</b>. ` : "Avval darajangizni aniqlang — reja shunga moslashadi. "}
       ${mature} ta so'z uzoq muddatli xotirada.</p>
       <div class="hero-actions">${p.level ? '' : '<a class="btn primary" href="#/placement">Daraja testini boshlash →</a>'}
       <a class="btn" href="grammar-guide/index.html">📚 Grammatika qo'llanmasi (${guideUnits.length} unit)</a></div></section>
+      ${planHtml}
       <div class="grid">${tiles.map(([href, icon, t, d]) => `<a class="tile" href="${href}"><span class="ico">${icon}</span><b>${t}</b><span class="muted">${d}</span></a>`).join('')}</div>
       <section class="card"><h3>💾 Zaxira nusxa</h3>
         <p class="muted">Progress faqat shu brauzerda saqlanadi. Telefon yoki kompyuter almashtirsangiz, faylni yuklab oling va yangi qurilmada qayta yuklang.</p>
@@ -286,6 +302,7 @@ const views = {
         if (!g) return;
         const all = store.get('cards', {});
         all[w.id] = review(all[w.id] ?? newCard(w.id), g);
+        logActivity('vocab');
         store.set('cards', all);
         addXp(g >= 3 ? 2 : 1);
         i++;
@@ -366,6 +383,7 @@ const views = {
         });
         const pct = Math.round((total / topic.exercises.length) * 100);
         store.set('grammarDone', { ...store.get('grammarDone', {}), [topic.id]: pct });
+        logActivity(`grammar:${topic.id}`);
         addXp(Math.round(total * 3));
         $('#result').textContent = `Natija: ${pct}%`;
       };
@@ -422,6 +440,7 @@ const views = {
         });
         const pct = Math.round((total / t.questions.length) * 100);
         store.set('readingDone', { ...store.get('readingDone', {}), [t.id]: pct });
+        logActivity(`reading:${t.id}`);
         addXp(Math.round(total * 3));
         $('#result').textContent = `Natija: ${pct}%`;
         $('#text').hidden = false; // listening tasks reveal the script after checking
@@ -666,6 +685,7 @@ const views = {
           qs.forEach((q) => { total += gradeBox(q, app.querySelector(`[data-q="${q.id}"]`), "Noto'g'ri fe'llar"); });
           const pct = Math.round((total / qs.length) * 100);
           store.set('verbsBest', Math.max(store.get('verbsBest', 0), pct));
+          logActivity('verbs');
           addXp(total);
           $('#result').textContent = `Natija: ${pct}%`;
           $('#check').disabled = true;
