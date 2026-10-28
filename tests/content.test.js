@@ -17,6 +17,7 @@ import { readingBank } from '../src/data/ielts-bank-reading.js';
 import { listeningBank } from '../src/data/ielts-bank-listening.js';
 import { irregularVerbs } from '../src/data/irregular-verbs.js';
 import { minimalPairs } from '../src/data/minimal-pairs.js';
+import { collocations } from '../src/data/collocations.js';
 import { existsSync } from 'node:fs';
 import { exams } from '../src/data/exams.js';
 import { readings } from '../src/data/readings.js';
@@ -187,4 +188,17 @@ test('pwa: service worker shell, manifest icons and Pages deploy list stay in sy
   for (const icon of manifest.icons) assert.ok(existsSync(new URL(icon.src, root)), icon.src);
   const deploy = readFileSync(new URL('.github/workflows/pages.yml', root), 'utf8');
   for (const f of ['sw.js', 'manifest.webmanifest', ...manifest.icons.map((i) => i.src)]) assert.ok(deploy.includes(f), `pages.yml must copy ${f}`);
+});
+
+test('collocations: 60+, verb phrases start with their verb, examples use the phrase, quiz ids unique', () => {
+  const items = collocations.flatMap((g) => g.items.map((it) => [g, ...it]));
+  assert.ok(items.length >= 60);
+  const slugs = items.map(([, p]) => p.toLowerCase().replace(/[^a-z]+/g, '-'));
+  assert.equal(new Set(slugs).size, slugs.length, 'duplicate phrase');
+  for (const [g, phrase, uz, ex] of items) {
+    assert.ok(uz && ex, phrase);
+    if (g.kind === 'verb') assert.ok(phrase.startsWith(`${g.title} `), `${phrase} must start with ${g.title}`);
+    if (g.kind === 'adj') assert.equal(phrase.split(' ').length, 2, phrase);
+  }
+  assert.ok(collocations.filter((g) => g.kind === 'verb').length >= 4, 'verb quiz needs 4 options');
 });

@@ -23,6 +23,7 @@ import { readingBank } from './data/ielts-bank-reading.js';
 import { listeningBank } from './data/ielts-bank-listening.js';
 import { irregularVerbs } from './data/irregular-verbs.js';
 import { minimalPairs } from './data/minimal-pairs.js';
+import { collocations } from './data/collocations.js';
 
 // IELTS practice bank: hand-made tasks + bank items. Bank texts open in the reading view but are listed only in #/ielts.
 const allTexts = [...readings, ...readingBank, ...listeningBank];
@@ -264,6 +265,7 @@ const views = {
       ['#/reading', '📰', "O'qish va tinglash", `${readings.length} ta matn va tinglash (A1–C1), savollar bilan`],
       ['#/verbs', '🔁', "Noto'g'ri fe'llar", `${irregularVerbs.length} ta fe'l: jadval, tinglash va V2/V3 testi`],
       ['#/sounds', '👂', 'Qiyin tovushlar', `${minimalPairs.length} juft tovush (w/v, θ/s, iː/ɪ…): eshiting va farqlang`],
+      ['#/collocations', '🧩', 'Kollokatsiyalar', `${collocations.reduce((n, g) => n + g.items.length, 0)} ta ibora: make/do/take, sifat+ot, idiomalar`],
       ['#/ielts', '🎓', 'IELTS tayyorlov', `Listening, Reading, ${writing.length} ta Writing, ${speaking.length} ta Speaking, ball hisoblagich`],
       ['#/speech', '🎙️', 'Nutq laboratoriyasi', "Real vaziyatlar, talaffuzni 0–100% baholash"],
       ['#/dictionary', '📖', "Lug'at", "Prefiks qidiruv, so'z shakllarini taniydi"],
@@ -882,6 +884,48 @@ const views = {
       <section class="card"><h3>📅 So'nggi 14 kun faolligi</h3>
         <div class="bars" role="img" aria-label="Kunlik faollik">${days.map((d, i) => `<div class="bar" title="${d}: ${counts[i]}"><span style="height:${Math.round((counts[i] / maxCount) * 100)}%"></span><small>${d.slice(8)}</small></div>`).join('')}</div>
         <p class="muted">Har bir ustun — kartalar, grammatika, o'qish va testlar bo'yicha bajarilgan ishlar soni.</p></section>`;
+  },
+
+  collocations(params) {
+    const all = collocations.flatMap((g) => g.items.map((it) => ({ g, it })));
+    if (params.get('mode') === 'test') {
+      const r = rand();
+      const verbs = collocations.filter((g) => g.kind === 'verb').map((g) => g.title);
+      const adjs = [...new Set(collocations.filter((g) => g.kind === 'adj').flatMap((g) => g.items.map(([p]) => p.split(' ')[0])))];
+      const idioms = collocations.filter((g) => g.kind === 'idiom').flatMap((g) => g.items);
+      const slug = (p) => p.toLowerCase().replace(/[^a-z]+/g, '-');
+      const choices = (right, pool) => shuffle([right, ...shuffle(pool.filter((x) => x !== right), r).slice(0, 3)], r);
+      const qs = shuffle(all, r).slice(0, 10).map(({ g, it: [phrase, uz] }) => {
+        if (g.kind === 'idiom') {
+          const options = choices(uz, idioms.map((x) => x[1]));
+          return { id: `co-${slug(phrase)}`, type: 'single', prompt: `"${phrase}" nimani anglatadi?`, options, answer: options.indexOf(uz) };
+        }
+        const [head, ...rest] = phrase.split(' ');
+        const options = choices(head, g.kind === 'verb' ? verbs : adjs);
+        return { id: `co-${slug(phrase)}`, type: 'single', prompt: `___ ${rest.join(' ')}  (${uz})`, options, answer: options.indexOf(head) };
+      });
+      queueMicrotask(() => {
+        $('#check').onclick = () => {
+          let total = 0;
+          qs.forEach((q) => { total += gradeBox(q, app.querySelector(`[data-q="${q.id}"]`), 'Kollokatsiyalar'); });
+          const pct = Math.round((total / qs.length) * 100);
+          store.set('collocBest', Math.max(store.get('collocBest', 0), pct));
+          logActivity('collocations');
+          addXp(total);
+          $('#result').textContent = `Natija: ${pct}%`;
+          $('#check').disabled = true;
+        };
+      });
+      return `<a href="#/collocations">← Iboralar</a><h2>🧩 Kollokatsiya testi</h2><p class="muted">Bo'sh joyga mos so'zni tanlang (inglizlar aynan shunday aytadi).</p>
+        ${qs.map((q, n) => `<section class="card question" data-q="${q.id}"><b>${n + 1}. ${esc(q.prompt)}</b>${questionHtml(q, r)}<div class="fb"></div></section>`).join('')}
+        <p><button class="btn primary" id="check">Tekshirish</button> <b id="result"></b></p>`;
+    }
+    const best = store.get('collocBest', null);
+    return `<h2>🧩 Kollokatsiyalar va iboralar (${all.length})</h2>
+      <p class="muted">Kollokatsiya — so'zlarning tabiiy birikmasi: <b>make</b> a decision (do a decision emas), <b>heavy</b> rain (strong rain emas). IELTS'da "Lexical resource" balini ko'taradi.</p>
+      <p><a class="btn primary" href="#/collocations?mode=test">✍️ Test: 10 ta savol</a> ${best != null ? `<span class="badge ok">eng yaxshi: ${best}%</span>` : ''}</p>
+      ${collocations.map((g) => `<section class="card"><h3>${esc(g.kind === 'verb' ? `${g.title} + …` : g.title)} <span class="muted">(${g.items.length})</span></h3>
+        <table class="tbl"><tbody>${g.items.map(([p, uz, ex]) => `<tr><td><b>${esc(p)}</b></td><td>${esc(uz)}</td><td class="muted">${esc(ex)} <button class="link" data-say="${esc(ex)}">🔊</button></td></tr>`).join('')}</tbody></table></section>`).join('')}`;
   },
 
   mistakes() {
