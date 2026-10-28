@@ -137,7 +137,7 @@ const views = {
       ['#/placement', '🧭', 'Daraja testi', "Adaptiv test: A1 dan C1 gacha darajangizni aniqlaydi"],
       ['#/vocab', '🖼️', "Vizual lug'at", `${vocabulary.length} ta so'z · ${due} ta takrorlash kutmoqda`],
       ['#/immersion', '🌊', "Immersiya o'yini", "Tarjimasiz: rasmga mos so'zni toping"],
-      ['#/grammar', '📐', 'Grammatika', `${grammar.length} ta mavzu: qoida, jadval, mashqlar`],
+      ['#/grammar', '📐', 'Grammatika', `${guideUnits.length} unitli qo'llanma + ${grammar.length} ta mashqli mavzu`],
       ['#/speech', '🎙️', 'Nutq laboratoriyasi', "Real vaziyatlar, talaffuzni 0–100% baholash"],
       ['#/dictionary', '📖', "Lug'at", "Prefiks qidiruv, so'z shakllarini taniydi"],
       ['#/exam', '⏱️', 'Imtihon simulyatori', "Taymer, navigatsiya, xatolar tahlili"],
@@ -146,7 +146,8 @@ const views = {
     return `<section class="hero"><h1>Ingliz tilini tizimli o'rganing</h1>
       <p>${p.level ? `Sizning darajangiz: <b>${p.level}</b>. ` : "Avval darajangizni aniqlang — reja shunga moslashadi. "}
       ${mature} ta so'z uzoq muddatli xotirada.</p>
-      ${p.level ? '' : '<a class="btn primary" href="#/placement">Daraja testini boshlash →</a>'}</section>
+      <div class="hero-actions">${p.level ? '' : '<a class="btn primary" href="#/placement">Daraja testini boshlash →</a>'}
+      <a class="btn" href="grammar-guide/index.html">📚 Grammatika qo'llanmasi (${guideUnits.length} unit)</a></div></section>
       <div class="grid">${tiles.map(([href, icon, t, d]) => `<a class="tile" href="${href}"><span class="ico">${icon}</span><b>${t}</b><span class="muted">${d}</span></a>`).join('')}</div>`;
   },
 
@@ -279,17 +280,19 @@ const views = {
       const done = store.get('grammarDone', {});
       const lvl = profile().level;
       const byLevel = [...grammar].sort((a, b) => LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level));
-      return `<h2>📐 Grammatika</h2><div class="list">${byLevel.map((t) => `<a class="row" href="#/grammar?topic=${t.id}">
-        <span class="badge ${t.level === lvl ? 'hl' : ''}">${t.level}</span><b>${esc(t.title)}</b>
-        <span class="muted">${done[t.id] != null ? `${done[t.id]}%` : ''}</span></a>`).join('')}</div>
-        <h2 id="guide">📚 To'liq qo'llanma: ${guideUnits.length} unit</h2>
-        <p class="muted">Har bir unitda o'zbekcha tushuntirish, rangli jadvallar, ko'p uchraydigan xatolar va javobi tekshiriladigan mashqlar bor.
-          <a href="grammar-guide/index.html">Qo'llanma bosh sahifasi →</a></p>
+      return `<h2>📐 Grammatika</h2>
+        <section class="card guide-intro" id="guide"><h3>📚 Grammatika qo'llanmasi: ${guideUnits.length} unit</h3>
+        <p class="muted">English Grammar in Use tartibida. Har bir unitda o'zbekcha tushuntirish, rangli jadvallar, ko'p uchraydigan xatolar va javobi tekshiriladigan mashqlar bor. Bo'limni bosing, so'ng unitni tanlang.</p>
+        <a class="btn primary" href="grammar-guide/index.html">Qo'llanmani ochish →</a></section>
         <div class="list guide">${guideSections.map((s) => `<details>
           <summary><b>${esc(s.uz)}</b> <span class="muted">${esc(s.en)} · ${s.from}–${s.to}</span></summary>
           ${guideUnits.filter((u) => u.n >= s.from && u.n <= s.to).map((u) => `<a class="row" href="${guideUnitHref(u.n)}">
             <span class="badge">${u.n}</span><span>${esc(u.en)}<br><span class="muted">${esc(u.uz)}</span></span></a>`).join('')}
-        </details>`).join('')}</div>`;
+        </details>`).join('')}</div>
+        <h3>✍️ Mashqli mavzular (${grammar.length})</h3>
+        <div class="list">${byLevel.map((t) => `<a class="row" href="#/grammar?topic=${t.id}">
+        <span class="badge ${t.level === lvl ? 'hl' : ''}">${t.level}</span><b>${esc(t.title)}</b>
+        <span class="muted">${done[t.id] != null ? `${done[t.id]}%` : ''}</span></a>`).join('')}</div>`;
     }
     const r = rand();
     queueMicrotask(() => {
