@@ -93,4 +93,48 @@ Nodira`,
       { id: 'sr5', type: 'single', prompt: 'Why are Al-Khwarizmi and Ibn Sina mentioned?', options: ['They were merchants.', 'Their work influenced European science.', 'They built mosques.', 'They were tourists.'], answer: 1 },
     ],
   },
+  {
+    id: 'ulugh-beg', level: 'B2', title: "Ulugh Beg's Observatory", uzTitle: 'Ulug‘bek rasadxonasi',
+    text: `In the 1420s, Ulugh Beg, the grandson of Amir Temur and ruler of Samarkand, built one of the most advanced observatories of the medieval world. Unlike most rulers of his time, he was more interested in science than in war. The observatory was a three-storey building on a hill, and its main instrument was a giant meridian arc, partly cut into the rock, which allowed astronomers to measure the positions of the stars with remarkable precision. Working with a team of scholars, Ulugh Beg produced a star catalogue describing more than a thousand stars, and calculated the length of the year with an error of only about a minute. After his death in 1449, the observatory was destroyed and gradually forgotten. Its remains were rediscovered by an archaeologist in 1908, and today visitors to Samarkand can still see the lower part of the great arc.`,
+    questions: [
+      { id: 'ub1', type: 'single', prompt: 'Ulugh Beg was more interested in science than in war.', options: ['True', 'False', 'Not Given'], answer: 0, explanation: 'IELTS: True — matnda aynan shunday aytilgan.' },
+      { id: 'ub2', type: 'single', prompt: 'The observatory had five floors.', options: ['True', 'False', 'Not Given'], answer: 1, explanation: "Matnda “three-storey” deyilgan — demak False." },
+      { id: 'ub3', type: 'single', prompt: 'Ulugh Beg learned astronomy from his grandfather.', options: ['True', 'False', 'Not Given'], answer: 2, explanation: 'Matnda bu haqda hech narsa yo‘q — Not Given.' },
+      { id: 'ub4', type: 'fill', prompt: 'The main instrument was a giant meridian ___.', answer: 'arc' },
+      { id: 'ub5', type: 'fill', prompt: 'The remains were rediscovered in ___. (yil)', answer: '1908' },
+    ],
+  },
+  {
+    id: 'ai-education', level: 'C1', title: 'Artificial Intelligence in the Classroom', uzTitle: 'Sun’iy intellekt sinfxonada',
+    text: `Few technologies have entered education as quickly as artificial intelligence. Within a couple of years, chatbots that can explain grammar, solve equations and draft essays have become available to almost any student with a phone. Enthusiasts claim that this could finally make personalised tutoring, once a privilege of the wealthy, accessible to everyone: an AI tutor never loses patience, works at midnight and can adapt its explanations to each learner's level. Sceptics, however, warn that easy answers may undermine the very skills education is meant to build. If a machine writes the essay, the student may never learn to organise an argument; if it solves the problem, the struggle that produces understanding disappears. There are practical concerns as well, from factual errors delivered with great confidence to questions of privacy and fairness in assessment. Most educators now agree that banning the technology is neither realistic nor desirable. The real challenge is to redesign tasks so that AI supports thinking rather than replacing it — for example, by asking students to critique a chatbot's answer instead of simply accepting it.`,
+    questions: [
+      { id: 'ai1', type: 'single', prompt: 'According to enthusiasts, AI could make personalised tutoring available to everyone.', options: ['True', 'False', 'Not Given'], answer: 0 },
+      { id: 'ai2', type: 'single', prompt: 'Most educators want to ban AI in schools.', options: ['True', 'False', 'Not Given'], answer: 1, explanation: "Matnda “banning… is neither realistic nor desirable” — False." },
+      { id: 'ai3', type: 'single', prompt: 'AI tutors are cheaper than human teachers in every country.', options: ['True', 'False', 'Not Given'], answer: 2 },
+      { id: 'ai4', type: 'single', prompt: 'The word "undermine" is closest in meaning to …', options: ['strengthen', 'weaken gradually', 'measure', 'replace quickly'], answer: 1 },
+      { id: 'ai5', type: 'single', prompt: 'What solution does the writer suggest?', options: ['Ban chatbots completely.', 'Redesign tasks so AI supports thinking.', 'Use AI only at home.', 'Replace teachers with AI.'], answer: 1 },
+    ],
+  },
+  {
+    id: 'habits', level: 'C1', title: 'Why Habits Are Hard to Change', uzTitle: 'Odatlarni o‘zgartirish nega qiyin',
+    text: `Every New Year, millions of people promise to exercise more, sleep earlier or spend less time on their phones, and by February most of these resolutions have quietly been abandoned. Psychologists argue that the problem is rarely a lack of willpower. Much of our daily behaviour is automatic: a habit forms when an action is repeated in the same situation until the situation itself triggers it. Researchers often describe this as a loop of cue, routine and reward — the phone vibrates, we check it, and we feel a small sense of relief. Because the brain conserves effort by running such loops without conscious thought, simply deciding to stop rarely works. A more effective strategy is to change the environment: keeping the phone in another room removes the cue altogether. Building a new habit also takes longer than popular advice suggests. One well-known study found that participants needed around two months on average before a new behaviour felt automatic, with large differences between individuals. Missing a single day, however, did not seriously damage the process, which suggests that consistency matters more than perfection.`,
+    questions: [
+      { id: 'hb1', type: 'single', prompt: 'According to psychologists, the main problem is a lack of willpower.', options: ['True', 'False', 'Not Given'], answer: 1 },
+      { id: 'hb2', type: 'single', prompt: 'Changing your environment can remove the cue for a habit.', options: ['True', 'False', 'Not Given'], answer: 0 },
+      { id: 'hb3', type: 'single', prompt: 'Women form new habits faster than men.', options: ['True', 'False', 'Not Given'], answer: 2 },
+      { id: 'hb4', type: 'fill', prompt: 'A habit loop consists of cue, routine and ___.', answer: 'reward' },
+      { id: 'hb5', type: 'single', prompt: 'What does the study suggest about missing one day?', options: ['You must start again.', 'It does not seriously damage the process.', 'It doubles the time needed.', 'It is impossible to avoid.'], answer: 1 },
+    ],
+  },
+  {
+    id: 'water-central-asia', level: 'C1', title: 'Water: Central Asia’s Most Precious Resource', uzTitle: 'Suv — Markaziy Osiyoning eng qimmatli boyligi',
+    text: `In a region where summer temperatures regularly exceed forty degrees, water has always shaped where people live and what they grow. Two great rivers, the Amu Darya and the Syr Darya, carry meltwater from the mountains of Tajikistan and Kyrgyzstan across the deserts to the lowlands of Uzbekistan, Turkmenistan and Kazakhstan. For centuries, intricate canal systems allowed oases such as Khorezm and the Fergana Valley to flourish. In the twentieth century, however, irrigation expanded on an unprecedented scale, and much of the water was lost through evaporation and leaking, unlined canals. Today the challenge is twofold. On the one hand, the population is growing and demand for food and electricity is rising; on the other, climate change is shrinking the glaciers that feed the rivers. Experts argue that the most promising responses are not necessarily new dams but more efficient use of what already exists: drip irrigation, lined canals, crops that need less water and closer cooperation between upstream and downstream countries, whose interests have often been in conflict.`,
+    questions: [
+      { id: 'wa1', type: 'single', prompt: 'The Amu Darya and Syr Darya begin in the mountains of Tajikistan and Kyrgyzstan.', options: ['True', 'False', 'Not Given'], answer: 0 },
+      { id: 'wa2', type: 'single', prompt: 'In the twentieth century, very little water was lost from canals.', options: ['True', 'False', 'Not Given'], answer: 1 },
+      { id: 'wa3', type: 'single', prompt: 'Experts believe building new dams is the best solution.', options: ['True', 'False', 'Not Given'], answer: 1, explanation: "“not necessarily new dams but more efficient use” — False." },
+      { id: 'wa4', type: 'multiple', prompt: 'Which responses do experts recommend?', options: ['drip irrigation', 'lined canals', 'more cotton fields', 'crops that need less water', 'moving cities'], answer: [0, 1, 3] },
+      { id: 'wa5', type: 'single', prompt: 'The word "unprecedented" means …', options: ['never seen before', 'very small', 'planned carefully', 'illegal'], answer: 0 },
+    ],
+  },
 ];

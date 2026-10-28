@@ -44,4 +44,20 @@ const b2 = exam('Upper-Intermediate Test (B2)', 'B2', 20, [
   { id: 'b2q10', type: 'order', prompt: 'Put the words in order:', items: ['She', 'had', 'never', 'seen', 'such', 'a', 'beautiful', 'city'] },
 ]);
 
-export const exams = [a1, sampleExam, b1, b2];
+// IELTS-style language practice: word formation, collocations, linking words, academic grammar.
+const ielts = exam('IELTS-style Practice (B2–C1)', 'B2–C1', 20, [
+  { id: 'iq1', type: 'fill', prompt: 'There has been a significant ___ (grow) in online learning.', answer: 'growth' },
+  { id: 'iq2', type: 'fill', prompt: 'Many scientists are ___ (convince) that the climate is changing.', answer: 'convinced' },
+  { id: 'iq3', type: 'single', prompt: 'Governments should ___ measures to reduce pollution.', options: ['make', 'take', 'do', 'put'], answer: 1, explanation: 'Kollokatsiya: take measures.' },
+  { id: 'iq4', type: 'single', prompt: 'The number of tourists ___ sharply between 2015 and 2020.', options: ['raised', 'rose', 'arose', 'risen'], answer: 1, explanation: 'rise (o‘timsiz) — rose — risen; raise (o‘timli) narsani ko‘tarmoq.' },
+  { id: 'iq5', type: 'single', prompt: '___ the cost is high, the benefits are greater.', options: ['Despite', 'Although', 'However', 'Because of'], answer: 1 },
+  { id: 'iq6', type: 'single', prompt: 'The graph shows a steady ___ in unemployment.', options: ['decline', 'declining', 'declined', 'declines'], answer: 0 },
+  { id: 'iq7', type: 'multiple', prompt: "Qaysilari qarama-qarshilik bildiruvchi bog'lovchilar?", options: ['however', 'moreover', 'nevertheless', 'whereas', 'therefore'], answer: [0, 2, 3] },
+  { id: 'iq8', type: 'fill', prompt: 'It is widely ___ (believe) that education reduces poverty.', answer: 'believed' },
+  { id: 'iq9', type: 'single', prompt: 'Not only ___ cheaper, but public transport is also greener.', options: ['it is', 'is it', 'it was', 'does it'], answer: 1 },
+  { id: 'iq10', type: 'match', prompt: 'Match the academic word with its meaning:', pairs: [['crucial', 'hal qiluvchi'], ['decline', 'kamayish'], ['benefit', 'foyda'], ['approach', 'yondashuv']] },
+  { id: 'iq11', type: 'order', prompt: 'Put the words in order:', items: ['The', 'data', 'suggest', 'that', 'prices', 'will', 'rise'] },
+  { id: 'iq12', type: 'single', prompt: 'If the government ___ more in schools, results would improve.', options: ['invests', 'invested', 'will invest', 'has invested'], answer: 1 },
+]);
+
+export const exams = [a1, sampleExam, b1, b2, ielts];

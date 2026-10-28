@@ -206,4 +206,30 @@ export const grammar = [
       { id: 'tc3', type: 'fill', prompt: 'I wish I ___ (not / eat) so much last night.', answer: ["hadn't eaten", 'had not eaten'] },
     ],
   },
+  {
+    id: 'phrasal-verbs', title: 'Phrasal verbs', level: 'B1',
+    rule: "Fe'l + yuklama (up, off, on, out…) yangi ma'no beradi: give up — tashlamoq, look after — qaramoq. Ko'p frazali fe'llar ajraladi: turn the TV off / turn it off (olmosh doim o'rtada). Ba'zilari ajralmaydi: look after him (✗ look him after).",
+    table: [['ajraladigan', 'turn on / off, put on, pick up, call off', 'turn it off ✓'], ['ajralmaydigan', 'look after, look for, come across, get on with', 'look after her ✓'], ['3 qismli', 'run out of, look forward to, get on with', 'look forward to seeing you']],
+    examples: ['Please turn off the TV.', "Could you pick me up at six?", 'We have run out of bread.'],
+    exercises: [
+      { id: 'ph1', type: 'single', prompt: "It's cold. ___ your jacket.", options: ['Put on', 'Take off', 'Turn on', 'Give up'], answer: 0 },
+      { id: 'ph2', type: 'single', prompt: 'He decided to ___ smoking.', options: ['give up', 'look for', 'set up', 'pick up'], answer: 0 },
+      { id: 'ph3', type: 'single', prompt: 'Choose the correct sentence.', options: ['Turn off it.', 'Turn it off.', 'Turn of it.', 'It turn off.'], answer: 1, explanation: "Olmosh ajraladigan frazali fe'lning o'rtasiga qo'yiladi." },
+      { id: 'ph4', type: 'fill', prompt: "I'm looking forward to ___ (meet) you.", answer: 'meeting', explanation: "look forward to + V-ing (to — bu yerda predlog)." },
+      { id: 'ph5', type: 'match', prompt: "Frazali fe'lni ma'nosi bilan juftlang:", pairs: [['call off', 'bekor qilmoq'], ['find out', 'bilib olmoq'], ['break down', 'buzilib qolmoq'], ['look after', 'qaramoq']] },
+    ],
+  },
+  {
+    id: 'word-formation', title: 'Word formation (IELTS / CEFR)', level: 'B2',
+    rule: "So'z yasovchi qo'shimchalar: ot -tion, -ment, -ness, -ity (decide → decision, happy → happiness); sifat -ful, -less, -ive, -able (care → careful/careless); ravish -ly; inkor old qo'shimchalar un-, in-, im-, dis- (possible → impossible).",
+    table: [['fe\'l → ot', 'develop → development, decide → decision'], ['sifat → ot', 'kind → kindness, able → ability'], ['ot → sifat', 'success → successful, help → helpful/helpless'], ['inkor', 'un-happy, im-possible, dis-agree, in-correct']],
+    examples: ['The development of the city was fast.', 'It is impossible to finish today.', 'She gave a very helpful answer.'],
+    exercises: [
+      { id: 'wf1', type: 'fill', prompt: 'We need to make a ___ (decide) today.', answer: 'decision' },
+      { id: 'wf2', type: 'fill', prompt: 'Her ___ (kind) surprised everyone.', answer: 'kindness' },
+      { id: 'wf3', type: 'fill', prompt: 'The project was very ___ (success).', answer: 'successful' },
+      { id: 'wf4', type: 'single', prompt: 'That answer is ___ — please check it again.', options: ['uncorrect', 'incorrect', 'discorrect', 'imcorrect'], answer: 1 },
+      { id: 'wf5', type: 'fill', prompt: 'Tashkent has grown ___ (rapid) in recent years.', answer: 'rapidly' },
+    ],
+  },
 ];

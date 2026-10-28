@@ -136,7 +136,7 @@ npm test   # har bir unit sahifasi borligini tekshiradi
   modelni emas. U "nima eshitildi"ni o'lchaydi, intonatsiyani emas. Nutqni aniqlash Chrome/Edge'da
   ishlaydi; boshqa brauzerlarda aytilganni yozib tekshirish mumkin.
 - **Progress** bitta brauzerda saqlanadi (sinxronizatsiya yo'q). Ko'p qurilma uchun backend kerak.
-- **Kontent hajmi**: 25 mavzuda 235 so'z, 18 grammatika mavzusi (60 mashq, A1–C1) + 145 unitli qo'llanma, 8 ta o'qish matni (40 savol), 40 ta daraja savoli, 4 ta tayyor imtihon (A1, A2–B1, B1, B2), 17 vaziyatda 53 ibora (diktant rejimi bilan).
+- **Kontent hajmi**: 26 mavzuda 255 so'z (20 ta frazali fe'l bilan), 20 grammatika mavzusi (70 mashq, A1–C1) + 145 unitli qo'llanma, 12 ta o'qish matni A1–C1 (60 savol, IELTS True/False/Not Given bilan), 40 ta daraja savoli, 5 ta tayyor imtihon (A1, A2–B1, B1, B2, IELTS B2–C1), 17 vaziyatda 53 ibora (diktant rejimi bilan).
 - **Qo'llanma sahifalarida** Nextgen'ga qaytish tugmasi yo'q — brauzerning "orqaga" tugmasidan foydalaning. Qo'llanmadagi mashq natijalari Nextgen XP'siga qo'shilmaydi.
   Yangi kontent `src/data/` fayllariga qo'shiladi; `npm test` uni avtomatik tekshiradi.
 - Lug'at rasmlari — emoji (litsenziyasiz). Haqiqiy rasmlar uchun `emoji` maydonini rasm URL bilan almashtirish kifoya.
