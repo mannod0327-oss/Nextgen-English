@@ -95,6 +95,20 @@ await step('reading: answer questions, hide text, score stored', async () => {
   await page.screenshot({ path: `${shots}/reading.png`, fullPage: true });
 });
 
+await step('reading gloss + dictionary definitions (lazy-loaded WordNet)', async () => {
+  await page.goto(`${base}/#/`); // same-URL goto would keep the previous step's hidden text
+  await page.goto(`${base}/#/reading?t=my-family`);
+  await page.locator('#text .tw', { hasText: /^fifteen$/ }).first().click();
+  await page.waitForSelector('#gloss:not([hidden]) .senses');
+  await page.goto(`${base}/#/dictionary?q=shrinks`);
+  await page.waitForSelector('#defs .entry');
+  if (!(await page.textContent('#defs')).includes('wither')) throw new Error('definition-only entry missing');
+  if (await page.locator('#nf').isVisible()) throw new Error('not-found card should hide');
+  await page.goto(`${base}/#/dictionary?q=deadlines`);
+  await page.waitForSelector('.entry #defs .senses');
+  await page.screenshot({ path: `${shots}/definitions.png` });
+});
+
 await step('dictation: text blurred until an attempt is scored', async () => {
   await page.goto(`${base}/#/speech?s=taxi`);
   await page.check('#dict');

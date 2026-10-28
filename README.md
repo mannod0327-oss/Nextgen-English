@@ -9,7 +9,7 @@ mustaqil ravishda (clean-room) qayta qurilgan.
 
 - **Bog'liqliksiz** — hech qanday `npm install` kerak emas; faqat brauzer va Node.js ≥ 20.
 - **Oflayn** — barcha kontent va progress brauzerda (localStorage) saqlanadi.
-- **Testlangan** — 18 ta unit/kontent testi + 10 bosqichli brauzer E2E testi.
+- **Testlangan** — 23 ta unit/kontent testi + 15 bosqichli brauzer E2E testi.
 
 ## Ishga tushirish
 
@@ -29,9 +29,9 @@ npm run test:e2e     # brauzer smoke testi (Playwright + Chromium kerak; servern
 | 🖼️ Vizual lug'at       | Rasm + so'z + IPA + o'zbekcha tarjima + misol. SM-2 takrorlash algoritmi, klaviatura (Space, 1–4).                                        |
 | 🌊 Immersiya o'yini    | Tarjimasiz: rasmga mos inglizcha so'zni topish.                                                                                           |
 | 📐 Grammatika          | Mavzular daraxti → qoida, jadval, ovozli misollar, avtomatik tekshiriladigan mashqlar.                                                    |
-| 📰 O'qish va tinglash  | A1–B2 matnlar (O'zbekiston hayotidan), 🔊 tinglash, matnni yashirib tinglash mashqi, tushunish savollari.                                 |
+| 📰 O'qish va tinglash  | A1–C1 matnlar (O'zbekiston hayotidan), 🔊 tinglash, matnni yashirib tinglash mashqi, tushunish savollari, istalgan so'zni bosib ma'nosini ko'rish.                                 |
 | 🎙️ Nutq laboratoriyasi | Real vaziyatlar (mehmonxona, kafe, ofis…). Namuna (TTS, sekin rejim), mikrofon to'lqini, nutqni aniqlash va so'zma-so'z 0–100% baho.      |
-| 📖 Lug'at              | Saralangan prefiks indeksida ikkilik qidiruv, so'z shakllarini tanish (`studies → study`, `running → run`), xato yozilganda taklif.       |
+| 📖 Lug'at              | Saralangan prefiks indeksida ikkilik qidiruv, so'z shakllarini tanish (`studies → study`, `running → run`), xato yozilganda taklif. 1172 so'zga inglizcha ta'rif (Open English WordNet). |
 | ⏱️ Imtihon simulyatori | Taymer, savollar navigatsiya paneli, javoblarni saqlash, natija va xatolar ustida ishlash. JSON test faylini yuklash.                     |
 | 🛠️ Test yaratuvchi     | O'qituvchi uchun: 5 turdagi savol, validatsiya, JSON eksport/import, aralashtirilgan variantlar (A/B/C) va javob kaliti bilan chop etish. |
 
@@ -128,6 +128,19 @@ Manba: [`mannod0327-oss/English-grammar-in-use`](https://github.com/mannod0327-o
 cp -r ../English-grammar-in-use/docs/. grammar-guide/
 node --input-type=module -e 'import fs from "node:fs"; const d=JSON.parse(fs.readFileSync("../English-grammar-in-use/src/units.json","utf8")); fs.writeFileSync("src/data/grammar-guide.js", `export const guideSections = ${JSON.stringify(d.sections.map(({from,to,en,uz})=>({from,to,en,uz})))};\nexport const guideUnits = ${JSON.stringify(d.units)};\n`)'
 npm test   # har bir unit sahifasi borligini tekshiradi
+```
+
+## Inglizcha ta'riflar
+
+`src/data/definitions.js` — ilovadagi barcha matnlarda uchraydigan 1172 so'z uchun inglizcha ta'rif va misol
+([Open English WordNet](https://github.com/globalwordnet/english-wordnet), CC BY 4.0, litsenziya va atribusiya:
+[DATA-LICENSES.md](DATA-LICENSES.md)). Fayl faqat Lug'at yoki O'qish ochilganda yuklanadi (~80 KB gzip).
+Kontent o'zgarsa, qayta yarating:
+
+```bash
+curl -LO https://github.com/CloudBytes-Academy/English-Dictionary-Open-Source/raw/main/v2/dictionary.jsonl.gz
+node scripts/build-definitions.mjs dictionary.jsonl.gz
+npm test
 ```
 
 ## Ma'lum cheklovlar

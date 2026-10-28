@@ -22,6 +22,11 @@ a { color: var(--accent); }
 .hero h1 { margin: 0 0 .25rem; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: .75rem; }
 .reading-text { white-space: pre-line; font-size: 1.08rem; line-height: 1.75; max-width: 70ch; }
+.tw { cursor: pointer; border-radius: 4px; }
+.tw:hover { background: color-mix(in srgb, var(--accent) 16%, transparent); }
+.gloss { position: sticky; bottom: .75rem; max-width: 70ch; box-shadow: 0 6px 24px rgb(0 0 0 / .18); }
+.senses { margin: .4rem 0 0; padding-left: 1.3rem; }
+.senses li { margin: .2rem 0; }
 .dict-toggle { display: inline-flex; align-items: center; gap: .4rem; margin-bottom: .5rem; }
 .dictation .line:not(.revealed) .say .t { filter: blur(7px); user-select: none; }
 .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin-top: 1rem; }

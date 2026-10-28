@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { newCard, review, dueCards, isMature } from '../src/core/srs.js';
-import { buildIndex, prefixSearch, lookup, lemmaCandidates, levenshtein } from '../src/core/dictionary.js';
+import { buildIndex, prefixSearch, lookup, lemmaCandidates, levenshtein, lookupDefinition } from '../src/core/dictionary.js';
 import { scorePronunciation } from '../src/core/pronunciation.js';
 import { validateExam, scoreQuestion, gradeExam, makeVariant, parseExam, serializeExam } from '../src/core/exam.js';
 import { createPlacement, nextQuestion, answerPlacement, placementResult } from '../src/core/placement.js';
@@ -182,4 +182,11 @@ test('store: persists through backend and survives a throwing backend', () => {
   s2.set('k', { a: 1 });
   assert.deepEqual(s2.get('k'), { a: 1 });
   assert.equal(s2.get('missing', 'dflt'), 'dflt');
+});
+
+test('lookupDefinition falls back to the lemma and returns null for unknown words', () => {
+  const defs = { commute: [['verb', 'travel back and forth regularly', '']], run: [['verb', 'move fast', '']] };
+  assert.equal(lookupDefinition(defs, 'Commuting').word, 'commute');
+  assert.equal(lookupDefinition(defs, 'running').senses[0][1], 'move fast');
+  assert.equal(lookupDefinition(defs, 'zzz'), null);
 });

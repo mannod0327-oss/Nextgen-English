@@ -1,5 +1,5 @@
 import { newCard, review, dueCards, isMature } from './core/srs.js';
-import { buildIndex, prefixSearch, lookup } from './core/dictionary.js';
+import { buildIndex, prefixSearch, lookup, lookupDefinition } from './core/dictionary.js';
 import { scorePronunciation } from './core/pronunciation.js';
 import { gradeExam, scoreQuestion, makeVariant, parseExam, serializeExam, validateExam, shuffle, mulberry32 } from './core/exam.js';
 import { createPlacement, nextQuestion, answerPlacement, placementResult, LEVELS } from './core/placement.js';
@@ -13,6 +13,11 @@ import { exams } from './data/exams.js';
 import { readings } from './data/readings.js';
 import { scenarios } from './data/dialogues.js';
 import { guideSections, guideUnits } from './data/grammar-guide.js';
+
+// English definitions (Open English WordNet, ~80KB gzip) load only when a view needs them.
+let defsPromise;
+const loadDefs = () => (defsPromise ??= import('./data/definitions.js').then((m) => m.definitions));
+const sensesHtml = (hit) => `<ol class="senses">${hit.senses.map(([pos, def, ex]) => `<li><i>${esc(pos)}</i> — ${esc(def)}${ex ? ` <span class="muted">“${esc(ex)}”</span>` : ''}</li>`).join('')}</ol>`;
 
 const guideUnitHref = (n) => `grammar-guide/units/unit-${String(n).padStart(3, '0')}.html`;
 
@@ -335,6 +340,16 @@ const views = {
     queueMicrotask(() => {
       $('#listen').onclick = () => speak(t.text);
       $('#listen-slow').onclick = () => speak(t.text, 0.7);
+      $('#text').onclick = async (e) => {
+        const w = e.target.closest('.tw')?.textContent;
+        if (!w) return;
+        const gloss = $('#gloss');
+        const v = lookup(dictIndex, w).exact;
+        const d = lookupDefinition(await loadDefs(), w);
+        gloss.hidden = false;
+        gloss.innerHTML = `<b>${esc(w)}</b> <button class="link" data-say="${esc(w)}">🔊</button>${v ? ` — <span class="uz">${esc(v.uz)}</span>` : ''}
+          ${d ? sensesHtml(d) : v ? '' : '<p class="muted">Lug\'atda topilmadi.</p>'}`;
+      };
       $('#hide').onclick = () => { $('#text').hidden = !$('#text').hidden; };
       $('#check').onclick = () => {
         let total = 0;
@@ -354,7 +369,9 @@ const views = {
       <p class="muted">${esc(t.uzTitle)}</p>
       <p><button class="btn" id="listen">🔊 Tinglash</button> <button class="btn" id="listen-slow">🐢 Sekin</button>
         <button class="btn" id="hide">🙈 Matnni yashirish / ko'rsatish</button></p>
-      <section class="card reading-text" id="text">${esc(t.text)}</section>
+      <p class="muted">💡 Istalgan so'zni bosing — ma'nosi chiqadi.</p>
+      <section class="card reading-text" id="text">${t.text.split(/([A-Za-z][A-Za-z'’-]*)/).map((p, n) => (n % 2 ? `<span class="tw">${esc(p)}</span>` : esc(p))).join('')}</section>
+      <aside class="card gloss" id="gloss" hidden></aside>
       <h3>Savollar</h3>${t.questions.map((q, n) => `<section class="card question" data-q="${q.id}">
         <b>${n + 1}. ${esc(q.prompt)}</b>${questionHtml(q, r)}<div class="fb"></div></section>`).join('')}
       <button class="btn primary" id="check">Tekshirish</button> <b id="result"></b>`;
@@ -424,6 +441,18 @@ const views = {
           .map((e) => `<a class="row" href="#/dictionary?q=${encodeURIComponent(e.word)}">${e.emoji} <b>${esc(e.word)}</b> <span class="muted">${esc(e.uz)}</span></a>`).join('');
       };
       input.onkeydown = (e) => { if (e.key === 'Enter') location.hash = `#/dictionary?q=${encodeURIComponent(input.value)}`; };
+      if (q) {
+        loadDefs().then((defs) => {
+          const hit = lookupDefinition(defs, q);
+          const box = $('#defs');
+          if (!hit || !box) return;
+          const nf = $('#nf');
+          box.innerHTML = nf
+            ? `<section class="card entry"><h2>${esc(hit.word)} <button class="link" data-say="${esc(hit.word)}">🔊</button></h2>${hit.word !== q.toLowerCase() ? `<p class="muted">“${esc(q)}” → asosiy shakl: <b>${esc(hit.word)}</b></p>` : ''}<p class="muted">🇬🇧 Inglizcha ta'rif (o'zbekcha tarjimasi hali yo'q)</p>${sensesHtml(hit)}</section>`
+            : `<h3>🇬🇧 Inglizcha ta'rif</h3>${sensesHtml(hit)}`;
+          if (nf) nf.hidden = true;
+        });
+      }
     });
     let entryHtml = '';
     if (q) {
@@ -433,13 +462,14 @@ const views = {
         entryHtml = `<section class="card entry"><div class="pic">${e.emoji}</div><h2>${esc(e.word)} <button class="link" data-say="${esc(e.word)}">🔊</button></h2>
           ${r.lemma ? `<p class="muted">“${esc(q)}” → asosiy shakl: <b>${esc(r.lemma)}</b></p>` : ''}
           <p>${esc(e.ipa)} · <i>${esc(e.pos)}</i> · <span class="badge">${e.level}</span> · ${esc(e.category)}</p>
-          <p class="uz">${esc(e.uz)}</p><p>“${esc(e.example)}” <button class="link" data-say="${esc(e.example)}">🔊</button></p></section>`;
+          <p class="uz">${esc(e.uz)}</p><p>“${esc(e.example)}” <button class="link" data-say="${esc(e.example)}">🔊</button></p><div id="defs"></div></section>`;
       } else {
-        entryHtml = `<section class="card"><p>“${esc(q)}” topilmadi.</p>${r.suggestions.length ? `<p>Balki: ${r.suggestions.map((s) => `<a href="#/dictionary?q=${encodeURIComponent(s.word)}">${esc(s.word)}</a>`).join(', ')}?</p>` : ''}</section>`;
+        entryHtml = `<div id="defs"></div><section class="card" id="nf"><p>“${esc(q)}” topilmadi.</p>${r.suggestions.length ? `<p>Balki: ${r.suggestions.map((s) => `<a href="#/dictionary?q=${encodeURIComponent(s.word)}">${esc(s.word)}</a>`).join(', ')}?</p>` : ''}</section>`;
       }
     }
     return `<h2>📖 Lug'at</h2><input id="dq" class="search" placeholder="Inglizcha so'z kiriting (masalan: running, studies)…" value="${esc(q)}" autocomplete="off">
-      <div id="sugg" class="list"></div>${entryHtml}`;
+      <div id="sugg" class="list"></div>${entryHtml}
+      <p class="muted">Inglizcha ta'riflar: <a href="https://github.com/globalwordnet/english-wordnet">Open English WordNet</a> (CC BY 4.0) — <a href="https://github.com/mannod0327-oss/Nextgen-English/blob/main/DATA-LICENSES.md">litsenziya</a>.</p>`;
   },
 
   exam() {
@@ -658,13 +688,14 @@ function route() {
   app.innerHTML = view(new URLSearchParams(query));
   document.querySelectorAll('.nav a').forEach((a) => a.classList.toggle('active', a.getAttribute('href') === `#/${path}`));
   queueMicrotask(() => {
-    app.querySelectorAll('[data-say]').forEach((b) => { b.onclick = () => speak(b.dataset.say); });
     const accent = $('#accent');
     if (accent) { accent.value = store.get('accent', 'en-GB'); accent.onchange = () => store.set('accent', accent.value); }
   });
   window.scrollTo(0, 0);
 }
 
+// Delegated so 🔊 buttons inserted after render (definitions, reading gloss) work too.
+app.addEventListener('click', (e) => { const b = e.target.closest('[data-say]'); if (b) speak(b.dataset.say); });
 window.addEventListener('hashchange', route);
 renderHeader();
 route();

@@ -8,6 +8,7 @@ import { grammar } from '../src/data/grammar.js';
 import { placementQuestions } from '../src/data/placement.js';
 import { scenarios } from '../src/data/dialogues.js';
 import { guideSections, guideUnits } from '../src/data/grammar-guide.js';
+import { definitions } from '../src/data/definitions.js';
 import { existsSync } from 'node:fs';
 import { exams } from '../src/data/exams.js';
 import { readings } from '../src/data/readings.js';
@@ -73,4 +74,13 @@ test('readings: valid questions, unique ids, every CEFR band A1–B2 covered', (
 
 test('scenarios: each has lines', () => {
   for (const s of scenarios) assert.ok(s.lines.length >= 2, s.id);
+});
+
+test('definitions are well-formed and cover the vocabulary', () => {
+  for (const [word, senses] of Object.entries(definitions)) {
+    assert.ok(senses.length >= 1 && senses.length <= 2, word);
+    for (const [pos, def] of senses) assert.ok(pos && def, word);
+  }
+  const missing = vocabulary.filter((v) => !definitions[v.word.toLowerCase()]);
+  assert.ok(missing.length <= vocabulary.length * 0.05, `no definition: ${missing.map((v) => v.word)}`);
 });

@@ -79,3 +79,11 @@ export function lookup(index, query, { maxDistance = 2, limit = 5 } = {}) {
     .map((x) => x.entry);
   return { exact: null, suggestions };
 }
+
+/** Definitions map lookup ({word: [[pos, def, example], ...]}) with lemma fallback: "commuting" → "commute". */
+export function lookupDefinition(defs, word) {
+  for (const cand of lemmaCandidates(word.trim().toLowerCase())) {
+    if (defs[cand]) return { word: cand, senses: defs[cand] };
+  }
+  return null;
+}
