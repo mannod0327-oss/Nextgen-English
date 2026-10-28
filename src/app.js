@@ -9,6 +9,7 @@ import { vocabulary, categories } from './data/vocabulary.js';
 import { grammar } from './data/grammar.js';
 import { placementQuestions } from './data/placement.js';
 import { sampleExam } from './data/sample-exam.js';
+import { exams } from './data/exams.js';
 import { scenarios } from './data/dialogues.js';
 import { guideSections, guideUnits } from './data/grammar-guide.js';
 
@@ -405,9 +406,17 @@ const views = {
         } catch (err) { $('#err').textContent = err.message; }
       };
       $('#reset').onclick = () => { store.set('currentExam', sampleExam); route(); };
+      $('#picker').onclick = (e) => {
+        const i = e.target.dataset.exam;
+        if (i !== undefined) { store.set('currentExam', exams[Number(i)]); route(); }
+      };
     });
     const history = store.get('examHistory', []).slice(-5).reverse();
-    return `<h2>⏱️ Imtihon simulyatori</h2><section class="card"><h3>${esc(exam.title)}</h3>
+    return `<h2>⏱️ Imtihon simulyatori</h2>
+      <h3>Tayyor testlar</h3><div class="list" id="picker">${exams.map((x, i) => `<button class="row pick${x.title === exam.title ? ' cur' : ''}" data-exam="${i}">
+        <span class="badge">${esc(x.level ?? 'A2–B1')}</span><b>${esc(x.title)}</b>
+        <span class="muted">${x.questions.length} savol · ${x.timeLimitMin} daq</span></button>`).join('')}</div>
+      <section class="card"><h3>${esc(exam.title)}</h3>
       <p>${exam.questions.length} savol · ${exam.timeLimitMin ?? '∞'} daqiqa · o'tish bali ${exam.passPercent ?? 70}%</p>
       <label><input type="checkbox" id="shuffle" checked> Savol va variantlarni aralashtirish</label><br><br>
       <button class="btn primary" id="start">Boshlash</button>

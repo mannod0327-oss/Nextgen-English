@@ -64,6 +64,9 @@ label > input[type="radio"], label > input[type="checkbox"] { display: inline; w
 .list { display: flex; flex-direction: column; gap: .35rem; margin: .5rem 0; }
 .row { display: flex; align-items: center; gap: .6rem; padding: .6rem .8rem; background: var(--card); border: 1px solid var(--line); border-radius: 10px; text-decoration: none; color: var(--text); }
 .row .muted { margin-left: auto; }
+button.row { font: inherit; text-align: left; cursor: pointer; width: 100%; }
+button.row * { pointer-events: none; }
+.row.pick.cur { border-color: var(--accent); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
 .guide-intro { border-color: var(--accent); }
 .guide-intro h3 { margin-top: 0; }

@@ -69,4 +69,24 @@ export const scenarios = [
     'When is the deadline for the application?',
     'Could you explain this topic again, please?',
   ] },
+  { id: 'pharmacy', title: '💊 Dorixonada', lines: [
+    'Do you have anything for a sore throat?',
+    'Do I need a prescription for this?',
+    'How many times a day should I take it?',
+  ] },
+  { id: 'bazaar', title: '🧺 Bozorda', lines: [
+    'How much is a kilo of grapes?',
+    "That's too expensive. Can you give me a discount?",
+    "I'll take two kilos, please.",
+  ] },
+  { id: 'guest', title: '🫖 Mehmonda', lines: [
+    'Thank you for inviting me. You have a lovely home.',
+    'This plov is delicious. Did you make it yourself?',
+    "It's getting late. I should be going.",
+  ] },
+  { id: 'post', title: '🏤 Pochtada', lines: [
+    "I'd like to send this parcel to Germany.",
+    'How long will it take to arrive?',
+    'Can I track the delivery online?',
+  ] },
 ];

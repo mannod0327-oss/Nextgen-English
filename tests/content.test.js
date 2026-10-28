@@ -9,6 +9,7 @@ import { placementQuestions } from '../src/data/placement.js';
 import { scenarios } from '../src/data/dialogues.js';
 import { guideSections, guideUnits } from '../src/data/grammar-guide.js';
 import { existsSync } from 'node:fs';
+import { exams } from '../src/data/exams.js';
 
 const asExam = (title, questions) => ({ format: 'nge-exam', title, questions });
 
@@ -52,6 +53,12 @@ test('grammar guide: sections cover units 1..N without gaps and every unit page 
     assert.ok(existsSync(file), `missing ${file.pathname}`);
   }
   assert.ok(existsSync(new URL('../grammar-guide/index.html', import.meta.url)));
+});
+
+test('exams: every ready-made test is valid, has a level and a unique title', () => {
+  assert.ok(exams.length >= 4);
+  assert.equal(new Set(exams.map((e) => e.title)).size, exams.length);
+  for (const e of exams) assert.deepEqual(validateExam(e), [], e.title);
 });
 
 test('scenarios: each has lines', () => {
