@@ -72,6 +72,31 @@ Several measures could address these issues. Firstly, governments could invest i
 In conclusion, migration to cities causes overcrowding, pollution and the decline of rural communities. However, if authorities spread opportunities more evenly across the country and plan urban growth sensibly, the negative effects can be significantly reduced for everyone involved.`,
     tips: ["Problem–solution esse: 1 abzas muammolar, 1 abzas yechimlar.", "Har bir yechim muammoga bog'langan bo'lsin.", "Firstly / Secondly / Finally — tartibni ko'rsatadi."],
   },
+  {
+    id: 'w1-transport', task: 1, minutes: 20, minWords: 150,
+    prompt: 'The table below shows how students at a university in Tashkent travelled to classes in 2014 and 2024. Summarise the information by selecting and reporting the main features, and make comparisons where relevant.',
+    table: [['Mode of transport', '2014', '2024'], ['Bus', '45%', '28%'], ['Metro', '20%', '38%'], ['Car (own or taxi)', '15%', '22%'], ['Walking', '15%', '7%'], ['Bicycle / scooter', '5%', '5%']],
+    model: `The table compares the methods of transport that students at a university in Tashkent used to get to classes in 2014 and 2024.
+
+Overall, the bus lost its position as the most common way of travelling, while the metro became the most popular choice. Walking also declined considerably, whereas the use of cars increased.
+
+In 2014, almost half of all students (45%) travelled by bus, which was more than double the proportion who used the metro (20%). Ten years later, however, the figures had almost reversed: the share of bus users fell to 28%, while the metro rose to 38%, making it the leading mode of transport.
+
+Car use, including taxis, grew from 15% to 22% over the decade. By contrast, the percentage of students who walked to university dropped from 15% to just 7%. The proportion of those who cycled or used scooters remained unchanged at 5% in both years, the lowest figure in the table.`,
+    tips: ["Ikki yil taqqoslanadi: o'tgan zamon (fell, rose, remained) ishlating.", "Raqam takrorlamaslik uchun: the share of, the proportion of, the percentage of.", "O'zgarmagan qatorni ham eslatib o'ting (remained unchanged)."],
+  },
+  {
+    id: 'w2-technology', task: 2, minutes: 40, minWords: 250,
+    prompt: 'Some people think that children should not be allowed to use smartphones until they are teenagers. To what extent do you agree or disagree?',
+    model: `Smartphones have become part of everyday life, and many children now receive their first device at primary school age. Some argue that phones should be banned until the teenage years. I partly agree with this view: young children should not have their own smartphones, but a complete ban is neither realistic nor entirely beneficial.
+
+There are strong reasons to delay smartphone ownership. Firstly, young children find it difficult to control the time they spend on games and videos, and excessive screen time has been linked to poor sleep, reduced physical activity and weaker concentration at school. Secondly, a smartphone gives children access to social media and strangers online, and they may not yet be mature enough to recognise risks such as cyberbullying or inappropriate content. For these reasons, parents are justified in waiting before giving a child a personal device.
+
+However, a strict ban until the age of thirteen ignores the positive uses of technology. Educational apps can help children practise reading, mathematics and foreign languages in an engaging way. In addition, many families rely on phones to stay in contact with their children when they travel to school or activities alone. Rather than banning devices completely, parents could allow supervised use of a shared tablet or a simple phone with limited functions.
+
+In conclusion, while I agree that children under thirteen should not own unrestricted smartphones, I believe that carefully controlled access to technology is more sensible than a total ban. The key is supervision and clear limits rather than prohibition.`,
+    tips: ["“To what extent” — pozitsiyangizni aniq ayting: to'liq qo'shilaman / qisman / qarshiman.", "Qisman rozilik (partly agree) — ikkala tomonni ko'rsatish uchun qulay.", "Har bir abzas bitta asosiy fikr + sabab + misol."],
+  },
 ];
 
 export const speaking = [
@@ -92,6 +117,18 @@ export const speaking = [
     part1: ['How much time do you spend on your phone each day?', 'What apps do you use most often?', 'Did you use computers when you were a child?', 'Would you like to have less technology in your life?'],
     part2: { card: 'Describe a piece of technology that you find very useful.', points: ['what it is', 'when you started using it', 'how you use it', 'and explain why it is so useful for you.'] },
     part3: ['How has technology changed the way people communicate?', 'Do you think people depend too much on technology?', 'What jobs might disappear because of artificial intelligence?'],
+  },
+  {
+    id: 's-environment', topic: 'Environment & weather',
+    part1: ['What kind of weather do you like best?', 'Does the weather affect your mood?', 'Do you try to save energy at home?', 'Are there any parks near where you live?'],
+    part2: { card: 'Describe an action you or someone you know took to help the environment.', points: ['what the action was', 'who did it', 'why they did it', 'and explain how effective you think it was.'] },
+    part3: ['Who is more responsible for protecting the environment: individuals or governments?', 'Why do some people not care about environmental problems?', 'How might cities change in the future because of climate change?'],
+  },
+  {
+    id: 's-work', topic: 'Work & ambitions',
+    part1: ['What job would you like to do in the future?', 'Would you prefer to work in an office or from home?', 'Is it important to enjoy your job?', 'What did you want to be when you were a child?'],
+    part2: { card: 'Describe a person you admire who is successful in their job.', points: ['who this person is', 'what job they do', 'how they became successful', 'and explain why you admire them.'] },
+    part3: ['What makes a job satisfying for most people?', 'Is it better to stay in one job for a long time or to change jobs often?', 'How will artificial intelligence change the workplace?'],
   },
 ];
 

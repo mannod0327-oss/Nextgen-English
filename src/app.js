@@ -527,6 +527,8 @@ const views = {
         <section class="card"><h3>📰 Reading</h3><p class="muted">True / False / Not Given va boshqa turlar.</p><div class="list">${rows(ieltsReadings)}</div>
           <p><a href="#/exam">⏱ IELTS-style imtihon (Imtihon bo'limida tanlang)</a></p></section>
         <section class="card"><h3>✍️ Writing</h3><div class="list">${writing.map((x) => `<a class="row" href="#/ielts?w=${x.id}"><span class="badge">Task ${x.task}</span><span>${esc(x.prompt.slice(0, 70))}…</span></a>`).join('')}</div></section>
+        <section class="card"><h3>📚 Akademik so'zlar</h3><p class="muted">IELTS Writing va Reading uchun ${vocabulary.filter((v) => v.category === "Akademik so'zlar (IELTS)").length} ta asosiy so'z — kartalar bilan yodlang.</p>
+          <a class="btn primary" href="#/vocab?cat=${encodeURIComponent("Akademik so'zlar (IELTS)")}">Kartalarni boshlash →</a></section>
         <section class="card"><h3>🗣 Speaking</h3><div class="list">${speaking.map((x) => `<a class="row" href="#/ielts?s=${x.id}"><span class="badge">P1–3</span><span><b>${esc(x.topic)}</b></span></a>`).join('')}</div></section>
       </div>
       <section class="card"><h3>🧮 Ball hisoblagich (40 savoldan)</h3>

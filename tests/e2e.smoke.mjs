@@ -126,6 +126,7 @@ await step('ielts: hub band calculator, writing word count, speaking cue card', 
   await page.goto(`${base}/#/ielts`);
   await page.fill('#raw-l', '35');
   if (!(await page.textContent('#band')).includes('Listening ≈ 8')) throw new Error(await page.textContent('#band'));
+  await page.waitForSelector('a[href^="#/vocab?cat=Akademik"]');
   await page.click('a[href="#/ielts?w=w2-cities"]');
   await page.fill('#essay', 'one two three');
   if (!(await page.textContent('#wc')).startsWith('3 / 250')) throw new Error('word count');
