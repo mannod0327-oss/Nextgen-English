@@ -9,7 +9,7 @@ mustaqil ravishda (clean-room) qayta qurilgan.
 
 - **Bog'liqliksiz** — hech qanday `npm install` kerak emas; faqat brauzer va Node.js ≥ 20.
 - **Oflayn** — barcha kontent va progress brauzerda (localStorage) saqlanadi.
-- **Testlangan** — 23 ta unit/kontent testi + 16 bosqichli brauzer E2E testi.
+- **Testlangan** — 24 ta unit/kontent testi + 17 bosqichli brauzer E2E testi.
 
 ## Ishga tushirish
 
@@ -30,8 +30,9 @@ npm run test:e2e     # brauzer smoke testi (Playwright + Chromium kerak; servern
 | 🌊 Immersiya o'yini    | Tarjimasiz: rasmga mos inglizcha so'zni topish.                                                                                                                                                                                                              |
 | 📐 Grammatika          | Mavzular daraxti → qoida, jadval, ovozli misollar, avtomatik tekshiriladigan mashqlar.                                                                                                                                                                       |
 | 📰 O'qish va tinglash  | A1–C1 matnlar (O'zbekiston hayotidan), 🔊 tinglash, matnni yashirib tinglash mashqi, tushunish savollari, istalgan so'zni bosib ma'nosini ko'rish, 🖍 IELTS'dagidek matnni belgilash. 🎧 IELTS uslubidagi tinglash mashqlari (matn javobdan keyin ochiladi). |
+| 🎓 IELTS tayyorlov      | Listening (matn yopiq) va Reading (T/F/NG, sarlavhalarni moslash) topshiriqlari, Writing Task 1/2 (taymer, so'z hisoblagich, 4 mezon bo'yicha o'z-o'zini tekshirish, Band 7–8 namunaviy javob), Speaking Part 1–3 (cue card taymeri), ball hisoblagich. Hammasi original. |
 | 🎙️ Nutq laboratoriyasi | Real vaziyatlar (mehmonxona, kafe, ofis…). Namuna (TTS, sekin rejim), mikrofon to'lqini, nutqni aniqlash va so'zma-so'z 0–100% baho.                                                                                                                         |
-| 📖 Lug'at              | Saralangan prefiks indeksida ikkilik qidiruv, so'z shakllarini tanish (`studies → study`, `running → run`), xato yozilganda taklif. 1405 so'zga inglizcha ta'rif (Open English WordNet).                                                                     |
+| 📖 Lug'at              | Saralangan prefiks indeksida ikkilik qidiruv, so'z shakllarini tanish (`studies → study`, `running → run`), xato yozilganda taklif. 1517 so'zga inglizcha ta'rif (Open English WordNet).                                                                     |
 | ⏱️ Imtihon simulyatori | Taymer, savollar navigatsiya paneli, javoblarni saqlash, natija va xatolar ustida ishlash. JSON test faylini yuklash.                                                                                                                                        |
 | 🛠️ Test yaratuvchi     | O'qituvchi uchun: 5 turdagi savol, validatsiya, JSON eksport/import, aralashtirilgan variantlar (A/B/C) va javob kaliti bilan chop etish.                                                                                                                    |
 
@@ -132,7 +133,7 @@ npm test   # har bir unit sahifasi borligini tekshiradi
 
 ## Inglizcha ta'riflar
 
-`src/data/definitions.js` — ilovadagi barcha matnlarda uchraydigan 1405 so'z uchun inglizcha ta'rif va misol
+`src/data/definitions.js` — ilovadagi barcha matnlarda uchraydigan 1517 so'z uchun inglizcha ta'rif va misol
 ([Open English WordNet](https://github.com/globalwordnet/english-wordnet), CC BY 4.0, litsenziya va atribusiya:
 [DATA-LICENSES.md](DATA-LICENSES.md)). Fayl faqat Lug'at yoki O'qish ochilganda yuklanadi (~80 KB gzip).
 Kontent o'zgarsa, qayta yarating:
@@ -149,7 +150,7 @@ npm test
   modelni emas. U "nima eshitildi"ni o'lchaydi, intonatsiyani emas. Nutqni aniqlash Chrome/Edge'da
   ishlaydi; boshqa brauzerlarda aytilganni yozib tekshirish mumkin.
 - **Progress** bitta brauzerda saqlanadi (sinxronizatsiya yo'q). Ko'p qurilma uchun backend kerak.
-- **Kontent hajmi**: 26 mavzuda 255 so'z (20 ta frazali fe'l bilan), 21 grammatika mavzusi (80 mashq, jumladan "O'zbeklar ko'p qiladigan xatolar", A1–C1) + 145 unitli qo'llanma, 14 ta o'qish matni + 4 ta tinglash mashqi A1–C1 (90 savol, IELTS True/False/Not Given va form completion bilan), 40 ta daraja savoli, 5 ta tayyor imtihon (A1, A2–B1, B1, B2, IELTS B2–C1), 17 vaziyatda 53 ibora (diktant rejimi bilan).
+- **Kontent hajmi**: 26 mavzuda 255 so'z (20 ta frazali fe'l bilan), 21 grammatika mavzusi (80 mashq, jumladan "O'zbeklar ko'p qiladigan xatolar", A1–C1) + 145 unitli qo'llanma, 15 ta o'qish matni + 6 ta tinglash mashqi A1–C1 (107 savol, IELTS True/False/Not Given va form completion bilan), 40 ta daraja savoli, 5 ta tayyor imtihon (A1, A2–B1, B1, B2, IELTS B2–C1), IELTS: 4 ta Writing (namunaviy javob bilan) va 3 ta Speaking to'plami, 17 vaziyatda 53 ibora (diktant rejimi bilan).
 - **Qo'llanma sahifalarida** Nextgen'ga qaytish tugmasi yo'q — brauzerning "orqaga" tugmasidan foydalaning. Qo'llanmadagi mashq natijalari Nextgen XP'siga qo'shilmaydi.
   Yangi kontent `src/data/` fayllariga qo'shiladi; `npm test` uni avtomatik tekshiradi.
 - Lug'at rasmlari — emoji (litsenziyasiz). Haqiqiy rasmlar uchun `emoji` maydonini rasm URL bilan almashtirish kifoya.

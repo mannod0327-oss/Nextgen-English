@@ -20,7 +20,7 @@ const step = async (name, fn) => { await fn(); console.log('✓', name); };
 await step('home renders tiles', async () => {
   await page.goto(base);
   await page.waitForSelector('.tile');
-  if ((await page.locator('.tile').count()) !== 9) throw new Error('expected 9 tiles');
+  if ((await page.locator('.tile').count()) !== 10) throw new Error('expected 10 tiles');
   await page.screenshot({ path: `${shots}/home.png` });
 });
 
@@ -120,6 +120,19 @@ await step('listening task: script hidden until checked', async () => {
   await page.click('#check');
   await page.waitForSelector('#text', { state: 'visible' });
   if ((await page.textContent('#result')) !== 'Natija: 20%') throw new Error(await page.textContent('#result'));
+});
+
+await step('ielts: hub band calculator, writing word count, speaking cue card', async () => {
+  await page.goto(`${base}/#/ielts`);
+  await page.fill('#raw-l', '35');
+  if (!(await page.textContent('#band')).includes('Listening ≈ 8')) throw new Error(await page.textContent('#band'));
+  await page.click('a[href="#/ielts?w=w2-cities"]');
+  await page.fill('#essay', 'one two three');
+  if (!(await page.textContent('#wc')).startsWith('3 / 250')) throw new Error('word count');
+  await page.goto(`${base}/#/ielts?s=s-learning`);
+  await page.click('#cue-start');
+  await page.waitForFunction(() => document.querySelector('#cue-timer').textContent === '0:59');
+  await page.screenshot({ path: `${shots}/ielts.png`, fullPage: true });
 });
 
 await step('dictation: text blurred until an attempt is scored', async () => {

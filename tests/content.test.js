@@ -9,6 +9,7 @@ import { placementQuestions } from '../src/data/placement.js';
 import { scenarios } from '../src/data/dialogues.js';
 import { guideSections, guideUnits } from '../src/data/grammar-guide.js';
 import { definitions } from '../src/data/definitions.js';
+import { writing, speaking, toBand } from '../src/data/ielts.js';
 import { existsSync } from 'node:fs';
 import { exams } from '../src/data/exams.js';
 import { readings } from '../src/data/readings.js';
@@ -86,4 +87,13 @@ test('definitions are well-formed and cover the vocabulary', () => {
   }
   const missing = vocabulary.filter((v) => !definitions[v.word.toLowerCase()]);
   assert.ok(missing.length <= vocabulary.length * 0.05, `no definition: ${missing.map((v) => v.word)}`);
+});
+
+test('ielts: model answers meet word limits, speaking sets complete, band table sane', () => {
+  for (const w of writing) assert.ok(w.model.split(/\s+/).length >= w.minWords, `${w.id} model too short`);
+  for (const sp of speaking) assert.ok(sp.part1.length >= 4 && sp.part2.points.length === 4 && sp.part3.length >= 3, sp.id);
+  assert.equal(toBand('listening', 40), 9);
+  assert.equal(toBand('listening', 30), 7);
+  assert.equal(toBand('reading', 0), 0);
+  for (let raw = 1; raw <= 40; raw++) assert.ok(toBand('reading', raw) >= toBand('reading', raw - 1));
 });

@@ -193,6 +193,70 @@ Guest: No, thank you. We're coming by train.`,
       { id: 'uh5', type: 'single', prompt: 'The example of old Bukhara is used to show that …', options: ['old cities were hotter', 'traditional design helped people adapt to heat', 'courtyards are expensive', 'narrow streets cause heat islands'], answer: 1 },
     ],
   },
+  {
+    id: 'gym-membership', level: 'B1', listening: true, title: 'IELTS Section 1: Joining a Sports Centre', uzTitle: 'Tinglash: sport markaziga a’zo bo‘lish',
+    text: `Assistant: Good evening, Olympia Sports Centre. How can I help?
+Caller: Hi, I'm interested in becoming a member. Could you tell me about the options?
+Assistant: Certainly. We have two types of membership. The standard one costs two hundred thousand sum a month and lets you use the gym and the pool. The premium membership is three hundred and fifty thousand and also includes fitness classes and the sauna.
+Caller: I think I'll take the standard one for now. Do I need to pay a joining fee?
+Assistant: Normally there's a fee of fifty thousand, but this month it's free for new members.
+Caller: Great. What are your opening hours?
+Assistant: We open at six a.m. on weekdays and close at eleven p.m. At weekends we open at eight.
+Caller: Okay. Can I sign up over the phone?
+Assistant: Yes. Can I take your full name, please?
+Caller: Sevara Tursunova. That's T-U-R-S-U-N-O-V-A.
+Assistant: And your date of birth?
+Caller: The fourteenth of June, two thousand and one.
+Assistant: Thank you. Please bring a passport photo when you come for your first visit, and we'll give you your card.`,
+    questions: [
+      { id: 'gm1', type: 'single', prompt: 'Which membership does the caller choose?', options: ['standard', 'premium', 'student', 'family'], answer: 0 },
+      { id: 'gm2', type: 'fill', prompt: 'Monthly price: ___ thousand sum', answer: ['200', 'two hundred'] },
+      { id: 'gm3', type: 'single', prompt: 'The joining fee this month is …', options: ['50,000 sum', 'free', '200,000 sum', 'half price'], answer: 1, explanation: 'Odatda 50 ming, lekin “this month it’s free” — chalg‘ituvchi raqam.' },
+      { id: 'gm4', type: 'fill', prompt: 'At weekends the centre opens at ___ a.m.', answer: ['8', 'eight'] },
+      { id: 'gm5', type: 'fill', prompt: 'Surname: ___', answer: 'Tursunova' },
+      { id: 'gm6', type: 'single', prompt: 'What must she bring on her first visit?', options: ['her passport', 'a passport photo', 'a towel', 'cash'], answer: 1 },
+    ],
+  },
+  {
+    id: 'project-discussion', level: 'B2', listening: true, title: 'IELTS Section 3: Planning a Research Project', uzTitle: 'Tinglash: tadqiqot loyihasini rejalashtirish',
+    text: `Tutor: So, Kamola and Timur, have you decided on a topic for your research project?
+Kamola: We have. We'd like to investigate how students at our university use public transport.
+Tutor: That sounds manageable. How are you planning to collect your data?
+Timur: At first we thought about interviews, but they take a lot of time. So we've decided to use an online questionnaire instead.
+Tutor: Sensible. How many responses are you hoping for?
+Kamola: We're aiming for at least one hundred and fifty. That should give us reliable results.
+Tutor: Good. And who is going to do what?
+Timur: I'll design the questionnaire, because I've done a statistics course. Kamola will write the literature review.
+Kamola: Yes, and we'll analyse the results together.
+Tutor: One thing I'd suggest: test your questionnaire on a small group first. Students often write questions that are confusing.
+Timur: That's a good idea. We could ask our classmates.
+Tutor: Exactly. And remember, the first draft is due on the twentieth of March, not the end of the month as it says in the old handbook.`,
+    questions: [
+      { id: 'pd1', type: 'single', prompt: 'What is the topic of the project?', options: ['student accommodation', 'how students use public transport', 'online learning', 'university sports'], answer: 1 },
+      { id: 'pd2', type: 'single', prompt: 'Why did they reject interviews?', options: ['They are too expensive.', 'They take too much time.', 'The tutor disagreed.', 'Students refused.'], answer: 1 },
+      { id: 'pd3', type: 'fill', prompt: 'Target number of responses: at least ___', answer: ['150', 'one hundred and fifty', 'a hundred and fifty'] },
+      { id: 'pd4', type: 'match', prompt: 'Who will do each task?', pairs: [['design the questionnaire', 'Timur'], ['write the literature review', 'Kamola'], ['analyse the results', 'both']] },
+      { id: 'pd5', type: 'single', prompt: 'The tutor advises them to …', options: ['use interviews after all', 'test the questionnaire on a small group', 'ask more than 500 students', 'change the topic'], answer: 1 },
+      { id: 'pd6', type: 'fill', prompt: 'The first draft is due on ___ March.', answer: ['20', '20th', 'the twentieth', 'twentieth'], explanation: 'Eski qo‘llanmadagi “end of the month” — chalg‘ituvchi.' },
+    ],
+  },
+  {
+    id: 'bees-headings', level: 'C1', title: 'IELTS Reading: Why Bees Matter', uzTitle: 'Asalarilar nega muhim (sarlavhalarni moslash)',
+    text: `A. Roughly three-quarters of the world's major food crops depend, at least in part, on animal pollinators, and bees are by far the most important of these. Apples, almonds, melons and many vegetables would produce far smaller harvests without them. In economic terms, the value of pollination to global agriculture has been estimated in the hundreds of billions of dollars each year.
+
+B. Over the past two decades, however, beekeepers in many countries have reported unusually heavy losses of their colonies. Scientists have identified several causes acting together rather than a single culprit: certain pesticides that affect bees' ability to navigate, parasites such as the varroa mite, the loss of wild flowers, and changing weather patterns.
+
+C. Farmers have responded in different ways. Some now rent hives during the flowering season, transporting millions of bees by truck from one region to another. Others plant strips of wild flowers along the edges of their fields, providing food and shelter for wild bees throughout the year.
+
+D. Individuals can help too. Gardeners who avoid chemical sprays and grow flowers that bloom at different times of the year create small but valuable refuges. Even urban balconies, when filled with herbs such as mint and basil, can support pollinators in the middle of a city.`,
+    questions: [
+      { id: 'bh1', type: 'match', prompt: 'Match each paragraph (A–D) with the best heading.', pairs: [['Paragraph A', 'The economic importance of pollination'], ['Paragraph B', 'A combination of threats'], ['Paragraph C', 'How agriculture is adapting'], ['Paragraph D', 'What ordinary people can do']] },
+      { id: 'bh2', type: 'single', prompt: 'Scientists believe one single cause is responsible for colony losses.', options: ['True', 'False', 'Not Given'], answer: 1 },
+      { id: 'bh3', type: 'single', prompt: 'Rented hives are more expensive than planting wild flowers.', options: ['True', 'False', 'Not Given'], answer: 2 },
+      { id: 'bh4', type: 'fill', prompt: 'The varroa mite is an example of a ___.', answer: 'parasite' },
+      { id: 'bh5', type: 'single', prompt: 'According to paragraph D, city balconies …', options: ['are too small to matter', 'can support pollinators', 'should not have flowers', 'attract dangerous insects'], answer: 1 },
+    ],
+  },
   // ---- More B2–C1 reading
   {
     id: 'sleep-memory', level: 'B2', title: 'Sleep and Memory', uzTitle: 'Uyqu va xotira',

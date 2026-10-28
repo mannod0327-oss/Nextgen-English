@@ -113,3 +113,11 @@ pre { white-space: pre-wrap; }
   .grades { grid-template-columns: 1fr 1fr; }
   .stats { gap: .5rem; font-size: .9rem; }
 }
+
+.essay { width: 100%; box-sizing: border-box; font: inherit; padding: .75rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); color: var(--text); }
+.model { white-space: pre-line; line-height: 1.7; margin-top: .5rem; }
+.check { display: block; margin: .4rem 0; }
+.badge.ok { background: color-mix(in srgb, var(--ok) 20%, transparent); color: var(--ok); }
+.big-band { font-size: 1.4rem; font-weight: 700; color: var(--accent); }
+.steps li { margin: .25rem 0; }
+.cue { border-left: 4px solid var(--accent); }

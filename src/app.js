@@ -13,6 +13,7 @@ import { exams } from './data/exams.js';
 import { readings } from './data/readings.js';
 import { scenarios } from './data/dialogues.js';
 import { guideSections, guideUnits } from './data/grammar-guide.js';
+import { writing, writingCriteria, speaking, officialResources, toBand } from './data/ielts.js';
 
 // English definitions (Open English WordNet, ~80KB gzip) load only when a view needs them.
 let defsPromise;
@@ -145,7 +146,8 @@ const views = {
       ['#/vocab', '🖼️', "Vizual lug'at", `${vocabulary.length} ta so'z · ${due} ta takrorlash kutmoqda`],
       ['#/immersion', '🌊', "Immersiya o'yini", "Tarjimasiz: rasmga mos so'zni toping"],
       ['#/grammar', '📐', 'Grammatika', `${guideUnits.length} unitli qo'llanma + ${grammar.length} ta mashqli mavzu`],
-      ['#/reading', '📰', "O'qish va tinglash", `${readings.length} ta matn (A1–B2), tushunish savollari bilan`],
+      ['#/reading', '📰', "O'qish va tinglash", `${readings.length} ta matn va tinglash (A1–C1), savollar bilan`],
+      ['#/ielts', '🎓', 'IELTS tayyorlov', `Listening, Reading, ${writing.length} ta Writing, ${speaking.length} ta Speaking, ball hisoblagich`],
       ['#/speech', '🎙️', 'Nutq laboratoriyasi', "Real vaziyatlar, talaffuzni 0–100% baholash"],
       ['#/dictionary', '📖', "Lug'at", "Prefiks qidiruv, so'z shakllarini taniydi"],
       ['#/exam', '⏱️', 'Imtihon simulyatori', "Taymer, navigatsiya, xatolar tahlili"],
@@ -442,6 +444,97 @@ const views = {
       <canvas width="600" height="60" aria-hidden="true"></canvas>
       <input class="typed" placeholder="…yoki aytganingizni yozing va Enter bosing">
       <div class="res" aria-live="polite"></div></section>`).join('')}`;
+  },
+
+  ielts(params) {
+    const mmss = (sec) => `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}`;
+    // Countdown that stops itself once the view is gone.
+    const countdown = (el, sec, done) => {
+      el.textContent = mmss(sec);
+      const id = setInterval(() => {
+        if (!el.isConnected) return clearInterval(id);
+        el.textContent = mmss(--sec);
+        if (sec <= 0) { clearInterval(id); done?.(); }
+      }, 1000);
+    };
+    const w = writing.find((x) => x.id === params.get('w'));
+    if (w) {
+      const drafts = store.get('ieltsDrafts', {});
+      queueMicrotask(() => {
+        const ta = $('#essay');
+        const count = () => {
+          const n = ta.value.trim() ? ta.value.trim().split(/\s+/).length : 0;
+          $('#wc').textContent = `${n} / ${w.minWords} so'z`;
+          $('#wc').className = n >= w.minWords ? 'badge ok' : 'badge';
+          store.set('ieltsDrafts', { ...store.get('ieltsDrafts', {}), [w.id]: ta.value });
+        };
+        ta.oninput = count;
+        count();
+        $('#timer-start').onclick = (e) => { e.target.disabled = true; countdown($('#timer'), w.minutes * 60, () => { $('#timer').textContent = "⏰ Vaqt tugadi!"; }); };
+      });
+      return `<a href="#/ielts">← IELTS</a><h2>Writing Task ${w.task} <span class="badge">${w.minutes} daqiqa · ${w.minWords}+ so'z</span></h2>
+        <section class="card"><p><b>${esc(w.prompt)}</b></p>
+        ${w.table ? `<table class="tbl">${w.table.map((row, i) => `<tr>${row.map((c) => (i ? `<td>${esc(c)}</td>` : `<th>${esc(c)}</th>`)).join('')}</tr>`).join('')}</table>` : ''}
+        ${w.steps ? `<ol class="steps">${w.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ol>` : ''}</section>
+        <p><button class="btn" id="timer-start">⏱ Taymerni boshlash</button> <b id="timer">${mmss(w.minutes * 60)}</b> <span id="wc" class="badge"></span></p>
+        <textarea id="essay" rows="14" class="essay" placeholder="Javobingizni shu yerga yozing… (avtomatik saqlanadi)">${esc(drafts[w.id] ?? '')}</textarea>
+        <section class="card"><h3>✅ O'zingizni tekshiring (4 mezon)</h3>${writingCriteria.map(([c, d]) => `<label class="check"><input type="checkbox"> <b>${esc(c)}</b> — <span class="muted">${esc(d)}</span></label>`).join('')}</section>
+        <details class="card"><summary><b>💡 Maslahatlar</b></summary><ul>${w.tips.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></details>
+        <details class="card"><summary><b>📄 Namunaviy javob (Band 7–8)</b> — avval o'zingiz yozing!</summary><div class="model">${esc(w.model)}</div>
+          <p class="muted">${w.model.split(/\s+/).length} so'z</p></details>`;
+    }
+    const sp = speaking.find((x) => x.id === params.get('s'));
+    if (sp) {
+      queueMicrotask(() => {
+        $('#cue-start').onclick = (e) => {
+          e.target.disabled = true;
+          $('#cue-phase').textContent = 'Tayyorlanish (eslatma yozing):';
+          countdown($('#cue-timer'), 60, () => {
+            $('#cue-phase').textContent = '🎙 Gapiring!';
+            countdown($('#cue-timer'), 120, () => { $('#cue-phase').textContent = '✅ Vaqt tugadi.'; e.target.disabled = false; });
+          });
+        };
+      });
+      const qs = (list) => `<ol>${list.map((q) => `<li>${esc(q)} <button class="link" data-say="${esc(q)}">🔊</button></li>`).join('')}</ol>`;
+      return `<a href="#/ielts">← IELTS</a><h2>Speaking: ${esc(sp.topic)}</h2>
+        <p class="muted">Savolni 🔊 tinglang va ovoz chiqarib javob bering. Part 1 — 2–3 gap, Part 3 — sabab va misol bilan kengroq.</p>
+        <section class="card"><h3>Part 1 · 4–5 daqiqa</h3>${qs(sp.part1)}</section>
+        <section class="card cue"><h3>Part 2 · Cue card</h3><p><b>${esc(sp.part2.card)}</b></p><p>You should say:</p>
+          <ul>${sp.part2.points.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
+          <p><button class="btn primary" id="cue-start">⏱ 1 daqiqa tayyorlanish + 2 daqiqa gapirish</button> <span id="cue-phase"></span> <b id="cue-timer"></b></p>
+          <textarea rows="3" class="essay" placeholder="Qisqa eslatmalar (faqat kalit so'zlar)…"></textarea></section>
+        <section class="card"><h3>Part 3 · Muhokama</h3>${qs(sp.part3)}</section>
+        <p><a class="btn" href="#/speech">🎙 Talaffuzni baholash — Nutq laboratoriyasi</a></p>`;
+    }
+    const ieltsReadings = readings.filter((x) => !x.listening && x.questions.some((q) => q.options?.includes('Not Given')));
+    const listenings = readings.filter((x) => x.listening);
+    const done = store.get('readingDone', {});
+    const rows = (list) => list.map((x) => `<a class="row" href="#/reading?t=${x.id}"><span class="badge">${x.level}</span><span><b>${esc(x.title)}</b></span><span class="muted">${done[x.id] != null ? `${done[x.id]}%` : ''}</span></a>`).join('');
+    queueMicrotask(() => {
+      const calc = () => {
+        const l = Math.min(40, Math.max(0, Number($('#raw-l').value) || 0));
+        const r = Math.min(40, Math.max(0, Number($('#raw-r').value) || 0));
+        $('#band').textContent = `Listening ≈ ${toBand('listening', l)} · Reading ≈ ${toBand('reading', r)}`;
+      };
+      $('#raw-l').oninput = calc;
+      $('#raw-r').oninput = calc;
+      calc();
+    });
+    return `<h2>🎓 IELTS Academic tayyorlov</h2>
+      <p class="muted">Barcha topshiriqlar original, rasmiy IELTS formatida yozilgan. Haqiqiy test 4 qismdan iborat: Listening (30 daq), Reading (60 daq), Writing (60 daq), Speaking (11–14 daq).</p>
+      <div class="grid">
+        <section class="card"><h3>🎧 Listening</h3><p class="muted">Matn yopiq — tinglang, javob bering.</p><div class="list">${rows(listenings)}</div></section>
+        <section class="card"><h3>📰 Reading</h3><p class="muted">True / False / Not Given va boshqa turlar.</p><div class="list">${rows(ieltsReadings)}</div>
+          <p><a href="#/exam">⏱ IELTS-style imtihon (Imtihon bo'limida tanlang)</a></p></section>
+        <section class="card"><h3>✍️ Writing</h3><div class="list">${writing.map((x) => `<a class="row" href="#/ielts?w=${x.id}"><span class="badge">Task ${x.task}</span><span>${esc(x.prompt.slice(0, 70))}…</span></a>`).join('')}</div></section>
+        <section class="card"><h3>🗣 Speaking</h3><div class="list">${speaking.map((x) => `<a class="row" href="#/ielts?s=${x.id}"><span class="badge">P1–3</span><span><b>${esc(x.topic)}</b></span></a>`).join('')}</div></section>
+      </div>
+      <section class="card"><h3>🧮 Ball hisoblagich (40 savoldan)</h3>
+        <label>Listening to'g'ri javoblar: <input id="raw-l" type="number" min="0" max="40" value="30"></label>
+        <label>Reading to'g'ri javoblar: <input id="raw-r" type="number" min="0" max="40" value="30"></label>
+        <p class="big-band" id="band"></p><p class="muted">Taxminiy, ochiq e'lon qilingan jadval asosida; rasmiy ball har bir test uchun biroz farq qilishi mumkin.</p></section>
+      <section class="card"><h3>🔗 Rasmiy bepul materiallar</h3><ul>${officialResources.map(([t, u]) => `<li><a href="${u}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join('')}</ul>
+        <p class="muted">Cambridge IELTS kitoblari mualliflik huquqi bilan himoyalangan — ularni faqat sotib olib yoki kutubxonadan foydalaning.</p></section>`;
   },
 
   dictionary(params) {
