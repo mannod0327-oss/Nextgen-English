@@ -9,7 +9,7 @@ mustaqil ravishda (clean-room) qayta qurilgan.
 
 - **Bog'liqliksiz** — hech qanday `npm install` kerak emas; faqat brauzer va Node.js ≥ 20.
 - **Oflayn** — barcha kontent va progress brauzerda (localStorage) saqlanadi.
-- **Testlangan** — 29 ta unit/kontent testi + 17 bosqichli brauzer E2E testi.
+- **Testlangan** — 30 ta unit/kontent testi + 17 bosqichli brauzer E2E testi.
 
 ## Ishga tushirish
 
@@ -25,6 +25,7 @@ npm run test:e2e     # brauzer smoke testi (Playwright + Chromium kerak; servern
 
 | Bo'lim                  | Nima qiladi                                                                                                                                                                                                                                                                                                                                                                                           |
 | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 📅 Bugungi reja | Bosh sahifada har kuni darajangizga mos 4 ta vazifa (kartalar, grammatika, o'qish, tinglash/fe'llar); bajarilganlari avtomatik ✅. |
 | 🧭 Daraja testi         | Adaptiv "zinapoya" testi: ketma-ket 2 to'g'ri → daraja oshadi, xato → tushadi. Natija A1–C1.                                                                                                                                                                                                                                                                                                          |
 | 🖼️ Vizual lug'at        | Rasm + so'z + IPA + o'zbekcha tarjima + misol. SM-2 takrorlash algoritmi, klaviatura (Space, 1–4).                                                                                                                                                                                                                                                                                                    |
 | 🌊 Immersiya o'yini     | Tarjimasiz: rasmga mos inglizcha so'zni topish.                                                                                                                                                                                                                                                                                                                                                       |
