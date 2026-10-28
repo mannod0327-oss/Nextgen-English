@@ -453,4 +453,203 @@ Ultimately, the attention economy raises a question that goes beyond technology:
       },
     ],
   },
+  'listening-3': {
+    kind: 'listening', title: 'IELTS Listening — Mock Test 3', minutes: 30,
+    sections: [
+      {
+        title: 'Part 1 · Registering for a photography course',
+        intro: 'You will hear a man calling a community centre. Questions 1–10.',
+        script: `Receptionist: Riverside Community Centre, good afternoon.
+Caller: Hello. I'm interested in the photography course for beginners.
+Receptionist: Yes, it runs on Wednesday evenings from seven until nine.
+Caller: How many weeks is it?
+Receptionist: Eight weeks, starting on the twelfth of April.
+Caller: And the price?
+Receptionist: It's sixty-five pounds, or fifty for students and people over sixty.
+Caller: I'm a student, so that's fifty. Do I need my own camera?
+Receptionist: A phone camera is fine for the first few weeks, but for the second half of the course you'll need a digital camera. We can lend you one for a small fee.
+Caller: Great. Where exactly is the class?
+Receptionist: In the Art Room, on the second floor. Can I take your name?
+Caller: It's Javlon Ergashev. That's E-R-G-A-S-H-E-V.
+Receptionist: And your email?
+Caller: javlon at mailbox dot com.
+Receptionist: Thank you. Please bring a notebook to the first class.`,
+        questions: [
+          { id: 'n3l1', type: 'fill', prompt: '1. Day of the course: ___', answer: 'Wednesday' },
+          { id: 'n3l2', type: 'fill', prompt: '2. Number of weeks: ___', answer: ['8', 'eight'] },
+          { id: 'n3l3', type: 'fill', prompt: '3. Start date: the ___ of April', answer: ['twelfth', '12th', '12'] },
+          { id: 'n3l4', type: 'fill', prompt: '4. Price the caller pays: £___', answer: ['50', 'fifty'] },
+          { id: 'n3l5', type: 'single', prompt: '5. For the second half of the course students need …', options: ['a phone', 'a digital camera', 'a laptop', 'a tripod'], answer: 1 },
+          { id: 'n3l6', type: 'single', prompt: '6. If students have no camera, the centre can …', options: ['sell one', 'lend one for a small fee', 'give one free', 'not help'], answer: 1 },
+          { id: 'n3l7', type: 'fill', prompt: '7. Room: the ___ Room', answer: 'Art' },
+          { id: 'n3l8', type: 'fill', prompt: '8. Floor: ___', answer: ['second', '2nd', '2'] },
+          { id: 'n3l9', type: 'fill', prompt: '9. Surname: ___', answer: 'Ergashev' },
+          { id: 'n3l10', type: 'fill', prompt: '10. Bring a ___ to the first class.', answer: 'notebook' },
+        ],
+      },
+      {
+        title: 'Part 2 · A new recycling scheme',
+        intro: 'You will hear a council officer explaining a new recycling scheme. Questions 11–20.',
+        script: `Good evening, everyone. Thank you for coming to hear about the new recycling scheme, which starts on the first of June. From that date, every household will receive three bins instead of one. The blue bin is for paper and cardboard, the green bin is for glass and metal, and the brown bin is for food waste. Plastic will be collected separately in special bags, which you can pick up free of charge from the library or the post office.
+Collections will take place every Tuesday. Blue and green bins will be emptied every week, but general waste will now be collected only every two weeks. Please put your bins out after eight p.m. on Monday evening and bring them back in by Wednesday.
+Large items such as old furniture or fridges are not collected from the street. Instead, you can book a collection online, and the first two items each year are free. We are also opening a repair café in the town hall on the last Saturday of every month, where volunteers will help you fix broken items so that they don't have to be thrown away.
+Our target is to increase the recycling rate from thirty percent to fifty percent within three years.`,
+        questions: [
+          { id: 'n3l11', type: 'fill', prompt: '11. The scheme starts on the first of ___.', answer: 'June' },
+          { id: 'n3l12', type: 'fill', prompt: '12. Each household will receive ___ bins.', answer: ['3', 'three'] },
+          { id: 'n3l13', type: 'single', prompt: '13. The green bin is for …', options: ['paper', 'glass and metal', 'food waste', 'plastic'], answer: 1 },
+          { id: 'n3l14', type: 'single', prompt: '14. Plastic bags are available from …', options: ['shops', 'the library or post office', 'the town hall', 'the council website'], answer: 1 },
+          { id: 'n3l15', type: 'fill', prompt: '15. Collection day: ___', answer: 'Tuesday' },
+          { id: 'n3l16', type: 'single', prompt: '16. General waste will be collected …', options: ['every week', 'every two weeks', 'every month', 'twice a week'], answer: 1 },
+          { id: 'n3l17', type: 'fill', prompt: '17. Put bins out after ___ p.m. on Monday.', answer: ['8', 'eight'] },
+          { id: 'n3l18', type: 'single', prompt: '18. How many large-item collections are free each year?', options: ['none', 'one', 'two', 'unlimited'], answer: 2 },
+          { id: 'n3l19', type: 'fill', prompt: '19. The repair café is in the town ___.', answer: 'hall' },
+          { id: 'n3l20', type: 'fill', prompt: '20. Target recycling rate: ___ %', answer: ['50', 'fifty'] },
+        ],
+      },
+      {
+        title: 'Part 3 · Choosing a dissertation method',
+        intro: 'You will hear two students, Shoira and Tom, discussing their psychology project with their tutor. Questions 21–30.',
+        script: `Tutor: So, have you agreed on the focus of your project?
+Shoira: Yes, we want to look at whether listening to music helps students concentrate while studying.
+Tom: We were going to compare music with and without lyrics.
+Tutor: Good. How will you measure concentration?
+Shoira: We'll give participants a reading comprehension test in three conditions: silence, instrumental music and songs with lyrics.
+Tutor: Each participant does all three?
+Tom: Yes, but on different days, so they don't get tired. And we'll change the order for each person.
+Tutor: Excellent — that controls for practice effects. How many participants?
+Shoira: We hope to recruit thirty, mostly first-year students.
+Tutor: That's reasonable. Have you thought about the type of music?
+Tom: We'd chosen pop music, but now we think classical piano might be better for the instrumental condition, because it has fewer sudden changes.
+Tutor: Makes sense. What do you expect to find?
+Shoira: Our hypothesis is that songs with lyrics will lower scores, because the words compete with the reading text.
+Tutor: Good. Remember to get signed consent forms before you begin, and keep the data anonymous. Your proposal is due on the fifth of December.`,
+        questions: [
+          { id: 'n3l21', type: 'single', prompt: '21. The project investigates whether music …', options: ['improves sleep', 'helps concentration while studying', 'reduces stress at work', 'improves memory in children'], answer: 1 },
+          { id: 'n3l22', type: 'fill', prompt: '22. Participants will take a reading ___ test.', answer: 'comprehension' },
+          { id: 'n3l23', type: 'fill', prompt: '23. Number of conditions: ___', answer: ['3', 'three'] },
+          { id: 'n3l24', type: 'single', prompt: '24. Why will participants do the tasks on different days?', options: ['to avoid tiredness', 'because of room bookings', 'to save money', 'the tutor insisted'], answer: 0 },
+          { id: 'n3l25', type: 'single', prompt: '25. Changing the order for each person controls for …', options: ['noise', 'practice effects', 'age', 'music volume'], answer: 1 },
+          { id: 'n3l26', type: 'fill', prompt: '26. Planned number of participants: ___', answer: ['30', 'thirty'] },
+          { id: 'n3l27', type: 'fill', prompt: '27. Instrumental music will now be classical ___.', answer: 'piano' },
+          { id: 'n3l28', type: 'single', prompt: '28. Why did they change from pop music?', options: ['It is too popular.', 'Classical piano has fewer sudden changes.', 'Pop music has no lyrics.', 'The tutor dislikes pop.'], answer: 1 },
+          { id: 'n3l29', type: 'single', prompt: '29. Their hypothesis is that songs with lyrics will …', options: ['raise scores', 'lower scores', 'have no effect', 'help only first-year students'], answer: 1 },
+          { id: 'n3l30', type: 'fill', prompt: '30. Proposal deadline: the ___ of December', answer: ['fifth', '5th', '5'] },
+        ],
+      },
+      {
+        title: 'Part 4 · Lecture: The history of maps',
+        intro: 'You will hear part of a lecture about how maps have developed. Questions 31–40.',
+        script: `Today I'm going to talk about the development of maps and what they reveal about the people who made them.
+Some of the oldest surviving maps were carved on clay tablets in ancient Mesopotamia. They were not designed for navigation but to record property boundaries and the locations of cities, which tells us that land ownership was already an important concern.
+For many centuries, maps reflected beliefs as much as geography. Medieval European maps often placed Jerusalem at the centre and included religious scenes, so their purpose was partly spiritual.
+A major step forward came with the work of scholars in the Islamic world. In the twelfth century, the geographer al-Idrisi produced a world map based on reports from travellers and merchants, and it remained influential for three hundred years.
+The age of European exploration brought a practical problem: how to show the curved surface of the Earth on a flat sheet. In fifteen sixty-nine, Gerardus Mercator published a projection in which lines of constant compass direction appear straight, which was extremely useful for sailors. However, it greatly exaggerates the size of land near the poles, so Greenland looks about as large as Africa, although Africa is actually around fourteen times bigger.
+Today, digital maps on our phones are updated constantly using satellite images and data from millions of users. In the final part of today's lecture, we'll consider the privacy questions this raises.`,
+        questions: [
+          { id: 'n3l31', type: 'fill', prompt: '31. Early maps in Mesopotamia were carved on clay ___.', answer: ['tablets', 'tablet'] },
+          { id: 'n3l32', type: 'single', prompt: '32. These early maps were mainly used to record …', options: ['sea routes', 'property boundaries and cities', 'stars', 'trade prices'], answer: 1 },
+          { id: 'n3l33', type: 'single', prompt: '33. Medieval European maps often placed … at the centre.', options: ['Rome', 'Jerusalem', 'Athens', 'London'], answer: 1 },
+          { id: 'n3l34', type: 'fill', prompt: '34. Al-Idrisi worked in the ___ century.', answer: ['twelfth', '12th'] },
+          { id: 'n3l35', type: 'single', prompt: '35. Al-Idrisi’s map was based on reports from …', options: ['soldiers', 'travellers and merchants', 'kings', 'astronomers'], answer: 1 },
+          { id: 'n3l36', type: 'fill', prompt: '36. His map remained influential for ___ years.', answer: ['300', 'three hundred'] },
+          { id: 'n3l37', type: 'fill', prompt: '37. Mercator published his projection in ___.', answer: ['1569', 'fifteen sixty-nine'] },
+          { id: 'n3l38', type: 'fill', prompt: '38. The projection was especially useful for ___.', answer: ['sailors', 'sailor'] },
+          { id: 'n3l39', type: 'single', prompt: '39. The Mercator projection exaggerates the size of land …', options: ['near the equator', 'near the poles', 'in Africa', 'in the oceans'], answer: 1 },
+          { id: 'n3l40', type: 'fill', prompt: '40. Africa is about ___ times bigger than Greenland.', answer: ['14', 'fourteen'] },
+        ],
+      },
+    ],
+  },
+
+  'reading-3': {
+    kind: 'reading', title: 'IELTS Academic Reading — Mock Test 3', minutes: 60,
+    sections: [
+      {
+        title: 'Passage 1 · The Story of Plov',
+        intro: 'Questions 1–13. You should spend about 20 minutes on this passage.',
+        text: `Few dishes are as closely tied to national identity as plov is in Uzbekistan. At its simplest, plov consists of rice cooked with meat, onions and carrots in a large cast-iron pot called a kazan, but there are dozens of regional versions. In Samarkand, the ingredients are traditionally arranged in layers and not stirred, while in Tashkent the rice is often mixed with the other ingredients near the end of cooking.
+
+The dish is usually prepared by men at large gatherings such as weddings and celebrations, when a single kazan may feed several hundred guests. Cooking plov for such numbers requires considerable skill, particularly in controlling the heat, since the rice must absorb exactly the right amount of liquid without burning at the bottom. The yellow carrots used in many recipes are valued for their sweetness, and cumin seeds and dried barberries are common additions.
+
+Plov also has a social meaning. In many neighbourhoods, a "morning plov" is served very early, sometimes before sunrise, to mark important family events, and men gather to eat together before going to work. Sharing plov is seen as a sign of hospitality and community.
+
+In 2016 the culture and tradition of plov in Uzbekistan was added to UNESCO's list of the Intangible Cultural Heritage of Humanity. Supporters hope that this recognition will encourage young people to learn the traditional methods, which are typically passed down within families rather than taught in schools. Nevertheless, modern life is bringing changes: some families now cook smaller portions at home on electric stoves, and restaurants offer lighter versions for health-conscious customers.`,
+        questions: [
+          { id: 'n3r1', type: 'single', prompt: '1. Plov is always cooked in exactly the same way across Uzbekistan.', options: tfng, answer: 1 },
+          { id: 'n3r2', type: 'single', prompt: '2. In Samarkand the ingredients are traditionally not stirred.', options: tfng, answer: 0 },
+          { id: 'n3r3', type: 'single', prompt: '3. Women traditionally cook plov at weddings.', options: tfng, answer: 1 },
+          { id: 'n3r4', type: 'single', prompt: '4. Controlling the heat is one of the main difficulties.', options: tfng, answer: 0 },
+          { id: 'n3r5', type: 'single', prompt: '5. Yellow carrots are more expensive than orange carrots.', options: tfng, answer: 2 },
+          { id: 'n3r6', type: 'single', prompt: '6. Morning plov is sometimes served before sunrise.', options: tfng, answer: 0 },
+          { id: 'n3r7', type: 'single', prompt: '7. Traditional plov methods are usually taught in schools.', options: tfng, answer: 1 },
+          { id: 'n3r8', type: 'fill', prompt: '8. Plov is cooked in a large pot called a ___. (ONE WORD)', answer: 'kazan' },
+          { id: 'n3r9', type: 'fill', prompt: '9. Yellow carrots are valued for their ___. (ONE WORD)', answer: 'sweetness' },
+          { id: 'n3r10', type: 'fill', prompt: '10. Common additions include cumin seeds and dried ___. (ONE WORD)', answer: 'barberries' },
+          { id: 'n3r11', type: 'fill', prompt: '11. Sharing plov is a sign of hospitality and ___. (ONE WORD)', answer: 'community' },
+          { id: 'n3r12', type: 'fill', prompt: '12. Plov was added to the UNESCO list in ___. (NUMBER)', answer: '2016' },
+          { id: 'n3r13', type: 'fill', prompt: '13. Some families now cook on electric ___. (ONE WORD)', answer: ['stoves', 'stove'] },
+        ],
+      },
+      {
+        title: 'Passage 2 · Why Do We Yawn?',
+        intro: 'Questions 14–26. You should spend about 20 minutes on this passage.',
+        text: `A. Yawning is one of the most familiar human behaviours, yet scientists still disagree about why we do it. Almost all vertebrates yawn, including fish, birds and reptiles, which suggests that the behaviour is very old in evolutionary terms.
+
+B. A popular explanation is that yawning increases the amount of oxygen in the blood. However, this idea has little experimental support. In one well-known study, volunteers who breathed air with extra oxygen yawned just as often as those breathing normal air.
+
+C. A more recent theory proposes that yawning helps to cool the brain. When we yawn, a deep intake of air and the stretching of the jaw increase blood flow to the head, which may carry away excess heat. Supporting this idea, researchers have found that people yawn more in moderate temperatures than in very hot or very cold conditions, and that holding a cold pack to the forehead reduces yawning.
+
+D. Yawning is also famously contagious: seeing, hearing or even reading about someone yawning can trigger a yawn. Contagious yawning appears to be linked to social bonds. People are more likely to catch a yawn from family members and friends than from strangers, and it is rare in children under about four years old.
+
+E. Some researchers have suggested that contagious yawning helps groups coordinate their activity, for example by signalling that it is time to rest. Others caution that the link with empathy is weaker than once thought, since some studies have found only small differences between individuals.
+
+F. Whatever its purpose, yawning is difficult to suppress, and attempts to stop it usually fail. As one researcher put it, yawning is a reminder that much of our behaviour is not under conscious control.`,
+        questions: [
+          { id: 'n3r14', type: 'single', prompt: '14. Which paragraph shows that yawning is very old in evolutionary terms?', options: ['A', 'B', 'C', 'D'], answer: 0 },
+          { id: 'n3r15', type: 'single', prompt: '15. Which paragraph rejects the oxygen explanation?', options: ['A', 'B', 'C', 'E'], answer: 1 },
+          { id: 'n3r16', type: 'single', prompt: '16. Which paragraph links yawning to temperature?', options: ['B', 'C', 'D', 'F'], answer: 1 },
+          { id: 'n3r17', type: 'single', prompt: '17. Which paragraph describes yawning between friends and family?', options: ['C', 'D', 'E', 'F'], answer: 1 },
+          { id: 'n3r18', type: 'single', prompt: '18. In the oxygen study, volunteers breathing extra oxygen yawned …', options: ['less often', 'more often', 'just as often', 'not at all'], answer: 2 },
+          { id: 'n3r19', type: 'single', prompt: '19. Holding a cold pack to the forehead …', options: ['increases yawning', 'reduces yawning', 'has no effect', 'causes contagious yawning'], answer: 1 },
+          { id: 'n3r20', type: 'single', prompt: '20. According to paragraph E, the link between yawning and empathy is …', options: ['proven', 'weaker than once thought', 'very strong in children', 'only found in animals'], answer: 1 },
+          { id: 'n3r21', type: 'single', prompt: '21. Fish and birds also yawn.', options: tfng, answer: 0 },
+          { id: 'n3r22', type: 'single', prompt: '22. People yawn most in very hot conditions.', options: tfng, answer: 1 },
+          { id: 'n3r23', type: 'single', prompt: '23. Contagious yawning is common in babies.', options: tfng, answer: 1 },
+          { id: 'n3r24', type: 'single', prompt: '24. Dogs can catch yawns from their owners.', options: tfng, answer: 2 },
+          { id: 'n3r25', type: 'fill', prompt: '25. Yawning may help to ___ the brain. (ONE WORD)', answer: 'cool' },
+          { id: 'n3r26', type: 'fill', prompt: '26. Contagious yawning may help groups ___ their activity. (ONE WORD)', answer: 'coordinate' },
+        ],
+      },
+      {
+        title: 'Passage 3 · The Gig Economy',
+        intro: 'Questions 27–40. You should spend about 20 minutes on this passage.',
+        text: `Over the last fifteen years, digital platforms have created a new way of working often called the gig economy. Instead of holding a permanent job with a single employer, workers accept individual tasks — delivering food, driving passengers, designing logos or translating documents — through apps that connect them directly with customers. The platforms take a commission on each transaction rather than paying a fixed salary.
+
+For many workers, the main attraction is flexibility. Students, parents and people with other jobs can choose when and how much to work, and in theory they can log off whenever they like. Platforms have also lowered the barriers to entering certain kinds of work: a driver no longer needs to buy an expensive taxi licence, and a freelance designer can find clients in other countries without an agency.
+
+Critics argue that this flexibility comes at a considerable cost. Because gig workers are usually classified as independent contractors rather than employees, they often have no right to sick pay, paid holidays or pensions, and income can vary greatly from week to week. Algorithms that allocate tasks and set prices can also feel opaque: workers may not know why their earnings have fallen or why their account has been suspended.
+
+Governments have responded in different ways. Some courts have ruled that certain drivers should be treated as workers with basic rights, while other jurisdictions have created a new intermediate category between employee and contractor. Platforms argue that stricter rules would reduce flexibility and raise prices for customers.
+
+Research on workers' own views presents a mixed picture. Surveys suggest that those who use platform work as a supplement to other income tend to be more satisfied than those who depend on it entirely. Many also report that ratings from customers create pressure to accept tasks they would prefer to refuse. The debate, therefore, is less about whether the gig economy should exist than about how its benefits and risks should be shared.`,
+        questions: [
+          { id: 'n3r27', type: 'single', prompt: '27. Platforms usually earn money by …', options: ['paying salaries', 'taking a commission on each transaction', 'selling licences', 'charging workers a monthly fee'], answer: 1 },
+          { id: 'n3r28', type: 'single', prompt: '28. The main attraction for many workers is …', options: ['high pay', 'flexibility', 'pensions', 'training'], answer: 1 },
+          { id: 'n3r29', type: 'single', prompt: '29. Which barrier has been lowered for drivers?', options: ['learning to drive', 'buying an expensive taxi licence', 'owning a car', 'speaking English'], answer: 1 },
+          { id: 'n3r30', type: 'single', prompt: '30. Critics say algorithms can feel …', options: ['generous', 'opaque', 'slow', 'friendly'], answer: 1 },
+          { id: 'n3r31', type: 'single', prompt: '31. What is the writer’s conclusion?', options: ['The gig economy should be banned.', 'The debate is about sharing benefits and risks.', 'Platforms have no disadvantages.', 'Workers prefer permanent jobs.'], answer: 1 },
+          { id: 'n3r32', type: 'single', prompt: '32. Gig workers are usually classified as independent contractors.', options: tfng, answer: 0 },
+          { id: 'n3r33', type: 'single', prompt: '33. Gig workers always receive paid holidays.', options: tfng, answer: 1 },
+          { id: 'n3r34', type: 'single', prompt: '34. All courts have agreed that drivers are employees.', options: tfng, answer: 1 },
+          { id: 'n3r35', type: 'single', prompt: '35. Food delivery is the largest type of gig work.', options: tfng, answer: 2 },
+          { id: 'n3r36', type: 'single', prompt: '36. Workers who rely entirely on platforms tend to be less satisfied.', options: tfng, answer: 0 },
+          { id: 'n3r37', type: 'fill', prompt: '37. A freelance designer can find clients without an ___. (ONE WORD)', answer: 'agency' },
+          { id: 'n3r38', type: 'fill', prompt: '38. Some jurisdictions created a new ___ category. (ONE WORD)', answer: 'intermediate' },
+          { id: 'n3r39', type: 'fill', prompt: '39. Platforms say stricter rules would raise ___ for customers. (ONE WORD)', answer: ['prices', 'price'] },
+          { id: 'n3r40', type: 'fill', prompt: '40. Customer ___ create pressure to accept tasks. (ONE WORD)', answer: ['ratings', 'rating'] },
+        ],
+      },
+    ],
+  },
 };
