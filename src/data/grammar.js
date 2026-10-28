@@ -232,4 +232,22 @@ export const grammar = [
       { id: 'wf5', type: 'fill', prompt: 'Tashkent has grown ___ (rapid) in recent years.', answer: 'rapidly' },
     ],
   },
+  {
+    id: 'uzbek-mistakes', title: "O'zbeklar ko'p qiladigan xatolar", level: 'B1',
+    rule: "Ko'p xatolar o'zbek tilidan so'zma-so'z tarjimadan kelib chiqadi. \"Men roziman\" → I agree (I am agree emas); \"20 yoshdaman\" → I am 20 (I have 20 years emas); \"menga tushuntir\" → explain to me; \"musiqa tinglamoq\" → listen to music; \"chiroqni yoq\" → turn on the light; \"rasmga tushmoq\" → take a photo. Information, advice, news — sanalmaydigan otlar: -s qo'shilmaydi.",
+    table: [['❌ Xato', '✅ To‘g‘ri'], ['I am agree.', 'I agree.'], ['I have 20 years.', 'I am 20 (years old).'], ['He said me.', 'He told me. / He said to me.'], ['I live here since 2015.', 'I have lived here since 2015.'], ['many informations', 'a lot of information'], ['open the light', 'turn on the light']],
+    examples: ['I agree with you.', 'She is twenty-five years old.', 'Can you explain the rule to me?', 'We have lived in Tashkent since 2018.'],
+    exercises: [
+      { id: 'uz1', type: 'single', prompt: 'Qaysi gap to‘g‘ri?', options: ['I am agree with you.', 'I agree with you.', 'I am agreeing you.', 'I agreed to you now.'], answer: 1, explanation: 'agree — fe’l, oldiga am qo‘yilmaydi.' },
+      { id: 'uz2', type: 'single', prompt: '“Men 20 yoshdaman.”', options: ['I have 20 years.', 'I am 20 years.', 'I am 20.', 'I have 20 age.'], answer: 2, explanation: 'Yosh be fe’li bilan: I am 20 (years old).' },
+      { id: 'uz3', type: 'fill', prompt: 'Can you explain this word ___ me?', answer: 'to', explanation: 'explain something to somebody.' },
+      { id: 'uz4', type: 'single', prompt: 'He ___ me that he was tired.', options: ['said', 'told', 'spoke', 'talked'], answer: 1, explanation: 'tell + kishi: told me; say + gap: said that…' },
+      { id: 'uz5', type: 'single', prompt: 'I ___ in Samarkand since 2015.', options: ['live', 'am living', 'have lived', 'lived'], answer: 2, explanation: 'since/for + hozirgacha davom etayotgan holat → Present Perfect.' },
+      { id: 'uz6', type: 'single', prompt: 'Thank you for the ___.', options: ['informations', 'information', 'an information', 'many information'], answer: 1, explanation: 'information — sanalmaydigan ot.' },
+      { id: 'uz7', type: 'fill', prompt: 'It’s dark. Please turn ___ the light.', answer: 'on' },
+      { id: 'uz8', type: 'single', prompt: 'Let’s ___ a photo here!', options: ['make', 'take', 'do', 'pull'], answer: 1 },
+      { id: 'uz9', type: 'fill', prompt: 'I like listening ___ music in the evening.', answer: 'to' },
+      { id: 'uz10', type: 'single', prompt: 'Where ___?', options: ['he works', 'does he work', 'is he works', 'he does work'], answer: 1, explanation: 'Savolda yordamchi fe’l: does + ega + fe’l.' },
+    ],
+  },
 ];
