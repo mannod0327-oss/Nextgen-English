@@ -19,8 +19,8 @@ Citation:
 
 > John P. McCrae, Alexandre Rademaker, Francis Bond, Ewa Rudnicka and
 > Christiane Fellbaum (2019). [English WordNet 2019 – An Open-Source WordNet
-> for English](https://aclanthology.org/2019.gwc-1.31/). In *Proceedings of the
-> 10th Global WordNet Conference – GWC 2019*, Wrocław.
+> for English](https://aclanthology.org/2019.gwc-1.31/). In _Proceedings of the
+> 10th Global WordNet Conference – GWC 2019_, Wrocław.
 
 ## WordNet license
 

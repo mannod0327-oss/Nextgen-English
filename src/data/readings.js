@@ -1,4 +1,4 @@
-// Graded reading texts (A1–B2) with comprehension questions in the exam question schema.
+// Graded reading texts and listening tasks (A1–C1) with comprehension questions in the exam question schema.
 // Original texts set in Uzbekistan so the context is familiar; each can also be heard via TTS.
 
 export const readings = [
@@ -135,6 +135,85 @@ Nodira`,
       { id: 'wa3', type: 'single', prompt: 'Experts believe building new dams is the best solution.', options: ['True', 'False', 'Not Given'], answer: 1, explanation: "“not necessarily new dams but more efficient use” — False." },
       { id: 'wa4', type: 'multiple', prompt: 'Which responses do experts recommend?', options: ['drip irrigation', 'lined canals', 'more cotton fields', 'crops that need less water', 'moving cities'], answer: [0, 1, 3] },
       { id: 'wa5', type: 'single', prompt: 'The word "unprecedented" means …', options: ['never seen before', 'very small', 'planned carefully', 'illegal'], answer: 0 },
+    ],
+  },
+  // ---- Listening tasks (IELTS-style): text hidden until checked; "Name: " speaker labels are not read aloud.
+  {
+    id: 'hotel-booking', level: 'A2', listening: true, title: 'Booking a Hotel Room', uzTitle: 'Tinglash: mehmonxona band qilish',
+    text: `Receptionist: Good morning, Silk Road Hotel. How can I help you?
+Guest: Hello. I'd like to book a room for next weekend, please.
+Receptionist: Of course. Which nights?
+Guest: Friday and Saturday, so two nights.
+Receptionist: A single or a double room?
+Guest: A double room, please. I'm coming with my wife.
+Receptionist: No problem. That's ninety dollars a night, and breakfast is included. Can I have your name?
+Guest: Yes, it's Karimov. K-A-R-I-M-O-V.
+Receptionist: Thank you, Mr Karimov. And a phone number?
+Guest: It's nine nine eight, nine zero, four five six, seven eight, one two.
+Receptionist: Great. Check-in is from two o'clock. Will you need a taxi from the airport?
+Guest: No, thank you. We're coming by train.`,
+    questions: [
+      { id: 'hl1', type: 'fill', prompt: 'Number of nights: ___ (raqam bilan)', answer: ['2', 'two'] },
+      { id: 'hl2', type: 'single', prompt: 'Type of room:', options: ['single', 'double', 'family', 'suite'], answer: 1 },
+      { id: 'hl3', type: 'fill', prompt: 'Price per night: $___', answer: ['90', 'ninety'] },
+      { id: 'hl4', type: 'fill', prompt: 'Surname: ___', answer: 'Karimov', explanation: 'IELTS: harflab aytilgan ismni to‘g‘ri yozish muhim.' },
+      { id: 'hl5', type: 'single', prompt: 'How will the guests travel to the hotel?', options: ['by taxi', 'by plane', 'by train', 'by bus'], answer: 2, explanation: 'Taksi taklif qilindi, lekin mehmon “by train” dedi — chalg‘ituvchi variant.' },
+    ],
+  },
+  {
+    id: 'museum-tour', level: 'B1', listening: true, title: 'Museum Announcement', uzTitle: 'Tinglash: muzey e’loni',
+    text: `Welcome to the State Museum of History. Before you start your visit, here is some useful information. The museum is open every day except Monday, from nine in the morning until six in the evening. On Thursdays we stay open until eight. The main exhibition is on the ground floor, and the jewellery collection is on the second floor. Please note that the first floor is closed this month for repairs. Free guided tours in English start at eleven o'clock and at three o'clock from the main entrance. Each tour lasts about forty-five minutes. Photography is allowed, but please do not use flash. The café is next to the gift shop, and it serves hot drinks and light meals. Lockers for bags are available near the ticket office. They cost five thousand sum. We hope you enjoy your visit.`,
+    questions: [
+      { id: 'mt1', type: 'single', prompt: 'On which day is the museum closed?', options: ['Sunday', 'Monday', 'Thursday', 'It is never closed.'], answer: 1 },
+      { id: 'mt2', type: 'fill', prompt: 'On Thursdays the museum closes at ___ o’clock.', answer: ['8', 'eight'] },
+      { id: 'mt3', type: 'single', prompt: 'Which floor is closed this month?', options: ['the ground floor', 'the first floor', 'the second floor', 'none'], answer: 1 },
+      { id: 'mt4', type: 'multiple', prompt: 'Which TWO times do English tours start?', options: ['9:00', '11:00', '13:00', '15:00'], answer: [1, 3] },
+      { id: 'mt5', type: 'fill', prompt: 'A tour lasts about ___ minutes.', answer: ['45', 'forty-five', 'forty five'] },
+    ],
+  },
+  {
+    id: 'student-orientation', level: 'B2', listening: true, title: 'Student Orientation Talk', uzTitle: 'Tinglash: talabalar uchun tanishuv',
+    text: `Good afternoon, everyone, and welcome to the university. I'm going to give you a quick overview of the support available to you this term. First, the library. It's open twenty-four hours during exam periods, but at other times it closes at ten p.m. You'll need your student card to enter, so collect it from the registration office in Building C by Friday. Second, academic writing. Many first-year students underestimate how different university essays are from school essays. That's why we run a free writing workshop every Wednesday afternoon. You don't need to book; just turn up. Third, if you're struggling with stress or homesickness, our counselling service is confidential and free of charge. Appointments can be made online. Finally, a word about deadlines. Late assignments lose ten percent of the mark for each day they are late, unless you have an approved extension. So, if you're ill, contact your tutor before the deadline, not after it.`,
+    questions: [
+      { id: 'so1', type: 'single', prompt: 'Outside exam periods, the library closes at …', options: ['8 p.m.', '10 p.m.', 'midnight', 'it never closes'], answer: 1 },
+      { id: 'so2', type: 'fill', prompt: 'Students must collect their card from Building ___.', answer: 'C' },
+      { id: 'so3', type: 'single', prompt: 'What does the speaker say about the writing workshop?', options: ['It must be booked online.', 'It costs a small fee.', 'Students can attend without booking.', 'It is only for final-year students.'], answer: 2 },
+      { id: 'so4', type: 'fill', prompt: 'Late work loses ___ percent per day.', answer: ['10', 'ten'] },
+      { id: 'so5', type: 'single', prompt: 'If students are ill, they should contact their tutor …', options: ['after the deadline', 'before the deadline', 'only by email', 'at the counselling service'], answer: 1 },
+    ],
+  },
+  {
+    id: 'urban-heat', level: 'C1', listening: true, title: 'Lecture: Urban Heat Islands', uzTitle: 'Tinglash: shahar issiqlik orollari (ma’ruza)',
+    text: `Today's lecture deals with a phenomenon known as the urban heat island. Put simply, cities tend to be noticeably warmer than the surrounding countryside, and the difference is most pronounced at night. During the day, asphalt, concrete and dark roofs absorb solar radiation; after sunset, they release that stored heat slowly, which prevents the city from cooling down. In large cities the night-time difference can reach several degrees. Now, why does this matter? Primarily because of public health. Prolonged heat raises the risk of heat stroke, particularly among elderly people, and it drives up electricity demand for air conditioning, which in turn produces more waste heat. Fortunately, the remedies are well understood. Planting street trees provides shade and cools the air through evaporation. Reflective or "cool" roofs bounce sunlight back instead of absorbing it. And traditional design offers lessons too: the narrow streets and inner courtyards of old Bukhara were, in effect, an early form of climate adaptation. In the next session we will compare the cost-effectiveness of these measures.`,
+    questions: [
+      { id: 'uh1', type: 'single', prompt: 'According to the lecturer, the temperature difference is greatest …', options: ['at midday', 'in the morning', 'at night', 'in winter'], answer: 2 },
+      { id: 'uh2', type: 'single', prompt: 'Cities stay warm after sunset because building materials …', options: ['reflect sunlight', 'release stored heat slowly', 'produce electricity', 'stop the wind completely'], answer: 1 },
+      { id: 'uh3', type: 'multiple', prompt: 'Which TWO problems does the lecturer link to urban heat?', options: ['heat stroke among elderly people', 'more traffic accidents', 'higher electricity demand', 'lower school results'], answer: [0, 2] },
+      { id: 'uh4', type: 'fill', prompt: 'Trees cool the air through shade and ___.', answer: 'evaporation' },
+      { id: 'uh5', type: 'single', prompt: 'The example of old Bukhara is used to show that …', options: ['old cities were hotter', 'traditional design helped people adapt to heat', 'courtyards are expensive', 'narrow streets cause heat islands'], answer: 1 },
+    ],
+  },
+  // ---- More B2–C1 reading
+  {
+    id: 'sleep-memory', level: 'B2', title: 'Sleep and Memory', uzTitle: 'Uyqu va xotira',
+    text: `Students preparing for exams often sacrifice sleep in order to study longer, but research suggests this strategy may backfire. While we sleep, the brain does not simply switch off. Instead, it replays and reorganises information gathered during the day, transferring important memories from short-term storage into more stable, long-term networks. In one well-known type of experiment, volunteers learn a list of words or a new skill in the evening. Those who are allowed a full night's sleep usually remember more the next morning than those who stay awake, even when both groups spend the same total time awake before the test. Deep sleep appears to be particularly important for remembering facts, whereas the dreaming stage seems to help with creative problem-solving. Lack of sleep also reduces concentration, so a tired student takes longer to learn the same material. Most experts therefore recommend regular study sessions spread over several weeks, combined with seven to nine hours of sleep, rather than one exhausting night before the exam.`,
+    questions: [
+      { id: 'sm1', type: 'single', prompt: 'During sleep, the brain …', options: ['stops working completely', 'reorganises information from the day', 'deletes old memories', 'only produces dreams'], answer: 1 },
+      { id: 'sm2', type: 'single', prompt: 'In the experiments, people who slept usually remembered more.', options: ['True', 'False', 'Not Given'], answer: 0 },
+      { id: 'sm3', type: 'single', prompt: 'The volunteers in the experiments were all university students.', options: ['True', 'False', 'Not Given'], answer: 2, explanation: 'Ishtirokchilar kimligi aytilmagan — Not Given.' },
+      { id: 'sm4', type: 'single', prompt: 'Which stage of sleep helps most with remembering facts?', options: ['deep sleep', 'the dreaming stage', 'light sleep', 'the first five minutes'], answer: 0 },
+      { id: 'sm5', type: 'fill', prompt: 'Experts recommend seven to ___ hours of sleep.', answer: ['nine', '9'] },
+    ],
+  },
+  {
+    id: 'fast-fashion', level: 'C1', title: 'The True Cost of Fast Fashion', uzTitle: 'Tez moda (fast fashion)ning haqiqiy narxi',
+    text: `Over the past two decades, the clothing industry has undergone a profound transformation. Retailers that once released two collections a year now introduce new designs every few weeks, and garments have become so inexpensive that many are worn only a handful of times before being discarded. This model, commonly referred to as fast fashion, is undeniably convenient for consumers, yet its costs are largely borne elsewhere. Textile production consumes vast quantities of water; cotton, in particular, is a thirsty crop, a fact that Central Asian readers will recognise from the history of the Aral Sea. Synthetic fabrics such as polyester, meanwhile, are derived from oil and shed microscopic fibres into rivers and oceans each time they are washed. There is also a human dimension: to keep prices low, production is frequently outsourced to factories where wages are minimal and safety standards are weak. Proposed remedies range from stricter regulation and recycling schemes to so-called slow fashion, which encourages consumers to buy fewer, better-made items and to repair rather than replace them. Whether such ideas can compete with the appeal of cheap novelty remains an open question.`,
+    questions: [
+      { id: 'ff1', type: 'single', prompt: 'Fast-fashion retailers now release new designs only twice a year.', options: ['True', 'False', 'Not Given'], answer: 1, explanation: 'Ikki marta — bu avval edi; hozir “every few weeks”.' },
+      { id: 'ff2', type: 'single', prompt: 'The writer mentions the Aral Sea to illustrate …', options: ['the beauty of Central Asia', 'how much water cotton needs', 'a new factory', 'the history of polyester'], answer: 1 },
+      { id: 'ff3', type: 'fill', prompt: 'Polyester is made from ___.', answer: 'oil' },
+      { id: 'ff4', type: 'multiple', prompt: 'Which remedies are mentioned?', options: ['stricter regulation', 'banning cotton', 'recycling schemes', 'repairing clothes', 'higher taxes on shoppers'], answer: [0, 2, 3] },
+      { id: 'ff5', type: 'single', prompt: 'The phrase "borne elsewhere" means the costs are …', options: ['paid by other people or places', 'hidden in the price', 'reduced over time', 'born in factories'], answer: 0 },
     ],
   },
 ];

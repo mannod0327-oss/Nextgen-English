@@ -109,6 +109,16 @@ await step('reading gloss + dictionary definitions (lazy-loaded WordNet)', async
   await page.screenshot({ path: `${shots}/definitions.png` });
 });
 
+await step('listening task: script hidden until checked', async () => {
+  await page.goto(`${base}/#/reading?t=hotel-booking`);
+  await page.waitForSelector('#check');
+  if (await page.locator('#text').isVisible()) throw new Error('script should start hidden');
+  await page.fill('[data-q="hl4"] .fill', 'karimov');
+  await page.click('#check');
+  await page.waitForSelector('#text', { state: 'visible' });
+  if ((await page.textContent('#result')) !== 'Natija: 20%') throw new Error(await page.textContent('#result'));
+});
+
 await step('dictation: text blurred until an attempt is scored', async () => {
   await page.goto(`${base}/#/speech?s=taxi`);
   await page.check('#dict');

@@ -63,13 +63,16 @@ test('exams: every ready-made test is valid, has a level and a unique title', ()
   for (const e of exams) assert.deepEqual(validateExam(e), [], e.title);
 });
 
-test('readings: valid questions, unique ids, every CEFR band A1–B2 covered', () => {
+test('readings: valid questions, unique ids, every CEFR band A1–C1 covered, listening tasks present', () => {
   assert.equal(new Set(readings.map((r) => r.id)).size, readings.length);
+  const qids = readings.flatMap((r) => r.questions.map((q) => q.id));
+  assert.equal(new Set(qids).size, qids.length, 'question ids must be unique');
   for (const r of readings) {
     assert.ok(r.text.split(/\s+/).length >= 60, `${r.id} text too short`);
     assert.deepEqual(validateExam(asExam(r.title, r.questions)), [], r.id);
   }
-  for (const lvl of ['A1', 'A2', 'B1', 'B2']) assert.ok(readings.some((r) => r.level === lvl), lvl);
+  for (const lvl of ['A1', 'A2', 'B1', 'B2', 'C1']) assert.ok(readings.some((r) => r.level === lvl), lvl);
+  assert.ok(readings.filter((r) => r.listening).length >= 4);
 });
 
 test('scenarios: each has lines', () => {

@@ -333,13 +333,14 @@ const views = {
     if (!t) {
       return `<h2>📰 O'qish va tinglash</h2><p class="muted">Matnni o'qing yoki 🔊 tinglang, so'ng savollarga javob bering. Tinglash mashqi uchun matnni yopib, faqat eshitib javob berib ko'ring.</p>
         <div class="list">${readings.map((x) => `<a class="row" href="#/reading?t=${x.id}">
-          <span class="badge ${x.level === profile().level ? 'hl' : ''}">${x.level}</span><span><b>${esc(x.title)}</b><br><span class="muted">${esc(x.uzTitle)}</span></span>
+          <span class="badge ${x.level === profile().level ? 'hl' : ''}">${x.level}</span><span><b>${x.listening ? '🎧 ' : ''}${esc(x.title)}</b><br><span class="muted">${esc(x.uzTitle)}</span></span>
           <span class="muted">${done[x.id] != null ? `${done[x.id]}%` : ''}</span></a>`).join('')}</div>`;
     }
     const r = rand();
     queueMicrotask(() => {
-      $('#listen').onclick = () => speak(t.text);
-      $('#listen-slow').onclick = () => speak(t.text, 0.7);
+      const spoken = t.text.replace(/^[A-Z][a-z]+: /gm, '');
+      $('#listen').onclick = () => speak(spoken);
+      $('#listen-slow').onclick = () => speak(spoken, 0.7);
       $('#text').onclick = async (e) => {
         const w = e.target.closest('.tw')?.textContent;
         if (!w) return;
@@ -363,14 +364,15 @@ const views = {
         store.set('readingDone', { ...store.get('readingDone', {}), [t.id]: pct });
         addXp(Math.round(total * 3));
         $('#result').textContent = `Natija: ${pct}%`;
+        $('#text').hidden = false; // listening tasks reveal the script after checking
       };
     });
     return `<a href="#/reading">← Matnlar</a><h2>${esc(t.title)} <span class="badge">${t.level}</span></h2>
       <p class="muted">${esc(t.uzTitle)}</p>
       <p><button class="btn" id="listen">🔊 Tinglash</button> <button class="btn" id="listen-slow">🐢 Sekin</button>
         <button class="btn" id="hide">🙈 Matnni yashirish / ko'rsatish</button></p>
-      <p class="muted">💡 Istalgan so'zni bosing — ma'nosi chiqadi.</p>
-      <section class="card reading-text" id="text">${t.text.split(/([A-Za-z][A-Za-z'’-]*)/).map((p, n) => (n % 2 ? `<span class="tw">${esc(p)}</span>` : esc(p))).join('')}</section>
+      <p class="muted">${t.listening ? "🎧 Tinglash mashqi: matn yopiq. Avval 🔊 tinglang (IELTS'da 1 marta!), javob bering — tekshirgandan keyin matn ochiladi." : "💡 Istalgan so'zni bosing — ma'nosi chiqadi."}</p>
+      <section class="card reading-text" id="text"${t.listening ? ' hidden' : ''}>${t.text.split(/([A-Za-z][A-Za-z'’-]*)/).map((p, n) => (n % 2 ? `<span class="tw">${esc(p)}</span>` : esc(p))).join('')}</section>
       <aside class="card gloss" id="gloss" hidden></aside>
       <h3>Savollar</h3>${t.questions.map((q, n) => `<section class="card question" data-q="${q.id}">
         <b>${n + 1}. ${esc(q.prompt)}</b>${questionHtml(q, r)}<div class="fb"></div></section>`).join('')}
