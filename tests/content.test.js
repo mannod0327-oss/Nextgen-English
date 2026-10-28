@@ -11,6 +11,10 @@ import { guideSections, guideUnits } from '../src/data/grammar-guide.js';
 import { definitions } from '../src/data/definitions.js';
 import { writing, speaking, toBand } from '../src/data/ielts.js';
 import { mockTests } from '../src/data/ielts-mock.js';
+import { speakingBank } from '../src/data/ielts-bank-speaking.js';
+import { writingBank } from '../src/data/ielts-bank-writing.js';
+import { readingBank } from '../src/data/ielts-bank-reading.js';
+import { listeningBank } from '../src/data/ielts-bank-listening.js';
 import { existsSync } from 'node:fs';
 import { exams } from '../src/data/exams.js';
 import { readings } from '../src/data/readings.js';
@@ -120,8 +124,30 @@ test('ielts mock tests: 40 single-answer questions each, answers findable in the
 test('question ids are unique across grammar, readings and mocks (mistakes notebook keys)', () => {
   const ids = [
     ...grammar.flatMap((t) => t.exercises.map((e) => e.id)),
-    ...readings.flatMap((r) => r.questions.map((q) => q.id)),
+    ...[...readings, ...readingBank, ...listeningBank].flatMap((r) => r.questions.map((q) => q.id)),
     ...Object.values(mockTests).flatMap((m) => m.sections.flatMap((sec) => sec.questions.map((q) => q.id))),
   ];
   assert.equal(new Set(ids).size, ids.length);
+});
+
+test('ielts bank: 200+ original tasks, every question valid and every gap-fill answer in its text', () => {
+  assert.ok(speakingBank.length >= 60 && writingBank.length >= 60 && readingBank.length >= 40 && listeningBank.length >= 40);
+  assert.ok(speakingBank.length + writingBank.length + readingBank.length + listeningBank.length >= 200);
+  const textIds = [...readings, ...readingBank, ...listeningBank].map((r) => r.id);
+  assert.equal(new Set(textIds).size, textIds.length, 'text ids');
+  for (const r of [...readingBank, ...listeningBank]) {
+    assert.equal(r.questions.length, 5, r.id);
+    assert.deepEqual(validateExam(asExam(r.title, r.questions)), [], r.id);
+    const src = r.text.toLowerCase();
+    for (const q of r.questions.filter((x) => x.type === 'fill')) {
+      assert.ok([].concat(q.answer).some((a) => src.includes(String(a).toLowerCase())), `${q.id}: answer not in text`);
+    }
+  }
+  for (const sp of speakingBank) assert.ok(sp.part1.length >= 4 && sp.part2.points.length === 4 && sp.part3.length >= 3, sp.id);
+  const ids = [...writing, ...writingBank, ...speaking, ...speakingBank].map((x) => x.id);
+  assert.equal(new Set(ids).size, ids.length, 'writing/speaking ids');
+  for (const w of writingBank) {
+    assert.ok(w.prompt && w.plan.length >= 2, w.id);
+    if (w.table) assert.ok(w.table.every((row) => row.length === w.table[0].length), `${w.id}: ragged table`);
+  }
 });

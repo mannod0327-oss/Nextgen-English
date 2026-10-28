@@ -11,13 +11,15 @@ import { readings } from '../src/data/readings.js';
 import { grammar } from '../src/data/grammar.js';
 import { scenarios } from '../src/data/dialogues.js';
 import { exams } from '../src/data/exams.js';
+import { readingBank } from '../src/data/ielts-bank-reading.js';
+import { listeningBank } from '../src/data/ielts-bank-listening.js';
 
 const MAX_SENSES = 2;
 const SKIP = new Set('a an the of to and or but is are was were be been am i you he she it we they me him her us them my your his its our their this that these those in on at for with by from as if so not no do does did has have had will would can could shall should may might must there here what who which when where why how than then also very too just'.split(' '));
 
 const text = [
   ...vocabulary.flatMap((v) => [v.word, v.example]),
-  ...readings.flatMap((r) => [r.text, ...r.questions.map((q) => q.prompt)]),
+  ...[...readings, ...readingBank, ...listeningBank].flatMap((r) => [r.text, ...r.questions.map((q) => q.prompt)]),
   ...grammar.flatMap((t) => [...t.examples, ...t.exercises.map((e) => e.prompt)]),
   ...scenarios.flatMap((s) => s.lines),
   ...exams.flatMap((e) => e.questions.map((q) => q.prompt)),

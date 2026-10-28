@@ -15,6 +15,19 @@ import { scenarios } from './data/dialogues.js';
 import { guideSections, guideUnits } from './data/grammar-guide.js';
 import { writing, writingCriteria, speaking, officialResources, toBand } from './data/ielts.js';
 import { mockTests } from './data/ielts-mock.js';
+import { speakingBank } from './data/ielts-bank-speaking.js';
+import { writingBank } from './data/ielts-bank-writing.js';
+import { readingBank } from './data/ielts-bank-reading.js';
+import { listeningBank } from './data/ielts-bank-listening.js';
+
+// IELTS practice bank: hand-made tasks + bank items. Bank texts open in the reading view but are listed only in #/ielts.
+const allTexts = [...readings, ...readingBank, ...listeningBank];
+const allWriting = [...writing, ...writingBank];
+const allSpeaking = [...speaking, ...speakingBank];
+const ieltsLists = {
+  listening: [...readings.filter((x) => x.listening), ...listeningBank],
+  reading: [...readings.filter((x) => !x.listening && x.questions.some((q) => q.options?.includes('Not Given'))), ...readingBank],
+};
 
 // English definitions (Open English WordNet, ~80KB gzip) load only when a view needs them.
 let defsPromise;
@@ -341,7 +354,7 @@ const views = {
   },
 
   reading(params) {
-    const t = readings.find((x) => x.id === params.get('t'));
+    const t = allTexts.find((x) => x.id === params.get('t'));
     const done = store.get('readingDone', {});
     if (!t) {
       return `<h2>📰 O'qish va tinglash</h2><p class="muted">Matnni o'qing yoki 🔊 tinglang, so'ng savollarga javob bering. Tinglash mashqi uchun matnni yopib, faqat eshitib javob berib ko'ring.</p>
@@ -388,7 +401,7 @@ const views = {
         $('#text').hidden = false; // listening tasks reveal the script after checking
       };
     });
-    return `<a href="#/reading">← Matnlar</a><h2>${esc(t.title)} <span class="badge">${t.level}</span></h2>
+    return `<a href="${t.ielts ? `#/ielts?bank=${t.listening ? 'listening' : 'reading'}` : '#/reading'}">← ${t.ielts ? 'IELTS banki' : 'Matnlar'}</a><h2>${esc(t.title)} <span class="badge">${t.level}</span></h2>
       <p class="muted">${esc(t.uzTitle)}</p>
       <p><button class="btn" id="listen">🔊 Tinglash</button> <button class="btn" id="listen-slow">🐢 Sekin</button>
         <button class="btn" id="hide">🙈 Matnni yashirish / ko'rsatish</button>
@@ -504,7 +517,7 @@ const views = {
           ${sec.questions.map((q) => `<div class="question" data-q="${q.id}"><b>${esc(q.prompt)}</b>${questionHtml(q, r)}<div class="fb"></div></div>`).join('')}</section>`).join('')}
         <p><button class="btn primary" id="mock-finish">✅ Testni yakunlash</button></p><p id="mock-result" aria-live="polite"></p>`;
     }
-    const w = writing.find((x) => x.id === params.get('w'));
+    const w = allWriting.find((x) => x.id === params.get('w'));
     if (w) {
       const drafts = store.get('ieltsDrafts', {});
       queueMicrotask(() => {
@@ -519,18 +532,20 @@ const views = {
         count();
         $('#timer-start').onclick = (e) => { e.target.disabled = true; countdown($('#timer'), w.minutes * 60, () => { $('#timer').textContent = "⏰ Vaqt tugadi!"; }); };
       });
-      return `<a href="#/ielts">← IELTS</a><h2>Writing Task ${w.task} <span class="badge">${w.minutes} daqiqa · ${w.minWords}+ so'z</span></h2>
+      return `<a href="#/ielts">← IELTS</a><h2>Writing ${w.type ? esc(w.type) : `Task ${w.task}`} <span class="badge">${w.minutes} daqiqa · ${w.minWords}+ so'z</span></h2>
         <section class="card"><p><b>${esc(w.prompt)}</b></p>
         ${w.table ? `<table class="tbl">${w.table.map((row, i) => `<tr>${row.map((c) => (i ? `<td>${esc(c)}</td>` : `<th>${esc(c)}</th>`)).join('')}</tr>`).join('')}</table>` : ''}
         ${w.steps ? `<ol class="steps">${w.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ol>` : ''}</section>
         <p><button class="btn" id="timer-start">⏱ Taymerni boshlash</button> <b id="timer">${mmss(w.minutes * 60)}</b> <span id="wc" class="badge"></span></p>
         <textarea id="essay" rows="14" class="essay" placeholder="Javobingizni shu yerga yozing… (avtomatik saqlanadi)">${esc(drafts[w.id] ?? '')}</textarea>
         <section class="card"><h3>✅ O'zingizni tekshiring (4 mezon)</h3>${writingCriteria.map(([c, d]) => `<label class="check"><input type="checkbox"> <b>${esc(c)}</b> — <span class="muted">${esc(d)}</span></label>`).join('')}</section>
-        <details class="card"><summary><b>💡 Maslahatlar</b></summary><ul>${w.tips.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></details>
-        <details class="card"><summary><b>📄 Namunaviy javob (Band 7–8)</b> — avval o'zingiz yozing!</summary><div class="model">${esc(w.model)}</div>
-          <p class="muted">${w.model.split(/\s+/).length} so'z</p></details>`;
+        ${w.plan ? `<details class="card"><summary><b>📋 Reja va g'oyalar</b></summary><ul>${w.plan.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
+          <p class="muted">${w.task === 1 ? "Tuzilma: 1) savolni qayta yozish · 2) Overview (2 asosiy tendensiya) · 3–4) raqamlar bilan taqqoslash." : "Tuzilma: kirish + pozitsiya · 2 asosiy abzas (fikr + sabab + misol) · xulosa."}</p></details>` : ''}
+        ${w.tips ? `<details class="card"><summary><b>💡 Maslahatlar</b></summary><ul>${w.tips.map((t) => `<li>${esc(t)}</li>`).join('')}</ul></details>` : ''}
+        ${w.model ? `<details class="card"><summary><b>📄 Namunaviy javob (Band 7–8)</b> — avval o'zingiz yozing!</summary><div class="model">${esc(w.model)}</div>
+          <p class="muted">${w.model.split(/\s+/).length} so'z</p></details>` : ''}`;
     }
-    const sp = speaking.find((x) => x.id === params.get('s'));
+    const sp = allSpeaking.find((x) => x.id === params.get('s'));
     if (sp) {
       queueMicrotask(() => {
         $('#cue-start').onclick = (e) => {
@@ -553,10 +568,27 @@ const views = {
         <section class="card"><h3>Part 3 · Muhokama</h3>${qs(sp.part3)}</section>
         <p><a class="btn" href="#/speech">🎙 Talaffuzni baholash — Nutq laboratoriyasi</a></p>`;
     }
-    const ieltsReadings = readings.filter((x) => !x.listening && x.questions.some((q) => q.options?.includes('Not Given')));
-    const listenings = readings.filter((x) => x.listening);
     const done = store.get('readingDone', {});
-    const rows = (list) => list.map((x) => `<a class="row" href="#/reading?t=${x.id}"><span class="badge">${x.level}</span><span><b>${esc(x.title)}</b></span><span class="muted">${done[x.id] != null ? `${done[x.id]}%` : ''}</span></a>`).join('');
+    const rows = (list) => list.map((x) => `<a class="row" href="#/reading?t=${x.id}"><span class="badge">${x.level}</span><span><b>${esc(x.title)}</b><br><span class="muted">${esc(x.uzTitle ?? '')}</span></span><span class="muted">${done[x.id] != null ? `${done[x.id]}%` : ''}</span></a>`).join('');
+    const bank = params.get('bank');
+    if (bank) {
+      const drafts = store.get('ieltsDrafts', {});
+      const groups = {
+        listening: () => [1, 2, 3, 4].map((n) => [`Part ${n}`, ieltsLists.listening.filter((x) => (x.part ?? 0) === n)]).concat([['Boshqa', ieltsLists.listening.filter((x) => !x.part)]]),
+        reading: () => LEVELS.map((l) => [l, ieltsLists.reading.filter((x) => x.level === l)]),
+        writing: () => [1, 2].map((n) => [`Task ${n}`, allWriting.filter((x) => x.task === n)]),
+        speaking: () => [['Part 1–3', allSpeaking]],
+      }[bank]?.() ?? [];
+      const item = (x) => (bank === 'writing'
+        ? `<a class="row" href="#/ielts?w=${x.id}"><span class="badge">${esc(x.type ?? `Task ${x.task}`)}</span><span>${esc(x.prompt.slice(0, 90))}…</span><span class="muted">${(drafts[x.id] ?? '').trim().split(/\s+/).length >= x.minWords ? '✅' : ''}</span></a>`
+        : bank === 'speaking'
+          ? `<a class="row" href="#/ielts?s=${x.id}"><span class="badge">🗣</span><span><b>${esc(x.topic)}</b><br><span class="muted">${esc(x.part2.card)}</span></span></a>`
+          : rows([x]));
+      const titles = { listening: '🎧 Listening', reading: '📰 Reading', writing: '✍️ Writing', speaking: '🗣 Speaking' };
+      const total = groups.reduce((n, [, list]) => n + list.length, 0);
+      return `<a href="#/ielts">← IELTS</a><h2>${titles[bank] ?? ''} banki <span class="badge">${total} ta</span></h2>
+        ${groups.filter(([, list]) => list.length).map(([g, list]) => `<h3>${esc(g)} <span class="muted">(${list.length})</span></h3><div class="list">${list.map(item).join('')}</div>`).join('')}`;
+    }
     queueMicrotask(() => {
       const calc = () => {
         const l = Math.min(40, Math.max(0, Number($('#raw-l').value) || 0));
@@ -570,10 +602,13 @@ const views = {
     return `<h2>🎓 IELTS Academic tayyorlov</h2>
       <p class="muted">Barcha topshiriqlar original, rasmiy IELTS formatida yozilgan. Haqiqiy test 4 qismdan iborat: Listening (30 daq), Reading (60 daq), Writing (60 daq), Speaking (11–14 daq).</p>
       <div class="grid">
-        <section class="card"><h3>🎧 Listening</h3><p class="muted">Matn yopiq — tinglang, javob bering.</p><div class="list">${rows(listenings)}</div></section>
-        <section class="card"><h3>📰 Reading</h3><p class="muted">True / False / Not Given va boshqa turlar.</p><div class="list">${rows(ieltsReadings)}</div>
-          <p><a href="#/exam">⏱ IELTS-style imtihon (Imtihon bo'limida tanlang)</a></p></section>
-        <section class="card"><h3>✍️ Writing</h3><div class="list">${writing.map((x) => `<a class="row" href="#/ielts?w=${x.id}"><span class="badge">Task ${x.task}</span><span>${esc(x.prompt.slice(0, 70))}…</span></a>`).join('')}</div></section>
+        <section class="card"><h3>📦 Mashqlar banki</h3><p class="muted">Jami <b>${ieltsLists.listening.length + ieltsLists.reading.length + allWriting.length + allSpeaking.length}</b> ta original IELTS topshirig'i.</p>
+          <div class="list">
+            <a class="row" href="#/ielts?bank=listening"><span class="badge">🎧</span><span><b>Listening</b> — Part 1–4</span><span class="muted">${ieltsLists.listening.length} ta</span></a>
+            <a class="row" href="#/ielts?bank=reading"><span class="badge">📰</span><span><b>Reading</b> — T/F/NG, MCQ, gap-fill</span><span class="muted">${ieltsLists.reading.length} ta</span></a>
+            <a class="row" href="#/ielts?bank=writing"><span class="badge">✍️</span><span><b>Writing</b> — Task 1 & 2</span><span class="muted">${allWriting.length} ta</span></a>
+            <a class="row" href="#/ielts?bank=speaking"><span class="badge">🗣</span><span><b>Speaking</b> — Part 1–3</span><span class="muted">${allSpeaking.length} ta</span></a>
+          </div></section>
         <section class="card"><h3>📝 To'liq sinov testi</h3><p class="muted">Haqiqiy format: 40 savol, umumiy taymer, yakunda band.</p>
           ${Object.entries(mockTests).map(([k, m]) => { const res = store.get('ieltsMock', {})[k]; return `<p><a class="btn primary" href="#/ielts?mock=${k}">${m.kind === 'listening' ? '🎧' : '📰'} ${esc(m.title.replace(/^IELTS (Academic )?/, ''))} · ${m.minutes} daq</a>
             ${res ? `<span class="badge ok">oxirgi: ${res.raw}/40 → ${res.band}</span>` : ''}</p>`; }).join('')}</section>
@@ -581,7 +616,6 @@ const views = {
           <a class="btn" href="#/mistakes">Xatolar: ${Object.keys(store.get('mistakes', {})).length} ta →</a></section>
         <section class="card"><h3>📚 Akademik so'zlar</h3><p class="muted">IELTS Writing va Reading uchun ${vocabulary.filter((v) => v.category === "Akademik so'zlar (IELTS)").length} ta asosiy so'z — kartalar bilan yodlang.</p>
           <a class="btn primary" href="#/vocab?cat=${encodeURIComponent("Akademik so'zlar (IELTS)")}">Kartalarni boshlash →</a></section>
-        <section class="card"><h3>🗣 Speaking</h3><div class="list">${speaking.map((x) => `<a class="row" href="#/ielts?s=${x.id}"><span class="badge">P1–3</span><span><b>${esc(x.topic)}</b></span></a>`).join('')}</div></section>
       </div>
       <section class="card"><h3>🧮 Ball hisoblagich (40 savoldan)</h3>
         <label>Listening to'g'ri javoblar: <input id="raw-l" type="number" min="0" max="40" value="30"></label>
