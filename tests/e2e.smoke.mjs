@@ -9,7 +9,7 @@ const { chromium } = require('playwright');
 const base = process.argv[2] ?? 'http://localhost:8080';
 const shots = process.argv[3] ?? 'screenshots';
 mkdirSync(shots, { recursive: true });
-const browser = await chromium.launch();
+const browser = await chromium.launch({ args: ['--use-fake-ui-for-media-stream', '--use-fake-device-for-media-stream'] });
 const page = await browser.newPage({ viewport: { width: 1100, height: 900 } });
 const errors = [];
 page.on('pageerror', (e) => errors.push(`pageerror: ${e.message}`));
@@ -225,6 +225,19 @@ await step('minimal pairs: 10 rounds, correct picks are scored', async () => {
     await page.click('#next');
   }
   if ((await page.textContent('#game .score')).trim() !== '10 / 10') throw new Error('sounds score');
+});
+
+await step('speaking recorder: record with fake mic, recording appears with audio', async () => {
+  await page.goto(`${base}/#/ielts?s=b-family`);
+  await page.click('#rec-start');
+  await page.waitForSelector('#rec-time:has-text("⏺")');
+  await page.waitForTimeout(1200);
+  await page.click('#rec-stop');
+  await page.waitForSelector('#rec-list audio');
+  if (!(await page.getAttribute('#rec-list audio', 'src')).startsWith('blob:')) throw new Error('no recording blob');
+  await page.evaluate(() => { navigator.mediaDevices.getUserMedia = () => Promise.reject(new Error('denied')); });
+  await page.click('#rec-start');
+  await page.waitForSelector('#rec-msg:has-text("ruxsat berilmadi")');
 });
 
 await step('dictation: text blurred until an attempt is scored', async () => {

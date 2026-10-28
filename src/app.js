@@ -72,6 +72,63 @@ function logActivity(entry) {
   store.set('activity', { ...Object.fromEntries(days.map((d) => [d, log[d]])), [today()]: [...(log[today()] ?? []), entry] });
 }
 
+// ---------- voice recorder (IELTS Speaking): record → listen back; recordings stay in memory only ----------
+const recorderHtml = () => `<section class="card recorder"><h3>🎙 O'zingizni yozib oling</h3>
+  <p><button class="btn primary" id="rec-start">⏺ Yozish</button> <button class="btn" id="rec-stop" disabled>⏹ To'xtatish</button> <b id="rec-time"></b></p>
+  <p class="muted" id="rec-msg">Javobingizni yozing va qayta tinglang: pauzalar, "ee…" lar va talaffuzga e'tibor bering. Yozuvlar faqat shu sahifada saqlanadi.</p>
+  <ol id="rec-list"></ol></section>`;
+function mountRecorder() {
+  const start = $('#rec-start');
+  const stop = $('#rec-stop');
+  const msg = $('#rec-msg');
+  if (!navigator.mediaDevices?.getUserMedia || !window.MediaRecorder) {
+    start.disabled = true;
+    msg.textContent = "⚠️ Bu brauzer ovoz yozishni qo'llamaydi (Chrome, Edge yoki Firefox'ning yangi versiyasini ishlating).";
+    return { start: () => {}, stop: () => {} };
+  }
+  let rec = null;
+  let timer = null;
+  const end = () => { if (rec?.state === 'recording') rec.stop(); };
+  const begin = async () => {
+    if (rec?.state === 'recording') return;
+    let stream;
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    } catch {
+      msg.textContent = "❌ Mikrofonga ruxsat berilmadi. Brauzer manzil satridagi 🔒 belgisidan mikrofonga ruxsat bering.";
+      return;
+    }
+    const chunks = [];
+    const t0 = Date.now();
+    rec = new MediaRecorder(stream);
+    rec.ondataavailable = (e) => chunks.push(e.data);
+    rec.onstop = () => {
+      clearInterval(timer);
+      stream.getTracks().forEach((t) => t.stop());
+      start.disabled = false;
+      stop.disabled = true;
+      if (!$('#rec-list')) return; // view already left
+      const sec = Math.round((Date.now() - t0) / 1000);
+      const li = document.createElement('li');
+      li.innerHTML = `${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')} <audio controls src="${URL.createObjectURL(new Blob(chunks, { type: rec.mimeType }))}"></audio>`;
+      $('#rec-list').append(li);
+      $('#rec-time').textContent = '';
+    };
+    rec.start();
+    start.disabled = true;
+    stop.disabled = false;
+    timer = setInterval(() => {
+      const sec = Math.round((Date.now() - t0) / 1000);
+      if (!$('#rec-time')) return end();
+      $('#rec-time').textContent = `⏺ ${Math.floor(sec / 60)}:${String(sec % 60).padStart(2, '0')}`;
+      if (sec >= 180) end();
+    }, 500);
+  };
+  start.onclick = begin;
+  stop.onclick = end;
+  return { start: begin, stop: end };
+}
+
 // ---------- speech helpers ----------
 function speak(text, rate = 0.9) {
   if (!('speechSynthesis' in window)) return;
@@ -595,12 +652,18 @@ const views = {
     const sp = allSpeaking.find((x) => x.id === params.get('s'));
     if (sp) {
       queueMicrotask(() => {
+        const recorder = mountRecorder();
         $('#cue-start').onclick = (e) => {
           e.target.disabled = true;
           $('#cue-phase').textContent = 'Tayyorlanish (eslatma yozing):';
           countdown($('#cue-timer'), 60, () => {
             $('#cue-phase').textContent = '🎙 Gapiring!';
-            countdown($('#cue-timer'), 120, () => { $('#cue-phase').textContent = '✅ Vaqt tugadi.'; e.target.disabled = false; });
+            if ($('#rec-auto')?.checked) recorder.start();
+            countdown($('#cue-timer'), 120, () => {
+              $('#cue-phase').textContent = '✅ Vaqt tugadi.';
+              e.target.disabled = false;
+              recorder.stop();
+            });
           });
         };
       });
@@ -611,7 +674,9 @@ const views = {
         <section class="card cue"><h3>Part 2 · Cue card</h3><p><b>${esc(sp.part2.card)}</b></p><p>You should say:</p>
           <ul>${sp.part2.points.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
           <p><button class="btn primary" id="cue-start">⏱ 1 daqiqa tayyorlanish + 2 daqiqa gapirish</button> <span id="cue-phase"></span> <b id="cue-timer"></b></p>
+          <label class="check"><input type="checkbox" id="rec-auto" checked> "Gapiring!" boshlanganda avtomatik yozib olish</label>
           <textarea rows="3" class="essay" placeholder="Qisqa eslatmalar (faqat kalit so'zlar)…"></textarea></section>
+        ${recorderHtml()}
         <section class="card"><h3>Part 3 · Muhokama</h3>${qs(sp.part3)}</section>
         <p><a class="btn" href="#/speech">🎙 Talaffuzni baholash — Nutq laboratoriyasi</a></p>`;
     }
