@@ -10,6 +10,7 @@ import { scenarios } from '../src/data/dialogues.js';
 import { guideSections, guideUnits } from '../src/data/grammar-guide.js';
 import { existsSync } from 'node:fs';
 import { exams } from '../src/data/exams.js';
+import { readings } from '../src/data/readings.js';
 
 const asExam = (title, questions) => ({ format: 'nge-exam', title, questions });
 
@@ -59,6 +60,15 @@ test('exams: every ready-made test is valid, has a level and a unique title', ()
   assert.ok(exams.length >= 4);
   assert.equal(new Set(exams.map((e) => e.title)).size, exams.length);
   for (const e of exams) assert.deepEqual(validateExam(e), [], e.title);
+});
+
+test('readings: valid questions, unique ids, every CEFR band A1–B2 covered', () => {
+  assert.equal(new Set(readings.map((r) => r.id)).size, readings.length);
+  for (const r of readings) {
+    assert.ok(r.text.split(/\s+/).length >= 60, `${r.id} text too short`);
+    assert.deepEqual(validateExam(asExam(r.title, r.questions)), [], r.id);
+  }
+  for (const lvl of ['A1', 'A2', 'B1', 'B2']) assert.ok(readings.some((r) => r.level === lvl), lvl);
 });
 
 test('scenarios: each has lines', () => {

@@ -29,6 +29,7 @@ npm run test:e2e     # brauzer smoke testi (Playwright + Chromium kerak; servern
 | 🖼️ Vizual lug'at       | Rasm + so'z + IPA + o'zbekcha tarjima + misol. SM-2 takrorlash algoritmi, klaviatura (Space, 1–4).                                        |
 | 🌊 Immersiya o'yini    | Tarjimasiz: rasmga mos inglizcha so'zni topish.                                                                                           |
 | 📐 Grammatika          | Mavzular daraxti → qoida, jadval, ovozli misollar, avtomatik tekshiriladigan mashqlar.                                                    |
+| 📰 O'qish va tinglash  | A1–B2 matnlar (O'zbekiston hayotidan), 🔊 tinglash, matnni yashirib tinglash mashqi, tushunish savollari.                                 |
 | 🎙️ Nutq laboratoriyasi | Real vaziyatlar (mehmonxona, kafe, ofis…). Namuna (TTS, sekin rejim), mikrofon to'lqini, nutqni aniqlash va so'zma-so'z 0–100% baho.      |
 | 📖 Lug'at              | Saralangan prefiks indeksida ikkilik qidiruv, so'z shakllarini tanish (`studies → study`, `running → run`), xato yozilganda taklif.       |
 | ⏱️ Imtihon simulyatori | Taymer, savollar navigatsiya paneli, javoblarni saqlash, natija va xatolar ustida ishlash. JSON test faylini yuklash.                     |
@@ -135,7 +136,7 @@ npm test   # har bir unit sahifasi borligini tekshiradi
   modelni emas. U "nima eshitildi"ni o'lchaydi, intonatsiyani emas. Nutqni aniqlash Chrome/Edge'da
   ishlaydi; boshqa brauzerlarda aytilganni yozib tekshirish mumkin.
 - **Progress** bitta brauzerda saqlanadi (sinxronizatsiya yo'q). Ko'p qurilma uchun backend kerak.
-- **Kontent hajmi**: 19 mavzuda 175 so'z, 18 grammatika mavzusi (60 mashq, A1–C1) + 145 unitli qo'llanma, 30 ta daraja savoli, 4 ta tayyor imtihon (A1, A2–B1, B1, B2), 17 vaziyatda 53 ibora.
+- **Kontent hajmi**: 25 mavzuda 235 so'z, 18 grammatika mavzusi (60 mashq, A1–C1) + 145 unitli qo'llanma, 8 ta o'qish matni (40 savol), 40 ta daraja savoli, 4 ta tayyor imtihon (A1, A2–B1, B1, B2), 17 vaziyatda 53 ibora (diktant rejimi bilan).
 - **Qo'llanma sahifalarida** Nextgen'ga qaytish tugmasi yo'q — brauzerning "orqaga" tugmasidan foydalaning. Qo'llanmadagi mashq natijalari Nextgen XP'siga qo'shilmaydi.
   Yangi kontent `src/data/` fayllariga qo'shiladi; `npm test` uni avtomatik tekshiradi.
 - Lug'at rasmlari — emoji (litsenziyasiz). Haqiqiy rasmlar uchun `emoji` maydonini rasm URL bilan almashtirish kifoya.

@@ -20,7 +20,7 @@ const step = async (name, fn) => { await fn(); console.log('✓', name); };
 await step('home renders tiles', async () => {
   await page.goto(base);
   await page.waitForSelector('.tile');
-  if ((await page.locator('.tile').count()) !== 8) throw new Error('expected 8 tiles');
+  if ((await page.locator('.tile').count()) !== 9) throw new Error('expected 9 tiles');
   await page.screenshot({ path: `${shots}/home.png` });
 });
 
@@ -79,6 +79,32 @@ await step('grammar guide: section opens and unit page loads with practice', asy
   await page.waitForSelector('.practice .px-bar');
   if (!(await page.title()).startsWith('Unit 1')) throw new Error(`title ${await page.title()}`);
   await page.screenshot({ path: `${shots}/guide-unit.png` });
+});
+
+await step('reading: answer questions, hide text, score stored', async () => {
+  await page.goto(`${base}/#/reading`);
+  await page.click('a[href="#/reading?t=my-family"]');
+  await page.waitForSelector('#text');
+  await page.locator('[data-q="mf1"] input[value="2"]').check();
+  await page.fill('[data-q="mf3"] .fill', 'five');
+  await page.click('#hide');
+  if (await page.locator('#text').isVisible()) throw new Error('text should be hidden');
+  await page.click('#check');
+  if ((await page.locator('.feedback.ok').count()) !== 2) throw new Error('expected 2 correct');
+  if ((await page.textContent('#result')) !== 'Natija: 40%') throw new Error(await page.textContent('#result'));
+  await page.screenshot({ path: `${shots}/reading.png`, fullPage: true });
+});
+
+await step('dictation: text blurred until an attempt is scored', async () => {
+  await page.goto(`${base}/#/speech?s=taxi`);
+  await page.check('#dict');
+  const blur = () => page.locator('.line').first().locator('.say .t').evaluate((el) => getComputedStyle(el).filter);
+  if (!(await blur()).includes('blur')) throw new Error('text not hidden in dictation mode');
+  const box = page.locator('.line').first();
+  await box.locator('.typed').fill('could you take me to the railway station please');
+  await box.locator('.typed').press('Enter');
+  if ((await blur()) !== 'none') throw new Error('text not revealed after attempt');
+  if (!(await box.locator('.score').textContent()).startsWith('100')) throw new Error('dictation score');
 });
 
 await step('dictionary: autocomplete + lemma lookup + suggestion', async () => {

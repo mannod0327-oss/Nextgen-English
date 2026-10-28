@@ -10,6 +10,7 @@ import { grammar } from './data/grammar.js';
 import { placementQuestions } from './data/placement.js';
 import { sampleExam } from './data/sample-exam.js';
 import { exams } from './data/exams.js';
+import { readings } from './data/readings.js';
 import { scenarios } from './data/dialogues.js';
 import { guideSections, guideUnits } from './data/grammar-guide.js';
 
@@ -139,6 +140,7 @@ const views = {
       ['#/vocab', '🖼️', "Vizual lug'at", `${vocabulary.length} ta so'z · ${due} ta takrorlash kutmoqda`],
       ['#/immersion', '🌊', "Immersiya o'yini", "Tarjimasiz: rasmga mos so'zni toping"],
       ['#/grammar', '📐', 'Grammatika', `${guideUnits.length} unitli qo'llanma + ${grammar.length} ta mashqli mavzu`],
+      ['#/reading', '📰', "O'qish va tinglash", `${readings.length} ta matn (A1–B2), tushunish savollari bilan`],
       ['#/speech', '🎙️', 'Nutq laboratoriyasi', "Real vaziyatlar, talaffuzni 0–100% baholash"],
       ['#/dictionary', '📖', "Lug'at", "Prefiks qidiruv, so'z shakllarini taniydi"],
       ['#/exam', '⏱️', 'Imtihon simulyatori', "Taymer, navigatsiya, xatolar tahlili"],
@@ -320,6 +322,44 @@ const views = {
       <button class="btn primary" id="check">Tekshirish</button> <b id="result"></b>`;
   },
 
+  reading(params) {
+    const t = readings.find((x) => x.id === params.get('t'));
+    const done = store.get('readingDone', {});
+    if (!t) {
+      return `<h2>📰 O'qish va tinglash</h2><p class="muted">Matnni o'qing yoki 🔊 tinglang, so'ng savollarga javob bering. Tinglash mashqi uchun matnni yopib, faqat eshitib javob berib ko'ring.</p>
+        <div class="list">${readings.map((x) => `<a class="row" href="#/reading?t=${x.id}">
+          <span class="badge ${x.level === profile().level ? 'hl' : ''}">${x.level}</span><span><b>${esc(x.title)}</b><br><span class="muted">${esc(x.uzTitle)}</span></span>
+          <span class="muted">${done[x.id] != null ? `${done[x.id]}%` : ''}</span></a>`).join('')}</div>`;
+    }
+    const r = rand();
+    queueMicrotask(() => {
+      $('#listen').onclick = () => speak(t.text);
+      $('#listen-slow').onclick = () => speak(t.text, 0.7);
+      $('#hide').onclick = () => { $('#text').hidden = !$('#text').hidden; };
+      $('#check').onclick = () => {
+        let total = 0;
+        t.questions.forEach((q) => {
+          const box = app.querySelector(`[data-q="${q.id}"]`);
+          const s = scoreQuestion(q, readAnswer(q, box));
+          total += s;
+          box.querySelector('.fb').innerHTML = feedbackHtml(q, s);
+        });
+        const pct = Math.round((total / t.questions.length) * 100);
+        store.set('readingDone', { ...store.get('readingDone', {}), [t.id]: pct });
+        addXp(Math.round(total * 3));
+        $('#result').textContent = `Natija: ${pct}%`;
+      };
+    });
+    return `<a href="#/reading">← Matnlar</a><h2>${esc(t.title)} <span class="badge">${t.level}</span></h2>
+      <p class="muted">${esc(t.uzTitle)}</p>
+      <p><button class="btn" id="listen">🔊 Tinglash</button> <button class="btn" id="listen-slow">🐢 Sekin</button>
+        <button class="btn" id="hide">🙈 Matnni yashirish / ko'rsatish</button></p>
+      <section class="card reading-text" id="text">${esc(t.text)}</section>
+      <h3>Savollar</h3>${t.questions.map((q, n) => `<section class="card question" data-q="${q.id}">
+        <b>${n + 1}. ${esc(q.prompt)}</b>${questionHtml(q, r)}<div class="fb"></div></section>`).join('')}
+      <button class="btn primary" id="check">Tekshirish</button> <b id="result"></b>`;
+  },
+
   speech(params) {
     const sc = scenarios.find((s) => s.id === params.get('s'));
     if (!sc) {
@@ -328,6 +368,10 @@ const views = {
         <div class="grid">${scenarios.map((s) => `<a class="tile" href="#/speech?s=${s.id}"><b>${esc(s.title)}</b><span class="muted">${s.lines.length} ta ibora</span></a>`).join('')}</div>`;
     }
     queueMicrotask(() => {
+      $('#dict').onchange = (e) => {
+        app.classList.toggle('dictation', e.target.checked);
+        app.querySelectorAll('.line').forEach((b) => b.classList.remove('revealed'));
+      };
       app.querySelectorAll('.line').forEach((box) => {
         const target = box.dataset.text;
         const show = (heard) => {
@@ -335,6 +379,7 @@ const views = {
           const best = store.get('speechBest', {});
           if ((best[target] ?? 0) < res.score) store.set('speechBest', { ...best, [target]: res.score });
           addXp(res.score >= 80 ? 3 : 1);
+          box.classList.add('revealed');
           box.querySelector('.res').innerHTML = `<div class="score ${res.score >= 80 ? 'ok' : res.score >= 50 ? 'part' : 'bad'}">${res.score}%</div>
             <div>${res.words.map((w) => `<span class="w ${w.score === 1 ? 'ok' : w.score > 0 ? 'part' : 'bad'}" title="${esc(w.heard ?? '—')}">${esc(w.word)}</span>`).join(' ')}</div>
             <div class="muted">Eshitildi: “${esc(heard)}”</div>`;
@@ -358,8 +403,10 @@ const views = {
       });
     });
     const best = store.get('speechBest', {});
-    return `<a href="#/speech">← Vaziyatlar</a><h2>${esc(sc.title)}</h2>${sc.lines.map((l) => `<section class="card line" data-text="${esc(l)}">
-      <p class="say">${esc(l)} ${best[l] != null ? `<span class="badge">eng yaxshi: ${best[l]}%</span>` : ''}</p>
+    return `<a href="#/speech">← Vaziyatlar</a><h2>${esc(sc.title)}</h2>
+      <label class="dict-toggle"><input type="checkbox" id="dict"> ✍️ Diktant rejimi: matn yashiriladi — tinglang va yozing</label>
+      ${sc.lines.map((l) => `<section class="card line" data-text="${esc(l)}">
+      <p class="say"><span class="t">${esc(l)}</span> ${best[l] != null ? `<span class="badge">eng yaxshi: ${best[l]}%</span>` : ''}</p>
       <button class="btn play">🔊 Namuna</button> <button class="btn slow">🐢 Sekin</button> <button class="btn primary rec">🎤 Yozish</button>
       <canvas width="600" height="60" aria-hidden="true"></canvas>
       <input class="typed" placeholder="…yoki aytganingizni yozing va Enter bosing">
@@ -607,6 +654,7 @@ function route() {
   const [path, query] = location.hash.replace(/^#\/?/, '').split('?');
   const view = views[path || 'home'] ?? views.home;
   document.onkeydown = null;
+  app.classList.remove('dictation');
   app.innerHTML = view(new URLSearchParams(query));
   document.querySelectorAll('.nav a').forEach((a) => a.classList.toggle('active', a.getAttribute('href') === `#/${path}`));
   queueMicrotask(() => {
