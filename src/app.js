@@ -7,6 +7,7 @@ import { renderPrintable, esc } from './core/printable.js';
 import { createStore } from './core/store.js';
 import { dailyPlan } from './core/plan.js';
 import { linePoints, lastDays } from './core/chart.js';
+import { buildSearchIndex, search } from './core/search.js';
 import { vocabulary, categories } from './data/vocabulary.js';
 import { grammar } from './data/grammar.js';
 import { placementQuestions } from './data/placement.js';
@@ -230,6 +231,8 @@ function gradeBox(q, box, source) {
   store.set('mistakes', mistakes);
   return score;
 }
+
+let searchIndex; // built on first visit to #/search
 
 // ---------- views ----------
 const views = {
@@ -926,6 +929,38 @@ const views = {
       <p><a class="btn primary" href="#/collocations?mode=test">✍️ Test: 10 ta savol</a> ${best != null ? `<span class="badge ok">eng yaxshi: ${best}%</span>` : ''}</p>
       ${collocations.map((g) => `<section class="card"><h3>${esc(g.kind === 'verb' ? `${g.title} + …` : g.title)} <span class="muted">(${g.items.length})</span></h3>
         <table class="tbl"><tbody>${g.items.map(([p, uz, ex]) => `<tr><td><b>${esc(p)}</b></td><td>${esc(uz)}</td><td class="muted">${esc(ex)} <button class="link" data-say="${esc(ex)}">🔊</button></td></tr>`).join('')}</tbody></table></section>`).join('')}`;
+  },
+
+  search(params) {
+    searchIndex ??= buildSearchIndex([
+      ...vocabulary.map((v) => ({ type: "So'z", title: v.word, sub: v.uz, href: `#/dictionary?q=${encodeURIComponent(v.word)}`, text: v.example })),
+      ...grammar.map((t) => ({ type: 'Grammatika', title: t.title, sub: t.level, href: `#/grammar?topic=${t.id}`, text: t.rule })),
+      ...guideUnits.map((u) => ({ type: "Qo'llanma", title: `Unit ${u.n}: ${u.en}`, sub: u.uz, href: guideUnitHref(u.n) })),
+      ...allTexts.map((t) => ({ type: t.listening ? 'Tinglash' : "O'qish", title: t.title, sub: `${t.level} · ${t.uzTitle ?? ''}`, href: `#/reading?t=${t.id}`, text: t.text })),
+      ...allWriting.map((w) => ({ type: 'Writing', title: w.prompt.slice(0, 90), sub: w.type ?? `Task ${w.task}`, href: `#/ielts?w=${w.id}`, text: w.prompt })),
+      ...allSpeaking.map((x) => ({ type: 'Speaking', title: x.topic, sub: x.part2.card, href: `#/ielts?s=${x.id}`, text: [...x.part1, ...x.part3].join(' ') })),
+      ...Object.entries(mockTests).map(([k, m]) => ({ type: 'Sinov testi', title: m.title, sub: `${m.minutes} daqiqa`, href: `#/ielts?mock=${k}` })),
+      ...irregularVerbs.map(([v1, v2, v3, uz]) => ({ type: "Fe'l", title: `${v1} – ${v2} – ${v3}`, sub: uz, href: '#/verbs' })),
+      ...collocations.flatMap((g) => g.items.map(([ph, uz, ex]) => ({ type: 'Ibora', title: ph, sub: uz, href: '#/collocations', text: ex }))),
+      ...minimalPairs.map((x) => ({ type: 'Tovush', title: x.sounds, sub: x.pairs.map((p) => p.join('/')).join(', '), href: `#/sounds?set=${x.id}` })),
+    ]);
+    const render = (q) => {
+      const hits = search(searchIndex, q);
+      $('#sres').innerHTML = q.trim().length < 2 ? '<p class="muted">Kamida 2 ta harf yozing.</p>'
+        : hits.length ? `<p class="muted">${hits.length}${hits.length === 50 ? '+' : ''} ta natija</p><div class="list">${hits.map((h) => `<a class="row" href="${h.href}"><span class="badge">${esc(h.type)}</span><span><b>${esc(h.title)}</b><br><span class="muted">${esc(h.sub ?? '')}</span></span></a>`).join('')}</div>`
+          : `<p>“${esc(q)}” bo'yicha hech narsa topilmadi.</p>`;
+    };
+    queueMicrotask(() => {
+      const input = $('#sq');
+      input.focus();
+      input.oninput = () => {
+        history.replaceState(null, '', `#/search?q=${encodeURIComponent(input.value)}`); // keep the URL shareable without re-rendering
+        render(input.value);
+      };
+      render(input.value);
+    });
+    return `<h2>🔎 Qidiruv</h2><input id="sq" class="search" type="search" placeholder="So'z, grammatika, matn, IELTS mavzusi… (inglizcha yoki o'zbekcha)" value="${esc(params.get('q') ?? '')}" autocomplete="off">
+      <div id="sres" aria-live="polite"></div>`;
   },
 
   mistakes() {

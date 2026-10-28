@@ -9,6 +9,7 @@ import { renderPrintable, answerKey } from '../src/core/printable.js';
 import { createStore } from '../src/core/store.js';
 import { dailyPlan } from '../src/core/plan.js';
 import { linePoints, lastDays } from '../src/core/chart.js';
+import { buildSearchIndex, search, norm } from '../src/core/search.js';
 import { sampleExam } from '../src/data/sample-exam.js';
 import { placementQuestions } from '../src/data/placement.js';
 
@@ -229,4 +230,18 @@ test('chart helpers: scaled polyline points and calendar days', () => {
   assert.equal(linePoints([4.5], 100, 50, 0, 9, 0), '50,25');
   assert.equal(linePoints([12], 100, 50, 0, 9, 0), '50,0', 'clamped to max');
   assert.deepEqual(lastDays('2026-03-02', 3), ['2026-02-28', '2026-03-01', '2026-03-02']);
+});
+
+test('search: normalises apostrophes/case, ranks title prefix first, searches body text', () => {
+  assert.equal(norm("O‘qish va Tinglash!"), 'oqish va tinglash');
+  const idx = buildSearchIndex([
+    { type: 'a', title: 'The present perfect', text: 'have + V3' },
+    { type: 'b', title: 'Present simple', text: 'habits' },
+    { type: 'c', title: "O'qish: Navruz", text: 'spring holiday sumalak' },
+  ]);
+  assert.deepEqual(search(idx, 'present').map((e) => e.type), ['b', 'a'], 'prefix match before word match');
+  assert.deepEqual(search(idx, 'o‘qish').map((e) => e.type), ['c'], 'curly apostrophe matches straight');
+  assert.deepEqual(search(idx, 'sumalak').map((e) => e.type), ['c'], 'body text');
+  assert.deepEqual(search(idx, 'habits present').map((e) => e.type), ['b'], 'all words must match');
+  assert.deepEqual(search(idx, 'x'), [], 'too short');
 });

@@ -253,6 +253,21 @@ await step('collocations: table and a graded 10-question quiz', async () => {
   if (!(await page.textContent('#result')).startsWith('Natija: 0%')) throw new Error(await page.textContent('#result'));
 });
 
+await step('global search: finds words, grammar, texts and IELTS tasks; links work', async () => {
+  await page.goto(`${base}/#/search`);
+  await page.fill('#sq', 'present perfect');
+  await page.waitForSelector('#sres .row');
+  if (!(await page.textContent('#sres')).includes('Grammatika')) throw new Error('grammar topic not found');
+  await page.fill('#sq', "o'zbek");
+  await page.waitForSelector('#sres .row');
+  await page.fill('#sq', 'caravanserai');
+  await page.waitForSelector('#sres a[href="#/reading?t=ir-21"]');
+  await page.click('#sres a[href="#/reading?t=ir-21"]');
+  await page.waitForSelector('#check');
+  await page.goto(`${base}/#/search?q=zzzzqqq`);
+  await page.waitForSelector('#sres:has-text("topilmadi")');
+});
+
 await step('dictation: text blurred until an attempt is scored', async () => {
   await page.goto(`${base}/#/speech?s=taxi`);
   await page.check('#dict');
@@ -338,7 +353,7 @@ await step('creator: add question, validate, simulate', async () => {
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'grammar?topic=conditionals', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'ielts?mock=listening-3', 'ielts?mock=reading-3']) {
+  for (const r of ['', 'creator', 'vocab', 'grammar?topic=conditionals', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'search?q=present']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
