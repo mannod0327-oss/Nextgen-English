@@ -1,5 +1,7 @@
 # 🎓 Nextgen English — EduPlatform Next-Gen
 
+**▶️ Ochish: https://mannod0327-oss.github.io/Nextgen-English/**
+
 O'zbek tilida so'zlashuvchilar uchun ingliz tilini o'rganish platformasi. 14 ta ta'limiy
 dasturning (Rosetta Stone, OALD, CALD, ProfExam, Schoolhouse Test, Jourist va boshqalar)
 **ochiq tavsiflangan** eng kuchli mexanizmlari bitta zamonaviy, oflayn ishlaydigan veb-ilovaga
