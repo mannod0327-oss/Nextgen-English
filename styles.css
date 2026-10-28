@@ -64,6 +64,11 @@ label > input[type="radio"], label > input[type="checkbox"] { display: inline; w
 .list { display: flex; flex-direction: column; gap: .35rem; margin: .5rem 0; }
 .row { display: flex; align-items: center; gap: .6rem; padding: .6rem .8rem; background: var(--card); border: 1px solid var(--line); border-radius: 10px; text-decoration: none; color: var(--text); }
 .row .muted { margin-left: auto; }
+.guide details { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: .6rem .8rem; }
+.guide summary { cursor: pointer; display: flex; flex-wrap: wrap; gap: .5rem; align-items: baseline; }
+.guide details[open] summary { margin-bottom: .5rem; }
+.guide details .row { margin-top: .35rem; }
+.guide .row .muted { margin-left: 0; }
 .badge { display: inline-block; font-size: .75rem; font-weight: 700; padding: .1rem .5rem; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); }
 .badge.hl { background: var(--accent); color: var(--accent-ink); }
 .tbl { border-collapse: collapse; width: 100%; margin: .5rem 0; }

@@ -114,13 +114,29 @@ uchun bitta dvigatel hammasini baholaydi va kontent testlari har bir mashq to'g'
 Baholash: `multiple` — noto'g'ri tanlov ball kamaytiradi; `order` va `match` — qisman ball;
 `fill` — katta-kichik harf, ortiqcha bo'sh joy va oxirgi tinish belgisiga sezgir emas.
 
+## Grammatika qo'llanmasi (145 unit)
+
+`grammar-guide/` — Turbo English · GRAMMAR GUIDE: Raymond Murphy'ning _English Grammar in Use_ kitobi
+tartibidagi 145 ta unit uchun original o'zbekcha qo'llanma (rangli jadvallar, xatolar, interaktiv mashqlar).
+Nextgen'ning **Grammatika** bo'limida 16 ta bo'lim bo'yicha ro'yxat chiqadi, har bir unit o'z sahifasida ochiladi.
+
+Manba: [`mannod0327-oss/English-grammar-in-use`](https://github.com/mannod0327-oss/English-grammar-in-use),
+`docs/` papkasi. Qo'llanma yangilansa, uni qayta ko'chiring va indeksni qayta yarating:
+
+```bash
+cp -r ../English-grammar-in-use/docs/. grammar-guide/
+node --input-type=module -e 'import fs from "node:fs"; const d=JSON.parse(fs.readFileSync("../English-grammar-in-use/src/units.json","utf8")); fs.writeFileSync("src/data/grammar-guide.js", `export const guideSections = ${JSON.stringify(d.sections.map(({from,to,en,uz})=>({from,to,en,uz})))};\nexport const guideUnits = ${JSON.stringify(d.units)};\n`)'
+npm test   # har bir unit sahifasi borligini tekshiradi
+```
+
 ## Ma'lum cheklovlar
 
 - **Talaffuz bahosi** brauzerning nutqni aniqlash (ASR) natijasidagi matnni taqqoslaydi, akustik
   modelni emas. U "nima eshitildi"ni o'lchaydi, intonatsiyani emas. Nutqni aniqlash Chrome/Edge'da
   ishlaydi; boshqa brauzerlarda aytilganni yozib tekshirish mumkin.
 - **Progress** bitta brauzerda saqlanadi (sinxronizatsiya yo'q). Ko'p qurilma uchun backend kerak.
-- **Kontent hajmi**: 14 mavzuda 125 so'z, 18 grammatika mavzusi (60 mashq, A1–C1), 30 ta daraja savoli, 13 vaziyatda 41 ibora.
+- **Kontent hajmi**: 14 mavzuda 125 so'z, 18 grammatika mavzusi (60 mashq, A1–C1) + 145 unitli qo'llanma, 30 ta daraja savoli, 13 vaziyatda 41 ibora.
+- **Qo'llanma sahifalarida** Nextgen'ga qaytish tugmasi yo'q — brauzerning "orqaga" tugmasidan foydalaning. Qo'llanmadagi mashq natijalari Nextgen XP'siga qo'shilmaydi.
   Yangi kontent `src/data/` fayllariga qo'shiladi; `npm test` uni avtomatik tekshiradi.
 - Lug'at rasmlari — emoji (litsenziyasiz). Haqiqiy rasmlar uchun `emoji` maydonini rasm URL bilan almashtirish kifoya.
 

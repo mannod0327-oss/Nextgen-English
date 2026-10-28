@@ -72,6 +72,15 @@ await step('grammar: answer + check shows feedback and stores %', async () => {
   await page.screenshot({ path: `${shots}/grammar.png`, fullPage: true });
 });
 
+await step('grammar guide: section opens and unit page loads with practice', async () => {
+  await page.goto(`${base}/#/grammar`);
+  await page.locator('.guide summary').first().click();
+  await page.click('.guide a[href$="unit-001.html"]');
+  await page.waitForSelector('.practice .px-bar');
+  if (!(await page.title()).startsWith('Unit 1')) throw new Error(`title ${await page.title()}`);
+  await page.screenshot({ path: `${shots}/guide-unit.png` });
+});
+
 await step('dictionary: autocomplete + lemma lookup + suggestion', async () => {
   await page.goto(`${base}/#/dictionary`);
   await page.fill('#dq', 'de');

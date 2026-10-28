@@ -7,6 +7,8 @@ import { vocabulary, categories } from '../src/data/vocabulary.js';
 import { grammar } from '../src/data/grammar.js';
 import { placementQuestions } from '../src/data/placement.js';
 import { scenarios } from '../src/data/dialogues.js';
+import { guideSections, guideUnits } from '../src/data/grammar-guide.js';
+import { existsSync } from 'node:fs';
 
 const asExam = (title, questions) => ({ format: 'nge-exam', title, questions });
 
@@ -33,6 +35,23 @@ test('grammar: every topic exercise set is a valid exam with unique ids', () => 
 test('placement: valid questions with coverage at every level', () => {
   assert.deepEqual(validateExam(asExam('placement', placementQuestions)), []);
   for (const lvl of LEVELS) assert.ok(placementQuestions.filter((q) => q.level === lvl).length >= 3, lvl);
+});
+
+test('grammar guide: sections cover units 1..N without gaps and every unit page exists', () => {
+  const nums = guideUnits.map((u) => u.n);
+  assert.deepEqual(nums, nums.map((_, i) => i + 1));
+  let next = 1;
+  for (const s of guideSections) {
+    assert.equal(s.from, next, `section ${s.en} starts at ${s.from}`);
+    assert.ok(s.to >= s.from);
+    next = s.to + 1;
+  }
+  assert.equal(next - 1, guideUnits.length);
+  for (const n of nums) {
+    const file = new URL(`../grammar-guide/units/unit-${String(n).padStart(3, '0')}.html`, import.meta.url);
+    assert.ok(existsSync(file), `missing ${file.pathname}`);
+  }
+  assert.ok(existsSync(new URL('../grammar-guide/index.html', import.meta.url)));
 });
 
 test('scenarios: each has lines', () => {

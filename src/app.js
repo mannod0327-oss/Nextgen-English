@@ -10,6 +10,9 @@ import { grammar } from './data/grammar.js';
 import { placementQuestions } from './data/placement.js';
 import { sampleExam } from './data/sample-exam.js';
 import { scenarios } from './data/dialogues.js';
+import { guideSections, guideUnits } from './data/grammar-guide.js';
+
+const guideUnitHref = (n) => `grammar-guide/units/unit-${String(n).padStart(3, '0')}.html`;
 
 const store = createStore('nge');
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -278,7 +281,15 @@ const views = {
       const byLevel = [...grammar].sort((a, b) => LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level));
       return `<h2>📐 Grammatika</h2><div class="list">${byLevel.map((t) => `<a class="row" href="#/grammar?topic=${t.id}">
         <span class="badge ${t.level === lvl ? 'hl' : ''}">${t.level}</span><b>${esc(t.title)}</b>
-        <span class="muted">${done[t.id] != null ? `${done[t.id]}%` : ''}</span></a>`).join('')}</div>`;
+        <span class="muted">${done[t.id] != null ? `${done[t.id]}%` : ''}</span></a>`).join('')}</div>
+        <h2 id="guide">📚 To'liq qo'llanma: ${guideUnits.length} unit</h2>
+        <p class="muted">Har bir unitda o'zbekcha tushuntirish, rangli jadvallar, ko'p uchraydigan xatolar va javobi tekshiriladigan mashqlar bor.
+          <a href="grammar-guide/index.html">Qo'llanma bosh sahifasi →</a></p>
+        <div class="list guide">${guideSections.map((s) => `<details>
+          <summary><b>${esc(s.uz)}</b> <span class="muted">${esc(s.en)} · ${s.from}–${s.to}</span></summary>
+          ${guideUnits.filter((u) => u.n >= s.from && u.n <= s.to).map((u) => `<a class="row" href="${guideUnitHref(u.n)}">
+            <span class="badge">${u.n}</span><span>${esc(u.en)}<br><span class="muted">${esc(u.uz)}</span></span></a>`).join('')}
+        </details>`).join('')}</div>`;
     }
     const r = rand();
     queueMicrotask(() => {
