@@ -136,6 +136,16 @@ await step('ielts: hub band calculator, writing word count, speaking cue card', 
   await page.locator('[data-q="mr1"] input[value="1"]').check();
   await page.click('#mock-finish');
   if (!(await page.textContent('#mock-result')).includes('2 / 40')) throw new Error(await page.textContent('#mock-result'));
+  await page.goto(`${base}/#/mistakes`);
+  await page.waitForSelector('[data-q="mr2"]');
+  if (await page.locator('[data-q="mr8"]').count()) throw new Error('correct answer must not be in mistakes');
+  await page.locator('[data-q="mr2"] input[value="1"]').check();
+  await page.click('#retry');
+  await page.waitForSelector('#retry-result:has-text("tuzatildi")');
+  await page.goto(`${base}/#/`);
+  await page.goto(`${base}/#/mistakes`);
+  await page.waitForSelector('[data-q="mr3"]');
+  if (await page.locator('[data-q="mr2"]').count()) throw new Error('fixed mistake should be removed');
   await page.goto(`${base}/#/ielts?s=s-learning`);
   await page.click('#cue-start');
   await page.waitForFunction(() => document.querySelector('#cue-timer').textContent === '0:59');

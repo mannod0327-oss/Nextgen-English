@@ -135,6 +135,19 @@ function feedbackHtml(q, score) {
     ${q.explanation ? `<div class="muted">${esc(q.explanation)}</div>` : ''}</div>`;
 }
 
+// Grade one rendered question, show feedback, and keep the mistakes notebook in sync:
+// a wrong answer is saved (with the question, so it can be retried), a correct one clears it.
+function gradeBox(q, box, source) {
+  const answer = readAnswer(q, box);
+  const score = scoreQuestion(q, answer);
+  box.querySelector('.fb').innerHTML = feedbackHtml(q, score);
+  const mistakes = store.get('mistakes', {});
+  if (score < 1) mistakes[q.id] = { q, source, href: location.hash, given: answer === undefined ? '—' : q.type === 'single' ? q.options[answer] : [].concat(answer).join(', '), date: new Date().toISOString().slice(0, 10) };
+  else delete mistakes[q.id];
+  store.set('mistakes', mistakes);
+  return score;
+}
+
 // ---------- views ----------
 const views = {
   home() {
@@ -310,10 +323,7 @@ const views = {
       $('#check').onclick = () => {
         let total = 0;
         topic.exercises.forEach((q) => {
-          const box = app.querySelector(`[data-q="${q.id}"]`);
-          const s = scoreQuestion(q, readAnswer(q, box));
-          total += s;
-          box.querySelector('.fb').innerHTML = feedbackHtml(q, s);
+          total += gradeBox(q, app.querySelector(`[data-q="${q.id}"]`), `Grammatika: ${topic.title}`);
         });
         const pct = Math.round((total / topic.exercises.length) * 100);
         store.set('grammarDone', { ...store.get('grammarDone', {}), [topic.id]: pct });
@@ -369,10 +379,7 @@ const views = {
       $('#check').onclick = () => {
         let total = 0;
         t.questions.forEach((q) => {
-          const box = app.querySelector(`[data-q="${q.id}"]`);
-          const s = scoreQuestion(q, readAnswer(q, box));
-          total += s;
-          box.querySelector('.fb').innerHTML = feedbackHtml(q, s);
+          total += gradeBox(q, app.querySelector(`[data-q="${q.id}"]`), `O'qish: ${t.title}`);
         });
         const pct = Math.round((total / t.questions.length) * 100);
         store.set('readingDone', { ...store.get('readingDone', {}), [t.id]: pct });
@@ -468,13 +475,10 @@ const views = {
         finished = true;
         let raw = 0;
         all.forEach((q) => {
-          const box = app.querySelector(`[data-q="${q.id}"]`);
-          const sc = scoreQuestion(q, readAnswer(q, box));
-          raw += sc;
-          box.querySelector('.fb').innerHTML = feedbackHtml(q, sc);
+          raw += gradeBox(q, app.querySelector(`[data-q="${q.id}"]`), mock.title);
         });
         raw = Math.round(raw);
-        const band = toBand(mockKind, raw);
+        const band = toBand(mock.kind, raw);
         store.set('ieltsMock', { ...store.get('ieltsMock', {}), [mockKind]: { raw, band, date: new Date().toISOString().slice(0, 10) } });
         addXp(raw);
         app.querySelectorAll('.script').forEach((el) => { el.hidden = false; });
@@ -493,7 +497,7 @@ const views = {
       const r = rand();
       return `<a href="#/ielts">← IELTS</a><h2>📝 ${esc(mock.title)}</h2>
         <p class="sticky-bar card">⏱ <b id="mock-timer"></b> · ${all.length} savol · ${mock.minutes} daqiqa
-          <span class="muted">${mockKind === 'listening' ? "— har bir qismni 🔊 bir marta tinglang (haqiqiy imtihondagidek). Matnlar yakunda ochiladi." : '— har bir matnga ~20 daqiqa ajrating.'}</span></p>
+          <span class="muted">${mock.kind === 'listening' ? "— har bir qismni 🔊 bir marta tinglang (haqiqiy imtihondagidek). Matnlar yakunda ochiladi." : '— har bir matnga ~20 daqiqa ajrating.'}</span></p>
         ${mock.sections.map((sec, n) => `<section class="card"><h3>${esc(sec.title)}</h3><p class="muted">${esc(sec.intro)}</p>
           ${sec.script ? `<p><button class="btn" data-play="${n}">🔊 Tinglash</button> <button class="btn" data-play="${n}" data-slow="1">🐢 Sekinroq</button></p>
             <div class="reading-text script" hidden>${esc(sec.script)}</div>` : `<div class="reading-text">${esc(sec.text)}</div>`}
@@ -571,8 +575,10 @@ const views = {
           <p><a href="#/exam">⏱ IELTS-style imtihon (Imtihon bo'limida tanlang)</a></p></section>
         <section class="card"><h3>✍️ Writing</h3><div class="list">${writing.map((x) => `<a class="row" href="#/ielts?w=${x.id}"><span class="badge">Task ${x.task}</span><span>${esc(x.prompt.slice(0, 70))}…</span></a>`).join('')}</div></section>
         <section class="card"><h3>📝 To'liq sinov testi</h3><p class="muted">Haqiqiy format: 40 savol, umumiy taymer, yakunda band.</p>
-          ${['listening', 'reading'].map((k) => { const res = store.get('ieltsMock', {})[k]; return `<p><a class="btn primary" href="#/ielts?mock=${k}">${k === 'listening' ? '🎧 Listening · 30 daq' : '📰 Reading · 60 daq'}</a>
+          ${Object.entries(mockTests).map(([k, m]) => { const res = store.get('ieltsMock', {})[k]; return `<p><a class="btn primary" href="#/ielts?mock=${k}">${m.kind === 'listening' ? '🎧' : '📰'} ${esc(m.title.replace(/^IELTS (Academic )?/, ''))} · ${m.minutes} daq</a>
             ${res ? `<span class="badge ok">oxirgi: ${res.raw}/40 → ${res.band}</span>` : ''}</p>`; }).join('')}</section>
+        <section class="card"><h3>🧾 Xatolar daftari</h3><p class="muted">Barcha testlardagi noto'g'ri javoblaringiz bir joyda — qayta ishlang.</p>
+          <a class="btn" href="#/mistakes">Xatolar: ${Object.keys(store.get('mistakes', {})).length} ta →</a></section>
         <section class="card"><h3>📚 Akademik so'zlar</h3><p class="muted">IELTS Writing va Reading uchun ${vocabulary.filter((v) => v.category === "Akademik so'zlar (IELTS)").length} ta asosiy so'z — kartalar bilan yodlang.</p>
           <a class="btn primary" href="#/vocab?cat=${encodeURIComponent("Akademik so'zlar (IELTS)")}">Kartalarni boshlash →</a></section>
         <section class="card"><h3>🗣 Speaking</h3><div class="list">${speaking.map((x) => `<a class="row" href="#/ielts?s=${x.id}"><span class="badge">P1–3</span><span><b>${esc(x.topic)}</b></span></a>`).join('')}</div></section>
@@ -583,6 +589,32 @@ const views = {
         <p class="big-band" id="band"></p><p class="muted">Taxminiy, ochiq e'lon qilingan jadval asosida; rasmiy ball har bir test uchun biroz farq qilishi mumkin.</p></section>
       <section class="card"><h3>🔗 Rasmiy bepul materiallar</h3><ul>${officialResources.map(([t, u]) => `<li><a href="${u}" target="_blank" rel="noopener">${esc(t)}</a></li>`).join('')}</ul>
         <p class="muted">Cambridge IELTS kitoblari mualliflik huquqi bilan himoyalangan — ularni faqat sotib olib yoki kutubxonadan foydalaning.</p></section>`;
+  },
+
+  mistakes() {
+    const list = Object.values(store.get('mistakes', {})).sort((a, b) => (a.date < b.date ? 1 : -1));
+    if (!list.length) {
+      return `<h2>🧾 Xatolar daftari</h2><section class="card center"><p>Hozircha xato yo'q 🎉</p>
+        <p class="muted">Grammatika, O'qish va IELTS sinov testlaridagi noto'g'ri javoblar shu yerga avtomatik yig'iladi.</p>
+        <a class="btn primary" href="#/ielts">IELTS bo'limiga</a></section>`;
+    }
+    const r = rand();
+    queueMicrotask(() => {
+      $('#retry').onclick = () => {
+        let fixed = 0;
+        list.forEach((m) => { fixed += gradeBox(m.q, app.querySelector(`[data-q="${m.q.id}"]`), m.source) === 1 ? 1 : 0; });
+        $('#retry-result').textContent = `${fixed} / ${list.length} tuzatildi — to'g'ri javoblar daftardan o'chirildi.`;
+        renderHeader();
+      };
+      $('#clear-mistakes').onclick = () => { store.set('mistakes', {}); route(); };
+    });
+    return `<h2>🧾 Xatolar daftari <span class="badge">${list.length}</span></h2>
+      <p class="muted">Har bir savolga qaytadan javob bering. To'g'ri javob berilgan savol daftardan o'chadi.</p>
+      ${list.map((m) => `<section class="card question" data-q="${esc(m.q.id)}">
+        <p class="muted">${esc(m.source)} · ${m.date} · oldingi javobingiz: <s>${esc(m.given)}</s> · <a href="${esc(m.href)}">manbaga o'tish</a></p>
+        <b>${esc(m.q.prompt)}</b>${questionHtml(m.q, r)}<div class="fb"></div></section>`).join('')}
+      <p><button class="btn primary" id="retry">Tekshirish</button> <button class="btn" id="clear-mistakes">Daftarni tozalash</button></p>
+      <p id="retry-result" aria-live="polite"></p>`;
   },
 
   dictionary(params) {

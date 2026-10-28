@@ -116,3 +116,12 @@ test('ielts mock tests: 40 single-answer questions each, answers findable in the
     }
   }
 });
+
+test('question ids are unique across grammar, readings and mocks (mistakes notebook keys)', () => {
+  const ids = [
+    ...grammar.flatMap((t) => t.exercises.map((e) => e.id)),
+    ...readings.flatMap((r) => r.questions.map((q) => q.id)),
+    ...Object.values(mockTests).flatMap((m) => m.sections.flatMap((sec) => sec.questions.map((q) => q.id))),
+  ];
+  assert.equal(new Set(ids).size, ids.length);
+});
