@@ -352,6 +352,17 @@ const views = {
           ${d ? sensesHtml(d) : v ? '' : '<p class="muted">Lug\'atda topilmadi.</p>'}`;
       };
       $('#hide').onclick = () => { $('#text').hidden = !$('#text').hidden; };
+      // IELTS-style highlighter: CSS Custom Highlight API marks ranges without touching the DOM.
+      if (globalThis.CSS?.highlights) {
+        const marks = new Highlight();
+        CSS.highlights.set('nge-mark', marks);
+        $('#mark').onclick = () => {
+          const sel = getSelection();
+          if (sel.rangeCount && !sel.isCollapsed && $('#text').contains(sel.anchorNode)) marks.add(sel.getRangeAt(0).cloneRange());
+          sel.removeAllRanges();
+        };
+        $('#unmark').onclick = () => marks.clear();
+      }
       $('#check').onclick = () => {
         let total = 0;
         t.questions.forEach((q) => {
@@ -370,7 +381,8 @@ const views = {
     return `<a href="#/reading">← Matnlar</a><h2>${esc(t.title)} <span class="badge">${t.level}</span></h2>
       <p class="muted">${esc(t.uzTitle)}</p>
       <p><button class="btn" id="listen">🔊 Tinglash</button> <button class="btn" id="listen-slow">🐢 Sekin</button>
-        <button class="btn" id="hide">🙈 Matnni yashirish / ko'rsatish</button></p>
+        <button class="btn" id="hide">🙈 Matnni yashirish / ko'rsatish</button>
+        ${globalThis.CSS?.highlights ? `<button class="btn" id="mark">🖍 Belgilash</button> <button class="btn" id="unmark">Tozalash</button>` : ''}</p>
       <p class="muted">${t.listening ? "🎧 Tinglash mashqi: matn yopiq. Avval 🔊 tinglang (IELTS'da 1 marta!), javob bering — tekshirgandan keyin matn ochiladi." : "💡 Istalgan so'zni bosing — ma'nosi chiqadi."}</p>
       <section class="card reading-text" id="text"${t.listening ? ' hidden' : ''}>${t.text.split(/([A-Za-z][A-Za-z'’-]*)/).map((p, n) => (n % 2 ? `<span class="tw">${esc(p)}</span>` : esc(p))).join('')}</section>
       <aside class="card gloss" id="gloss" hidden></aside>

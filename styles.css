@@ -24,6 +24,7 @@ a { color: var(--accent); }
 .reading-text { white-space: pre-line; font-size: 1.08rem; line-height: 1.75; max-width: 70ch; }
 .tw { cursor: pointer; border-radius: 4px; }
 .tw:hover { background: color-mix(in srgb, var(--accent) 16%, transparent); }
+::highlight(nge-mark) { background: #ffe066; color: #1d2433; }
 .gloss { position: sticky; bottom: .75rem; max-width: 70ch; box-shadow: 0 6px 24px rgb(0 0 0 / .18); }
 .senses { margin: .4rem 0 0; padding-left: 1.3rem; }
 .senses li { margin: .2rem 0; }

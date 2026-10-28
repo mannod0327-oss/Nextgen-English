@@ -100,6 +100,9 @@ await step('reading gloss + dictionary definitions (lazy-loaded WordNet)', async
   await page.goto(`${base}/#/reading?t=my-family`);
   await page.locator('#text .tw', { hasText: /^fifteen$/ }).first().click();
   await page.waitForSelector('#gloss:not([hidden]) .senses');
+  await page.locator('#text').evaluate((el) => { const r = document.createRange(); r.selectNodeContents(el.querySelector('.tw')); getSelection().removeAllRanges(); getSelection().addRange(r); });
+  await page.click('#mark');
+  if ((await page.evaluate(() => CSS.highlights.get('nge-mark').size)) !== 1) throw new Error('highlight not added');
   await page.goto(`${base}/#/dictionary?q=shrinks`);
   await page.waitForSelector('#defs .entry');
   if (!(await page.textContent('#defs')).includes('wither')) throw new Error('definition-only entry missing');

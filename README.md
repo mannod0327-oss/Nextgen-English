@@ -23,17 +23,17 @@ npm run test:e2e     # brauzer smoke testi (Playwright + Chromium kerak; servern
 
 ## Modullar
 
-| Bo'lim                 | Nima qiladi                                                                                                                                                                              |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 🧭 Daraja testi        | Adaptiv "zinapoya" testi: ketma-ket 2 to'g'ri → daraja oshadi, xato → tushadi. Natija A1–C1.                                                                                             |
-| 🖼️ Vizual lug'at       | Rasm + so'z + IPA + o'zbekcha tarjima + misol. SM-2 takrorlash algoritmi, klaviatura (Space, 1–4).                                                                                       |
-| 🌊 Immersiya o'yini    | Tarjimasiz: rasmga mos inglizcha so'zni topish.                                                                                                                                          |
-| 📐 Grammatika          | Mavzular daraxti → qoida, jadval, ovozli misollar, avtomatik tekshiriladigan mashqlar.                                                                                                   |
-| 📰 O'qish va tinglash  | A1–C1 matnlar (O'zbekiston hayotidan), 🔊 tinglash, matnni yashirib tinglash mashqi, tushunish savollari, istalgan so'zni bosib ma'nosini ko'rish. 🎧 IELTS uslubidagi tinglash mashqlari (matn javobdan keyin ochiladi).                                       |
-| 🎙️ Nutq laboratoriyasi | Real vaziyatlar (mehmonxona, kafe, ofis…). Namuna (TTS, sekin rejim), mikrofon to'lqini, nutqni aniqlash va so'zma-so'z 0–100% baho.                                                     |
-| 📖 Lug'at              | Saralangan prefiks indeksida ikkilik qidiruv, so'z shakllarini tanish (`studies → study`, `running → run`), xato yozilganda taklif. 1401 so'zga inglizcha ta'rif (Open English WordNet). |
-| ⏱️ Imtihon simulyatori | Taymer, savollar navigatsiya paneli, javoblarni saqlash, natija va xatolar ustida ishlash. JSON test faylini yuklash.                                                                    |
-| 🛠️ Test yaratuvchi     | O'qituvchi uchun: 5 turdagi savol, validatsiya, JSON eksport/import, aralashtirilgan variantlar (A/B/C) va javob kaliti bilan chop etish.                                                |
+| Bo'lim                 | Nima qiladi                                                                                                                                                                                                               |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 🧭 Daraja testi        | Adaptiv "zinapoya" testi: ketma-ket 2 to'g'ri → daraja oshadi, xato → tushadi. Natija A1–C1.                                                                                                                              |
+| 🖼️ Vizual lug'at       | Rasm + so'z + IPA + o'zbekcha tarjima + misol. SM-2 takrorlash algoritmi, klaviatura (Space, 1–4).                                                                                                                        |
+| 🌊 Immersiya o'yini    | Tarjimasiz: rasmga mos inglizcha so'zni topish.                                                                                                                                                                           |
+| 📐 Grammatika          | Mavzular daraxti → qoida, jadval, ovozli misollar, avtomatik tekshiriladigan mashqlar.                                                                                                                                    |
+| 📰 O'qish va tinglash  | A1–C1 matnlar (O'zbekiston hayotidan), 🔊 tinglash, matnni yashirib tinglash mashqi, tushunish savollari, istalgan so'zni bosib ma'nosini ko'rish, 🖍 IELTS'dagidek matnni belgilash. 🎧 IELTS uslubidagi tinglash mashqlari (matn javobdan keyin ochiladi). |
+| 🎙️ Nutq laboratoriyasi | Real vaziyatlar (mehmonxona, kafe, ofis…). Namuna (TTS, sekin rejim), mikrofon to'lqini, nutqni aniqlash va so'zma-so'z 0–100% baho.                                                                                      |
+| 📖 Lug'at              | Saralangan prefiks indeksida ikkilik qidiruv, so'z shakllarini tanish (`studies → study`, `running → run`), xato yozilganda taklif. 1401 so'zga inglizcha ta'rif (Open English WordNet).                                  |
+| ⏱️ Imtihon simulyatori | Taymer, savollar navigatsiya paneli, javoblarni saqlash, natija va xatolar ustida ishlash. JSON test faylini yuklash.                                                                                                     |
+| 🛠️ Test yaratuvchi     | O'qituvchi uchun: 5 turdagi savol, validatsiya, JSON eksport/import, aralashtirilgan variantlar (A/B/C) va javob kaliti bilan chop etish.                                                                                 |
 
 ## Arxitektura: qaysi mexanizm qayerdan olingan
 
