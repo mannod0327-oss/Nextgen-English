@@ -75,7 +75,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 62  | **Mock Test 8**                                                          |                                                                                        | 40+40 original savol                                                                                                                                                                                      | ✅    |
 | 63 | **Task 1: chiziqli va ustunli grafiklar (SVG)** | Task 1 bankida faqat jadvallar bor, imtihonda esa grafiklar ko'p | Ma'lumotdan SVG grafik chizuvchi pure modul (unit test) + 3 line + 3 bar topshiriq; mobil kenglikda sig'adi | ✅ |
 | 64 | **Grafik topshiriqlariga Band 7 namunalar** |  | 6 ta namuna (≥150 so'z), raqamlar ma'lumot bilan avtomatik mos | ✅ |
-| 65 | **So'z yasalishi trenajyori** | economy/economic/economical — IELTS'da ko'p xato | `#/drill?t=forms`: 42 ta gap, o'zbekcha izoh | ⬜ |
+| 65 | **So'z yasalishi trenajyori** | economy/economic/economical — IELTS'da ko'p xato | `#/drill?t=forms`: 42 ta gap, o'zbekcha izoh | ✅ |
 | 66 | **Predlogli fe'l/sifatlar trenajyori** | depend on, interested in, good at… | `#/drill?t=deps`: 42 ta gap | ⬜ |
 | 67 | **Grammatika +4** (past perfect, present perfect continuous, wish/if only, some/any/much/many) | Muhim B1–B2/A2 mavzular yo'q | 4 mavzu × ≥5 mashq, jadval va o'zbekcha izoh | ⬜ |
 | 68 | **B2 va C1 tinglash +4** | C1 tinglash atigi 4 ta | 2 × B2, 2 × C1 (har biri 5 savol) | ⬜ |
@@ -176,3 +176,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **62-iteratsiya** — Mock 8: Listening (talabalar turar joyi, botanika bog'i, tog' qishlog'ida dala tadqiqoti, qushlar yo'l topishi ma'ruzasi) + Reading (choy tarixi va odobi, shovqinning yashirin narxi, vulqonlar va iqlim); 80 savol, MCQ javob o'rinlari aylantirildi (harfli variantlar tartibda); v=77. Batch 5 (43–62) yakunlandi.
 - **63-iteratsiya** — Batch 6 (63–82) SPEC'ga yozildi. Task 1 grafiklari: chart.js ga niceMax + chartSvg (line/bar, legend, <title>, role=img, escaping) + unit test; bankda 3 line (internet, muzeylar, yog'ingarchilik) + 3 bar (transport, o'qish formati, chiqindi) topshiriq, jadval <details> ichida; mobil yo'nalishlar; v=78.
 - **64-iteratsiya** — Grafik topshiriqlariga 6 ta Band 7 namuna (180–205 so'z) — jami 36; raqam tekshiruvi endi yig'indilarni ham qabul qiladi (masalan, 180+220=400); v=79.
+- **65-iteratsiya** — So'z yasalishi trenajyori: src/data/forms.js — 42 gap (ot/sifat/ravish/fe'l, un-/in-, -ed/-ing), 5 qoida, o'zbekcha izoh; drills.js trainers ga 'forms'; id prefiksi fm (grammatikadagi wf bilan to'qnashmaslik uchun); bitta-gap testi; v=80.
