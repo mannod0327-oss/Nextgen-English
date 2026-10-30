@@ -137,6 +137,117 @@ Nodira`,
       { id: 'wa5', type: 'single', prompt: 'The word "unprecedented" means …', options: ['never seen before', 'very small', 'planned carefully', 'illegal'], answer: 0 },
     ],
   },
+  // ---- More A1–A2 reading
+  {
+    id: 'my-day', level: 'A1', title: 'My Day', uzTitle: 'Mening kunim',
+    text: `I get up at seven o'clock every day. First, I wash my face and brush my teeth. Then I have breakfast with my family. I usually eat bread, eggs and cheese, and I drink tea. At eight o'clock I go to school by bus. My lessons start at half past eight and finish at one o'clock. After school I have lunch at home and do my homework. In the evening I play football with my friends in the park. I go to bed at ten o'clock.`,
+    questions: [
+      { id: 'md1', type: 'fill', prompt: 'I get up at ___ o’clock. (so‘z bilan)', answer: ['seven', '7'] },
+      { id: 'md2', type: 'single', prompt: 'What does the writer drink at breakfast?', options: ['milk', 'coffee', 'tea', 'juice'], answer: 2 },
+      { id: 'md3', type: 'single', prompt: 'How does the writer go to school?', options: ['on foot', 'by bus', 'by car', 'by bike'], answer: 1 },
+      { id: 'md4', type: 'single', prompt: 'Lessons finish at …', options: ['twelve', 'one o’clock', 'half past eight', 'three'], answer: 1 },
+      { id: 'md5', type: 'fill', prompt: 'In the evening I play ___ with my friends.', answer: 'football' },
+    ],
+  },
+  {
+    id: 'my-friend', level: 'A1', title: 'My Best Friend', uzTitle: 'Eng yaqin do‘stim',
+    text: `My best friend is Laylo. She is fourteen years old, the same age as me. She has long black hair and brown eyes. She is tall and very friendly. Laylo lives in the next street, so we walk to school together every morning. She likes reading books and drawing pictures. Her favourite subject is art. I like maths, but she does not! At weekends we often go to the cinema or eat ice cream in the park. Laylo has a little brother. His name is Sardor and he is five.`,
+    questions: [
+      { id: 'bf1', type: 'single', prompt: 'How old is Laylo?', options: ['twelve', 'thirteen', 'fourteen', 'fifteen'], answer: 2 },
+      { id: 'bf2', type: 'single', prompt: 'Laylo’s eyes are …', options: ['blue', 'green', 'black', 'brown'], answer: 3 },
+      { id: 'bf3', type: 'fill', prompt: 'Laylo’s favourite subject is ___.', answer: 'art' },
+      { id: 'bf4', type: 'single', prompt: 'Does Laylo like maths?', options: ['Yes, very much.', 'No, she doesn’t.', 'Sometimes.', 'The text does not say.'], answer: 1 },
+      { id: 'bf5', type: 'fill', prompt: 'Her brother Sardor is ___ years old. (so‘z bilan)', answer: ['five', '5'] },
+    ],
+  },
+  {
+    id: 'our-flat', level: 'A1', title: 'Our Flat', uzTitle: 'Bizning kvartiramiz',
+    text: `We live in a flat in Tashkent. It is on the third floor of a big building. Our flat has three rooms: a living room and two bedrooms. There is also a kitchen and a bathroom. The kitchen is small, but it is very clean. In the living room there is a big sofa, a TV and a carpet. My sister and I share a bedroom. We have two beds, a desk and a lot of books. From our window we can see a park with tall trees. I like our flat very much.`,
+    questions: [
+      { id: 'of1', type: 'single', prompt: 'Which floor is the flat on?', options: ['first', 'second', 'third', 'fifth'], answer: 2 },
+      { id: 'of2', type: 'fill', prompt: 'The flat has ___ rooms. (so‘z bilan)', answer: ['three', '3'] },
+      { id: 'of3', type: 'single', prompt: 'The kitchen is …', options: ['big and dirty', 'small but clean', 'new and big', 'very old'], answer: 1 },
+      { id: 'of4', type: 'multiple', prompt: 'What is in the living room?', options: ['a sofa', 'a bed', 'a TV', 'a desk'], answer: [0, 2] },
+      { id: 'of5', type: 'fill', prompt: 'From the window they can see a ___.', answer: 'park' },
+    ],
+  },
+  {
+    id: 'birthday', level: 'A1', title: 'A Birthday Party', uzTitle: 'Tug‘ilgan kun',
+    text: `Yesterday was my brother Javohir's birthday. He is now ten years old. My mother made a big chocolate cake, and my father bought balloons. Ten of Javohir's friends came to our house at four o'clock. They played games in the garden and listened to music. Javohir got many presents: a football, two books and a new bicycle from our grandparents. He was very happy. At six o'clock we ate the cake and sang "Happy Birthday". It was a great day for everyone.`,
+    questions: [
+      { id: 'bd1', type: 'fill', prompt: 'Javohir is now ___ years old. (so‘z bilan)', answer: ['ten', '10'] },
+      { id: 'bd2', type: 'single', prompt: 'What kind of cake did the mother make?', options: ['lemon', 'chocolate', 'carrot', 'apple'], answer: 1 },
+      { id: 'bd3', type: 'single', prompt: 'Where did the children play games?', options: ['in the park', 'at school', 'in the garden', 'in the kitchen'], answer: 2 },
+      { id: 'bd4', type: 'single', prompt: 'Who gave Javohir a bicycle?', options: ['his father', 'his friends', 'his grandparents', 'his mother'], answer: 2 },
+      { id: 'bd5', type: 'fill', prompt: 'They ate the cake at ___ o’clock. (so‘z bilan)', answer: ['six', '6'] },
+    ],
+  },
+  {
+    id: 'shopping-list', level: 'A1', title: 'At the Supermarket', uzTitle: 'Supermarketda',
+    text: `On Sunday, Malika goes to the supermarket with her mother. They have a shopping list. They need milk, rice, apples, onions and a kilo of meat. First they go to the fruit section. The apples are red and green. Malika chooses six green apples. Then they buy rice and onions. The milk is at the back of the shop, next to the cheese. The meat is expensive today, so they buy half a kilo. At the end, Malika's mother pays by card. Malika carries the small bag home.`,
+    questions: [
+      { id: 'sl1', type: 'single', prompt: 'When do they go to the supermarket?', options: ['on Saturday', 'on Sunday', 'on Monday', 'every day'], answer: 1 },
+      { id: 'sl2', type: 'fill', prompt: 'Malika chooses six ___ apples.', answer: 'green' },
+      { id: 'sl3', type: 'single', prompt: 'Where is the milk?', options: ['next to the cheese', 'next to the meat', 'at the entrance', 'in the fruit section'], answer: 0 },
+      { id: 'sl4', type: 'single', prompt: 'How much meat do they buy?', options: ['one kilo', 'two kilos', 'half a kilo', 'none'], answer: 2, explanation: 'Ro‘yxatda 1 kilo edi, lekin go‘sht qimmat bo‘lgani uchun yarim kilo oldi.' },
+      { id: 'sl5', type: 'single', prompt: 'How does the mother pay?', options: ['in cash', 'by card', 'by phone', 'she doesn’t pay'], answer: 1 },
+    ],
+  },
+  {
+    id: 'weekend-trip', level: 'A2', title: 'A Weekend in the Mountains', uzTitle: 'Tog‘dagi dam olish kunlari',
+    text: `Last weekend my family and I went to the mountains near Chimgan. We left Tashkent early on Saturday morning, and the journey by car took about two hours. We stayed in a small guesthouse with a beautiful view of the valley. On Saturday afternoon we walked to a waterfall. The path was steep, and my little sister got tired, so my father carried her on his back for the last part. In the evening it was cold, so we sat by the fire and drank hot tea. On Sunday it rained, but we visited a local market and bought dried fruit and honey. I want to go back in winter to try skiing.`,
+    questions: [
+      { id: 'wt1', type: 'fill', prompt: 'The journey by car took about ___ hours. (so‘z bilan)', answer: ['two', '2'] },
+      { id: 'wt2', type: 'single', prompt: 'Where did the family stay?', options: ['in a hotel', 'in a tent', 'in a small guesthouse', 'with friends'], answer: 2 },
+      { id: 'wt3', type: 'single', prompt: 'Why did the father carry the little sister?', options: ['She was ill.', 'She was tired.', 'She was afraid.', 'She was cold.'], answer: 1 },
+      { id: 'wt4', type: 'multiple', prompt: 'What did they buy at the market?', options: ['dried fruit', 'bread', 'honey', 'shoes'], answer: [0, 2] },
+      { id: 'wt5', type: 'fill', prompt: 'The writer wants to go back in winter to try ___.', answer: 'skiing' },
+    ],
+  },
+  {
+    id: 'new-phone', level: 'A2', title: 'My First Smartphone', uzTitle: 'Birinchi smartfonim',
+    text: `When I was twelve, my parents gave me my first smartphone. At first I was very excited and used it all the time: I played games, watched videos and sent messages to my friends until late at night. After a few weeks my school marks got worse, and I often felt tired in the morning. My mother suggested some rules. Now I leave my phone in the kitchen when I do my homework, and I don't use it after nine o'clock in the evening. I still enjoy my phone, but I also have more time for reading and sport. My marks are better again, and I sleep much better too.`,
+    questions: [
+      { id: 'np1', type: 'fill', prompt: 'The writer got the phone at the age of ___. (raqam yoki so‘z)', answer: ['twelve', '12'] },
+      { id: 'np2', type: 'single', prompt: 'What happened after a few weeks?', options: ['The phone broke.', 'School marks got worse.', 'Friends stopped writing.', 'The writer lost the phone.'], answer: 1 },
+      { id: 'np3', type: 'single', prompt: 'Who suggested rules?', options: ['the teacher', 'the father', 'the mother', 'a friend'], answer: 2 },
+      { id: 'np4', type: 'fill', prompt: 'Now the phone stays in the ___ during homework.', answer: 'kitchen' },
+      { id: 'np5', type: 'single', prompt: 'How does the writer feel now?', options: ['angry about the rules', 'happier, with better sleep and marks', 'bored', 'still tired every morning'], answer: 1 },
+    ],
+  },
+  {
+    id: 'cooking-class', level: 'A2', title: 'Learning to Cook', uzTitle: 'Ovqat pishirishni o‘rganish',
+    text: `Bekzod is nineteen and studies at a university in Samarkand. Last year he moved into a flat with two other students, and he realised that he could not cook anything except eggs. He spent too much money on fast food, so he decided to learn. Every Sunday he called his grandmother on a video call, and she showed him how to make simple dishes: soup, rice with vegetables and, finally, plov. His first plov was a disaster — the rice was too soft — but he did not give up. Now he cooks for his flatmates twice a week, and they share the cost of the food. He says he saves about half of the money he used to spend.`,
+    questions: [
+      { id: 'cc1', type: 'single', prompt: 'Where does Bekzod study?', options: ['Tashkent', 'Bukhara', 'Samarkand', 'Khiva'], answer: 2 },
+      { id: 'cc2', type: 'single', prompt: 'Why did he decide to learn to cook?', options: ['He wanted to be a chef.', 'He spent too much on fast food.', 'His flatmates asked him.', 'His university required it.'], answer: 1 },
+      { id: 'cc3', type: 'fill', prompt: 'His ___ taught him on video calls.', answer: 'grandmother' },
+      { id: 'cc4', type: 'single', prompt: 'What was wrong with his first plov?', options: ['It was too salty.', 'The rice was too soft.', 'It was burnt.', 'There was no meat.'], answer: 1 },
+      { id: 'cc5', type: 'single', prompt: 'How much money does he save now?', options: ['nothing', 'about a quarter', 'about half', 'all of it'], answer: 2 },
+    ],
+  },
+  {
+    id: 'lost-dog', level: 'A2', title: 'The Lost Dog', uzTitle: 'Yo‘qolgan it',
+    text: `One evening in October, Nigora was walking home from work when she saw a small white dog sitting alone near the bus stop. It looked cold and frightened, and it had a red collar but no name tag. Nigora gave it some water and waited, but nobody came. She took a photo of the dog and posted it on a local community group online. Within an hour, a boy called Aziz wrote back: it was his dog, Snowy, who had run away from the park that afternoon. Aziz and his father came to collect Snowy the same evening. To say thank you, they brought Nigora a box of sweets, and now Aziz always puts a name tag on Snowy's collar.`,
+    questions: [
+      { id: 'ld1', type: 'single', prompt: 'Where did Nigora see the dog?', options: ['in the park', 'near the bus stop', 'at work', 'outside a shop'], answer: 1 },
+      { id: 'ld2', type: 'single', prompt: 'The dog had …', options: ['a name tag', 'a red collar but no name tag', 'no collar', 'a blue collar'], answer: 1 },
+      { id: 'ld3', type: 'single', prompt: 'How did Nigora find the owner?', options: ['She called the police.', 'She posted a photo online.', 'She asked neighbours.', 'She went to the park.'], answer: 1 },
+      { id: 'ld4', type: 'fill', prompt: 'The dog’s name is ___.', answer: 'Snowy' },
+      { id: 'ld5', type: 'single', prompt: 'What did Aziz’s family bring Nigora?', options: ['flowers', 'money', 'a box of sweets', 'a photo'], answer: 2 },
+    ],
+  },
+  {
+    id: 'volunteer-day', level: 'A2', title: 'Cleaning the River', uzTitle: 'Daryoni tozalash',
+    text: `Last Saturday, about fifty volunteers met near the river in our town to collect rubbish. Most of them were students, but there were also some families with children and a few older people. The organisers gave everyone gloves and large bags. In three hours we collected more than two hundred kilos of rubbish — mostly plastic bottles, but also old tyres and even a broken chair. After the work, a local café gave all the volunteers free bread and tea. Our teacher said the river looked much better, but she reminded us that the best solution is not to throw rubbish in the first place. The next clean-up day will be in spring.`,
+    questions: [
+      { id: 'vd1', type: 'fill', prompt: 'About ___ volunteers came. (raqam yoki so‘z)', answer: ['fifty', '50'] },
+      { id: 'vd2', type: 'single', prompt: 'Who were most of the volunteers?', options: ['older people', 'families', 'students', 'teachers'], answer: 2 },
+      { id: 'vd3', type: 'single', prompt: 'How long did they work?', options: ['one hour', 'two hours', 'three hours', 'all day'], answer: 2 },
+      { id: 'vd4', type: 'single', prompt: 'What was most of the rubbish?', options: ['tyres', 'plastic bottles', 'furniture', 'paper'], answer: 1 },
+      { id: 'vd5', type: 'fill', prompt: 'The next clean-up day will be in ___.', answer: 'spring' },
+    ],
+  },
   // ---- Listening tasks (IELTS-style): text hidden until checked; "Name: " speaker labels are not read aloud.
   {
     id: 'hotel-booking', level: 'A2', listening: true, title: 'Booking a Hotel Room', uzTitle: 'Tinglash: mehmonxona band qilish',

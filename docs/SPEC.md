@@ -21,6 +21,12 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 8   | **Kollokatsiya va iboralar**                 | IELTS Lexical resource                                          | ≥60 kollokatsiya mashq bilan                                                                                                                        | ✅    |
 | 9   | **Mock Test 3**                              | Ko'proq to'liq format                                           | 40+40 savol, mavjud testlar o'tadi                                                                                                                  | ✅    |
 | 10  | **Global qidiruv**                           | 200+ topshiriq orasidan topish                                  | Bitta qidiruv: so'z, grammatika, matn, IELTS topshiriq                                                                                              | ✅    |
+| 11  | **A1–A2 o'qish matnlari** | Boshlovchilar uchun atigi 2+2 matn bor — eng katta bo'shliq | +10 matn (5 A1, 5 A2), har biri 5 savol; kontent testi A1 va A2 da ≥6 tadan matn borligini tekshiradi | ✅ |
+| 12  | **Grammatika: +6 mavzu** | C1 da 1 ta mavzu; used to, future perfect, inversion yo'q | 6 yangi mavzu (A2–C1), har biri qoida+jadval+misol+≥5 mashq; C1 ≥3 mavzu | ⬜ |
+| 13  | **Lug'at: +60 so'z (3 yangi mavzu)** | Kundalik vaziyatlar: aeroport, shifokor, bank | 3 mavzu × 20 so'z, IPA, o'zbekcha, misol; takrorlanmaydi; ta'riflar qayta quriladi | ⬜ |
+| 14  | **Writing namunalari** | Bank topshiriqlarida namuna yo'q | 12 ta bank topshirig'iga Band 7 namunaviy javob (≥ minWords, test) | ⬜ |
+| 15  | **Mock Test 4** | Ko'proq to'liq format | 40+40 original savol, mavjud testlar o'tadi | ⬜ |
+| 16  | **Tungi rejim va shrift o'lchami** | Kechqurun o'qish, ko'rish qulayligi | Sarlavhada 🌙/☀️ va A−/A+ tugmalari, tanlov saqlanadi; ikkala mavzuda kontrast; E2E | ⬜ |
 
 ## Iteratsiyalar jurnali
 
@@ -35,4 +41,6 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **9-iteratsiya** — 📝 Mock Test 3: Listening (fotografiya kursiga yozilish, yangi chiqindilarni ajratish tizimi, musiqa va diqqat bo'yicha tadqiqot muhokamasi, xaritalar tarixi ma'ruzasi) + Reading (O'zbek palovi va UNESCO, nega esnaymiz, gig-iqtisodiyot) — 80 ta original savol. Mavjud kontent testi 40 savol, yagona ID va har bir gap-fill javobi matnda borligini tasdiqladi; IELTS sahifasi 6 ta sinov testini ko'rsatadi; mobil tekshiruvga qo'shildi.
 - **10-iteratsiya** — 🔎 `#/search` (menyuda): bitta qidiruv ~1200 yozuv bo'yicha — so'zlar, grammatika mavzulari, 145 qo'llanma uniti, o'qish/tinglash matnlari (matn ichida ham), IELTS Writing/Speaking, sinov testlari, noto'g'ri fe'llar, kollokatsiyalar, tovushlar. `src/core/search.js`: o'zbekcha apostroflar (o‘/o'/o) va registrni tenglashtiradi, sarlavha boshidagi moslikni birinchi qo'yadi, ko'p so'zli so'rovda hamma so'z bo'lishi shart. URL ulashiladi (`?q=`). Unit test + E2E.
 
-**Backlog bajarildi (10/10).** Keyingi g'oyalar uchun shu jadvalga yangi ⬜ qatorlar qo'shiladi.
+**1–10 bajarildi.** 2-bosqich: 11–16-punktlar.
+
+- **11-iteratsiya** — 📰 10 ta yangi boshlovchi matni: A1 (kunim, do'stim, kvartiramiz, tug'ilgan kun, xarid ro'yxati) va A2 (dam olish safari, yangi telefon, oshpazlik darsi, yo'qolgan it, ko'ngillilar kuni), har biri 5 savol (+50). A1 va A2 da endi 7 tadan matn; kontent testi ≥6 tadan borligini tekshiradi, barcha ID'lar yagona.
