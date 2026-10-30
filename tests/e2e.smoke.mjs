@@ -397,6 +397,42 @@ await step('mobile layout has no horizontal scroll', async () => {
   await page.screenshot({ path: `${shots}/mobile.png` });
 });
 
+await step('display prefs: night mode + font size persist, readable contrast, no mobile overflow at A+ max', async () => {
+  await page.goto(`${base}/#/`);
+  await page.waitForSelector('#theme');
+  const contrast = () => page.evaluate(() => {
+    const lum = (c) => { const [r, g, b] = c.match(/\d+(\.\d+)?/g).slice(0, 3).map(Number).map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+    const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((m, n) => n - m); return (x + 0.05) / (y + 0.05); };
+    const cs = (el) => getComputedStyle(el);
+    const card = document.querySelector('.card, .tile') ?? document.body;
+    return { text: ratio(cs(document.body).color, cs(document.body).backgroundColor), muted: ratio(cs(document.querySelector('.muted') ?? document.body).color, cs(card).backgroundColor) };
+  });
+  const start = await page.evaluate(() => document.documentElement.dataset.theme ?? '');
+  await page.click('#theme');
+  const theme = await page.evaluate(() => document.documentElement.dataset.theme);
+  if (!theme || theme === start) throw new Error('theme did not toggle');
+  const c1 = await contrast();
+  await page.click('#theme');
+  const c2 = await contrast();
+  for (const c of [c1, c2]) if (c.text < 7 || c.muted < 4.5) throw new Error(`low contrast ${JSON.stringify(c)}`);
+  await page.click('#theme');
+  await page.click('#fs-up');
+  await page.reload();
+  await page.waitForSelector('#theme');
+  if ((await page.evaluate(() => document.documentElement.dataset.theme)) !== theme) throw new Error('theme not saved');
+  if ((await page.evaluate(() => getComputedStyle(document.documentElement).fontSize)) !== '18px') throw new Error('font size not saved');
+  for (let i = 0; i < 5; i++) if (!(await page.isDisabled('#fs-up'))) await page.click('#fs-up');
+  if (!(await page.isDisabled('#fs-up'))) throw new Error('A+ should stop at the maximum');
+  await page.setViewportSize({ width: 375, height: 800 });
+  for (const r of ['', 'ielts', 'grammar?topic=inversion', 'reading?t=my-day', 'verbs']) {
+    await page.goto(`${base}/#/${r}`);
+    await page.waitForTimeout(150);
+    if (await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)) throw new Error(`overflow at max font on #/${r}`);
+  }
+  await page.evaluate(() => { const k = Object.keys(localStorage).find((x) => x.endsWith('prefs')); if (k) localStorage.removeItem(k); });
+  await page.setViewportSize({ width: 1100, height: 900 });
+});
+
 await step('offline: after one online visit the app reloads with no network (service worker)', async () => {
   const ctx = await browser.newContext({ viewport: { width: 1100, height: 900 } });
   const p = await ctx.newPage();

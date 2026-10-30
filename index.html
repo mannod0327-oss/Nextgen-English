@@ -9,12 +9,19 @@
   <link rel="apple-touch-icon" href="icon-192.png">
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#3b5bdb">
-  <link rel="stylesheet" href="styles.css?v=30">
+  <link rel="stylesheet" href="styles.css?v=31">
 </head>
 <body>
   <header class="top">
     <a class="brand" href="#/">🎓 Nextgen English</a>
-    <div id="stats" class="stats"></div>
+    <div class="top-right">
+      <div id="stats" class="stats"></div>
+      <div class="prefs" role="group" aria-label="Ko'rinish">
+        <button class="pref" id="fs-down" type="button" title="Shriftni kichraytirish" aria-label="Shriftni kichraytirish">A−</button>
+        <button class="pref" id="fs-up" type="button" title="Shriftni kattalashtirish" aria-label="Shriftni kattalashtirish">A+</button>
+        <button class="pref" id="theme" type="button" title="Tungi / kunduzgi rejim" aria-label="Tungi / kunduzgi rejim">🌙</button>
+      </div>
+    </div>
   </header>
   <nav class="nav" aria-label="Bo'limlar">
     <a href="#/">Bosh sahifa</a>
@@ -33,6 +40,6 @@
   </nav>
   <main id="app" class="wrap"></main>
   <noscript>Bu ilova uchun JavaScript kerak.</noscript>
-  <script type="module" src="src/app.js?v=30"></script>
+  <script type="module" src="src/app.js?v=31"></script>
 </body>
 </html>

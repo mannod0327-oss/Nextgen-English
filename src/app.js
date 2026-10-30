@@ -1257,6 +1257,26 @@ function route() {
 app.addEventListener('click', (e) => { const b = e.target.closest('[data-say]'); if (b) speak(b.dataset.say); });
 window.addEventListener('hashchange', route);
 // Offline: cache the app on first visit (service worker needs https or localhost).
+// Display preferences: theme (light/dark, default follows the OS) and font scale, saved per device.
+const FONT_STEPS = [0.875, 1, 1.125, 1.25, 1.375];
+function applyPrefs() {
+  const { theme, fs = 1 } = store.get('prefs', {});
+  const root = document.documentElement;
+  if (theme) root.dataset.theme = theme; else delete root.dataset.theme;
+  root.style.setProperty('--fs', fs);
+  const dark = theme ? theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  $('#theme').textContent = dark ? '☀️' : '🌙';
+  $('#theme').setAttribute('aria-pressed', String(dark));
+  $('#fs-down').disabled = fs <= FONT_STEPS[0];
+  $('#fs-up').disabled = fs >= FONT_STEPS.at(-1);
+}
+const setPrefs = (patch) => { store.set('prefs', { ...store.get('prefs', {}), ...patch }); applyPrefs(); };
+$('#theme').onclick = () => setPrefs({ theme: $('#theme').textContent === '🌙' ? 'dark' : 'light' });
+const stepFont = (d) => { const i = FONT_STEPS.indexOf(store.get('prefs', {}).fs ?? 1); setPrefs({ fs: FONT_STEPS[Math.min(FONT_STEPS.length - 1, Math.max(0, (i < 0 ? 1 : i) + d))] }); };
+$('#fs-down').onclick = () => stepFont(-1);
+$('#fs-up').onclick = () => stepFont(1);
+applyPrefs();
+
 if ('serviceWorker' in navigator && location.protocol !== 'file:') navigator.serviceWorker.register('sw.js').catch(() => {});
 renderHeader();
 route();
