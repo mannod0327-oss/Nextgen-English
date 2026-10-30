@@ -77,7 +77,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 64 | **Grafik topshiriqlariga Band 7 namunalar** |  | 6 ta namuna (≥150 so'z), raqamlar ma'lumot bilan avtomatik mos | ✅ |
 | 65 | **So'z yasalishi trenajyori** | economy/economic/economical — IELTS'da ko'p xato | `#/drill?t=forms`: 42 ta gap, o'zbekcha izoh | ✅ |
 | 66 | **Predlogli fe'l/sifatlar trenajyori** | depend on, interested in, good at… | `#/drill?t=deps`: 42 ta gap | ✅ |
-| 67 | **Grammatika +4** (past perfect, present perfect continuous, wish/if only, some/any/much/many) | Muhim B1–B2/A2 mavzular yo'q | 4 mavzu × ≥5 mashq, jadval va o'zbekcha izoh | ⬜ |
+| 67 | **Grammatika +4** (past perfect, present perfect continuous, wish/if only, some/any/much/many) | Muhim B1–B2/A2 mavzular yo'q | 4 mavzu × ≥5 mashq, jadval va o'zbekcha izoh | ✅ |
 | 68 | **B2 va C1 tinglash +4** | C1 tinglash atigi 4 ta | 2 × B2, 2 × C1 (har biri 5 savol) | ⬜ |
 | 69 | **B2 va C1 o'qish +4** |  | 4 matn × 5 savol, mavzular takrorlanmaydi | ⬜ |
 | 70 | **Speaking Part 3 namunalari** | Part 3 ga qanday chuqur javob berish ko'rinmaydi | 10 to'plamda Part 3 namunaviy javoblari (har biri ≥60 so'z), 🔊 | ⬜ |
@@ -178,3 +178,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **64-iteratsiya** — Grafik topshiriqlariga 6 ta Band 7 namuna (180–205 so'z) — jami 36; raqam tekshiruvi endi yig'indilarni ham qabul qiladi (masalan, 180+220=400); v=79.
 - **65-iteratsiya** — So'z yasalishi trenajyori: src/data/forms.js — 42 gap (ot/sifat/ravish/fe'l, un-/in-, -ed/-ing), 5 qoida, o'zbekcha izoh; drills.js trainers ga 'forms'; id prefiksi fm (grammatikadagi wf bilan to'qnashmaslik uchun); bitta-gap testi; v=80.
 - **66-iteratsiya** — Predlogli fe'l va sifatlar trenajyori: src/data/deps.js — 42 gap (depend on, interested in, increase in/of, arrive in/at, benefit — predlogsiz…), 4 qoida; drill markazida 8 trenajyor; v=81.
+- **67-iteratsiya** — Grammatika +4: some/any/much/many (A2), Past Perfect (B1), Present Perfect Continuous (B1), wish/if only (B2) — qoida, jadval, misollar, 21 mashq o'zbekcha izoh bilan; jami 45 mavzu / 202 mashq; v=82.
