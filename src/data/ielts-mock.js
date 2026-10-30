@@ -1466,4 +1466,207 @@ Perhaps surprisingly, self-compassion appears to be important too. In one study,
       },
     ],
   },
+
+  'listening-8': {
+    kind: 'listening', title: 'IELTS Listening — Mock Test 8', minutes: 30,
+    sections: [
+      {
+        title: 'Part 1 · Booking student accommodation',
+        intro: 'You will hear a student phoning the university accommodation office. Questions 1–10.',
+        script: `Officer: Accommodation office, good morning.
+Student: Hello. I'm starting a master's course in September and I'd like to book a room in one of the student residences.
+Officer: Of course. We have two options: Riverside Hall, which is about fifteen minutes' walk from the main campus, and Park House, which is right next to the library.
+Student: How much are they?
+Officer: Riverside Hall is four hundred and twenty dollars a month. Park House is more expensive, at five hundred and sixty, because all the rooms there have a private bathroom.
+Student: I'll take Riverside Hall, I think. Is there a kitchen?
+Officer: Yes, there's a shared kitchen on each floor, for eight students. Can I have your name?
+Student: It's Malika Yusupova. That's Y-U-S-U-P-O-V-A.
+Officer: And your student number?
+Student: It's two-three-zero-nine-one-six.
+Officer: Thank you. You'll need to pay a deposit of two hundred dollars to keep the room. You can pay online by credit card.
+Student: When can I move in?
+Officer: From the twenty-eighth of August. And one more thing — the residence has a bicycle store in the basement, but you have to register your bike at reception.
+Student: Great, I'm planning to bring one. And is the internet included?
+Officer: Yes, the internet and all bills are included in the rent.`,
+        questions: [
+          { id: 'n8l1', type: 'fill', prompt: '1. Course: ___ course (starting in September)', answer: ["master's", 'masters'] },
+          { id: 'n8l2', type: 'fill', prompt: '2. Riverside Hall: ___ minutes’ walk from campus', answer: ['15', 'fifteen'] },
+          { id: 'n8l3', type: 'fill', prompt: '3. Park House is next to the ___', answer: 'library' },
+          { id: 'n8l4', type: 'fill', prompt: '4. Riverside Hall rent: $___ a month', answer: ['420', 'four hundred and twenty'] },
+          { id: 'n8l5', type: 'single', prompt: '5. Park House is more expensive because …', options: ['all rooms have a private bathroom', 'it is newer', 'it has a gym', 'it is in the city centre'], answer: 0 },
+          { id: 'n8l6', type: 'fill', prompt: '6. Shared kitchen: one per floor, for ___ students', answer: ['8', 'eight'] },
+          { id: 'n8l7', type: 'fill', prompt: '7. Surname: ___', answer: 'Yusupova' },
+          { id: 'n8l8', type: 'fill', prompt: '8. Deposit: $___', answer: ['200', 'two hundred'] },
+          { id: 'n8l9', type: 'single', prompt: '9. The student can move in from …', options: ['1 September', '28 August', '18 August', '8 September'], answer: 1 },
+          { id: 'n8l10', type: 'fill', prompt: '10. Bikes must be registered at ___', answer: 'reception' },
+        ],
+      },
+      {
+        title: 'Part 2 · A visit to the botanical garden',
+        intro: 'You will hear a guide talking to a group of visitors. Questions 11–20.',
+        script: `Welcome to the City Botanical Garden. My name's Rustam and I'll be your guide this morning. The garden was founded in 1950 and today it covers about sixty hectares, with more than four thousand species of plants from around the world.
+We're standing at the main gate. If you look at your maps, the garden is divided into several sections. Straight ahead is the Rose Garden, which is at its best in May and June. To the left of it you'll see the large glass greenhouse, where we keep tropical plants that couldn't survive our winters outside. It's quite hot and humid in there, so you might want to take off your jackets.
+Behind the greenhouse is the Japanese Garden, with a small lake and a wooden bridge. It's the quietest part of the park, and photographers love it in autumn because of the red maple trees.
+On the right-hand side of the main path is the Desert Collection, with plants from Central Asia, including saxaul and several kinds of tulips that grow wild in our mountains.
+A couple of practical points. The café is next to the children's playground, near the east exit. Please don't pick any flowers or leaves, and keep to the paths. The garden closes at seven, but the greenhouse closes earlier, at five. And if you'd like to support our work, you can adopt a tree — the information is in the gift shop.`,
+        questions: [
+          { id: 'n8l11', type: 'fill', prompt: '11. The garden was founded in ___', answer: '1950' },
+          { id: 'n8l12', type: 'fill', prompt: '12. Size: about ___ hectares', answer: ['60', 'sixty'] },
+          { id: 'n8l13', type: 'single', prompt: '13. The Rose Garden is best in …', options: ['March and April', 'July and August', 'May and June', 'September'], answer: 2 },
+          { id: 'n8l14', type: 'single', prompt: '14. Why might visitors take off their jackets in the greenhouse?', options: ['Jackets are not allowed.', 'It is very crowded.', 'There is a lake.', 'It is hot and humid.'], answer: 3 },
+          { id: 'n8l15', type: 'single', prompt: '15. The Japanese Garden is …', options: ['behind the greenhouse', 'in front of the gate', 'next to the café', 'on the right of the main path'], answer: 0 },
+          { id: 'n8l16', type: 'fill', prompt: '16. In autumn photographers like the red ___ trees.', answer: 'maple' },
+          { id: 'n8l17', type: 'single', prompt: '17. The Desert Collection includes …', options: ['palm trees', 'saxaul and wild tulips', 'tropical orchids', 'roses'], answer: 1 },
+          { id: 'n8l18', type: 'fill', prompt: '18. The café is next to the children’s ___', answer: 'playground' },
+          { id: 'n8l19', type: 'fill', prompt: '19. The greenhouse closes at ___', answer: ['5', 'five'] },
+          { id: 'n8l20', type: 'single', prompt: '20. Information about adopting a tree is in the …', options: ['café', 'greenhouse', 'gift shop', 'main gate'], answer: 2 },
+        ],
+      },
+      {
+        title: 'Part 3 · Planning fieldwork in a mountain village',
+        intro: 'You will hear two geography students, Sardor and Anna, discussing a fieldwork project with their tutor. Questions 21–30.',
+        script: `Tutor: So, you're both going to the mountain village of Sentob for your fieldwork. What's the focus of the project?
+Anna: We want to look at how tourism has changed the village over the last ten years. Guest houses have opened, and more young people are staying instead of moving to the city.
+Tutor: That's a good topic. How will you collect your data?
+Sardor: We'll interview about twenty families, and we're going to count how many houses have been turned into guest houses.
+Anna: We also want to compare old photos with the village today. The school has a collection from the 1990s.
+Tutor: Excellent. Have you thought about the questions for the interviews?
+Sardor: Yes, but we're worried that people might not want to talk about money, like how much they earn from tourists.
+Tutor: That's a common problem. Instead of asking for exact figures, you could ask them to choose from income ranges. And always explain how you'll use the information.
+Anna: We'll also need a translator for the older people, because some of them speak a local dialect.
+Tutor: Yes, and remember to get written consent from everyone you interview. What about the timing?
+Sardor: We're going for five days at the beginning of May, before the main tourist season starts.
+Tutor: Good. Then you'll have time to write up your report. It should be around four thousand words, and you'll present your findings to the class in June.`,
+        questions: [
+          { id: 'n8l21', type: 'fill', prompt: '21. The village is called ___', answer: 'Sentob' },
+          { id: 'n8l22', type: 'single', prompt: '22. The project studies how … has changed the village.', options: ['farming', 'a new road', 'the school', 'tourism'], answer: 3 },
+          { id: 'n8l23', type: 'fill', prompt: '23. They will interview about ___ families.', answer: ['20', 'twenty'] },
+          { id: 'n8l24', type: 'single', prompt: '24. The old photos come from …', options: ['the school', 'a museum', 'the internet', 'the families'], answer: 0 },
+          { id: 'n8l25', type: 'single', prompt: '25. Sardor is worried that people may not want to talk about …', options: ['their families', 'money', 'the past', 'tourists'], answer: 1 },
+          { id: 'n8l26', type: 'single', prompt: '26. The tutor suggests asking people to choose from …', options: ['exact figures', 'photos', 'income ranges', 'maps'], answer: 2 },
+          { id: 'n8l27', type: 'fill', prompt: '27. Some older people speak a local ___', answer: 'dialect' },
+          { id: 'n8l28', type: 'fill', prompt: '28. They must get written ___ from interviewees.', answer: 'consent' },
+          { id: 'n8l29', type: 'single', prompt: '29. Why are they going at the beginning of May?', options: ['It is cheaper.', 'The weather is best.', 'The tutor is free then.', 'It is before the main tourist season.'], answer: 3 },
+          { id: 'n8l30', type: 'fill', prompt: '30. The report should be around ___ words.', answer: ['4000', 'four thousand', '4,000'] },
+        ],
+      },
+      {
+        title: 'Part 4 · Lecture: How migrating birds find their way',
+        intro: 'You will hear part of a zoology lecture. Questions 31–40.',
+        script: `Every year, billions of birds migrate between their breeding grounds and the places where they spend the winter. Some species travel enormous distances: the Arctic tern, for example, may fly more than seventy thousand kilometres in a single year. Today I want to look at a question that has fascinated scientists for centuries: how do birds find their way?
+The first point is that birds use several different systems, and they can switch between them depending on conditions. During the day, many birds navigate using the position of the sun. Experiments have shown that birds have an internal clock, which allows them to adjust for the sun's movement across the sky.
+Birds that migrate at night use the stars instead. In a famous series of experiments in a planetarium, young birds were shown an artificial night sky. When the projected stars were rotated, the birds changed the direction in which they tried to fly.
+Perhaps the most remarkable system is the magnetic sense. Birds can detect the Earth's magnetic field, which helps them on cloudy days when neither the sun nor the stars are visible. Researchers believe that special molecules in birds' eyes may allow them to "see" the magnetic field, although this is still being investigated.
+Finally, birds also use landmarks such as coastlines, rivers and mountain ranges, and some species seem to use smell.
+Unfortunately, human activity is making migration more difficult. Artificial light from cities can confuse birds that fly at night, and many collide with tall glass buildings. Some cities now switch off decorative lighting during the main migration seasons, which has been shown to reduce the number of deaths.`,
+        questions: [
+          { id: 'n8l31', type: 'fill', prompt: '31. The Arctic tern may fly more than ___ kilometres in a year.', answer: ['70000', '70,000', 'seventy thousand'] },
+          { id: 'n8l32', type: 'single', prompt: '32. Birds can adjust for the sun’s movement because they have …', options: ['an internal clock', 'very good eyes', 'a map in their memory', 'a magnetic sense'], answer: 0 },
+          { id: 'n8l33', type: 'single', prompt: '33. Night-migrating birds navigate mainly by …', options: ['the moon', 'the stars', 'city lights', 'sound'], answer: 1 },
+          { id: 'n8l34', type: 'fill', prompt: '34. The star experiments took place in a ___', answer: 'planetarium' },
+          { id: 'n8l35', type: 'single', prompt: '35. When the projected stars were rotated, the birds …', options: ['stopped flying', 'went to sleep', 'changed direction', 'followed the sun'], answer: 2 },
+          { id: 'n8l36', type: 'single', prompt: '36. The magnetic sense is especially useful …', options: ['over cities', 'in summer', 'near rivers', 'on cloudy days'], answer: 3 },
+          { id: 'n8l37', type: 'fill', prompt: '37. Special molecules in birds’ ___ may detect the magnetic field.', answer: ['eyes', 'eye'] },
+          { id: 'n8l38', type: 'fill', prompt: '38. Some species also seem to use ___', answer: 'smell' },
+          { id: 'n8l39', type: 'single', prompt: '39. Which problem caused by cities is mentioned?', options: ['artificial light and glass buildings', 'noise', 'air pollution', 'traffic'], answer: 0 },
+          { id: 'n8l40', type: 'fill', prompt: '40. Some cities switch off decorative ___ during migration seasons.', answer: 'lighting' },
+        ],
+      },
+    ],
+  },
+
+  'reading-8': {
+    kind: 'reading', title: 'IELTS Academic Reading — Mock Test 8', minutes: 60,
+    sections: [
+      {
+        title: 'Passage 1 · The Journey of Tea',
+        intro: 'Questions 1–13. You should spend about 20 minutes on this passage.',
+        text: `Tea is the most widely consumed drink in the world after water, and in Central Asia it is far more than a drink: it is a central part of hospitality. A guest in an Uzbek home is almost always offered a bowl of tea before anything else, and pouring it is a small ceremony with its own rules.
+
+The tea plant originally comes from south-western China, where it has been cultivated for thousands of years. At first it was used mainly as a medicine, and only later became an everyday drink. Over the centuries, tea spread along trade routes to the west. Traders carried it in compressed bricks, which were easier to transport than loose leaves and less likely to be damaged on long journeys. In some regions, tea bricks were even used as a form of money.
+
+In Central Asia two traditions developed. In most of Uzbekistan, green tea is the everyday drink, while black tea is more common in Tashkent, Khorezm and the north, partly as a result of Russian influence in the nineteenth century. In both traditions, tea is drunk without milk and is usually served in small bowls called piyola.
+
+The way tea is poured carries meaning. A host fills the bowl only partly, so that it can be refilled often; this shows that the guest is welcome to stay. A full bowl, by contrast, may be understood as a hint that it is time to leave. Before serving, the host often pours tea back into the pot three times, a process that helps the leaves to release their flavour.
+
+Today, the teahouse, or choyxona, remains an important social space, especially for men, who meet there to talk, play games and eat plov. Although cafés serving coffee are increasingly popular among young people in cities, tea is still drunk in large quantities throughout the region.`,
+        questions: [
+          { id: 'n8r1', type: 'single', prompt: '1. Tea is the most widely consumed drink in the world.', options: tfng, answer: 1 },
+          { id: 'n8r2', type: 'single', prompt: '2. Tea was first used mainly as a medicine.', options: tfng, answer: 0 },
+          { id: 'n8r3', type: 'single', prompt: '3. Tea bricks were sometimes used as money.', options: tfng, answer: 0 },
+          { id: 'n8r4', type: 'single', prompt: '4. Black tea is more popular than green tea in all of Uzbekistan.', options: tfng, answer: 1 },
+          { id: 'n8r5', type: 'single', prompt: '5. Central Asian tea is traditionally drunk with sugar.', options: tfng, answer: 2 },
+          { id: 'n8r6', type: 'single', prompt: '6. A partly filled bowl shows that the guest is welcome.', options: tfng, answer: 0 },
+          { id: 'n8r7', type: 'single', prompt: '7. Young people in cities no longer drink tea.', options: tfng, answer: 1 },
+          { id: 'n8r8', type: 'fill', prompt: '8. The tea plant comes from south-western ___. (ONE WORD)', answer: 'China' },
+          { id: 'n8r9', type: 'fill', prompt: '9. Traders carried tea in compressed ___. (ONE WORD)', answer: ['bricks', 'brick'] },
+          { id: 'n8r10', type: 'fill', prompt: '10. Black tea in the north is partly the result of ___ influence. (ONE WORD)', answer: 'Russian' },
+          { id: 'n8r11', type: 'fill', prompt: '11. Tea is served in small bowls called ___. (ONE WORD)', answer: 'piyola' },
+          { id: 'n8r12', type: 'fill', prompt: '12. Pouring tea back into the pot helps the leaves release their ___. (ONE WORD)', answer: 'flavour' },
+          { id: 'n8r13', type: 'fill', prompt: '13. A teahouse is called a ___. (ONE WORD)', answer: 'choyxona' },
+        ],
+      },
+      {
+        title: 'Passage 2 · The Hidden Cost of Noise',
+        intro: 'Questions 14–26. You should spend about 20 minutes on this passage.',
+        text: `A. Noise is often treated as a minor annoyance rather than a serious form of pollution. Yet the World Health Organization considers environmental noise one of the most important environmental threats to health in Europe, second only to air pollution. Road traffic is by far the largest source, followed by railways, aircraft and industry.
+
+B. The most obvious effect of noise is on sleep. Even when people do not wake up, noise at night can cause the heart rate to rise and disturb the deeper stages of sleep. Over time, poor sleep is linked with tiredness, reduced concentration and a higher risk of accidents.
+
+C. Long-term exposure to traffic noise has also been associated with high blood pressure and heart disease. Researchers believe the mechanism is stress: loud noise triggers the release of stress hormones, and when this happens repeatedly, the body does not have time to recover.
+
+D. Children may be particularly affected. Several studies of schools near busy airports found that pupils exposed to aircraft noise performed worse on reading tests than pupils at quieter schools, even after differences in family background were taken into account. When one airport was moved, the reading scores of children near the old site improved.
+
+E. There are many ways to reduce noise. Quieter road surfaces, lower speed limits and electric vehicles can all make a difference, as can noise barriers along motorways. Inside buildings, double-glazed windows help, and city planners can place bedrooms on the quieter side of new apartment blocks.
+
+F. Some cities have also begun to protect "quiet areas", such as parks and old town squares, where people can escape the noise. Experts argue that quiet should be seen as a resource, like clean air or water, which needs to be managed and protected.`,
+        questions: [
+          { id: 'n8r14', type: 'single', prompt: '14. Which paragraph describes effects of noise on learning?', options: ['B', 'C', 'D', 'E'], answer: 2 },
+          { id: 'n8r15', type: 'single', prompt: '15. Which paragraph lists sources of noise?', options: ['A', 'B', 'E', 'F'], answer: 0 },
+          { id: 'n8r16', type: 'single', prompt: '16. Which paragraph explains why noise may cause heart disease?', options: ['A', 'B', 'C', 'D'], answer: 2 },
+          { id: 'n8r17', type: 'single', prompt: '17. Which paragraph suggests treating quiet as a resource?', options: ['C', 'D', 'E', 'F'], answer: 3 },
+          { id: 'n8r18', type: 'single', prompt: '18. According to the WHO, noise is …', options: ['the most important threat to health', 'second only to air pollution', 'less important than light pollution', 'a minor annoyance'], answer: 1 },
+          { id: 'n8r19', type: 'single', prompt: '19. Noise at night can …', options: ['improve deep sleep', 'only affect children', 'raise the heart rate even if people do not wake', 'have no effect on sleep'], answer: 2 },
+          { id: 'n8r20', type: 'single', prompt: '20. What happened when an airport was moved?', options: ['Schools closed.', 'Traffic increased.', 'Children moved away.', 'Reading scores near the old site improved.'], answer: 3 },
+          { id: 'n8r21', type: 'single', prompt: '21. Road traffic is the largest source of environmental noise.', options: tfng, answer: 0 },
+          { id: 'n8r22', type: 'single', prompt: '22. Differences in family background explained the lower reading scores.', options: tfng, answer: 1 },
+          { id: 'n8r23', type: 'single', prompt: '23. Electric vehicles are louder than petrol cars at high speed.', options: tfng, answer: 2 },
+          { id: 'n8r24', type: 'single', prompt: '24. Bedrooms can be placed on the quieter side of new buildings.', options: tfng, answer: 0 },
+          { id: 'n8r25', type: 'fill', prompt: '25. Repeated noise triggers the release of stress ___. (ONE WORD)', answer: 'hormones' },
+          { id: 'n8r26', type: 'fill', prompt: '26. Noise ___ along motorways can reduce noise. (ONE WORD)', answer: 'barriers' },
+        ],
+      },
+      {
+        title: 'Passage 3 · Volcanoes and the Climate',
+        intro: 'Questions 27–40. You should spend about 20 minutes on this passage.',
+        text: `When we think of the dangers of volcanoes, we usually imagine lava flows and clouds of ash destroying nearby towns. However, large eruptions can also affect the climate of the entire planet, sometimes for several years.
+
+The key factor is not ash, which falls out of the atmosphere within days or weeks, but sulphur dioxide gas. In a powerful eruption, this gas is thrown high into the stratosphere, more than ten kilometres above the ground. There it reacts with water to form tiny droplets, known as aerosols, which reflect part of the sunlight back into space. Because there is no rain at that height to wash them out, the droplets can remain in the stratosphere for up to two or three years, cooling the surface of the Earth.
+
+The best-known example is the eruption of Mount Tambora in Indonesia in 1815, the largest in recorded history. The following year became known in Europe and North America as "the year without a summer". There were snowfalls in June, crops failed across large areas, and food prices rose sharply. Historians have linked the resulting hunger to migration and social unrest in several countries.
+
+A more recent example is the eruption of Mount Pinatubo in the Philippines in 1991. Scientists were able to measure its effects with satellites and found that average global temperatures fell by about half a degree Celsius over the next year or so. This natural experiment also allowed researchers to test their climate models, which had predicted a cooling of roughly this size.
+
+Not every eruption has a global effect. Volcanoes near the equator have the greatest influence, because the aerosols can spread into both hemispheres. Eruptions that release little sulphur, or that do not reach the stratosphere, generally have only local consequences.
+
+Some scientists have suggested that humans might deliberately copy this effect, by releasing similar particles into the stratosphere to slow global warming. Critics warn, however, that such "geoengineering" could change rainfall patterns in unpredictable ways and would do nothing to reduce the carbon dioxide that causes warming in the first place.`,
+        questions: [
+          { id: 'n8r27', type: 'single', prompt: '27. Which part of an eruption mainly affects the global climate?', options: ['sulphur dioxide gas', 'lava', 'ash', 'water vapour'], answer: 0 },
+          { id: 'n8r28', type: 'single', prompt: '28. Why can the droplets stay in the stratosphere for years?', options: ['They are very heavy.', 'There is no rain to wash them out.', 'The wind is very strong.', 'They are frozen.'], answer: 1 },
+          { id: 'n8r29', type: 'single', prompt: '29. What happened in 1816?', options: ['Tambora erupted.', 'Summer was unusually hot.', 'Crops failed and food prices rose.', 'Satellites were launched.'], answer: 2 },
+          { id: 'n8r30', type: 'single', prompt: '30. The Pinatubo eruption was useful for scientists because it …', options: ['caused no damage', 'warmed the planet', 'happened in Europe', 'allowed them to test climate models'], answer: 3 },
+          { id: 'n8r31', type: 'single', prompt: '31. What do critics say about geoengineering?', options: ['It could change rainfall and does not reduce carbon dioxide.', 'It is too cheap.', 'It has already been tested successfully.', 'It would stop all eruptions.'], answer: 0 },
+          { id: 'n8r32', type: 'single', prompt: '32. Volcanic ash stays in the atmosphere for many years.', options: tfng, answer: 1 },
+          { id: 'n8r33', type: 'single', prompt: '33. The Tambora eruption is the largest in recorded history.', options: tfng, answer: 0 },
+          { id: 'n8r34', type: 'single', prompt: '34. More people died from hunger in 1816 than from the eruption itself.', options: tfng, answer: 2 },
+          { id: 'n8r35', type: 'single', prompt: '35. Climate models predicted a cooling similar to what was measured after Pinatubo.', options: tfng, answer: 0 },
+          { id: 'n8r36', type: 'single', prompt: '36. Volcanoes far from the equator have the greatest global influence.', options: tfng, answer: 1 },
+          { id: 'n8r37', type: 'fill', prompt: '37. The tiny droplets are known as ___. (ONE WORD)', answer: ['aerosols', 'aerosol'] },
+          { id: 'n8r38', type: 'fill', prompt: '38. In 1816 there were snowfalls in ___. (ONE WORD)', answer: 'June' },
+          { id: 'n8r39', type: 'fill', prompt: '39. After Pinatubo, effects were measured with ___. (ONE WORD)', answer: ['satellites', 'satellite'] },
+          { id: 'n8r40', type: 'fill', prompt: '40. Deliberately copying the volcanic effect is called ___. (ONE WORD)', answer: 'geoengineering' },
+        ],
+      },
+    ],
+  },
 };
