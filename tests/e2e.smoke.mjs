@@ -139,6 +139,18 @@ await step('numbers listening: 10 rounds with audio, wrong answer marked and cor
   if (!shown) throw new Error('correct answer not revealed');
 });
 
+await step('collocations: phrasal verbs listed; quiz can ask for a particle', async () => {
+  await page.goto(`${base}/#/collocations`);
+  if (!(await page.textContent('#app')).includes('put up with')) throw new Error('phrasal verbs missing');
+  let found = false;
+  for (let i = 0; i < 8 && !found; i++) {
+    await page.goto(`${base}/#/collocations?mode=test&r=${i}`);
+    await page.waitForSelector('.question');
+    found = await page.evaluate(() => [...document.querySelectorAll('.question b')].some((b) => /^\d+\. (get|look|put|turn|give|come) ___/.test(b.textContent)));
+  }
+  if (!found) throw new Error('no particle question in 8 quizzes');
+});
+
 await step('vocab: flip and grade a card persists SRS state', async () => {
   await page.goto(`${base}/#/vocab?cat=Ovqat`);
   await page.waitForSelector('#flip');

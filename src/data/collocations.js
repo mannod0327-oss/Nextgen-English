@@ -1,6 +1,7 @@
 // Collocations and idioms (original selection for IELTS Lexical resource).
 // kind 'verb': phrases start with the group's verb (quiz: choose the verb);
-// kind 'adj': adjective + noun (quiz: choose the adjective); kind 'idiom': meaning practice.
+// kind 'adj': adjective + noun (quiz: choose the adjective); kind 'idiom': meaning practice;
+// kind 'phrasal': verb + particle(s) (quiz: choose the particle for the verb).
 
 export const collocations = [
   { id: 'make', title: 'make', kind: 'verb', items: [
@@ -76,6 +77,48 @@ export const collocations = [
     ['rapid growth', "tez o'sish", 'The city has experienced rapid growth.'],
     ['deep sleep', 'chuqur uyqu', 'Deep sleep is important for memory.'],
     ['fast food', 'tez tayyor ovqat', 'Fast food is popular with teenagers.'],
+  ] },
+  { id: 'ph-get', title: 'get + …', kind: 'phrasal', items: [
+    ['get up', "o'rnidan turmoq", 'I get up at six every morning.'],
+    ['get over', 'yengib o‘tmoq (kasallik, qayg‘u)', 'It took her weeks to get over the flu.'],
+    ['get on with', 'chiqishmoq, til topishmoq', 'I get on with my new colleagues.'],
+    ['get rid of', 'qutulmoq', 'We need to get rid of these old boxes.'],
+    ['get back', 'qaytib kelmoq', 'What time did you get back from Samarkand?'],
+  ] },
+  { id: 'ph-look', title: 'look + …', kind: 'phrasal', items: [
+    ['look up', "lug'atdan qidirmoq", 'Look up the word in the dictionary.'],
+    ['look into', "o'rganib chiqmoq, tekshirmoq", 'The police are looking into the case.'],
+    ['look forward to', 'intiqlik bilan kutmoq', 'I look forward to hearing from you.'],
+    ['look out', 'ehtiyot bo‘lmoq', 'Look out! There is a car coming.'],
+    ['look down on', 'past nazar bilan qaramoq', 'Never look down on people with less money.'],
+  ] },
+  { id: 'ph-put', title: 'put + …', kind: 'phrasal', items: [
+    ['put off', 'kechiktirmoq', "Don't put off your homework until tomorrow."],
+    ['put on', 'kiymoq', 'Put on your coat — it is cold.'],
+    ['put up with', 'chidamoq', "I can't put up with this noise any more."],
+    ['put away', "joyiga yig'ishtirmoq", 'Put away your toys, please.'],
+    ['put out', "o'chirmoq (olov)", 'Firefighters put out the fire quickly.'],
+  ] },
+  { id: 'ph-turn', title: 'turn + …', kind: 'phrasal', items: [
+    ['turn down', 'rad etmoq; pasaytirmoq', 'She turned down the job offer.'],
+    ['turn up', 'kelmoq, paydo bo‘lmoq', 'Only five people turned up to the meeting.'],
+    ['turn into', 'aylanmoq', 'The caterpillar turned into a butterfly.'],
+    ['turn off', "o'chirmoq (qurilma)", 'Turn off the lights when you leave.'],
+    ['turn around', 'orqaga burilmoq', 'He turned around and smiled.'],
+  ] },
+  { id: 'ph-give', title: 'give + …', kind: 'phrasal', items: [
+    ['give up', 'tashlamoq, voz kechmoq', 'My father gave up smoking last year.'],
+    ['give back', 'qaytarib bermoq', 'Please give back my book tomorrow.'],
+    ['give away', "tekinga bermoq; sirni ochib qo'ymoq", 'They gave away free samples at the bazaar.'],
+    ['give in', 'taslim bo‘lmoq', 'The children kept asking, and finally I gave in.'],
+    ['give out', 'tarqatmoq', 'The teacher gave out the test papers.'],
+  ] },
+  { id: 'ph-come', title: 'come + …', kind: 'phrasal', items: [
+    ['come up with', "o'ylab topmoq", 'She came up with a great idea.'],
+    ['come across', 'tasodifan topib olmoq', 'I came across an interesting article.'],
+    ['come back', 'qaytib kelmoq', 'Come back soon!'],
+    ['come down with', "kasal bo'lib qolmoq", 'He came down with a cold.'],
+    ['come along', 'birga kelmoq', 'We are going to the park — why not come along?'],
   ] },
   { id: 'idioms', title: 'Iboralar (idioms)', kind: 'idiom', items: [
     ['break the ice', 'sukutni buzmoq, tanishuvni boshlamoq', 'A funny story helped to break the ice.'],

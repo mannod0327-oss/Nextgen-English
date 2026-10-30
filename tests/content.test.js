@@ -224,8 +224,10 @@ test('collocations: 60+, verb phrases start with their verb, examples use the ph
     assert.ok(uz && ex, phrase);
     if (g.kind === 'verb') assert.ok(phrase.startsWith(`${g.title} `), `${phrase} must start with ${g.title}`);
     if (g.kind === 'adj') assert.equal(phrase.split(' ').length, 2, phrase);
+    if (g.kind === 'phrasal') assert.ok(phrase.startsWith(`${g.title.split(' ')[0]} `) && phrase.split(' ').length >= 2, `${phrase}: phrasal verb + particle`);
   }
   assert.ok(collocations.filter((g) => g.kind === 'verb').length >= 4, 'verb quiz needs 4 options');
+  assert.ok(collocations.filter((g) => g.kind === 'phrasal').flatMap((g) => g.items).length >= 30, '30+ phrasal verbs');
 });
 
 test('drill centre: every trainer valid, Uzbek explanations; gap trainers have exactly one gap', () => {

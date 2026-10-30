@@ -1029,6 +1029,7 @@ const views = {
       const verbs = collocations.filter((g) => g.kind === 'verb').map((g) => g.title);
       const adjs = [...new Set(collocations.filter((g) => g.kind === 'adj').flatMap((g) => g.items.map(([p]) => p.split(' ')[0])))];
       const idioms = collocations.filter((g) => g.kind === 'idiom').flatMap((g) => g.items);
+      const particles = [...new Set(collocations.filter((g) => g.kind === 'phrasal').flatMap((g) => g.items.map(([p]) => p.split(' ').slice(1).join(' '))))];
       const slug = (p) => p.toLowerCase().replace(/[^a-z]+/g, '-');
       const choices = (right, pool) => shuffle([right, ...shuffle(pool.filter((x) => x !== right), r).slice(0, 3)], r);
       const qs = shuffle(all, r).slice(0, 10).map(({ g, it: [phrase, uz] }) => {
@@ -1037,6 +1038,11 @@ const views = {
           return { id: `co-${slug(phrase)}`, type: 'single', prompt: `"${phrase}" nimani anglatadi?`, options, answer: options.indexOf(uz) };
         }
         const [head, ...rest] = phrase.split(' ');
+        if (g.kind === 'phrasal') {
+          const part = rest.join(' ');
+          const options = choices(part, particles);
+          return { id: `co-${slug(phrase)}`, type: 'single', prompt: `${head} ___  (${uz})`, options, answer: options.indexOf(part) };
+        }
         const options = choices(head, g.kind === 'verb' ? verbs : adjs);
         return { id: `co-${slug(phrase)}`, type: 'single', prompt: `___ ${rest.join(' ')}  (${uz})`, options, answer: options.indexOf(head) };
       });
@@ -1058,7 +1064,7 @@ const views = {
     }
     const best = store.get('collocBest', null);
     return `<h2>🧩 Kollokatsiyalar va iboralar (${all.length})</h2>
-      <p class="muted">Kollokatsiya — so'zlarning tabiiy birikmasi: <b>make</b> a decision (do a decision emas), <b>heavy</b> rain (strong rain emas). IELTS'da "Lexical resource" balini ko'taradi.</p>
+      <p class="muted">Kollokatsiya — so'zlarning tabiiy birikmasi: <b>make</b> a decision (do a decision emas), <b>heavy</b> rain (strong rain emas). Frazali fe'llar: get <b>over</b>, put <b>up with</b>, come <b>up with</b>… IELTS'da "Lexical resource" balini ko'taradi.</p>
       <p><a class="btn primary" href="#/collocations?mode=test">✍️ Test: 10 ta savol</a> ${best != null ? `<span class="badge ok">eng yaxshi: ${best}%</span>` : ''}</p>
       ${collocations.map((g) => `<section class="card"><h3>${esc(g.kind === 'verb' ? `${g.title} + …` : g.title)} <span class="muted">(${g.items.length})</span></h3>
         <table class="tbl"><tbody>${g.items.map(([p, uz, ex]) => `<tr><td><b>${esc(p)}</b></td><td>${esc(uz)}</td><td class="muted">${esc(ex)} <button class="link" data-say="${esc(ex)}">🔊</button></td></tr>`).join('')}</tbody></table></section>`).join('')}`;
