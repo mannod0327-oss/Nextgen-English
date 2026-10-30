@@ -386,14 +386,31 @@ const views = {
         ${qs.map((q, n) => `<section class="card question" data-q="${q.id}"><b>${n + 1}. ${esc(q.prompt)}</b>${q.say ? ` <button class="btn" data-say="${esc(q.say)}">🔊 Tinglash</button>` : ''}${questionHtml(q, r)}<div class="fb"></div></section>`).join('')}
         <p><button class="btn primary" id="check">Tekshirish</button> <b id="result"></b></p>`;
     }
+    if (params.get('mode') === 'print') {
+      const words = cat && cat !== '__all' ? vocabulary.filter((v) => v.category === cat) : vocabulary;
+      queueMicrotask(() => {
+        $('#vp-print').onclick = () => print();
+        $('#vp-quiz').onchange = (e) => $('#vp-table').classList.toggle('quiz', e.target.checked);
+      });
+      return `<p class="no-print"><a href="#/vocab">← Lug'at</a></p>
+        <h2>📄 ${cat && cat !== '__all' ? esc(cat) : 'Barcha mavzular'} <span class="badge">${words.length} so'z</span></h2>
+        <p class="no-print"><button class="btn primary" id="vp-print">🖨 Chop etish</button>
+          <label><input type="checkbox" id="vp-quiz"> O'zbekcha ustunni bo'sh qoldirish (o'zini tekshirish varag'i)</label></p>
+        <table class="tbl print-list" id="vp-table"><thead><tr><th>#</th><th>So'z</th><th>Talaffuz</th><th>O'zbekcha</th><th>Misol</th></tr></thead>
+          <tbody>${words.map((w, n) => `<tr><td>${n + 1}</td><td><b lang="en">${esc(w.word)}</b> <span class="muted">${esc(w.pos)}</span></td><td>${esc(w.ipa)}</td><td class="uz-col">${esc(w.uz)}</td><td lang="en">${esc(w.example)}</td></tr>`).join('')}</tbody></table>
+        <p class="muted print-foot">Nextgen English · ${today()}</p>`;
+    }
     if (!cat) {
       const cards = store.get('cards', {});
       const best = store.get('vocabTestBest', null);
-      queueMicrotask(() => { $('#vt-go').onclick = () => { location.hash = `#/vocab?mode=test&cat=${encodeURIComponent($('#vt-cat').value)}`; }; });
+      queueMicrotask(() => {
+        $('#vt-go').onclick = () => { location.hash = `#/vocab?mode=test&cat=${encodeURIComponent($('#vt-cat').value)}`; };
+        $('#vp-go').onclick = () => { location.hash = `#/vocab?mode=print&cat=${encodeURIComponent($('#vt-cat').value)}`; };
+      });
       return `<h2>🖼️ Vizual lug'at</h2><p class="muted">Mavzuni tanlang. Takrorlash SM-2 algoritmi bo'yicha rejalashtiriladi.</p>
         <section class="card"><h3>✍️ Yozish testi</h3><p class="muted">10 savol: o'zbekchadan inglizchaga yozish va eshitib yozish.</p>
           <p><select id="vt-cat" class="select"><option value="__all">Barcha mavzular</option>${categories.map((c) => `<option value="${esc(c)}">${esc(c)}</option>`).join('')}</select>
-          <button class="btn primary" id="vt-go">Boshlash →</button> ${best != null ? `<span class="badge ok">eng yaxshi: ${best}%</span>` : ''}</p></section>
+          <button class="btn primary" id="vt-go">Boshlash →</button> <button class="btn" id="vp-go">📄 Chop etish varag'i</button> ${best != null ? `<span class="badge ok">eng yaxshi: ${best}%</span>` : ''}</p></section>
         <div class="grid">${['__all', ...categories].map((c) => {
           const words = c === '__all' ? vocabulary : vocabulary.filter((v) => v.category === c);
           const due = words.filter((w) => !cards[w.id] || cards[w.id].due <= Date.now()).length;
