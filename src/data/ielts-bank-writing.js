@@ -1,5 +1,5 @@
 // IELTS Writing prompt bank (original). Same schema as `writing` in ielts.js; `plan` gives an outline / ideas.
-// Task 1 items carry a data table; 12 tasks also carry a Band 7 `model` (see `models` at the end).
+// Task 1 items carry a data table; 24 tasks also carry a Band 7 `model` (see `models` at the end).
 
 const t1 = (id, prompt, table, plan) => ({ id: `bw1-${id}`, task: 1, minutes: 20, minWords: 150, type: 'Task 1 · Table', prompt: `${prompt} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.`, table, plan });
 const t2 = (id, type, prompt, plan) => ({ id: `bw2-${id}`, task: 2, minutes: 40, minWords: 250, type: `Task 2 · ${type}`, prompt, plan });
@@ -222,5 +222,126 @@ However, a language is far more than a tool for exchanging information. Each lan
 Importantly, protecting minority languages does not mean rejecting global ones. Many people, including millions in Central Asia, grow up speaking two or three languages without difficulty. Governments can therefore teach a global language at school while also supporting local languages through education, media and cultural events.
 
 In conclusion, while global languages are clearly useful, they cannot replace the cultural value of minority languages. I believe that societies should make the effort to preserve them.`,
+
+  'bw2-homework': `It has been suggested that homework should be abolished in primary schools so that young children have more time to play and rest. Although I agree that the amount of homework should be strictly limited, I do not believe it should be banned completely.
+
+Those who support a ban make several valid points. Young children need time for unstructured play, which develops creativity, social skills and physical health. Moreover, long homework tasks often create stress and conflict at home, especially when parents are tired after work or are unable to help with the subject. In some cases, homework even increases inequality, because children whose parents have more time and education receive more support than others.
+
+However, a small amount of homework has clear benefits. Short daily tasks, such as reading for fifteen minutes or practising multiplication tables, help children to remember what they have learned at school. They also develop habits of independence and responsibility that will be essential in secondary school, where the workload increases significantly. In addition, homework can show parents what their children are studying, which encourages communication between families and teachers.
+
+In my view, the solution is not to ban homework but to change its nature. Primary school homework should be short, should never require help from adults, and should focus on activities such as reading, simple practice or creative projects rather than long written exercises. Schools could also set a clear maximum, for example twenty minutes a day.
+
+In conclusion, while excessive homework can harm young children, a limited and well-designed amount supports learning and builds good habits. Therefore, I disagree that it should be banned altogether.`,
+
+  'bw2-exams': `How students should be assessed is a long-standing debate in education. Some argue that traditional examinations are the fairest and most effective method, while others believe that continuous assessment through projects and coursework gives a more accurate picture of ability. This essay will discuss both views before giving my own opinion.
+
+Supporters of examinations emphasise fairness and reliability. In an exam, every candidate answers the same questions under the same conditions and within the same time limit, so it is difficult to cheat or to receive outside help. Exams also test whether students can remember and apply knowledge under pressure, a skill that is useful in many jobs. Furthermore, they are relatively cheap and quick to administer for large numbers of students.
+
+On the other hand, critics argue that a single exam can be an unreliable measure. A talented student may perform badly because of illness, anxiety or simply a bad day. In addition, exams tend to reward memorisation rather than deeper skills such as research, teamwork and creativity. Continuous assessment allows students to demonstrate these abilities over a longer period, and it encourages steady work throughout the year instead of last-minute revision.
+
+In my opinion, the most effective system combines both approaches. Exams remain valuable for testing core knowledge fairly, but projects and coursework should form a significant part of the final grade, perhaps around forty per cent. To reduce the risk of cheating, part of the coursework could be completed in class under supervision.
+
+In conclusion, both methods have strengths and weaknesses. A balanced combination would give a fairer and more complete assessment of what students can actually do.`,
+
+  'bw2-teachers-pay': `Some people believe that teachers deserve the same salary as doctors, since both professions are vital to society. While I agree that teachers are often underpaid and that their salaries should rise significantly, I do not think that complete equality with doctors is necessary or realistic.
+
+There are strong arguments for paying teachers much more. Teachers shape the knowledge, values and skills of every future citizen, including future doctors. A country's economic development depends heavily on the quality of its schools. Moreover, in many countries, low salaries make it difficult to attract talented graduates into teaching, and experienced teachers leave the profession for better-paid jobs. As a result, classes become larger and the quality of education falls, which harms society in the long term.
+
+However, there are also reasons why doctors' salaries are usually higher. Medical training typically lasts much longer than teacher training, often more than ten years including specialisation, and doctors carry direct responsibility for life-and-death decisions. Many work long night shifts and face high levels of legal risk. In addition, paying every teacher as much as a doctor would be extremely expensive, since there are many more teachers than doctors in most countries.
+
+In my view, the aim should be to make teaching an attractive and respected career rather than to match doctors' pay exactly. Governments could raise basic salaries, reward teachers who take on extra training or responsibilities, and reduce administrative workload so that teachers can focus on teaching.
+
+In conclusion, teachers' work is undoubtedly as important as that of doctors, and their pay should reflect this more fairly. Nevertheless, equal salaries are not the only way to show that teaching is valued.`,
+
+  'bw2-foreign-language-primary': `There is a growing view that children should start learning a foreign language at primary school rather than waiting until secondary school. I strongly agree with this idea, although I believe it must be introduced with well-trained teachers and realistic goals.
+
+The first reason is that young children learn pronunciation more easily. Research suggests that learners who start early are more likely to develop a natural accent, because they can still hear and imitate new sounds without difficulty. Young children are also usually less afraid of making mistakes, so they are more willing to speak, sing and play games in a new language.
+
+Secondly, starting early simply gives learners more time. Language learning is a slow process, and an extra four or five years of regular practice can make a significant difference by the end of school. In countries such as Uzbekistan, where many university courses and jobs now require English, this early start can open important opportunities later in life.
+
+Finally, learning another language at a young age has broader benefits. It can increase children's curiosity about other cultures and may improve general thinking skills, such as concentration and the ability to switch between tasks.
+
+Nevertheless, early language teaching only works if it is done properly. Primary school lessons should focus on listening, speaking and enjoyment rather than grammar rules and tests. Most importantly, schools need teachers who speak the language well, because poor models of pronunciation can do more harm than good.
+
+In conclusion, I believe that children should begin learning a foreign language at primary school, provided that lessons are communicative and that teachers are properly trained.`,
+
+  'bw2-sugar-tax': `Many governments are considering a tax on sugary drinks as a way to reduce obesity and related illnesses. In my opinion, such a tax is a sensible measure, but it will only be effective if it forms part of a wider public health strategy.
+
+The main argument in favour of the tax is that it changes behaviour through price. Sugary drinks contain large amounts of sugar but almost no nutritional value, and they are a major cause of tooth decay and weight gain, particularly among children. When prices rise, consumers tend to buy less, and in several countries that have introduced such taxes, sales of the most sugary drinks have fallen noticeably. Moreover, the tax often encourages manufacturers to reduce the sugar content of their products in order to avoid it.
+
+A second advantage is that the money raised can be used for health. For example, the revenue could fund sports facilities in schools or campaigns that teach families about healthy diets.
+
+However, critics argue that the tax is unfair to people on low incomes, who spend a larger share of their money on food and drink. Others believe that governments should not interfere in personal choices. These concerns are understandable, but the health benefits are likely to be greatest for poorer families, who also suffer most from diet-related diseases.
+
+Nevertheless, a tax alone is not enough. It should be combined with clear food labels, restrictions on advertising aimed at children and easy access to clean, free drinking water in schools and public places.
+
+In conclusion, I agree that governments should tax sugary drinks, as long as the measure is supported by education and the revenue is invested in public health.`,
+
+  'bw2-sport-funding': `Opinions differ on how governments should spend money on sport. Some believe that funding professional sport brings national prestige and inspires the public, while others argue that the money would be better spent on facilities for ordinary people. Both views have merit, but I believe that priority should be given to community sport.
+
+On the one hand, investment in professional sport can bring significant benefits. Success in international competitions, such as the Olympic Games or the World Cup, creates national pride and puts a country on the world map. Famous athletes can also become role models who inspire young people to take up sport. In addition, major sporting events attract tourists and can lead to improvements in infrastructure, such as new roads and public transport.
+
+On the other hand, the benefits of professional sport are often concentrated among a small number of elite athletes. Building a single international stadium can cost as much as hundreds of local sports grounds, and such stadiums are sometimes rarely used after a major event. By contrast, swimming pools, football pitches and cycle lanes in local communities allow millions of ordinary people to exercise regularly. This improves public health, reduces the cost of treating diseases such as diabetes, and gives young people positive ways to spend their free time.
+
+In my opinion, governments should spend most of their sports budget on facilities that are open to everyone, especially in schools and poorer neighbourhoods. A smaller amount could still support talented young athletes, since many future champions begin in local clubs.
+
+In conclusion, although professional sport brings prestige, the health and social benefits of community sport are far greater, so it should receive the larger share of public money.`,
+  'bw2-ageing': `In many countries, people are living longer and birth rates are falling, so the proportion of older people in the population is rising. Although this trend brings some benefits, I believe that its disadvantages are more significant unless societies prepare for it carefully.
+
+There are certainly positive aspects. Longer life expectancy is a sign of better healthcare, nutrition and living conditions, which is a remarkable achievement. Older people also make valuable contributions to society. Many continue to work, volunteer or care for their grandchildren, which allows parents to work. In addition, older citizens have experience and knowledge that can be passed on to younger generations, both in families and in the workplace.
+
+However, an ageing population creates serious economic challenges. As the number of retired people increases, a smaller working population must pay the taxes that fund pensions and healthcare. Medical costs rise because older people are more likely to suffer from chronic illnesses that require long-term treatment. Furthermore, some industries may face a shortage of workers, which can slow economic growth. In countries where families traditionally care for elderly relatives, younger people may also find it difficult to balance work and caring responsibilities.
+
+These problems can be reduced through sensible policies. Governments could gradually raise the retirement age, encourage flexible work for older employees and invest in preventive healthcare so that people stay healthy for longer. Immigration can also help to fill gaps in the labour market.
+
+In conclusion, a longer life is clearly something to celebrate, but the economic pressure of an ageing population is considerable. Therefore, in my opinion, the disadvantages currently outweigh the advantages, unless governments act early to adapt.`,
+
+  'bw2-traffic': `Traffic congestion has become one of the most serious problems in large cities around the world, wasting time, increasing pollution and causing stress. This essay will examine the main causes of the problem and suggest some practical solutions.
+
+The most obvious cause is the rapid increase in the number of private cars. As incomes rise, more families can afford a car, and many people see owning one as a sign of status. At the same time, public transport in many cities is overcrowded, unreliable or does not reach the suburbs, so people feel they have no alternative to driving. A further cause is poor urban planning. When homes, offices and shops are located far apart, people have to travel long distances every day, and most of these journeys take place at the same peak times.
+
+There are several ways to tackle this problem. Firstly, governments should invest in fast, affordable and reliable public transport, such as metro lines, bus lanes and trams, so that leaving the car at home becomes the easier option. Secondly, cities could introduce congestion charges, which require drivers to pay to enter the city centre during busy hours; the money raised can be used to improve public transport. Thirdly, employers could reduce peak-hour traffic by allowing flexible working hours or working from home on some days. Finally, in the long term, planners should design neighbourhoods where schools, shops and workplaces are within walking or cycling distance.
+
+In conclusion, traffic congestion is mainly caused by rising car ownership, weak public transport and poor planning. A combination of better transport, pricing measures and smarter city design offers the best chance of solving it.`,
+
+  'bw2-cars-centre': `Some people argue that private cars should be completely banned from city centres in order to reduce pollution and congestion. While I agree that the number of cars in central areas should be greatly reduced, I believe a total ban would be impractical and unfair.
+
+There are strong reasons to limit cars in city centres. Traffic is a major source of air pollution, which damages people's health, and it also produces noise and makes streets dangerous for pedestrians and cyclists. Several European cities that have restricted cars in their historic centres have seen cleaner air, quieter streets and even an increase in business for local shops, because people walking or cycling tend to stop and spend more time in the area. Moreover, space currently used for roads and parking could be turned into parks, cycle lanes and cafés.
+
+However, a complete ban would create serious difficulties. Elderly people and those with disabilities often depend on cars, and emergency services, delivery vehicles and taxis need access. In cities where public transport is still limited, a sudden ban would make it very hard for many residents to reach their jobs, schools and hospitals.
+
+In my opinion, a gradual and flexible approach is better. Cities could create car-free zones in the busiest streets, introduce charges for driving into the centre at peak times and reduce the number of parking spaces. At the same time, they must improve public transport and make exceptions for residents with special needs.
+
+In conclusion, reducing car traffic in city centres has clear benefits, but these can be achieved without a complete ban. Therefore, I only partly agree with the statement.`,
+
+  'bw2-tourism': `International tourism has expanded dramatically in recent decades, as air travel has become cheaper and more people have the money and time to travel abroad. In my view, the advantages of this growth outweigh the disadvantages, provided that tourism is managed responsibly.
+
+The most important benefit is economic. Tourism creates millions of jobs, not only in hotels and restaurants but also in transport, handicrafts and agriculture. For countries such as Uzbekistan, with remarkable historic cities, it is an important source of foreign currency and can encourage investment in roads, airports and the restoration of monuments. In addition, tourism promotes understanding between cultures. When people travel, they meet others with different traditions and often return home with a more open attitude.
+
+Nevertheless, rapid growth can cause serious problems. Popular destinations can become overcrowded, which damages historic sites and makes life difficult for local residents. In some cities, homes are converted into short-term rentals for visitors, so rents rise and local families are forced to move away. Air travel is also a significant source of carbon emissions, which contribute to climate change.
+
+However, these disadvantages can be reduced through careful planning. Governments can limit visitor numbers at fragile sites, introduce a small tourist tax to fund local services, and encourage tourists to visit less well-known regions and different seasons. Promoting rail travel and ecotourism can also reduce the environmental impact.
+
+In conclusion, although international tourism has some negative effects on the environment and local communities, its economic and cultural benefits are considerable. With sensible management, the advantages clearly outweigh the disadvantages.`,
+
+  'bw2-plastic-bags': `Some people believe that all single-use plastic, such as bags, bottles and straws, should be completely banned. Although I strongly support reducing single-use plastic, I think a total and immediate ban would be difficult to achieve, so a gradual approach is more realistic.
+
+There are powerful arguments for strict action. Single-use plastic is used for only a few minutes but can remain in the environment for hundreds of years. Much of it ends up in rivers and oceans, where it harms fish, birds and other wildlife, and tiny particles called microplastics have now been found in drinking water and even in human blood. In addition, producing plastic uses oil, which contributes to climate change. Countries that have banned plastic bags have often seen a rapid fall in litter.
+
+However, a complete ban on all single-use plastic would create practical problems. In hospitals, for example, disposable plastic items such as syringes and gloves are essential for hygiene and safety. Some people with disabilities rely on plastic straws. Furthermore, if alternatives are not available or affordable, a ban could increase prices for consumers and harm small businesses.
+
+In my view, governments should ban the most unnecessary items, such as plastic bags, straws and cutlery, where good alternatives already exist. For other products, they could introduce taxes, require companies to use recyclable materials and invest in better recycling systems. Encouraging people to carry reusable bags and bottles is also important.
+
+In conclusion, single-use plastic causes serious environmental damage and must be greatly reduced. However, rather than an immediate total ban, a combination of targeted bans, taxes and recycling is a more effective solution.`,
+
+  'bw2-zoos': `Zoos have long been popular places to visit, but their role is now widely debated. Some argue that keeping animals in captivity is cruel and that zoos should be closed, while others believe that they play an essential role in protecting endangered species. This essay will consider both views before giving my opinion.
+
+Critics of zoos argue that even the best enclosures cannot reproduce an animal's natural environment. Large animals such as elephants, polar bears and big cats naturally travel long distances, and in captivity some develop stress-related behaviour, such as walking in circles. Opponents also point out that many zoos, especially poorly funded ones, exist mainly for entertainment and profit rather than for conservation.
+
+On the other hand, supporters argue that modern zoos make an important contribution to protecting wildlife. Breeding programmes in zoos have saved several species from extinction and later returned them to the wild. Zoos also fund research and conservation projects in the animals' natural habitats. Moreover, they educate millions of visitors, particularly children, who might otherwise never see these animals and may become more interested in protecting nature.
+
+In my opinion, zoos should not be closed, but they must change. Only zoos that meet strict standards of animal welfare and that take part in genuine conservation programmes should be allowed to operate. Species that clearly suffer in captivity, such as elephants, should gradually be moved to large sanctuaries.
+
+In conclusion, although some zoos are cruel and outdated, well-run modern zoos help to protect endangered species and educate the public. Therefore, I believe they should be reformed rather than abolished.`,
 };
 for (const w of writingBank) if (models[w.id]) w.model = models[w.id];

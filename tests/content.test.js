@@ -159,7 +159,7 @@ test('ielts bank: 200+ original tasks, every question valid and every gap-fill a
   assert.ok(speakingBank.length >= 60 && writingBank.length >= 60 && readingBank.length >= 40 && listeningBank.length >= 40);
   assert.ok(speakingBank.length + writingBank.length + readingBank.length + listeningBank.length >= 200);
   const modelled = writingBank.filter((w) => w.model);
-  assert.ok(modelled.length >= 12 && modelled.some((w) => w.task === 1) && modelled.some((w) => w.task === 2));
+  assert.ok(modelled.length >= 24 && modelled.some((w) => w.task === 1) && modelled.some((w) => w.task === 2));
   for (const w of modelled) assert.ok(w.model.split(/\s+/).length >= w.minWords, `${w.id} model too short`);
   const textIds = [...readings, ...readingBank, ...listeningBank].map((r) => r.id);
   assert.equal(new Set(textIds).size, textIds.length, 'text ids');
