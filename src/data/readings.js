@@ -979,4 +979,70 @@ Waiter: You're welcome. Have a nice day!`,
       { id: 'ndg5', type: 'single', prompt: 'What do recent reviews suggest?', options: ['Nudges are useless.', 'The average effect is smaller than early studies claimed.', 'Nudges solve climate change.', 'Nudges are more effective than laws.'], answer: 1 },
     ],
   },
+  {
+    id: 'voluntourism', level: 'B2', title: 'Holidays That Help?', uzTitle: 'Ko‘ngillilik turizmi: foyda keltiradimi?',
+    text: `Every year, hundreds of thousands of young people combine travel with volunteering. They pay agencies to spend a few weeks building classrooms, teaching English or caring for animals in other countries. This "voluntourism" has become a large industry, and it is easy to see why it is popular: participants feel they are making a difference, gain experience for their CVs and see a part of the world that ordinary tourists rarely visit.
+
+However, critics argue that some of these programmes do more harm than good. Short-term volunteers often have no relevant skills. A teenager who has never laid a brick may build a wall that local workers later have to take down and rebuild properly. Worse, unpaid foreign volunteers can take jobs away from local people who need the income. The strongest criticism concerns orphanages. Research in several countries has found that many children living in so-called orphanages actually have at least one living parent, and that some institutions keep children there partly because foreign visitors bring money. Child-protection experts also point out that a constant stream of strangers who stay for a week and then leave can be emotionally damaging for young children.
+
+None of this means that international volunteering is always wrong. Responsible organisations match volunteers' skills to real local needs, ask for longer commitments, and work under the direction of local communities rather than foreign agencies. A qualified nurse who spends six months training hospital staff is likely to have a lasting impact. For most people, though, the experts' advice is simple: before you go, ask who really benefits — and consider whether donating the cost of the trip to a well-run local project might help more.`,
+    questions: [
+      { id: 'vt1', type: 'single', prompt: 'Why is voluntourism popular?', options: ['Participants feel useful and gain experience.', 'It is cheaper than normal holidays.', 'It is required by universities.', 'It is organised by governments.'], answer: 0 },
+      { id: 'vt2', type: 'single', prompt: 'What problem with unskilled volunteers is mentioned?', options: ['They work too slowly.', 'Their work may have to be redone.', 'They refuse to work.', 'They are too expensive.'], answer: 1 },
+      { id: 'vt3', type: 'single', prompt: 'Many children in "orphanages" …', options: ['have no family at all', 'are adopted by volunteers', 'have at least one living parent', 'are older than 18'], answer: 2 },
+      { id: 'vt4', type: 'fill', prompt: 'Responsible organisations work under the direction of local ___. (ONE WORD)', answer: ['communities', 'community'] },
+      { id: 'vt5', type: 'single', prompt: 'What advice do experts give?', options: ['Never travel abroad.', 'Only volunteer in orphanages.', 'Stay for one week only.', 'Ask who really benefits before going.'], answer: 3 },
+    ],
+  },
+  {
+    id: 'space-debris', level: 'B2', title: 'Rubbish in Orbit', uzTitle: 'Orbitadagi chiqindilar',
+    text: `When we think about pollution, we usually picture plastic in the sea or smoke in the air. But there is another kind of rubbish that is growing quickly, high above our heads. Space debris, sometimes called space junk, consists of old satellites that no longer work, parts of rockets and millions of tiny fragments created when objects collide or explode.
+
+The problem is speed. In low orbit, objects travel at around eight kilometres per second — far faster than a bullet. At that speed, even a fragment the size of a coin can seriously damage a working satellite or the International Space Station, whose crew have sometimes had to shelter in their spacecraft while debris passed nearby. Scientists are particularly worried about a scenario known as the Kessler syndrome, in which one collision produces thousands of new fragments, which cause further collisions, until some orbits become too dangerous to use.
+
+This matters for everyone on Earth, not just astronauts. Satellites provide weather forecasts, navigation for phones and cars, and internet and television connections. The number of satellites has increased dramatically in recent years as companies launch large groups of small satellites to provide global internet coverage.
+
+Several solutions are being developed. New rules require satellite operators to remove their satellites from orbit within a certain number of years after the end of their mission, usually by lowering them so that they burn up in the atmosphere. Engineers are also testing ways to capture old objects using nets, robotic arms and even magnets. However, these technologies are expensive, and it is not clear who should pay for cleaning up rubbish that was left by many different countries and companies over several decades.`,
+    questions: [
+      { id: 'sd1', type: 'single', prompt: 'Space debris includes …', options: ['old satellites, rocket parts and tiny fragments', 'only old satellites', 'meteorites', 'clouds of gas'], answer: 0 },
+      { id: 'sd2', type: 'fill', prompt: 'In low orbit, objects travel at around ___ kilometres per second.', answer: ['eight', '8'] },
+      { id: 'sd3', type: 'single', prompt: 'The Kessler syndrome describes …', options: ['a disease of astronauts', 'a chain reaction of collisions', 'a type of rocket', 'the end of a mission'], answer: 1 },
+      { id: 'sd4', type: 'single', prompt: 'Why has the number of satellites increased recently?', options: ['for military reasons', 'old satellites are being repaired', 'companies launch groups of satellites for internet coverage', 'to study the moon'], answer: 2 },
+      { id: 'sd5', type: 'fill', prompt: 'Satellites are often lowered so that they burn up in the ___. (ONE WORD)', answer: 'atmosphere' },
+    ],
+  },
+  {
+    id: 'language-change', level: 'C1', title: 'Why Languages Never Stand Still', uzTitle: 'Nega tillar doim o‘zgaradi',
+    text: `Every generation seems convinced that young people are ruining the language. Complaints about new words, careless pronunciation and declining grammar can be found in letters and newspapers going back centuries. Linguists, however, tend to see such changes not as decay but as an inevitable and natural feature of every living language.
+
+Change happens at every level. Vocabulary is the most visible: words are borrowed from other languages, created for new technologies, or shift in meaning. The English word "nice", for instance, once meant "foolish" before gradually acquiring its modern, positive sense. Pronunciation also changes, though more slowly and usually without speakers noticing. Grammar, too, evolves; forms that once seemed incorrect may become standard over a few generations, while others quietly disappear.
+
+Why does this happen? One explanation is efficiency: speakers tend to simplify sounds and structures that are difficult to produce, especially in frequent words. Another is social identity. People adjust the way they speak, often unconsciously, to sound like the groups they belong to or admire, and new forms frequently spread first among young people and then into the wider community. Contact between languages is a third powerful force: Uzbek, for example, contains layers of vocabulary from Persian, Arabic and Russian, each reflecting a different period of history.
+
+None of this means that standards are useless. A shared written standard makes communication across regions and generations easier, and learners need clear models. But linguists argue that it is important to distinguish between the conventions appropriate to formal writing and the natural variety of everyday speech. Treating every new form as an error, they suggest, misunderstands what a language is: not a fixed set of rules, but a constantly negotiated agreement among its speakers.`,
+    questions: [
+      { id: 'lc1', type: 'single', prompt: 'How do linguists usually view language change?', options: ['as a sign of decline', 'as caused by schools', 'as a recent problem', 'as natural and inevitable'], answer: 3 },
+      { id: 'lc2', type: 'fill', prompt: 'The word "nice" once meant "___". (ONE WORD)', answer: 'foolish' },
+      { id: 'lc3', type: 'single', prompt: 'Which explanation is linked to social identity?', options: ['People speak like groups they belong to or admire.', 'People simplify difficult sounds.', 'Languages borrow words.', 'Grammar becomes standard.'], answer: 0 },
+      { id: 'lc4', type: 'single', prompt: 'Uzbek vocabulary is given as an example of …', options: ['efficiency', 'contact between languages', 'pronunciation change', 'decline'], answer: 1 },
+      { id: 'lc5', type: 'single', prompt: 'What is the writer’s view of language standards?', options: ['They are useless.', 'They should change every year.', 'They are useful, but everyday variety should not be treated as error.', 'Only young people need them.'], answer: 2 },
+    ],
+  },
+  {
+    id: 'trust-experts', level: 'C1', title: 'Whom Should We Trust?', uzTitle: 'Kimga ishonish kerak: mutaxassislar va jamoatchilik',
+    text: `Modern societies depend on expertise to an extraordinary degree. Few of us could check for ourselves whether a vaccine is safe, a bridge is properly designed or a financial product is sound, so we rely on doctors, engineers and economists to make these judgements for us. Yet in many countries, surveys suggest that trust in experts has become more fragile, and the internet allows anyone to challenge official advice with a confidence that once required years of study.
+
+Part of the explanation lies in the experts themselves. Scientific knowledge is provisional by nature: as new evidence emerges, advice changes. To specialists this is a sign that the system is working, but to the public it can look like confusion or even dishonesty, particularly when earlier recommendations were presented with too much certainty. Experts have also sometimes strayed beyond their field, offering confident opinions on matters where their training gives them no special authority, which damages their credibility in the areas where they genuinely know more.
+
+At the same time, the way information spreads has changed. Social media rewards content that is surprising or emotionally powerful, and a dramatic claim from a single individual may reach more people than a careful report from a research institute. Psychologists have also documented a tendency to accept evidence that supports what we already believe and to dismiss evidence that does not.
+
+How can trust be rebuilt? Researchers who study public communication suggest several principles. Experts should be open about uncertainty, explaining what is known, what is not, and why advice might change. They should distinguish clearly between scientific findings and the value judgements involved in policy decisions. And institutions earn trust not only by being competent but also by being seen to act in the public interest, with transparent funding and independent review.`,
+    questions: [
+      { id: 'tx1', type: 'single', prompt: 'Why do modern societies depend on experts?', options: ['Experts are always right.', 'The internet requires it.', 'Laws demand it.', 'Most people cannot check complex matters themselves.'], answer: 3 },
+      { id: 'tx2', type: 'fill', prompt: 'Scientific knowledge is ___ by nature. (ONE WORD)', answer: 'provisional' },
+      { id: 'tx3', type: 'single', prompt: 'How can changing advice damage trust?', options: ['It can look like confusion or dishonesty.', 'It costs money.', 'It is illegal.', 'It is too technical.'], answer: 0 },
+      { id: 'tx4', type: 'single', prompt: 'What does social media tend to reward?', options: ['careful reports', 'surprising or emotional content', 'long articles', 'official advice'], answer: 1 },
+      { id: 'tx5', type: 'single', prompt: 'Which principle for rebuilding trust is mentioned?', options: ['Never admit uncertainty.', 'Avoid the media.', 'Be open about uncertainty.', 'Make policy decisions alone.'], answer: 2 },
+    ],
+  },
 ];

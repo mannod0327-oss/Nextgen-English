@@ -79,7 +79,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 66 | **Predlogli fe'l/sifatlar trenajyori** | depend on, interested in, good at… | `#/drill?t=deps`: 42 ta gap | ✅ |
 | 67 | **Grammatika +4** (past perfect, present perfect continuous, wish/if only, some/any/much/many) | Muhim B1–B2/A2 mavzular yo'q | 4 mavzu × ≥5 mashq, jadval va o'zbekcha izoh | ✅ |
 | 68 | **B2 va C1 tinglash +4** | C1 tinglash atigi 4 ta | 2 × B2, 2 × C1 (har biri 5 savol) | ✅ |
-| 69 | **B2 va C1 o'qish +4** |  | 4 matn × 5 savol, mavzular takrorlanmaydi | ⬜ |
+| 69 | **B2 va C1 o'qish +4** |  | 4 matn × 5 savol, mavzular takrorlanmaydi | ✅ |
 | 70 | **Speaking Part 3 namunalari** | Part 3 ga qanday chuqur javob berish ko'rinmaydi | 10 to'plamda Part 3 namunaviy javoblari (har biri ≥60 so'z), 🔊 | ⬜ |
 | 71 | **Writing Task 2 namunalari +6** | 40 tadan 18 tasida namuna | 6 ta yangi Band 7 (≥250 so'z), writing-check xatosiz | ⬜ |
 | 72 | **Lug'at +60** (davlat va jamiyat, sog'lom turmush, koinot va texnologiya) | IELTS Task 2 mavzulari | 3 × 20 so'z, definitions qayta qurish | ⬜ |
@@ -180,3 +180,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **66-iteratsiya** — Predlogli fe'l va sifatlar trenajyori: src/data/deps.js — 42 gap (depend on, interested in, increase in/of, arrive in/at, benefit — predlogsiz…), 4 qoida; drill markazida 8 trenajyor; v=81.
 - **67-iteratsiya** — Grammatika +4: some/any/much/many (A2), Past Perfect (B1), Present Perfect Continuous (B1), wish/if only (B2) — qoida, jadval, misollar, 21 mashq o'zbekcha izoh bilan; jami 45 mavzu / 202 mashq; v=82.
 - **68-iteratsiya** — Tinglash +4: B2 — masofadan ishlash podkasti, qadimiy rasadxona ekskursiyasi; C1 — mikroplastik ma'ruzasi, "nudge" intervyusi (5×4 savol, javob o'rinlari aylantirildi); jami 30; B2/C1 soni testlanadi; v=83.
+- **69-iteratsiya** — O'qish +4: B2 — ko'ngillilik turizmi, orbitadagi chiqindilar; C1 — tillar nega o'zgaradi, mutaxassislarga ishonch (5×4 savol; tx prefiksi to'qnashuv tufayli); jami 42 matn; v=84.
