@@ -7,6 +7,7 @@ import { spellingSets } from './spelling.js';
 import { linkerSets } from './linkers.js';
 import { stressSets } from './stress.js';
 import { task1Sets } from './task1.js';
+import { synonymSets } from './synonyms.js';
 
 export const trainers = [
   { id: 'articles', icon: '🅰️', title: 'Artikl va predloglar', desc: 'a / an / the va in / on / at',
@@ -24,6 +25,9 @@ export const trainers = [
   { id: 'task1', icon: '📊', title: 'IELTS Task 1 tili', desc: 'rise by / to, peak, slightly, twice as many…',
     intro: "Grafik, jadval va jarayonni tasvirlash uchun eng kerakli so'zlar va predloglar: by (farq) va to (yangi qiymat) — eng ko'p xato.",
     sets: task1Sets },
+  { id: 'synonyms', icon: '🔁', title: 'Sinonim va parafraz', desc: 'important → crucial, buy → purchase…',
+    intro: "IELTS Reading savollari matnni boshqa so'zlar bilan aytadi, Writing esa so'z boyligini baholaydi — har kundalik so'zning akademik juftini biling.",
+    sets: synonymSets },
 ];
 
 export const drillSets = trainers.flatMap((t) => t.sets.map((s) => ({ ...s, trainer: t.id })));
