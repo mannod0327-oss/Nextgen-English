@@ -60,7 +60,7 @@ await step('placement: 12 questions → level shown', async () => {
 
 await step('vocab: new everyday themes (airport, doctor, bank) are listed and open', async () => {
   await page.goto(`${base}/#/vocab`);
-  for (const c of ['Aeroportda', 'Shifokorda', 'Bankda']) await page.waitForSelector(`a[href="#/vocab?cat=${c}"]`);
+  for (const c of ['Aeroportda', 'Shifokorda', 'Bankda', 'Ekologiya va iqlim', 'Jinoyat va qonun', 'Media va reklama']) await page.waitForSelector(`a[href="#/vocab?cat=${encodeURIComponent(c)}"]`);
   await page.goto(`${base}/#/vocab?cat=Bankda`);
   await page.waitForSelector('text=1 / 20');
 });
@@ -520,7 +520,7 @@ await step('progress: achievements section shows earned badges from earlier step
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=language-podcast', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'numbers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
+  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'vocab?mode=test&cat=Jinoyat va qonun', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=language-podcast', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'numbers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
