@@ -528,7 +528,7 @@ await step('exam: navigate, answer, restore, finish, review mistakes', async () 
   if ((await page.locator('.feedback').count()) !== 8) throw new Error('mistake review count');
 });
 
-await step('exam picker: choosing the B2 test loads it', async () => {
+await step('exam picker: choosing the B2 and C1 tests loads them', async () => {
   await page.goto(`${base}/#/`); // previous step ends on #/exam; same-URL goto would not re-render
   await page.goto(`${base}/#/exam`);
   await page.click('#picker [data-exam="3"]');
@@ -536,6 +536,13 @@ await step('exam picker: choosing the B2 test loads it', async () => {
   await page.click('#start');
   await page.waitForSelector('.qnav');
   if ((await page.locator('.qnav button').count()) !== 10) throw new Error('B2 test should have 10 questions');
+  await page.goto(`${base}/#/`);
+  await page.goto(`${base}/#/exam`);
+  await page.click('#picker [data-exam="5"]');
+  await page.waitForFunction(() => document.querySelector('.card h3')?.textContent.includes('(C1)'));
+  await page.click('#start');
+  await page.waitForSelector('.qnav');
+  if ((await page.locator('.qnav button').count()) !== 25) throw new Error('C1 test should have 25 questions');
 });
 
 await step('creator: add question, validate, simulate', async () => {

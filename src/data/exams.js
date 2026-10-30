@@ -60,4 +60,32 @@ const ielts = exam('IELTS-style Practice (B2–C1)', 'B2–C1', 20, [
   { id: 'iq12', type: 'single', prompt: 'If the government ___ more in schools, results would improve.', options: ['invests', 'invested', 'will invest', 'has invested'], answer: 1 },
 ]);
 
-export const exams = [a1, sampleExam, b1, b2, ielts];
+const c1 = exam('Advanced Test (C1)', 'C1', 25, [
+  { id: 'c1q1', type: 'single', prompt: 'Hardly ___ the station when the train left.', options: ['we had reached', 'had we reached', 'we reached', 'did we reached'], answer: 1, explanation: 'Hardly bilan inversiya: Hardly had we…' },
+  { id: 'c1q2', type: 'single', prompt: 'If I had taken that job, I ___ in London now.', options: ['would live', 'would be living', 'will live', 'had lived'], answer: 1, explanation: "Mixed conditional: o'tmish sabab → hozirgi natija." },
+  { id: 'c1q3', type: 'single', prompt: 'It is essential that every applicant ___ a copy of their passport.', options: ['submits', 'submit', 'submitted', 'will submit'], answer: 1 },
+  { id: 'c1q4', type: 'single', prompt: '___ the noise, she managed to concentrate.', options: ['Although', 'In spite of', 'Even though', 'However'], answer: 1 },
+  { id: 'c1q5', type: 'single', prompt: 'What I find most frustrating ___ the lack of information.', options: ['are', 'is', 'were', 'be'], answer: 1, explanation: "What-cleft — what-qism birlik: is." },
+  { id: 'c1q6', type: 'single', prompt: 'She ___ the email; she replied within minutes.', options: ["can't have read", 'must have read', 'might not read', "mustn't have read"], answer: 1 },
+  { id: 'c1q7', type: 'single', prompt: '___ by the results, the team decided to continue the research.', options: ['Encouraging', 'Encouraged', 'To encourage', 'Having encouraging'], answer: 1 },
+  { id: 'c1q8', type: 'fill', prompt: 'The new policy had a ___ (significance) impact on unemployment.', answer: 'significant' },
+  { id: 'c1q9', type: 'fill', prompt: 'His argument was completely ___ (convince) — nobody believed him.', answer: 'unconvincing' },
+  { id: 'c1q10', type: 'fill', prompt: 'There has been widespread ___ (oppose) to the plan.', answer: 'opposition' },
+  { id: 'c1q11', type: 'fill', prompt: 'The ___ (reliable) of the data has been questioned.', answer: 'reliability' },
+  { id: 'c1q12', type: 'single', prompt: 'The company has ___ a decision to close two factories.', options: ['done', 'taken', 'made up', 'put'], answer: 1, explanation: 'take / make a decision — ikkalasi ham bor, variantlarda faqat taken.' },
+  { id: 'c1q13', type: 'single', prompt: 'The government must ___ the problem of youth unemployment.', options: ['tackle', 'solve out', 'make', 'deal'], answer: 0 },
+  { id: 'c1q14', type: 'single', prompt: 'Choose the closest meaning: "The evidence is inconclusive."', options: ['The evidence proves the theory.', 'The evidence does not lead to a firm conclusion.', 'There is no evidence.', 'The evidence is false.'], answer: 1 },
+  { id: 'c1q15', type: 'single', prompt: 'Choose the closest meaning: "She was reluctant to comment."', options: ['She was eager to comment.', 'She did not want to comment.', 'She commented loudly.', 'She forgot to comment.'], answer: 1 },
+  { id: 'c1q16', type: 'single', prompt: 'The meeting was ___ off because the director was ill.', options: ['called', 'put', 'turned', 'given'], answer: 0 },
+  { id: 'c1q17', type: 'single', prompt: 'I can\'t ___ with his rudeness any longer.', options: ['put off', 'put up', 'get over', 'come up'], answer: 1 },
+  { id: 'c1q18', type: 'single', prompt: "\"The findings, while preliminary, suggest a link between sleep and memory.\" What does the writer imply?", options: ['The link is proven.', 'More research is needed.', 'There is no link.', 'Sleep harms memory.'], answer: 1 },
+  { id: 'c1q19', type: 'single', prompt: "\"Far from reducing traffic, the new road attracted even more cars.\" What happened?", options: ['Traffic fell.', 'Traffic increased.', 'The road was closed.', 'Nothing changed.'], answer: 1 },
+  { id: 'c1q20', type: 'multiple', prompt: 'Which TWO sentences are grammatically correct?', options: ['Never have I seen such a view.', 'Never I have seen such a view.', 'Rarely does she complain.', 'Rarely she complains.'], answer: [0, 2] },
+  { id: 'c1q21', type: 'single', prompt: "It's high time the government ___ something about pollution.", options: ['does', 'did', 'will do', 'has done'], answer: 1 },
+  { id: 'c1q22', type: 'single', prompt: 'The proposal was rejected on the ___ that it was too expensive.', options: ['reason', 'grounds', 'cause', 'basis of'], answer: 1, explanation: 'Barqaror ibora: on the grounds that.' },
+  { id: 'c1q23', type: 'match', prompt: 'Match the word with its synonym:', pairs: [['substantial', 'considerable'], ['obtain', 'acquire'], ['diminish', 'decrease'], ['crucial', 'vital']] },
+  { id: 'c1q24', type: 'order', prompt: 'Put the words in order:', items: ['Not', 'only', 'did', 'he', 'win,', 'but', 'he', 'also', 'broke', 'the', 'record.'] },
+  { id: 'c1q25', type: 'fill', prompt: 'The results were ___ (expect): nobody had predicted them.', answer: 'unexpected' },
+]);
+
+export const exams = [a1, sampleExam, b1, b2, ielts, c1];
