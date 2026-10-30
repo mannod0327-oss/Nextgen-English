@@ -418,6 +418,65 @@ For this reason, many urban planners now argue that a city is not smart because 
       { id: 'b2sc6', type: 'single', prompt: 'According to planners, a city is truly smart when it …', options: ['has the most gadgets', 'listens well to its residents', 'has no cars', 'spends the most money'], answer: 1 },
     ],
   },
+  // ---- More C1 reading
+  {
+    id: 'placebo', level: 'C1', title: 'The Puzzling Power of Placebos', uzTitle: 'Platseboning sirli kuchi',
+    text: `A placebo is a treatment with no active ingredient — a sugar pill, for instance, or an injection of salt water. Yet in clinical trials, a substantial proportion of patients who receive placebos report genuine improvements, particularly in conditions such as pain, nausea and depression. This "placebo effect" is so consistent that new drugs must outperform it before they can be approved.
+
+For decades, the effect was dismissed as imagination or as patients telling doctors what they wanted to hear. Brain-imaging studies have since challenged that view. When people expect pain relief, regions of the brain involved in pain processing become less active, and the body releases its own natural painkillers. Expectation, in other words, produces measurable biological changes.
+
+Context matters enormously. Two placebo pills tend to work better than one, injections outperform pills, and expensive-looking treatments outperform cheap ones. Even the doctor's manner plays a part: patients treated warmly and attentively often report more benefit than those whose doctor is brisk and distant.
+
+Most intriguing of all are "open-label" placebos, in which patients are told honestly that they are receiving an inactive pill. In several small studies of conditions such as irritable bowel syndrome, patients still improved, perhaps because the ritual of taking a pill triggers learned associations with recovery.
+
+The phenomenon raises ethical questions. Deceiving patients undermines trust, yet the evidence suggests that some of the benefit of any treatment comes from expectation. Rather than prescribing fake pills, many researchers argue, doctors should deliberately harness the placebo effect through clear explanations, empathy and confidence in the treatments they give.`,
+    questions: [
+      { id: 'c1pl1', type: 'single', prompt: 'New drugs must perform better than placebos before approval.', options: ['True', 'False', 'Not Given'], answer: 0 },
+      { id: 'c1pl2', type: 'single', prompt: 'Brain-imaging studies confirmed that the placebo effect is purely imaginary.', options: ['True', 'False', 'Not Given'], answer: 1 },
+      { id: 'c1pl3', type: 'single', prompt: 'Placebos work equally well for all illnesses.', options: ['True', 'False', 'Not Given'], answer: 2 },
+      { id: 'c1pl4', type: 'multiple', prompt: 'Which factors increase the placebo effect, according to the text?', options: ['taking two pills instead of one', 'a cheap appearance', 'a warm, attentive doctor', 'taking the pill at night'], answer: [0, 2] },
+      { id: 'c1pl5', type: 'fill', prompt: 'Placebos given with honest information are called "___-label" placebos.', answer: 'open' },
+      { id: 'c1pl6', type: 'single', prompt: 'What do many researchers recommend?', options: ['prescribing fake pills regularly', 'using explanation and empathy to harness expectation', 'banning placebo trials', 'telling patients nothing'], answer: 1 },
+    ],
+  },
+  {
+    id: 'decision-fatigue', level: 'C1', title: 'Too Many Choices?', uzTitle: 'Tanlov juda ko‘pmi?',
+    text: `Modern consumers face an unprecedented number of choices. A large supermarket may stock tens of thousands of products, and online shops offer millions. Conventional economic thinking holds that more choice is always beneficial, since it increases the chance that each person will find exactly what they want. Yet a growing body of research suggests that, beyond a certain point, choice can become a burden.
+
+In a frequently cited experiment, shoppers in a supermarket were offered samples of jam. When twenty-four varieties were on display, more people stopped to taste, but only around three per cent went on to buy a jar. When just six varieties were available, about thirty per cent made a purchase. The researchers concluded that a large selection can lead to "choice overload", causing people to delay or avoid decisions altogether.
+
+Subsequent studies have produced more mixed results, and some attempts to repeat the jam experiment have found smaller effects or none at all. Psychologists now believe that choice overload depends on circumstances: it is most likely when options are difficult to compare, when people have no clear preferences, and when they feel under time pressure.
+
+A related idea is "decision fatigue" — the suggestion that making many decisions in a row gradually reduces the quality of later ones. Some well-known figures have reportedly limited their wardrobes to a few identical outfits to avoid wasting mental energy on trivial choices.
+
+For businesses and governments, the practical lesson is not to eliminate choice but to structure it. Grouping products into clear categories, offering sensible default options and highlighting a small number of recommendations can help people choose more confidently.`,
+    questions: [
+      { id: 'c1df1', type: 'single', prompt: 'Conventional economics assumes that more choice is always beneficial.', options: ['True', 'False', 'Not Given'], answer: 0 },
+      { id: 'c1df2', type: 'single', prompt: 'With twenty-four jams, about what percentage of tasters bought a jar?', options: ['3%', '6%', '24%', '30%'], answer: 0 },
+      { id: 'c1df3', type: 'single', prompt: 'Every later study confirmed the jam experiment’s results.', options: ['True', 'False', 'Not Given'], answer: 1 },
+      { id: 'c1df4', type: 'multiple', prompt: 'When is choice overload most likely?', options: ['when options are hard to compare', 'when people have strong preferences', 'when people are under time pressure', 'when products are cheap'], answer: [0, 2] },
+      { id: 'c1df5', type: 'fill', prompt: 'Making many decisions in a row may cause decision ___.', answer: 'fatigue' },
+      { id: 'c1df6', type: 'single', prompt: 'What does the writer recommend?', options: ['eliminating choice', 'structuring choice with categories and defaults', 'offering more products', 'removing recommendations'], answer: 1 },
+    ],
+  },
+  {
+    id: 'desert-knowledge', level: 'C1', title: 'Ancient Water Engineering in the Desert', uzTitle: 'Cho‘ldagi qadimiy suv muhandisligi',
+    text: `Long before modern pumps and pipelines, communities in the deserts of Central Asia and the Middle East developed ingenious ways of finding and managing water. Among the most remarkable is the qanat, or kariz, an underground channel that carries groundwater from the foot of a mountain to fields and settlements many kilometres away.
+
+A qanat begins with a "mother well" dug into an aquifer, the layer of rock or gravel that holds water underground. From there, a gently sloping tunnel is excavated towards the area where the water is needed, with vertical shafts at regular intervals to remove soil and provide ventilation. Because the channel runs underground, very little water is lost to evaporation — a crucial advantage in regions where summer temperatures exceed forty degrees. And since the water flows by gravity alone, the system requires no external energy.
+
+Building a qanat demanded extraordinary skill. Diggers had to maintain a slope steep enough for water to flow, yet gentle enough to prevent erosion of the tunnel. Specialist knowledge was passed down within families, and maintenance was often organised collectively, with strict rules for sharing water according to time slots.
+
+In the twentieth century, many qanats were abandoned as electric pumps made it possible to draw water from deep wells quickly. However, over-pumping has lowered water tables in many regions, causing some wells to run dry. As a result, engineers and environmental groups have shown renewed interest in restoring qanats, not as a romantic return to the past, but as a model of sustainable water use that takes only what an aquifer can naturally replenish.`,
+    questions: [
+      { id: 'c1qn1', type: 'fill', prompt: 'A qanat begins with a "mother ___" dug into an aquifer.', answer: 'well' },
+      { id: 'c1qn2', type: 'single', prompt: 'What is the purpose of the vertical shafts?', options: ['to store water', 'to remove soil and provide ventilation', 'to let sunlight in', 'to pump water'], answer: 1 },
+      { id: 'c1qn3', type: 'single', prompt: 'Very little water is lost because the channel is underground.', options: ['True', 'False', 'Not Given'], answer: 0 },
+      { id: 'c1qn4', type: 'single', prompt: 'Qanats need electricity to move water.', options: ['True', 'False', 'Not Given'], answer: 1 },
+      { id: 'c1qn5', type: 'single', prompt: 'Most qanats in Central Asia are still in use today.', options: ['True', 'False', 'Not Given'], answer: 2 },
+      { id: 'c1qn6', type: 'single', prompt: 'Why is there renewed interest in qanats?', options: ['They are cheaper than wells.', 'Over-pumping has lowered water tables.', 'Tourists want to see them.', 'Pumps have been banned.'], answer: 1 },
+    ],
+  },
   // ---- Listening tasks (IELTS-style): text hidden until checked; "Name: " speaker labels are not read aloud.
   {
     id: 'hotel-booking', level: 'A2', listening: true, title: 'Booking a Hotel Room', uzTitle: 'Tinglash: mehmonxona band qilish',
