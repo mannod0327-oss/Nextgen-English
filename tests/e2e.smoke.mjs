@@ -221,13 +221,18 @@ await step('ielts mock 4: listed on hub, reading-4 scores answers', async () => 
   if (!(await page.textContent('#mock-result')).includes('3 / 40')) throw new Error(await page.textContent('#mock-result'));
 });
 
-await step('grammar A1: can + plurals topics render and grade', async () => {
+await step('grammar A1–B1: can, too/enough, plurals topics render and grade', async () => {
   await page.goto(`${base}/#/grammar?topic=can`);
   await page.waitForSelector('[data-q="a1cn4"]');
   for (const w of ['Can', 'you', 'help', 'me?']) await page.click(`[data-q="a1cn4"] .order-bank [data-word="${w}"]`);
   await page.fill('[data-q="a1cn3"] .fill', "can't");
   await page.click('#check');
   if ((await page.locator('.feedback.ok').count()) !== 2) throw new Error('can: expected 2 correct');
+  await page.goto(`${base}/#/grammar?topic=too-enough`);
+  for (const w of ['The', 'room', "isn't", 'big', 'enough.']) await page.click(`[data-q="b1te5"] .order-bank [data-word="${w}"]`);
+  await page.fill('[data-q="b1te4"] .fill', 'to');
+  await page.click('#check');
+  if ((await page.locator('.feedback.ok').count()) !== 2) throw new Error('too/enough: expected 2 correct');
   await page.goto(`${base}/#/grammar?topic=plurals-this`);
   await page.fill('[data-q="a1pl1"] .fill', 'children');
   await page.click('#check');
@@ -546,7 +551,7 @@ await step('progress: achievements section shows earned badges from earlier step
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'vocab?mode=test&cat=Jinoyat va qonun', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?s=b-tradition', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=language-podcast', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'drill?t=stress', 'drill?t=task1', 'numbers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'ielts?mock=listening-5', 'ielts?mock=reading-5', 'search?q=present']) {
+  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'vocab?mode=test&cat=Jinoyat va qonun', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'grammar?topic=question-tags', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?s=b-tradition', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=language-podcast', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'drill?t=stress', 'drill?t=task1', 'numbers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'ielts?mock=listening-5', 'ielts?mock=reading-5', 'search?q=present']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);

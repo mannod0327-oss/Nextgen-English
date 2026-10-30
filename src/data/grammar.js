@@ -368,4 +368,43 @@ export const grammar = [
       { id: 'a1pl6', type: 'match', prompt: "Birlikni ko'plik bilan juftlang:", pairs: [['man', 'men'], ['foot', 'feet'], ['tooth', 'teeth'], ['person', 'people']] },
     ],
   },
+  {
+    id: 'question-tags', title: "Question tags (…, isn't it?)", level: 'B1',
+    rule: "Gap oxiridagi qisqa savol (\"…, shunday emasmi?\"): ijobiy gap → inkor tag, inkor gap → ijobiy tag. Tag gapdagi yordamchi fe'l bilan yasaladi; yordamchi fe'l bo'lmasa do/does/did. Ega olmosh bo'ladi. Istisnolar: I am → aren't I?, Let's → shall we?",
+    table: [['+ gap → − tag', "You're tired, aren't you?"], ['− gap → + tag', "She doesn't eat meat, does she?"], ["yordamchi fe'lsiz", 'He lives here, doesn\'t he?'], ['istisno', "I'm late, aren't I? · Let's go, shall we?"]],
+    examples: ["It's cold today, isn't it?", "You haven't seen my keys, have you?", 'They went to Bukhara, didn\'t they?'],
+    exercises: [
+      { id: 'b1qt1', type: 'single', prompt: "You're a student, ___?", options: ["aren't you", 'are you', "don't you", "isn't it"], answer: 0 },
+      { id: 'b1qt2', type: 'single', prompt: "She works in a bank, ___?", options: ["isn't she", "doesn't she", "didn't she", 'does she'], answer: 1, explanation: "Present Simple, yordamchi fe'l yo'q → doesn't." },
+      { id: 'b1qt3', type: 'fill', prompt: "They didn't call you, ___ ? (2 so'z)", answer: ['did they'] },
+      { id: 'b1qt4', type: 'single', prompt: "I'm right, ___?", options: ["amn't I", "aren't I", "isn't I", "don't I"], answer: 1, explanation: "Istisno: I am → aren't I?" },
+      { id: 'b1qt5', type: 'single', prompt: "Let's take a break, ___?", options: ["don't we", 'shall we', 'will you', "aren't we"], answer: 1 },
+    ],
+  },
+  {
+    id: 'so-such', title: 'so / such', level: 'B1',
+    rule: "Ikkalasi ham \"shunchalik / juda\" ma'nosida ta'kid beradi. so + sifat/ravish (so cold, so quickly); such (a/an) + (sifat) + ot (such a cold day, such nice people). Natija: so/such … that … (It was so hot that we stayed inside). so many/much + ot.",
+    table: [['so + sifat', 'The film was so boring.'], ['such a + sifat + birlik ot', 'It was such a boring film.'], ["such + sifat + ko'plik/sanalmaydigan", 'They are such kind people. · such bad weather'], ['… that …', 'She was so tired that she fell asleep.']],
+    examples: ['The test was so easy!', "It's such a beautiful city.", 'There were so many people that we couldn\'t find a seat.'],
+    exercises: [
+      { id: 'b1ss1', type: 'single', prompt: 'The tea is ___ hot that I can\'t drink it.', options: ['so', 'such', 'such a', 'too much'], answer: 0 },
+      { id: 'b1ss2', type: 'single', prompt: 'It was ___ interesting lecture.', options: ['so', 'such', 'such an', 'so an'], answer: 2 },
+      { id: 'b1ss3', type: 'single', prompt: 'They are ___ friendly neighbours.', options: ['so', 'such', 'such a', 'so a'], answer: 1, explanation: "Ko'plik ot → such (a siz)." },
+      { id: 'b1ss4', type: 'fill', prompt: 'We had ___ bad weather that the flight was cancelled. (1 so\'z)', answer: 'such' },
+      { id: 'b1ss5', type: 'single', prompt: 'There were ___ many cars that we were late.', options: ['so', 'such', 'such a', 'too'], answer: 0, explanation: 'so many / so much + ot.' },
+    ],
+  },
+  {
+    id: 'too-enough', title: 'too / enough', level: 'B1',
+    rule: "too + sifat — keragidan ortiq (salbiy): too expensive (juda qimmat — sotib ololmayman). sifat + enough — yetarli: old enough (enough sifatdan KEYIN!). enough + ot: enough money (otdan OLDIN). Ko'pincha + to V1: too young to drive, tall enough to play.",
+    table: [['too + sifat (+ to V1)', 'He is too young to drive.'], ["sifat + enough", 'She is old enough to vote.'], ['enough + ot', "We haven't got enough time."], ["not + sifat + enough", "The room isn't big enough."]],
+    examples: ['This coffee is too sweet.', "I'm not tall enough to reach the shelf.", 'Do we have enough chairs?'],
+    exercises: [
+      { id: 'b1te1', type: 'single', prompt: "I can't buy this phone. It's ___.", options: ['too expensive', 'expensive enough', 'enough expensive', 'so expensive enough'], answer: 0 },
+      { id: 'b1te2', type: 'single', prompt: 'Is he ___ to drive?', options: ['enough old', 'old enough', 'too old enough', 'enough older'], answer: 1, explanation: 'Sifat + enough.' },
+      { id: 'b1te3', type: 'single', prompt: "We don't have ___ for a taxi.", options: ['money enough', 'enough money', 'too money', 'enough of money'], answer: 1, explanation: 'enough + ot.' },
+      { id: 'b1te4', type: 'fill', prompt: "The box is too heavy ___ carry. (1 so'z)", answer: 'to' },
+      { id: 'b1te5', type: 'order', prompt: 'Put the words in order:', items: ["The", "room", "isn't", "big", "enough."] },
+    ],
+  },
 ];
