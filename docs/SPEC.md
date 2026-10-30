@@ -33,6 +33,26 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 20  | **Writing yordamchisi**                       | Yozgan matnga darhol fikr kerak                                 | `src/core/writing-check.js`: so'z soni, takroriy so'zlar, bog'lovchi so'zlar, o'zbeklar xatolari (I am agree, informations…), juda uzun gaplar; IELTS Writing sahifasida "🔍 Tekshirish"; unit test + E2E | ✅    |
 | 21  | **Yutuqlar (nishonlar)**                      | Motivatsiya: aniq maqsadlar                                     | ≥12 nishon (birinchi test, 7 kun ketma-ket, 100 karta, Band 6+ …) `src/core/badges.js` sof funksiya; Progress sahifasida; unit test + E2E                                                                 | ✅    |
 | 22  | **Tinglash mashqlari +6**                     | Atigi 6 ta tinglash matni                                       | +6 tinglash (A2–B1 ko'proq), matn javobdan keyin ochiladi, har biri 5 savol; kontent testi ≥12                                                                                                            | ✅    |
+| 23  | **A1 grammatika +3** | A1 da atigi 4 mavzu | can/can't, egalik (my/your, 's), ko'plik + this/that/these/those; har biri qoida+jadval+≥5 mashq; A1 ≥7 | ✅ |
+| 24  | **B2 o'qish +4** | B2 da 4 ta matn | 4 ta B2 matn, har biri 6 savol (T/F/NG, MCQ, gap-fill); B2 ≥8 | ⬜ |
+| 25  | **Umumiy mashqlar markazi** (`#/drill`) | Yangi trenajyorlar bitta joyda bo'lishi kerak | Artikl trenajyorini umumiy `drillSets` dvigateliga ko'chirish (#/articles saqlanadi), hub sahifa; E2E | ⬜ |
+| 26  | **Imlo trenajyori** | accommodation, necessary… — IELTS'da imlo xatosi = noto'g'ri javob | ≥40 ko'p xato qilinadigan so'z, 3 variantdan to'g'ri yozilganini tanlash, o'zbekcha maslahat | ⬜ |
+| 27  | **Bog'lovchilar trenajyori** | Writing'da coherence balini oshiradi | ≥40 gap: however/although/despite/because of/therefore…, izoh bilan | ⬜ |
+| 28  | **Raqamlar va sanalarni tinglash** | IELTS Listening'da fifteen/fifty, sana, narx eng ko'p xato | `src/core/numbers.js` (son → so'z, unit test); TTS bilan 10 raund: son, sana, narx, telefon raqami yozish | ⬜ |
+| 29  | **Lug'at +60** (ish va ofis, texnologiya, ekologiya) | IELTS'ning eng ko'p mavzulari | 3 × 20 so'z, IPA, o'zbekcha, misol; ta'riflar qayta quriladi | ⬜ |
+| 30  | **Frazali fe'llar +30** | Kollokatsiyalarda frazali fe'llar yo'q | get/look/put/turn guruhlari kollokatsiyalar bo'limiga, testga ham kiradi | ⬜ |
+| 31  | **Speaking Part 2 namunalari** | Cue card'ga qanday javob berish ko'rinmaydi | 10 ta bank cue card'iga Band 7 namunaviy javob (≥200 so'z), sahifada yashirin | ⬜ |
+| 32  | **Mock Test 5** | Ko'proq to'liq format | 40+40 original savol | ⬜ |
+| 33  | **So'z urg'usi trenajyori** | O'zbeklar urg'uni oxirgi bo'g'inga qo'yadi | ≥40 so'z, bo'g'inlar tugma, to'g'ri urg'uli bo'g'inni tanlash, 🔊 | ⬜ |
+| 34  | **IELTS Task 1 tili** | Grafik tasvirlash iboralari | ≥40 gap (rise/fall/peak/fluctuate, sharply/slightly…), drill sifatida | ⬜ |
+| 35  | **B1 grammatika +3** | B1 o'rtacha qamrov | question tags, so/such, too/enough | ⬜ |
+| 36  | **Sinonim va parafraz** | IELTS Reading/Writing'ning asosi | ≥50 juft (important → crucial…), drill | ⬜ |
+| 37  | **C1 tinglash +3 va B2 +2** | C1 da 1 ta tinglash | 5 ta tinglash, har biri 5–6 savol, javoblar skriptda | ⬜ |
+| 38  | **Kun so'zi** (bosh sahifa) | Har kuni kichik qadam | Sana bo'yicha deterministik so'z, 🔊, misol, ta'rif; unit test | ⬜ |
+| 39  | **Lug'at +60** (sport, his-tuyg'ular, xarakter) | Speaking Part 1 mavzulari | 3 × 20 so'z | ⬜ |
+| 40  | **Writing Task 2 namunalari +12** | Bankdagi ko'proq topshiriqqa namuna | 12 ta yangi Band 7 javob (≥250), writing-check'da 0 soxta xato | ⬜ |
+| 41  | **C1 o'qish +3** | Yuqori daraja | 3 ta C1 matn × 6 savol | ⬜ |
+| 42  | **Mock Test 6** | | 40+40 original savol | ⬜ |
 
 ## Iteratsiyalar jurnali
 
@@ -68,3 +88,6 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **22-iteratsiya** — 🎧 6 ta yangi tinglash (+33 savol): A2 — vokzal e'loni, telefonda pitsa buyurtmasi, ob-havo; B1 — shifokor qabuliga yozilish (dialog), radio: Xivada dam olish; B2 — podkast: kattalar tilni qanday o'rganadi. Jami 12 ta tinglash; ta'riflar qayta qurildi (2793 so'z). Kontent testi: ≥12 tinglash + har bir gap-fill javobi skriptda bor. E2E: 6 tasi ro'yxatda, skript tekshirishgacha yashirin, 2/6 → 33%; mobil.
 
 **17–22 bajarildi.** Yangi ish uchun backlog'ga ⬜ qator qo'shing.
+
+**4-bosqich (foydalanuvchi: "SCEP DRIVE LOOP x100"):** maqsad — 100 iteratsiya (23–122). Backlog 20 tadan qo'shiladi; har bir partiya tugaganda keyingisi eng katta bo'shliqlarga qarab yoziladi.
+- **23-iteratsiya** — 📐 A1 grammatika +3 (jami +16 mashq): can/can't (qobiliyat, ruxsat; can + V1, to'siz), egalik (my/your/his/her/its/our/their, 's va ko'plik '; its ≠ it's), ko'plik (-s/-es/-ies, men/children/teeth/people) + this/that/these/those. A1 da endi 7 mavzu. Kontent testi (A1 ≥7) + E2E (can: tartiblash + inkor; plurals) + mobil.

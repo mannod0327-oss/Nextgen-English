@@ -55,6 +55,7 @@ test('grammar: advanced topics (used to … participle clauses) are complete; C1
     assert.ok(t.table.length >= 2 && t.examples.length >= 2 && t.exercises.length >= 5, id);
   }
   assert.ok(grammar.filter((t) => t.level === 'C1').length >= 3);
+  assert.ok(grammar.filter((t) => t.level === 'A1').length >= 7, 'A1: at least 7 topics');
 });
 
 test('placement: valid questions with coverage at every level', () => {
