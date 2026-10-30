@@ -204,6 +204,19 @@ await step('reading B1: new texts listed, Registan answers graded', async () => 
   if ((await page.locator('.feedback.ok').count()) !== 2) throw new Error('B1 reading: expected 2 correct');
 });
 
+await step('listening: new tasks listed; doctor call script hidden until checked, answers graded', async () => {
+  await page.goto(`${base}/#/reading`);
+  for (const id of ['train-station', 'pizza-order', 'weather-forecast', 'doctor-call', 'khiva-radio', 'language-podcast']) await page.waitForSelector(`a[href="#/reading?t=${id}"]`);
+  await page.click('a[href="#/reading?t=doctor-call"]');
+  await page.waitForSelector('#check');
+  if (await page.locator('#text').isVisible()) throw new Error('script should start hidden');
+  await page.fill('[data-q="l3dr3"] .fill', 'Rakhimov');
+  await page.locator('[data-q="l3dr4"] input[value="1"]').check();
+  await page.click('#check');
+  await page.waitForSelector('#text', { state: 'visible' });
+  if ((await page.textContent('#result')) !== 'Natija: 33%') throw new Error(await page.textContent('#result'));
+});
+
 await step('reading gloss + dictionary definitions (lazy-loaded WordNet)', async () => {
   await page.goto(`${base}/#/`); // same-URL goto would keep the previous step's hidden text
   await page.goto(`${base}/#/reading?t=my-family`);
@@ -451,7 +464,7 @@ await step('progress: achievements section shows earned badges from earlier step
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'articles', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
+  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=language-podcast', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'articles', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);

@@ -488,4 +488,102 @@ D. Individuals can help too. Gardeners who avoid chemical sprays and grow flower
       { id: 'ff5', type: 'single', prompt: 'The phrase "borne elsewhere" means the costs are …', options: ['paid by other people or places', 'hidden in the price', 'reduced over time', 'born in factories'], answer: 0 },
     ],
   },
+  // ---- More listening (A2–B2)
+  {
+    id: 'train-station', level: 'A2', listening: true, title: 'Announcement at the Railway Station', uzTitle: 'Tinglash: vokzaldagi e’lon',
+    text: `Attention, please. The high-speed train to Samarkand will leave from platform three at ten fifteen. Passengers for Samarkand, please go to platform three now. The journey takes two hours and ten minutes. Please have your ticket and passport ready, because they will be checked before you get on the train. The café in carriage four is open during the journey and sells hot drinks and sandwiches. We would also like to inform passengers that the train to Bukhara is delayed by twenty minutes. It will now leave at eleven forty from platform five. We are sorry for the delay. Thank you.`,
+    questions: [
+      { id: 'l2ts1', type: 'fill', prompt: 'The Samarkand train leaves from platform ___.', answer: ['3', 'three'] },
+      { id: 'l2ts2', type: 'single', prompt: 'How long does the journey to Samarkand take?', options: ['one hour', 'two hours', 'two hours and ten minutes', 'three hours'], answer: 2 },
+      { id: 'l2ts3', type: 'multiple', prompt: 'What must passengers have ready?', options: ['a ticket', 'a passport', 'money for the café', 'a seat number'], answer: [0, 1] },
+      { id: 'l2ts4', type: 'fill', prompt: 'The café is in carriage ___.', answer: ['4', 'four'] },
+      { id: 'l2ts5', type: 'single', prompt: 'The Bukhara train is delayed by …', options: ['ten minutes', 'fifteen minutes', 'twenty minutes', 'forty minutes'], answer: 2 },
+    ],
+  },
+  {
+    id: 'pizza-order', level: 'A2', listening: true, title: 'Ordering Food by Phone', uzTitle: 'Tinglash: telefonda ovqat buyurtma qilish',
+    text: `Worker: Hello, Tasty Pizza. How can I help you?
+Customer: Hi. I'd like to order two pizzas for delivery, please.
+Worker: Of course. Which pizzas would you like?
+Customer: One large chicken pizza and one medium vegetable pizza.
+Worker: Would you like anything to drink?
+Customer: Yes, a big bottle of orange juice, please.
+Worker: OK. That's one large chicken, one medium vegetable and one orange juice. The total is ninety-five thousand sum.
+Customer: Can I pay by card when it arrives?
+Worker: Yes, the driver has a card machine. What's your address?
+Customer: Twenty-two Navoi Street, flat eight.
+Worker: Thank you. Your food will arrive in about forty minutes.`,
+    questions: [
+      { id: 'l2pz1', type: 'fill', prompt: 'The customer orders ___ pizzas.', answer: ['2', 'two'] },
+      { id: 'l2pz2', type: 'single', prompt: 'What size is the vegetable pizza?', options: ['small', 'medium', 'large', 'extra large'], answer: 1 },
+      { id: 'l2pz3', type: 'fill', prompt: 'The drink is a big bottle of ___ juice.', answer: 'orange' },
+      { id: 'l2pz4', type: 'single', prompt: 'How will the customer pay?', options: ['in cash', 'by card when the food arrives', 'online now', 'by bank transfer'], answer: 1 },
+      { id: 'l2pz5', type: 'fill', prompt: 'The food will arrive in about ___ minutes.', answer: ['40', 'forty'] },
+    ],
+  },
+  {
+    id: 'weather-forecast', level: 'A2', listening: true, title: 'Weather Forecast', uzTitle: 'Tinglash: ob-havo ma’lumoti',
+    text: `Good morning, and here is the weather for the next three days. Today will be sunny and warm in Tashkent, with a high of twenty-eight degrees. In the mountains it will be cooler, and there may be some clouds in the afternoon. Tomorrow, Wednesday, a strong wind will come from the west, and the temperature will fall to around twenty degrees. Rain is expected in the evening, so don't forget your umbrella if you are going out. On Thursday the rain will stop in the morning, and the afternoon will be bright again, but cooler than today, with a high of twenty-three. Drivers should be careful on mountain roads on Wednesday night because of fog.`,
+    questions: [
+      { id: 'l2wf1', type: 'fill', prompt: 'Today’s high in Tashkent: ___ degrees.', answer: ['28', 'twenty-eight'] },
+      { id: 'l2wf2', type: 'single', prompt: 'Where may there be clouds this afternoon?', options: ['in Tashkent', 'in the mountains', 'in the desert', 'everywhere'], answer: 1 },
+      { id: 'l2wf3', type: 'single', prompt: 'When is rain expected?', options: ['this morning', 'Wednesday evening', 'Thursday afternoon', 'all week'], answer: 1 },
+      { id: 'l2wf4', type: 'fill', prompt: 'On Thursday the high will be ___ degrees.', answer: ['23', 'twenty-three'] },
+      { id: 'l2wf5', type: 'fill', prompt: 'Drivers should be careful because of ___ on Wednesday night.', answer: 'fog' },
+    ],
+  },
+  {
+    id: 'doctor-call', level: 'B1', listening: true, title: 'Making a Doctor’s Appointment', uzTitle: 'Tinglash: shifokor qabuliga yozilish',
+    text: `Receptionist: Good morning, City Health Clinic. How can I help?
+Patient: Hello. I'd like to make an appointment with a doctor, please. I've had a bad cough for about ten days, and now I have a fever as well.
+Receptionist: I'm sorry to hear that. Is it your first visit to our clinic?
+Patient: Yes, it is.
+Receptionist: Then I'll need your name and date of birth.
+Patient: My name is Bekzod Rakhimov, and I was born on the fourth of May, nineteen ninety-nine.
+Receptionist: Thank you. Dr Karimova has a free appointment this afternoon at half past three. Is that OK?
+Patient: Yes, that's perfect.
+Receptionist: Please arrive fifteen minutes early to fill in a form, and bring your passport and any medicine you are taking at the moment. The clinic is on the second floor, above the pharmacy.
+Patient: Great, thank you very much.`,
+    questions: [
+      { id: 'l3dr1', type: 'fill', prompt: 'The patient has had a cough for about ___ days.', answer: ['10', 'ten'] },
+      { id: 'l3dr2', type: 'single', prompt: 'What other symptom does he have?', options: ['a headache', 'a fever', 'a sore throat', 'a rash'], answer: 1 },
+      { id: 'l3dr3', type: 'fill', prompt: 'Surname: ___', answer: 'Rakhimov' },
+      { id: 'l3dr4', type: 'single', prompt: 'When is the appointment?', options: ['3:00 this afternoon', '3:30 this afternoon', 'tomorrow morning', '4 May'], answer: 1 },
+      { id: 'l3dr5', type: 'multiple', prompt: 'What should he bring?', options: ['his passport', 'a photo', 'his current medicine', 'money for the form'], answer: [0, 2] },
+      { id: 'l3dr6', type: 'single', prompt: 'Where is the clinic?', options: ['next to the pharmacy', 'above the pharmacy', 'on the ground floor', 'in the hospital'], answer: 1 },
+    ],
+  },
+  {
+    id: 'khiva-radio', level: 'B1', listening: true, title: 'Radio Travel Show: A Weekend in Khiva', uzTitle: 'Tinglash: radio — Xivada dam olish',
+    text: `Welcome back to Weekend Travel. This week I'm in Khiva, one of the best-preserved old cities in Central Asia. The historic centre, called Itchan Kala, is surrounded by thick mud-brick walls, and inside there are more than fifty historic buildings. You can walk across the whole old town in about twenty minutes, but you will want to stay much longer.
+My first tip is to buy a combined ticket at the west gate. It gives you entry to most museums and costs much less than paying for each one separately. My second tip is to climb the Islam Khodja minaret early in the morning, before it gets too hot. From the top you can see the whole city and the desert beyond it.
+In the evening, the walls look beautiful at sunset, and many restaurants have tables on their roofs. Try the local dish shivit oshi — green noodles made with dill. The best time to visit is spring or autumn, as summer temperatures can reach over forty degrees.`,
+    questions: [
+      { id: 'l3kh1', type: 'fill', prompt: 'The historic centre is called Itchan ___.', answer: 'Kala' },
+      { id: 'l3kh2', type: 'single', prompt: 'How many historic buildings are inside?', options: ['about twenty', 'more than fifty', 'exactly forty', 'over a hundred'], answer: 1 },
+      { id: 'l3kh3', type: 'fill', prompt: 'Buy a combined ticket at the ___ gate.', answer: 'west' },
+      { id: 'l3kh4', type: 'single', prompt: 'Why should you climb the minaret early?', options: ['It is free in the morning.', 'It gets too hot later.', 'It closes at noon.', 'There are fewer tourists at night.'], answer: 1 },
+      { id: 'l3kh5', type: 'fill', prompt: 'Shivit oshi is green noodles made with ___.', answer: 'dill' },
+      { id: 'l3kh6', type: 'single', prompt: 'The best seasons to visit are …', options: ['summer and winter', 'spring and autumn', 'only summer', 'only winter'], answer: 1 },
+    ],
+  },
+  {
+    id: 'language-podcast', level: 'B2', listening: true, title: 'Podcast: How Adults Learn Languages', uzTitle: 'Tinglash: podkast — kattalar tilni qanday o‘rganadi',
+    text: `Host: Today I'm talking to Dr Sarah Lee, who researches how adults learn foreign languages. Sarah, is it true that it's too late to learn a language after childhood?
+Guest: Not at all. Children are better at developing a native-like accent, but adults actually learn grammar and vocabulary faster at the beginning, because they can use strategies and their knowledge of their first language.
+Host: So what's the most effective strategy?
+Guest: The research is quite clear: short, regular practice works better than long, occasional sessions. Twenty minutes every day is more useful than three hours once a week. It's also important to test yourself instead of just rereading notes — trying to remember a word makes the memory stronger.
+Host: What about apps?
+Guest: They're great for vocabulary, but they don't replace real conversation. I always recommend finding a speaking partner, even online, at least once a week.
+Host: And what's the biggest mistake adults make?
+Guest: Waiting until they feel ready to speak. Mistakes are a normal part of learning, and people who start speaking early usually make faster progress.`,
+    questions: [
+      { id: 'l4pl1', type: 'single', prompt: 'According to Dr Lee, children are better at …', options: ['learning grammar', 'developing a native-like accent', 'learning vocabulary quickly', 'using strategies'], answer: 1 },
+      { id: 'l4pl2', type: 'single', prompt: 'Why do adults learn faster at the beginning?', options: ['They have more free time.', 'They use strategies and their first language.', 'They use apps.', 'They are less afraid of mistakes.'], answer: 1 },
+      { id: 'l4pl3', type: 'fill', prompt: '___ minutes every day is better than three hours once a week.', answer: ['Twenty', '20'] },
+      { id: 'l4pl4', type: 'single', prompt: 'Instead of rereading notes, learners should …', options: ['write them again', 'test themselves', 'listen to music', 'use more colours'], answer: 1 },
+      { id: 'l4pl5', type: 'single', prompt: 'What does she say about apps?', options: ['They are useless.', 'They are good for vocabulary but do not replace conversation.', 'They are better than teachers.', 'They should be used once a week.'], answer: 1 },
+      { id: 'l4pl6', type: 'fill', prompt: 'The biggest mistake is waiting until you feel ___ to speak.', answer: 'ready' },
+    ],
+  },
 ];
