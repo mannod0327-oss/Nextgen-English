@@ -659,4 +659,94 @@ Guest: Waiting until they feel ready to speak. Mistakes are a normal part of lea
       { id: 'l4pl6', type: 'fill', prompt: 'The biggest mistake is waiting until you feel ___ to speak.', answer: 'ready' },
     ],
   },
+  // ---- More listening (B2–C1)
+  {
+    id: 'lecture-sleep-science', level: 'C1', listening: true, title: 'Lecture: The Science of Circadian Rhythms', uzTitle: 'Tinglash: ma’ruza — sirkadian ritmlar',
+    text: `Good morning. Today's topic is the body clock, or, to use the technical term, circadian rhythms. The word circadian comes from Latin and means "about a day", because these internal cycles last roughly twenty-four hours.
+The master clock is located in a tiny region of the brain called the suprachiasmatic nucleus, which receives information directly from the eyes. Light, particularly in the morning, is the most powerful signal for resetting the clock, which is why exposure to daylight soon after waking can help people who struggle to fall asleep at night.
+Interestingly, the clock doesn't only control sleep. Body temperature, hormone levels and even the efficiency of digestion follow a daily pattern. Studies of shift workers, who regularly work at night, have linked long-term disruption of these rhythms to a higher risk of conditions such as diabetes and heart disease.
+One practical application is called chronotherapy: giving certain medicines at the time of day when they are most effective. For instance, some blood pressure drugs appear to work better when taken in the evening.
+Finally, people genuinely differ. So-called "larks" naturally wake early, while "owls" prefer to stay up late, and these preferences are partly genetic. Teenagers, as you may know from experience, tend to shift towards being owls before moving back again in their twenties.`,
+    questions: [
+      { id: 'lc1sl1', type: 'fill', prompt: 'Circadian comes from Latin and means "about a ___".', answer: 'day' },
+      { id: 'lc1sl2', type: 'single', prompt: 'The master clock receives information directly from the …', options: ['ears', 'eyes', 'stomach', 'skin'], answer: 1 },
+      { id: 'lc1sl3', type: 'single', prompt: 'The strongest signal for resetting the clock is …', options: ['food', 'exercise', 'light', 'temperature'], answer: 2 },
+      { id: 'lc1sl4', type: 'multiple', prompt: 'Which conditions are linked to long-term disruption?', options: ['diabetes', 'asthma', 'heart disease', 'allergies'], answer: [0, 2] },
+      { id: 'lc1sl5', type: 'fill', prompt: 'Giving medicines at the best time of day is called ___.', answer: 'chronotherapy' },
+      { id: 'lc1sl6', type: 'single', prompt: 'People who naturally wake early are called …', options: ['owls', 'larks', 'robins', 'eagles'], answer: 1 },
+    ],
+  },
+  {
+    id: 'debate-tourism', level: 'C1', listening: true, title: 'Radio Debate: Is Tourism Good for Historic Cities?', uzTitle: 'Tinglash: radio bahsi — turizm tarixiy shaharlarga foydalimi?',
+    text: `Presenter: Joining me are Dr Nodira Usmonova, an urban historian, and Mark Ellis, who runs a travel company. Mark, let's start with you. Is tourism good for cities like Bukhara?
+Mark: Overwhelmingly, yes. Tourism has created thousands of jobs, and the income has paid for the restoration of buildings that were close to collapse twenty years ago.
+Presenter: Dr Usmonova, do you agree?
+Nodira: Partly. The restoration is real, but I'm concerned about what happens to residents. In some historic quarters, families have sold their homes to be turned into guesthouses, and the old neighbourhood life is disappearing. A city can become a kind of museum, beautiful but empty.
+Mark: I understand that, but surely the alternative — decline and poverty — is worse?
+Nodira: It's not either-or. Some European cities now limit the number of short-term rentals, and others charge a small tourist tax that is spent directly on local services.
+Presenter: Would a tax put visitors off?
+Mark: Not if it's modest. Most travellers wouldn't notice a couple of dollars a night.
+Nodira: And crucially, the money has to be visible. If residents see better schools or clean streets, they're far more likely to support tourism.`,
+    questions: [
+      { id: 'lc1dt1', type: 'single', prompt: 'Mark says tourism income has paid for …', options: ['new airports', 'the restoration of buildings', 'free hotels', 'museums only'], answer: 1 },
+      { id: 'lc1dt2', type: 'single', prompt: 'Dr Usmonova’s main concern is …', options: ['pollution', 'residents leaving historic quarters', 'high hotel prices', 'too few tourists'], answer: 1 },
+      { id: 'lc1dt3', type: 'fill', prompt: 'She warns that a city can become a kind of ___.', answer: 'museum' },
+      { id: 'lc1dt4', type: 'multiple', prompt: 'Which measures from European cities are mentioned?', options: ['limiting short-term rentals', 'banning tour buses', 'a small tourist tax', 'closing old quarters'], answer: [0, 2] },
+      { id: 'lc1dt5', type: 'single', prompt: 'Mark thinks a modest tax would …', options: ['stop most visitors', 'hardly be noticed', 'be illegal', 'raise prices a lot'], answer: 1 },
+      { id: 'lc1dt6', type: 'fill', prompt: 'Dr Usmonova says the money has to be ___ to residents.', answer: 'visible' },
+    ],
+  },
+  {
+    id: 'seminar-ai-marking', level: 'C1', listening: true, title: 'Seminar: Should AI Mark Essays?', uzTitle: 'Tinglash: seminar — inshoni sun’iy intellekt baholashi kerakmi?',
+    text: `Tutor: Today we're discussing automated essay scoring. Aziza, you read the main study. What did it find?
+Aziza: The researchers compared scores from an automated system with scores from two trained examiners for about three thousand essays. The system agreed with the examiners about as often as the examiners agreed with each other, which surprised me.
+Tutor: So it's reliable?
+Aziza: In terms of consistency, yes. But the authors point out a weakness: when they submitted essays that were long and full of advanced vocabulary but made no logical sense, the system still gave them high marks.
+Ben: That's my main worry. Students would quickly learn to write for the machine rather than for a human reader.
+Tutor: How might that be prevented?
+Aziza: The authors suggest using the system only as a second marker. If its score is very different from the human score, a third examiner checks the essay.
+Ben: I'd also add that the feedback is useful for practice. A student can get instant comments on grammar at midnight, when no teacher is available.
+Tutor: So, a tool for learning, but not a replacement for human judgement in high-stakes exams?
+Aziza: Exactly. That was the paper's conclusion too.`,
+    questions: [
+      { id: 'lc1ai1', type: 'fill', prompt: 'The study compared scores for about ___ essays.', answer: ['3000', 'three thousand', '3,000'] },
+      { id: 'lc1ai2', type: 'single', prompt: 'The system agreed with examiners …', options: ['much less often than examiners agreed with each other', 'about as often as examiners agreed with each other', 'in every case', 'only on short essays'], answer: 1 },
+      { id: 'lc1ai3', type: 'single', prompt: 'What weakness did the authors find?', options: ['It was too slow.', 'Nonsense essays with advanced vocabulary got high marks.', 'It could not read handwriting.', 'It gave everyone low marks.'], answer: 1 },
+      { id: 'lc1ai4', type: 'single', prompt: 'The authors suggest using the system as …', options: ['the only marker', 'a second marker', 'a teacher replacement', 'a spelling checker'], answer: 1 },
+      { id: 'lc1ai5', type: 'fill', prompt: 'If scores differ greatly, a ___ examiner checks the essay.', answer: 'third' },
+      { id: 'lc1ai6', type: 'single', prompt: 'Ben sees an advantage in …', options: ['lower exam fees', 'instant feedback for practice', 'fewer teachers', 'shorter essays'], answer: 1 },
+    ],
+  },
+  {
+    id: 'tour-silk-factory', level: 'B2', listening: true, title: 'Guided Tour: A Silk Factory in Margilan', uzTitle: 'Tinglash: Marg‘ilondagi ipak fabrikasiga ekskursiya',
+    text: `Welcome to the Yodgorlik silk factory. Before we start, please switch your phones to silent, and stay with the group, because some of the machines are hot.
+Our first stop is the cocoon room. Silk comes from the cocoons of silkworms, which feed only on mulberry leaves. Each cocoon is made from a single thread that can be up to one kilometre long! The cocoons are boiled in water so that the thread can be unwound — about eight cocoons are combined to make one strong thread.
+Next, we'll see the dyeing process. Many of our colours still come from natural sources: yellow from onion skins, red from pomegranate peel and madder root, and blue from indigo.
+Then we'll move to the weaving hall, where you'll see the famous ikat technique. In ikat, the threads are tied and dyed before weaving, which creates the slightly blurred patterns that Margilan is known for. A skilled weaver produces only about two metres of fabric a day on a hand loom.
+At the end of the tour there's a shop where you can buy scarves and fabric. Please note that prices are fixed, and we accept both cash and cards.`,
+    questions: [
+      { id: 'lb2sf1', type: 'single', prompt: 'Why should visitors stay with the group?', options: ['It is easy to get lost.', 'Some machines are hot.', 'Photos are not allowed.', 'The tour is short.'], answer: 1 },
+      { id: 'lb2sf2', type: 'fill', prompt: 'Silkworms feed only on ___ leaves.', answer: 'mulberry' },
+      { id: 'lb2sf3', type: 'fill', prompt: 'One thread can be up to one ___ long.', answer: ['kilometre', 'kilometer', 'km'] },
+      { id: 'lb2sf4', type: 'single', prompt: 'Yellow dye comes from …', options: ['pomegranate peel', 'onion skins', 'indigo', 'madder root'], answer: 1 },
+      { id: 'lb2sf5', type: 'single', prompt: 'In ikat, threads are dyed …', options: ['after weaving', 'before weaving', 'by machine', 'only in blue'], answer: 1 },
+      { id: 'lb2sf6', type: 'fill', prompt: 'A weaver produces about ___ metres a day on a hand loom.', answer: ['2', 'two'] },
+    ],
+  },
+  {
+    id: 'news-water-saving', level: 'B2', listening: true, title: 'News Report: Saving Water on Farms', uzTitle: 'Tinglash: yangiliklar — fermalarda suvni tejash',
+    text: `And now farming news. In the Fergana Valley, a growing number of farmers are switching to drip irrigation, a system that delivers water directly to the roots of plants through thin plastic tubes.
+Traditionally, fields were flooded through open channels, but much of that water evaporates or drains away before plants can use it. According to the regional agriculture office, drip systems can cut water use by up to fifty per cent while increasing harvests.
+The main obstacle has been cost. Installing a system on one hectare costs around fifteen hundred dollars, which is a lot for a small family farm. To help, the government now covers half of the installation cost, and banks offer loans with lower interest rates for farmers who make the change.
+We spoke to Bahodir Karimov, who installed drip irrigation in his apricot orchard two years ago. He says his water bill has fallen by almost forty per cent, and the fruit is larger and sweeter. His only complaint is that the tubes need regular cleaning, because sand and minerals can block them.
+The agriculture office hopes that a quarter of all farmland in the valley will use water-saving methods within five years.`,
+    questions: [
+      { id: 'lb2ws1', type: 'single', prompt: 'Drip irrigation delivers water …', options: ['through open channels', 'directly to the roots', 'from the air', 'only at night'], answer: 1 },
+      { id: 'lb2ws2', type: 'fill', prompt: 'Drip systems can cut water use by up to ___ per cent.', answer: ['50', 'fifty'] },
+      { id: 'lb2ws3', type: 'fill', prompt: 'Installing a system on one hectare costs around $___.', answer: ['1500', '1,500', 'fifteen hundred'] },
+      { id: 'lb2ws4', type: 'single', prompt: 'The government covers …', options: ['all of the cost', 'half of the installation cost', 'only the tubes', 'nothing'], answer: 1 },
+      { id: 'lb2ws5', type: 'fill', prompt: 'Bahodir grows ___ in his orchard.', answer: ['apricots', 'apricot'] },
+      { id: 'lb2ws6', type: 'single', prompt: 'His only complaint is that the tubes …', options: ['are expensive', 'need regular cleaning', 'break in winter', 'are too long'], answer: 1 },
+    ],
+  },
 ];
