@@ -6,6 +6,7 @@ import { drillSets as articleSets } from './articles.js';
 import { spellingSets } from './spelling.js';
 import { linkerSets } from './linkers.js';
 import { stressSets } from './stress.js';
+import { task1Sets } from './task1.js';
 
 export const trainers = [
   { id: 'articles', icon: '🅰️', title: 'Artikl va predloglar', desc: 'a / an / the va in / on / at',
@@ -20,6 +21,9 @@ export const trainers = [
   { id: 'stress', icon: '🗣️', title: "So'z urg'usi", desc: 'PHOtograph / phoTOgraphy / photoGRAPHic',
     intro: "O'zbek tilida urg'u ko'pincha oxirgi bo'g'inda — inglizchada esa qo'shimchaga qarab o'zgaradi. 🔊 tinglang va urg'uli bo'g'inni tanlang.",
     sets: stressSets },
+  { id: 'task1', icon: '📊', title: 'IELTS Task 1 tili', desc: 'rise by / to, peak, slightly, twice as many…',
+    intro: "Grafik, jadval va jarayonni tasvirlash uchun eng kerakli so'zlar va predloglar: by (farq) va to (yangi qiymat) — eng ko'p xato.",
+    sets: task1Sets },
 ];
 
 export const drillSets = trainers.flatMap((t) => t.sets.map((s) => ({ ...s, trainer: t.id })));

@@ -779,6 +779,7 @@ const views = {
         <section class="card"><h3>📦 Mashqlar banki</h3><p class="muted">Jami <b>${ieltsLists.listening.length + ieltsLists.reading.length + allWriting.length + allSpeaking.length}</b> ta original IELTS topshirig'i.</p>
           <div class="list">
             <a class="row" href="#/ielts?bank=listening"><span class="badge">🎧</span><span><b>Listening</b> — Part 1–4</span><span class="muted">${ieltsLists.listening.length} ta</span></a>
+            <a class="row" href="#/drill?t=task1"><span class="badge">📊</span><span><b>Task 1 tili</b> — rise by/to, peak, twice as many… trenajyori</span><span class="muted">${drillItems.filter((q) => q.trainer === 'task1').length} ta</span></a>
             <a class="row" href="#/numbers"><span class="badge">🔢</span><span><b>Raqamlar va sanalar</b> — Part 1 uchun tinglash trenajyori</span><span class="muted">cheksiz</span></a>
             <a class="row" href="#/ielts?bank=reading"><span class="badge">📰</span><span><b>Reading</b> — T/F/NG, MCQ, gap-fill</span><span class="muted">${ieltsLists.reading.length} ta</span></a>
             <a class="row" href="#/ielts?bank=writing"><span class="badge">✍️</span><span><b>Writing</b> — Task 1 & 2</span><span class="muted">${allWriting.length} ta</span></a>
