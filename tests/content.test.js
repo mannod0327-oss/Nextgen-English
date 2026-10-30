@@ -21,6 +21,7 @@ import { collocations } from '../src/data/collocations.js';
 import { existsSync } from 'node:fs';
 import { exams } from '../src/data/exams.js';
 import { readings } from '../src/data/readings.js';
+import { drillSets, drillItems } from '../src/data/articles.js';
 
 const asExam = (title, questions) => ({ format: 'nge-exam', title, questions });
 
@@ -143,6 +144,7 @@ test('question ids are unique across grammar, readings and mocks (mistakes noteb
     ...grammar.flatMap((t) => t.exercises.map((e) => e.id)),
     ...[...readings, ...readingBank, ...listeningBank].flatMap((r) => r.questions.map((q) => q.id)),
     ...Object.values(mockTests).flatMap((m) => m.sections.flatMap((sec) => sec.questions.map((q) => q.id))),
+    ...drillItems.map((q) => q.id),
   ];
   assert.equal(new Set(ids).size, ids.length);
 });
@@ -218,4 +220,14 @@ test('collocations: 60+, verb phrases start with their verb, examples use the ph
     if (g.kind === 'adj') assert.equal(phrase.split(' ').length, 2, phrase);
   }
   assert.ok(collocations.filter((g) => g.kind === 'verb').length >= 4, 'verb quiz needs 4 options');
+});
+
+test('articles & prepositions drill: ≥60 valid one-gap items with Uzbek explanations', () => {
+  assert.ok(drillItems.length >= 60);
+  assert.deepEqual(validateExam(asExam('drill', drillItems)), []);
+  for (const q of drillItems) {
+    assert.equal(q.prompt.split('___').length, 2, `${q.id}: exactly one gap`);
+    assert.ok(q.answer >= 0 && q.explanation, q.id);
+  }
+  for (const set of drillSets) assert.ok(set.items.length >= 25 && set.rules.length >= 3, set.id);
 });

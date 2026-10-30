@@ -4,6 +4,7 @@ import { createRequire } from 'node:module';
 import { mkdirSync } from 'node:fs';
 
 const require = createRequire(import.meta.url);
+const { drillItems } = await import('../src/data/articles.js');
 const { chromium } = require('playwright');
 
 const base = process.argv[2] ?? 'http://localhost:8080';
@@ -20,7 +21,7 @@ const step = async (name, fn) => { await fn(); console.log('✓', name); };
 await step('home renders tiles', async () => {
   await page.goto(base);
   await page.waitForSelector('.tile');
-  if ((await page.locator('.tile').count()) !== 13) throw new Error('expected 13 tiles');
+  if ((await page.locator('.tile').count()) !== 14) throw new Error('expected 14 tiles');
   await page.screenshot({ path: `${shots}/home.png` });
 });
 
@@ -78,6 +79,23 @@ await step('vocab writing test: pick a theme, write + listen questions, 100% sav
   await page.goto(`${base}/#/`);
   await page.goto(`${base}/#/vocab`);
   if (!(await page.textContent('.badge.ok')).includes('100%')) throw new Error('best score not shown');
+});
+
+await step('articles & prepositions: 10 random questions, all correct → 100%, explanation shown', async () => {
+  await page.goto(`${base}/#/`);
+  await page.click('a.tile[href="#/articles"]');
+  await page.click('a[href="#/articles?set=prepositions"]');
+  await page.waitForSelector('.question[data-q^="pr"]');
+  const ids = await page.$$eval('.question', (els) => els.map((e) => e.dataset.q));
+  if (ids.length !== 10 || !ids.every((id) => id.startsWith('pr'))) throw new Error(`bad question set ${ids}`);
+  for (const id of ids) await page.locator(`[data-q="${id}"] input[value="${drillItems.find((q) => q.id === id).answer}"]`).check();
+  await page.click('#check');
+  if ((await page.textContent('#result')) !== 'Natija: 100%') throw new Error(await page.textContent('#result'));
+  await page.click('a[href*="r="]');
+  await page.waitForSelector('.question');
+  await page.locator(`[data-q] input[type=radio]`).first().check();
+  await page.click('#check');
+  if (!(await page.locator('.fb').first().textContent()).trim()) throw new Error('no feedback/explanation');
 });
 
 await step('vocab: flip and grade a card persists SRS state', async () => {
@@ -415,7 +433,7 @@ await step('creator: add question, validate, simulate', async () => {
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
+  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'articles', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);

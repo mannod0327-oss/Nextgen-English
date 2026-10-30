@@ -25,6 +25,7 @@ import { listeningBank } from './data/ielts-bank-listening.js';
 import { irregularVerbs } from './data/irregular-verbs.js';
 import { minimalPairs } from './data/minimal-pairs.js';
 import { collocations } from './data/collocations.js';
+import { drillSets, drillItems } from './data/articles.js';
 
 // IELTS practice bank: hand-made tasks + bank items. Bank texts open in the reading view but are listed only in #/ielts.
 const allTexts = [...readings, ...readingBank, ...listeningBank];
@@ -268,6 +269,7 @@ const views = {
       ['#/reading', '📰', "O'qish va tinglash", `${readings.length} ta matn va tinglash (A1–C1), savollar bilan`],
       ['#/verbs', '🔁', "Noto'g'ri fe'llar", `${irregularVerbs.length} ta fe'l: jadval, tinglash va V2/V3 testi`],
       ['#/sounds', '👂', 'Qiyin tovushlar', `${minimalPairs.length} juft tovush (w/v, θ/s, iː/ɪ…): eshiting va farqlang`],
+      ['#/articles', '🅰️', 'Artikl va predloglar', `${drillItems.length} ta mashq: a / an / the va in / on / at, o'zbekcha izoh bilan`],
       ['#/collocations', '🧩', 'Kollokatsiyalar', `${collocations.reduce((n, g) => n + g.items.length, 0)} ta ibora: make/do/take, sifat+ot, idiomalar`],
       ['#/ielts', '🎓', 'IELTS tayyorlov', `Listening, Reading, ${writing.length} ta Writing, ${speaking.length} ta Speaking, ball hisoblagich`],
       ['#/speech', '🎙️', 'Nutq laboratoriyasi', "Real vaziyatlar, talaffuzni 0–100% baholash"],
@@ -921,6 +923,34 @@ const views = {
         <p class="muted">Har bir ustun — kartalar, grammatika, o'qish va testlar bo'yicha bajarilgan ishlar soni.</p></section>`;
   },
 
+  articles(params) {
+    const r = rand();
+    const set = drillSets.find((x) => x.id === params.get('set'));
+    const pool = set ? drillItems.filter((q) => q.set === set.id) : drillItems;
+    const qs = shuffle(pool, r).slice(0, 10);
+    queueMicrotask(() => {
+      $('#check').onclick = () => {
+        let total = 0;
+        qs.forEach((q) => { total += gradeBox(q, app.querySelector(`[data-q="${q.id}"]`), 'Artikl va predloglar'); });
+        const pct = Math.round((total / qs.length) * 100);
+        store.set('drillBest', Math.max(store.get('drillBest', 0), pct));
+        logActivity('articles');
+        addXp(total);
+        $('#result').textContent = `Natija: ${pct}%`;
+        $('#check').disabled = true;
+      };
+    });
+    const best = store.get('drillBest', null);
+    return `<h2>🅰️ Artikl va predloglar</h2>
+      <p class="muted">O'zbek tilida artikl yo'q, in/on/at esa bitta "-da" qo'shimchasiga to'g'ri keladi — shuning uchun bu eng ko'p uchraydigan xatolar. Har javobdan keyin o'zbekcha izoh chiqadi.</p>
+      <p><a class="btn${set ? '' : ' primary'}" href="#/articles">Aralash</a> ${drillSets.map((x) => `<a class="btn${set === x ? ' primary' : ''}" href="#/articles?set=${x.id}">${esc(x.title.split(':')[0])} (${x.items.length})</a>`).join(' ')}
+        ${best != null ? `<span class="badge ok">eng yaxshi: ${best}%</span>` : ''}</p>
+      ${(set ? [set] : drillSets).map((x) => `<details class="card"><summary><b>📋 Qoidalar: ${esc(x.title)}</b></summary>
+        <table class="tbl"><tbody>${x.rules.map(([w, rule, ex]) => `<tr><td><b>${esc(w)}</b></td><td>${esc(rule)}</td><td class="muted">${esc(ex)}</td></tr>`).join('')}</tbody></table></details>`).join('')}
+      ${qs.map((q, n) => `<section class="card question" data-q="${q.id}"><b>${n + 1}. ${esc(q.prompt)}</b>${questionHtml(q, r)}<div class="fb"></div></section>`).join('')}
+      <p><button class="btn primary" id="check">Tekshirish</button> <a class="btn" href="#/articles?${set ? `set=${set.id}&` : ''}r=${Date.now()}">🔄 Yangi 10 ta</a> <b id="result"></b></p>`;
+  },
+
   collocations(params) {
     const all = collocations.flatMap((g) => g.items.map((it) => ({ g, it })));
     if (params.get('mode') === 'test') {
@@ -972,6 +1002,7 @@ const views = {
       ...allWriting.map((w) => ({ type: 'Writing', title: w.prompt.slice(0, 90), sub: w.type ?? `Task ${w.task}`, href: `#/ielts?w=${w.id}`, text: w.prompt })),
       ...allSpeaking.map((x) => ({ type: 'Speaking', title: x.topic, sub: x.part2.card, href: `#/ielts?s=${x.id}`, text: [...x.part1, ...x.part3].join(' ') })),
       ...Object.entries(mockTests).map(([k, m]) => ({ type: 'Sinov testi', title: m.title, sub: `${m.minutes} daqiqa`, href: `#/ielts?mock=${k}` })),
+      ...drillSets.map((x) => ({ type: 'Mashq', title: x.title, sub: x.rules.map(([w]) => w).join(', '), text: x.items.map(([, t]) => t).join(' '), href: `#/articles?set=${x.id}` })),
       ...irregularVerbs.map(([v1, v2, v3, uz]) => ({ type: "Fe'l", title: `${v1} – ${v2} – ${v3}`, sub: uz, href: '#/verbs' })),
       ...collocations.flatMap((g) => g.items.map(([ph, uz, ex]) => ({ type: 'Ibora', title: ph, sub: uz, href: '#/collocations', text: ex }))),
       ...minimalPairs.map((x) => ({ type: 'Tovush', title: x.sounds, sub: x.pairs.map((p) => p.join('/')).join(', '), href: `#/sounds?set=${x.id}` })),
