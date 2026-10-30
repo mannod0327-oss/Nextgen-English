@@ -856,4 +856,203 @@ As a result, the role of human translators is changing rather than disappearing.
       },
     ],
   },
+
+  'listening-5': {
+    kind: 'listening', title: 'IELTS Listening — Mock Test 5', minutes: 30,
+    sections: [
+      {
+        title: 'Part 1 · Booking a bicycle tour',
+        intro: 'You will hear a man phoning a tour company. Questions 1–10.',
+        script: `Agent: Good morning, Silk Road Cycling. How can I help you?
+Caller: Hi. I'm interested in your bicycle tour from Samarkand to Bukhara.
+Agent: Great. That tour takes five days, and we cover about sixty kilometres a day.
+Caller: When does the next one start?
+Agent: The next one leaves on the ninth of September. There are only four places left.
+Caller: And how much is it?
+Agent: It's four hundred and twenty dollars per person. That includes the hotels, breakfast and dinner, but not lunch.
+Caller: Do I need my own bicycle?
+Agent: No, we provide mountain bikes and helmets. But you should bring comfortable shoes and sunglasses.
+Caller: Is there a vehicle with the group?
+Agent: Yes, a support van carries your luggage and follows the group in case anyone gets tired.
+Caller: OK. I'd like to book one place. My name's Timur Abdullayev. That's A-B-D-U-L-L-A-Y-E-V.
+Agent: Thank you. We'll need a deposit of fifty dollars to hold your place, and you can pay the rest when you arrive.`,
+        questions: [
+          { id: 'n5l1', type: 'fill', prompt: '1. Length of tour: ___ days', answer: ['5', 'five'] },
+          { id: 'n5l2', type: 'fill', prompt: '2. Distance per day: about ___ km', answer: ['60', 'sixty'] },
+          { id: 'n5l3', type: 'fill', prompt: '3. Next tour starts: the ___ of September', answer: ['ninth', '9th', '9'] },
+          { id: 'n5l4', type: 'fill', prompt: '4. Places left: ___', answer: ['4', 'four'] },
+          { id: 'n5l5', type: 'fill', prompt: '5. Price per person: $___', answer: ['420', 'four hundred and twenty'] },
+          { id: 'n5l6', type: 'single', prompt: '6. Which meal is NOT included?', options: ['breakfast', 'lunch', 'dinner', 'all meals are included'], answer: 1 },
+          { id: 'n5l7', type: 'single', prompt: '7. The company provides …', options: ['bikes and helmets', 'shoes and sunglasses', 'bikes only', 'nothing'], answer: 0 },
+          { id: 'n5l8', type: 'fill', prompt: '8. A support ___ carries the luggage.', answer: 'van' },
+          { id: 'n5l9', type: 'fill', prompt: '9. Surname: ___', answer: 'Abdullayev' },
+          { id: 'n5l10', type: 'fill', prompt: '10. Deposit: $___', answer: ['50', 'fifty'] },
+        ],
+      },
+      {
+        title: 'Part 2 · A new city park',
+        intro: 'You will hear a park manager talking on local radio. Questions 11–20.',
+        script: `Good afternoon. I'm here to tell you about Riverside Park, which opens to the public next Saturday. The park covers twelve hectares along the river, on land that used to be an old factory site.
+At the north entrance, there's a large car park, but we encourage visitors to come by bus or bicycle, because spaces are limited. Next to the entrance you'll find the visitor centre, where you can pick up free maps and hire bicycles for an hour or a whole day.
+In the middle of the park there's a lake with a small island. Swimming is not allowed, but you can hire rowing boats from May to October. To the east of the lake is the children's area, which includes a water playground that is open only in the summer months.
+One feature we're particularly proud of is the community garden in the south-west corner. Local residents can rent a small plot to grow their own vegetables, and there's a waiting list already, so please apply early on our website.
+The park is open from seven in the morning until ten at night. Dogs are welcome, but they must be kept on a lead near the lake and the children's area. Finally, on opening day there will be a free concert at four o'clock on the main lawn.`,
+        questions: [
+          { id: 'n5l11', type: 'fill', prompt: '11. The park covers ___ hectares.', answer: ['12', 'twelve'] },
+          { id: 'n5l12', type: 'single', prompt: '12. The land was previously …', options: ['farmland', 'a factory site', 'a car park', 'a forest'], answer: 1 },
+          { id: 'n5l13', type: 'single', prompt: '13. Visitors are encouraged to arrive by …', options: ['car', 'bus or bicycle', 'boat', 'taxi'], answer: 1 },
+          { id: 'n5l14', type: 'single', prompt: '14. At the visitor centre you can …', options: ['buy food', 'hire bicycles', 'rent garden plots', 'swim'], answer: 1 },
+          { id: 'n5l15', type: 'single', prompt: '15. On the lake visitors can …', options: ['swim', 'hire rowing boats', 'fish', 'skate in winter'], answer: 1 },
+          { id: 'n5l16', type: 'fill', prompt: '16. The children’s area is to the ___ of the lake.', answer: 'east' },
+          { id: 'n5l17', type: 'fill', prompt: '17. The community garden is in the south-___ corner.', answer: 'west' },
+          { id: 'n5l18', type: 'fill', prompt: '18. Apply for a garden plot on the ___.', answer: 'website' },
+          { id: 'n5l19', type: 'fill', prompt: '19. Closing time: ___ p.m.', answer: ['10', 'ten'] },
+          { id: 'n5l20', type: 'fill', prompt: '20. The opening concert starts at ___ o’clock.', answer: ['4', 'four'] },
+        ],
+      },
+      {
+        title: 'Part 3 · Preparing a group presentation',
+        intro: 'You will hear two students, Madina and Josh, planning a presentation with their tutor. Questions 21–30.',
+        script: `Tutor: So, your presentation is on the topic of food waste in universities. How far have you got?
+Madina: We've done some background reading, and we've decided to focus on the main university canteen.
+Josh: Yes, we want to measure how much food is thrown away there in one week.
+Tutor: How will you do that?
+Josh: The canteen manager has agreed to let us weigh the waste bins at the end of every day.
+Tutor: Excellent. And will you collect any other data?
+Madina: We're going to give a short survey to students, asking why they leave food. We think portions might be too big.
+Tutor: That's a good hypothesis. How many responses are you aiming for?
+Madina: At least one hundred and fifty.
+Tutor: And how will you divide the work?
+Josh: I'll be responsible for the data on weight, and Madina will analyse the survey.
+Tutor: Good. Now, the presentation itself must be fifteen minutes, followed by five minutes of questions. I'd strongly recommend using charts rather than tables, because they're easier for the audience to follow.
+Madina: Should we suggest solutions as well?
+Tutor: Yes, definitely — that's what will make it stand out. Perhaps something like offering smaller portions at a lower price. And make sure you practise at least twice before the day; the presentations are on the twenty-second of November.`,
+        questions: [
+          { id: 'n5l21', type: 'single', prompt: '21. The presentation will focus on …', options: ['student kitchens', 'the main university canteen', 'local restaurants', 'supermarkets'], answer: 1 },
+          { id: 'n5l22', type: 'fill', prompt: '22. They will measure food waste for one ___.', answer: 'week' },
+          { id: 'n5l23', type: 'single', prompt: '23. Who agreed to help them weigh the bins?', options: ['the tutor', 'the canteen manager', 'other students', 'the cleaners'], answer: 1 },
+          { id: 'n5l24', type: 'single', prompt: '24. Their hypothesis is that …', options: ['food is too expensive', 'portions are too big', 'food tastes bad', 'students have no time'], answer: 1 },
+          { id: 'n5l25', type: 'fill', prompt: '25. Target number of survey responses: ___', answer: ['150', 'one hundred and fifty'] },
+          { id: 'n5l26', type: 'single', prompt: '26. Josh will be responsible for …', options: ['the survey', 'the weight data', 'the slides', 'the solutions'], answer: 1 },
+          { id: 'n5l27', type: 'fill', prompt: '27. Length of presentation: ___ minutes', answer: ['15', 'fifteen'] },
+          { id: 'n5l28', type: 'single', prompt: '28. The tutor recommends using …', options: ['tables', 'charts', 'videos', 'handouts'], answer: 1 },
+          { id: 'n5l29', type: 'single', prompt: '29. A possible solution mentioned is …', options: ['closing the canteen', 'smaller portions at a lower price', 'free food', 'banning plastic'], answer: 1 },
+          { id: 'n5l30', type: 'fill', prompt: '30. Presentation date: the ___ of November', answer: ['twenty-second', '22nd', '22'] },
+        ],
+      },
+      {
+        title: 'Part 4 · Lecture: The history of paper',
+        intro: 'You will hear part of a lecture about the history of paper. Questions 31–40.',
+        script: `Today we're looking at one of the most important inventions in human history: paper.
+Before paper, people wrote on many different materials. In ancient Egypt, they used papyrus, made from a plant that grew along the Nile. In Europe, the most common material was parchment, made from animal skin, which was strong but extremely expensive.
+Paper as we know it was invented in China around the year one hundred and five, and is traditionally credited to an official called Cai Lun. He made it by mixing tree bark, old rags and fishing nets with water, then pressing the mixture flat and drying it in the sun.
+For several centuries, the technique was kept secret. According to a well-known story, it reached the Islamic world after a battle in seven hundred and fifty-one, when Chinese prisoners who knew how to make paper were taken to Samarkand. Whatever the exact details, Samarkand soon became famous for producing high-quality paper, and from there the technology spread to Baghdad, Damascus and eventually Spain.
+In Europe, paper was at first treated with suspicion, and some officials refused to use it for important documents because they believed it would not last. Its real breakthrough came in the fifteenth century with the invention of the printing press, which created enormous demand for cheap paper.
+Until the nineteenth century, most paper was made from cotton and linen rags. Then, as demand grew, manufacturers began to use wood pulp, which made paper much cheaper but also more acidic, so many books from that period are now turning yellow and falling apart.`,
+        questions: [
+          { id: 'n5l31', type: 'fill', prompt: '31. In ancient Egypt people wrote on ___.', answer: 'papyrus' },
+          { id: 'n5l32', type: 'single', prompt: '32. Parchment was …', options: ['cheap and weak', 'strong but very expensive', 'made from plants', 'invented in China'], answer: 1 },
+          { id: 'n5l33', type: 'fill', prompt: '33. Paper was invented in China around the year ___.', answer: ['105', 'one hundred and five'] },
+          { id: 'n5l34', type: 'single', prompt: '34. Cai Lun’s ingredients included …', options: ['cotton and silk', 'tree bark, rags and fishing nets', 'animal skin', 'wood pulp'], answer: 1 },
+          { id: 'n5l35', type: 'fill', prompt: '35. Paper reportedly reached Samarkand after a battle in ___.', answer: ['751', 'seven hundred and fifty-one'] },
+          { id: 'n5l36', type: 'single', prompt: '36. Samarkand became famous for …', options: ['cheap paper', 'high-quality paper', 'printing presses', 'parchment'], answer: 1 },
+          { id: 'n5l37', type: 'fill', prompt: '37. From Samarkand the technology spread to Baghdad, Damascus and eventually ___.', answer: 'Spain' },
+          { id: 'n5l38', type: 'single', prompt: '38. Why did some European officials refuse to use paper?', options: ['It was too expensive.', 'They thought it would not last.', 'It was illegal.', 'It came from abroad.'], answer: 1 },
+          { id: 'n5l39', type: 'fill', prompt: '39. Paper’s breakthrough came with the printing ___.', answer: 'press' },
+          { id: 'n5l40', type: 'fill', prompt: '40. Wood pulp made paper more ___, so old books turn yellow.', answer: 'acidic' },
+        ],
+      },
+    ],
+  },
+
+  'reading-5': {
+    kind: 'reading', title: 'IELTS Academic Reading — Mock Test 5', minutes: 60,
+    sections: [
+      {
+        title: 'Passage 1 · The Snow Leopard',
+        intro: 'Questions 1–13. You should spend about 20 minutes on this passage.',
+        text: `The snow leopard is one of the most elusive large cats in the world. It lives in the high mountains of Central and South Asia, including the Tien Shan and Pamir ranges in Uzbekistan, Kyrgyzstan and Tajikistan, usually at altitudes between three and five thousand metres. Its thick, pale grey coat with dark rosettes provides excellent camouflage among the rocks, and its long tail helps it to balance on steep slopes and is wrapped around the body for warmth while it sleeps.
+
+Snow leopards are solitary animals and are most active at dawn and dusk. They hunt wild sheep and goats, such as the ibex, and can kill prey up to three times their own weight. Because their territories are enormous and they avoid humans, scientists rarely see them directly. Instead, researchers rely on camera traps — cameras triggered by movement — and on collecting droppings, from which DNA can be extracted to identify individual animals.
+
+It is estimated that between four and seven thousand snow leopards remain in the wild. The main threats are poaching for their fur, the decline of their natural prey, and conflict with herders, who sometimes kill leopards that attack their livestock. Climate change may also push the tree line higher up the mountains, reducing the open habitat that snow leopards depend on.
+
+Several conservation programmes now work directly with local communities. In some villages, herders receive compensation or insurance when they lose animals, and they are helped to build predator-proof enclosures for their sheep at night. Some former hunters have been employed as rangers, using their detailed knowledge of the mountains to protect the animals they once hunted.`,
+        questions: [
+          { id: 'n5r1', type: 'single', prompt: '1. Snow leopards usually live between 3,000 and 5,000 metres.', options: tfng, answer: 0 },
+          { id: 'n5r2', type: 'single', prompt: '2. The snow leopard’s tail is short.', options: tfng, answer: 1 },
+          { id: 'n5r3', type: 'single', prompt: '3. Snow leopards usually live in groups.', options: tfng, answer: 1 },
+          { id: 'n5r4', type: 'single', prompt: '4. Snow leopards can roar loudly.', options: tfng, answer: 2 },
+          { id: 'n5r5', type: 'single', prompt: '5. They can kill animals heavier than themselves.', options: tfng, answer: 0 },
+          { id: 'n5r6', type: 'single', prompt: '6. Scientists often see snow leopards directly.', options: tfng, answer: 1 },
+          { id: 'n5r7', type: 'single', prompt: '7. Some former hunters now work as rangers.', options: tfng, answer: 0 },
+          { id: 'n5r8', type: 'fill', prompt: '8. The dark spots on the coat are called ___. (ONE WORD)', answer: 'rosettes' },
+          { id: 'n5r9', type: 'fill', prompt: '9. Snow leopards are most active at dawn and ___. (ONE WORD)', answer: 'dusk' },
+          { id: 'n5r10', type: 'fill', prompt: '10. A typical prey animal is the ___. (ONE WORD)', answer: 'ibex' },
+          { id: 'n5r11', type: 'fill', prompt: '11. Researchers use camera ___ triggered by movement. (ONE WORD)', answer: ['traps', 'trap'] },
+          { id: 'n5r12', type: 'fill', prompt: '12. ___ can be extracted from droppings. (ONE WORD)', answer: 'DNA' },
+          { id: 'n5r13', type: 'fill', prompt: '13. Herders are helped to build predator-proof ___. (ONE WORD)', answer: ['enclosures', 'enclosure'] },
+        ],
+      },
+      {
+        title: 'Passage 2 · Why We Remember Some Things and Forget Others',
+        intro: 'Questions 14–26. You should spend about 20 minutes on this passage.',
+        text: `A. In the 1880s, the German psychologist Hermann Ebbinghaus carried out a series of experiments on himself. He memorised lists of meaningless syllables and then tested how many he could recall after different periods of time. His results produced what is now called the "forgetting curve": most forgetting happens very quickly, within the first hour or day, after which the rate of forgetting slows down.
+
+B. Ebbinghaus also discovered that reviewing material at increasing intervals greatly reduces forgetting. This principle, known as spaced repetition, is the basis of many modern flashcard apps, which show learners a word just before they are likely to forget it.
+
+C. Modern research has identified other factors that influence memory. One is the "testing effect": trying to recall information strengthens memory more than simply rereading it. In one experiment, students who took practice tests remembered around fifty per cent more a week later than those who spent the same time rereading their notes.
+
+D. Emotion also plays a powerful role. People tend to remember emotional events — both pleasant and unpleasant — more vividly than neutral ones, partly because stress hormones help the brain to store them. However, vivid memories are not always accurate; people can feel very confident about details that are in fact wrong.
+
+E. Sleep is another crucial factor. During deep sleep, the brain appears to replay and reorganise information learned during the day, transferring it from short-term to long-term storage. Students who stay up all night before an exam may therefore remember less, not more.
+
+F. Finally, forgetting is not always a failure. Researchers argue that the brain actively removes unnecessary information, which helps us to focus on what matters and to adapt to new situations.`,
+        questions: [
+          { id: 'n5r14', type: 'single', prompt: '14. Which paragraph describes the origin of the forgetting curve?', options: ['A', 'B', 'C', 'D'], answer: 0 },
+          { id: 'n5r15', type: 'single', prompt: '15. Which paragraph links memory with feelings?', options: ['B', 'C', 'D', 'E'], answer: 2 },
+          { id: 'n5r16', type: 'single', prompt: '16. Which paragraph explains a benefit of forgetting?', options: ['A', 'C', 'E', 'F'], answer: 3 },
+          { id: 'n5r17', type: 'single', prompt: '17. Which paragraph explains why all-night studying may not help?', options: ['B', 'D', 'E', 'F'], answer: 2 },
+          { id: 'n5r18', type: 'single', prompt: '18. According to the forgetting curve, most forgetting happens …', options: ['after a month', 'very quickly', 'only during sleep', 'at a steady rate'], answer: 1 },
+          { id: 'n5r19', type: 'single', prompt: '19. Students who took practice tests remembered about … more.', options: ['10%', '25%', '50%', '100%'], answer: 2 },
+          { id: 'n5r20', type: 'single', prompt: '20. What is said about vivid emotional memories?', options: ['They are always accurate.', 'They are not always accurate.', 'They fade quickly.', 'They only concern unpleasant events.'], answer: 1 },
+          { id: 'n5r21', type: 'single', prompt: '21. Ebbinghaus tested himself using meaningful words.', options: tfng, answer: 1 },
+          { id: 'n5r22', type: 'single', prompt: '22. Flashcard apps are based on spaced repetition.', options: tfng, answer: 0 },
+          { id: 'n5r23', type: 'single', prompt: '23. Rereading notes is more effective than testing yourself.', options: tfng, answer: 1 },
+          { id: 'n5r24', type: 'single', prompt: '24. Children forget faster than adults.', options: tfng, answer: 2 },
+          { id: 'n5r25', type: 'fill', prompt: '25. Stress ___ help the brain store emotional events. (ONE WORD)', answer: 'hormones' },
+          { id: 'n5r26', type: 'fill', prompt: '26. During deep sleep the brain may ___ information learned during the day. (ONE WORD)', answer: ['replay', 'reorganise'] },
+        ],
+      },
+      {
+        title: 'Passage 3 · The Return of the Trolleybus?',
+        intro: 'Questions 27–40. You should spend about 20 minutes on this passage.',
+        text: `For much of the twentieth century, trolleybuses — electric buses powered by overhead wires — were a familiar sight in cities across Europe and the former Soviet Union, including Tashkent, where they operated for more than sixty years. From the 1990s onwards, however, many cities removed their networks. Diesel buses were cheaper to buy, did not need expensive overhead infrastructure, and could change routes easily.
+
+Today, as cities try to reduce air pollution and carbon emissions, electric transport is back on the agenda, and some planners argue that the trolleybus deserves a second look. Its main advantage over battery buses is that it does not need to carry heavy batteries for the whole day. Because energy comes continuously from the wires, the vehicles are lighter, can run for eighteen or twenty hours without stopping to charge, and the batteries that are still used — for short sections without wires — are small and last longer.
+
+Critics point out that overhead wires are visually unattractive and costly to maintain, and that a network is difficult to expand or modify once it has been built. A breakdown on one section can also block the vehicles behind it, since they cannot simply drive around the problem.
+
+A compromise known as "in-motion charging" is now being tested in several cities. Buses charge their batteries while running under wires on the busiest central routes, and then continue on battery power into the suburbs, where installing wires would be uneconomic. This allows cities to use existing wires more efficiently while extending services into new areas.
+
+Whether trolleybuses make a widespread return will depend on local conditions: the cost of electricity, the state of existing infrastructure, and, perhaps most importantly, whether residents are willing to accept wires above their streets in exchange for cleaner air.`,
+        questions: [
+          { id: 'n5r27', type: 'single', prompt: '27. Why did many cities remove trolleybuses from the 1990s?', options: ['They were too slow.', 'Diesel buses were cheaper and more flexible.', 'Passengers disliked them.', 'Electricity became free.'], answer: 1 },
+          { id: 'n5r28', type: 'single', prompt: '28. The main advantage of trolleybuses over battery buses is that they …', options: ['are quieter', 'do not carry heavy batteries all day', 'need no drivers', 'are cheaper to build'], answer: 1 },
+          { id: 'n5r29', type: 'single', prompt: '29. What problem do critics mention?', options: ['high fares', 'a breakdown can block vehicles behind it', 'they cannot carry many passengers', 'they are dangerous in rain'], answer: 1 },
+          { id: 'n5r30', type: 'single', prompt: '30. In-motion charging means buses …', options: ['charge only at night', 'charge while running under wires, then use batteries', 'never use batteries', 'charge at every stop'], answer: 1 },
+          { id: 'n5r31', type: 'single', prompt: '31. What does the writer suggest will decide the future of trolleybuses?', options: ['national laws', 'local conditions and residents’ attitudes', 'bus manufacturers', 'tourism'], answer: 1 },
+          { id: 'n5r32', type: 'single', prompt: '32. Trolleybuses operated in Tashkent for over sixty years.', options: tfng, answer: 0 },
+          { id: 'n5r33', type: 'single', prompt: '33. Battery buses can run longer without charging than trolleybuses.', options: tfng, answer: 1 },
+          { id: 'n5r34', type: 'single', prompt: '34. Trolleybus networks are easy to change once built.', options: tfng, answer: 1 },
+          { id: 'n5r35', type: 'single', prompt: '35. In-motion charging is already used in every European capital.', options: tfng, answer: 1 },
+          { id: 'n5r36', type: 'single', prompt: '36. Trolleybuses are safer than diesel buses.', options: tfng, answer: 2 },
+          { id: 'n5r37', type: 'fill', prompt: '37. Trolleybuses are powered by overhead ___. (ONE WORD)', answer: ['wires', 'wire'] },
+          { id: 'n5r38', type: 'fill', prompt: '38. Trolleybuses can run for eighteen or ___ hours without charging. (ONE WORD)', answer: 'twenty' },
+          { id: 'n5r39', type: 'fill', prompt: '39. Installing wires in the ___ would be uneconomic. (ONE WORD)', answer: 'suburbs' },
+          { id: 'n5r40', type: 'fill', prompt: '40. Residents may accept wires in exchange for cleaner ___. (ONE WORD)', answer: 'air' },
+        ],
+      },
+    ],
+  },
 };

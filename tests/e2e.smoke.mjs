@@ -205,6 +205,7 @@ await step('ielts bank: writing task shows Band 7 model answer', async () => {
 await step('ielts mock 4: listed on hub, reading-4 scores answers', async () => {
   await page.goto(`${base}/#/ielts`);
   await page.waitForSelector('a[href="#/ielts?mock=listening-4"]');
+  await page.waitForSelector('a[href="#/ielts?mock=reading-5"]');
   await page.goto(`${base}/#/ielts?mock=reading-4`);
   await page.waitForSelector('[data-q="n4r13"]');
   await page.fill('[data-q="n4r13"] .fill', 'saxaul');
@@ -539,7 +540,7 @@ await step('progress: achievements section shows earned badges from earlier step
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'vocab?mode=test&cat=Jinoyat va qonun', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?s=b-tradition', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=language-podcast', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'numbers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
+  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'vocab?mode=test&cat=Jinoyat va qonun', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?s=b-tradition', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=language-podcast', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'numbers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'ielts?mock=listening-5', 'ielts?mock=reading-5', 'search?q=present']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
