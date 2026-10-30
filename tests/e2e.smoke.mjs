@@ -617,15 +617,51 @@ await step('daily goal: ring shows today\'s XP, goal choice persists, week has 7
   if (!(await page.isVisible('[data-goal="20"][aria-pressed="true"]'))) throw new Error('goal not persisted');
 });
 
+const ROUTES = ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'vocab?mode=test&cat=Jinoyat va qonun', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'grammar?topic=question-tags', 'grammar?topic=must-have-to', 'grammar?topic=verb-patterns', 'grammar?topic=subjunctive', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?w=bw2-zoos', 'ielts?w=bw1-commute', 'ielts?s=b-tradition', 'ielts?s=b-books', 'ielts?guide=listening', 'ielts?guide=task2', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=l-at-the-cafe', 'reading?t=placebo', 'reading?t=language-podcast', 'reading?t=debate-tourism', 'mistakes', 'sounds', 'sounds?set=th-s', 'sounds?set=ou-or', 'speech?s=lost', 'vocab?mode=print&cat=Shifokorda', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'drill?t=stress', 'drill?t=task1', 'drill?t=synonyms', 'numbers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'ielts?mock=listening-5', 'ielts?mock=reading-5', 'ielts?mock=listening-6', 'ielts?mock=reading-6', 'ielts?mock=listening-7', 'ielts?mock=reading-7', 'search?q=present'];
+
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'vocab?mode=test&cat=Jinoyat va qonun', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'grammar?topic=question-tags', 'grammar?topic=must-have-to', 'grammar?topic=verb-patterns', 'grammar?topic=subjunctive', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?w=bw2-zoos', 'ielts?w=bw1-commute', 'ielts?s=b-tradition', 'ielts?s=b-books', 'ielts?guide=listening', 'ielts?guide=task2', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=l-at-the-cafe', 'reading?t=placebo', 'reading?t=language-podcast', 'reading?t=debate-tourism', 'mistakes', 'sounds', 'sounds?set=th-s', 'sounds?set=ou-or', 'speech?s=lost', 'vocab?mode=print&cat=Shifokorda', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'drill?t=stress', 'drill?t=task1', 'drill?t=synonyms', 'numbers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'ielts?mock=listening-5', 'ielts?mock=reading-5', 'ielts?mock=listening-6', 'ielts?mock=reading-6', 'ielts?mock=listening-7', 'ielts?mock=reading-7', 'search?q=present']) {
+  for (const r of ROUTES) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
     if (over) throw new Error(`horizontal overflow on #/${r}`);
   }
   await page.screenshot({ path: `${shots}/mobile.png` });
+});
+
+await step('a11y audit: every control has a name, unique ids, lang set, visible keyboard focus', async () => {
+  const problems = [];
+  for (const r of ROUTES) {
+    await page.goto(`${base}/#/${r}`);
+    await page.waitForTimeout(150);
+    problems.push(...(await page.evaluate((route) => {
+      const out = [];
+      const named = (el) => (el.getAttribute('aria-label') ?? el.getAttribute('title') ?? '').trim()
+        || (el.getAttribute('aria-labelledby') && document.getElementById(el.getAttribute('aria-labelledby'))?.textContent.trim())
+        || (el.labels && [...el.labels].some((l) => l.textContent.trim()))
+        || (!['INPUT', 'SELECT', 'TEXTAREA'].includes(el.tagName) && (el.textContent.trim() || el.querySelector('img[alt]:not([alt=""])')));
+      for (const el of document.querySelectorAll('button, a[href], input:not([type=hidden]), select, textarea')) {
+        if (el.closest('[hidden]') || (el.type === 'file' && el.closest('label'))) continue;
+        if (!named(el)) out.push(`#/${route}: unnamed <${el.tagName.toLowerCase()} ${el.id ? `id=${el.id}` : el.className}>`);
+      }
+      const ids = [...document.querySelectorAll('[id]')].map((e) => e.id);
+      for (const d of new Set(ids.filter((x, k) => ids.indexOf(x) !== k))) out.push(`#/${route}: duplicate id ${d}`);
+      for (const img of document.querySelectorAll('img:not([alt])')) out.push(`#/${route}: img without alt`);
+      return out;
+    }, r)));
+  }
+  if (await page.getAttribute('html', 'lang') !== 'uz') problems.push('html lang');
+  for (const [r, sel] of [['reading?t=chorsu', '#text'], ['ielts?mock=reading-7', '.reading-text'], ['speech?s=cafe', '.say .t']]) {
+    await page.goto(`${base}/#/${r}`);
+    await page.waitForSelector(sel);
+    if (await page.getAttribute(sel, 'lang') !== 'en') problems.push(`#/${r}: English text without lang="en"`);
+  }
+  await page.goto(`${base}/#/`);
+  await page.keyboard.press('Tab');
+  const outline = await page.evaluate(() => getComputedStyle(document.activeElement).outlineStyle);
+  if (outline === 'none') problems.push('no visible focus outline');
+  if (problems.length) throw new Error(`${problems.length} a11y problems:\n${[...new Set(problems)].slice(0, 40).join('\n')}`);
 });
 
 await step('display prefs: night mode + font size persist, readable contrast, no mobile overflow at A+ max', async () => {

@@ -415,7 +415,7 @@ const views = {
       });
       return `<h2>🖼️ Vizual lug'at</h2><p class="muted">Mavzuni tanlang. Takrorlash SM-2 algoritmi bo'yicha rejalashtiriladi.</p>
         <section class="card"><h3>✍️ Yozish testi</h3><p class="muted">10 savol: o'zbekchadan inglizchaga yozish va eshitib yozish.</p>
-          <p><select id="vt-cat" class="select"><option value="__all">Barcha mavzular</option>${categories.map((c) => `<option value="${esc(c)}">${esc(c)}</option>`).join('')}</select>
+          <p><select id="vt-cat" class="select" aria-label="Mavzu"><option value="__all">Barcha mavzular</option>${categories.map((c) => `<option value="${esc(c)}">${esc(c)}</option>`).join('')}</select>
           <button class="btn primary" id="vt-go">Boshlash →</button> <button class="btn" id="vp-go">📄 Chop etish varag'i</button> ${best != null ? `<span class="badge ok">eng yaxshi: ${best}%</span>` : ''}</p></section>
         <div class="grid">${['__all', ...categories].map((c) => {
           const words = c === '__all' ? vocabulary : vocabulary.filter((v) => v.category === c);
@@ -437,9 +437,9 @@ const views = {
       const w = vocabulary.find((v) => v.id === queue[i].id);
       app.innerHTML = `<div class="muted">${i + 1} / ${queue.length} · ${esc(w.category)}</div>
         <section class="flash" id="flash" tabindex="0" aria-live="polite">
-          <div class="pic">${w.emoji}</div><div class="word">${esc(w.word)}</div>
+          <div class="pic">${w.emoji}</div><div class="word" lang="en">${esc(w.word)}</div>
           <div class="back hidden"><div class="ipa">${esc(w.ipa)} · <i>${esc(w.pos)}</i> · ${w.level}</div>
-            <div class="uz">${esc(w.uz)}</div><div class="ex">“${esc(w.example)}”</div></div>
+            <div class="uz">${esc(w.uz)}</div><div class="ex" lang="en">“${esc(w.example)}”</div></div>
           <button class="btn" id="say">🔊 Tinglash</button></section>
         <div class="grades hidden" id="grades">
           <button class="btn bad" data-g="1">Unutdim</button><button class="btn" data-g="3">Qiyin</button>
@@ -605,7 +605,7 @@ const views = {
         <button class="btn" id="hide">🙈 Matnni yashirish / ko'rsatish</button>
         ${globalThis.CSS?.highlights ? `<button class="btn" id="mark">🖍 Belgilash</button> <button class="btn" id="unmark">Tozalash</button>` : ''}</p>
       <p class="muted">${t.listening ? "🎧 Tinglash mashqi: matn yopiq. Avval 🔊 tinglang (IELTS'da 1 marta!), javob bering — tekshirgandan keyin matn ochiladi." : "💡 Istalgan so'zni bosing — ma'nosi chiqadi."}</p>
-      <section class="card reading-text" id="text"${t.listening ? ' hidden' : ''}>${t.text.split(/([A-Za-z][A-Za-z'’-]*)/).map((p, n) => (n % 2 ? `<span class="tw">${esc(p)}</span>` : esc(p))).join('')}</section>
+      <section class="card reading-text" id="text" lang="en"${t.listening ? ' hidden' : ''}>${t.text.split(/([A-Za-z][A-Za-z'’-]*)/).map((p, n) => (n % 2 ? `<span class="tw">${esc(p)}</span>` : esc(p))).join('')}</section>
       <aside class="card gloss" id="gloss" hidden></aside>
       <h3>Savollar</h3>${t.questions.map((q, n) => `<section class="card question" data-q="${q.id}">
         <b>${n + 1}. ${esc(q.prompt)}</b>${questionHtml(q, r)}<div class="fb"></div></section>`).join('')}
@@ -658,10 +658,10 @@ const views = {
     return `<a href="#/speech">← Vaziyatlar</a><h2>${esc(sc.title)}</h2>
       <label class="dict-toggle"><input type="checkbox" id="dict"> ✍️ Diktant rejimi: matn yashiriladi — tinglang va yozing</label>
       ${sc.lines.map((l) => `<section class="card line" data-text="${esc(l)}">
-      <p class="say"><span class="t">${esc(l)}</span> ${best[l] != null ? `<span class="badge">eng yaxshi: ${best[l]}%</span>` : ''}</p>
+      <p class="say"><span class="t" lang="en">${esc(l)}</span> ${best[l] != null ? `<span class="badge">eng yaxshi: ${best[l]}%</span>` : ''}</p>
       <button class="btn play">🔊 Namuna</button> <button class="btn slow">🐢 Sekin</button> <button class="btn primary rec">🎤 Yozish</button>
       <canvas width="600" height="60" aria-hidden="true"></canvas>
-      <input class="typed" placeholder="…yoki aytganingizni yozing va Enter bosing">
+      <input class="typed" aria-label="Aytganingizni yozing" placeholder="…yoki aytganingizni yozing va Enter bosing">
       <div class="res" aria-live="polite"></div></section>`).join('')}`;
   },
 
@@ -712,7 +712,7 @@ const views = {
           <span class="muted">${mock.kind === 'listening' ? "— har bir qismni 🔊 bir marta tinglang (haqiqiy imtihondagidek). Matnlar yakunda ochiladi." : '— har bir matnga ~20 daqiqa ajrating.'}</span></p>
         ${mock.sections.map((sec, n) => `<section class="card"><h3>${esc(sec.title)}</h3><p class="muted">${esc(sec.intro)}</p>
           ${sec.script ? `<p><button class="btn" data-play="${n}">🔊 Tinglash</button> <button class="btn" data-play="${n}" data-slow="1">🐢 Sekinroq</button></p>
-            <div class="reading-text script" hidden>${esc(sec.script)}</div>` : `<div class="reading-text">${esc(sec.text)}</div>`}
+            <div class="reading-text script" lang="en" hidden>${esc(sec.script)}</div>` : `<div class="reading-text" lang="en">${esc(sec.text)}</div>`}
           ${sec.questions.map((q) => `<div class="question" data-q="${q.id}"><b>${esc(q.prompt)}</b>${questionHtml(q, r)}<div class="fb"></div></div>`).join('')}</section>`).join('')}
         <p><button class="btn primary" id="mock-finish">✅ Testni yakunlash</button></p><p id="mock-result" aria-live="polite"></p>`;
     }
@@ -773,7 +773,7 @@ const views = {
         ${w.table ? `<table class="tbl">${w.table.map((row, i) => `<tr>${row.map((c) => (i ? `<td>${esc(c)}</td>` : `<th>${esc(c)}</th>`)).join('')}</tr>`).join('')}</table>` : ''}
         ${w.steps ? `<ol class="steps">${w.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ol>` : ''}</section>
         <p><button class="btn" id="timer-start">⏱ Taymerni boshlash</button> <b id="timer">${mmss(w.minutes * 60)}</b> <span id="wc" class="badge"></span></p>
-        <textarea id="essay" rows="14" class="essay" placeholder="Javobingizni shu yerga yozing… (avtomatik saqlanadi)">${esc(drafts[w.id] ?? '')}</textarea>
+        <textarea id="essay" rows="14" class="essay" aria-label="Javobingiz" placeholder="Javobingizni shu yerga yozing… (avtomatik saqlanadi)">${esc(drafts[w.id] ?? '')}</textarea>
         <p><button class="btn" id="wcheck">🔍 Tekshirish</button> <span class="muted">so'z soni, bog'lovchilar, takrorlar va o'zbeklar ko'p qiladigan xatolar</span></p><div id="wreport"></div>
         <section class="card"><h3>✅ O'zingizni tekshiring (4 mezon)</h3>${writingCriteria.map(([c, d]) => `<label class="check"><input type="checkbox"> <b>${esc(c)}</b> — <span class="muted">${esc(d)}</span></label>`).join('')}</section>
         ${w.plan ? `<details class="card"><summary><b>📋 Reja va g'oyalar</b></summary><ul>${w.plan.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
@@ -808,7 +808,7 @@ const views = {
           <ul>${sp.part2.points.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
           <p><button class="btn primary" id="cue-start">⏱ 1 daqiqa tayyorlanish + 2 daqiqa gapirish</button> <span id="cue-phase"></span> <b id="cue-timer"></b></p>
           <label class="check"><input type="checkbox" id="rec-auto" checked> "Gapiring!" boshlanganda avtomatik yozib olish</label>
-          <textarea rows="3" class="essay" placeholder="Qisqa eslatmalar (faqat kalit so'zlar)…"></textarea>
+          <textarea rows="3" class="essay" aria-label="Cue card eslatmalari" placeholder="Qisqa eslatmalar (faqat kalit so'zlar)…"></textarea>
           ${sp.part2.model ? `<details class="card"><summary><b>📄 Namunaviy javob (Band 7)</b> — avval o'zingiz gapiring!</summary><div class="model">${esc(sp.part2.model)}</div>
             <p><button class="btn" data-say="${esc(sp.part2.model)}">🔊 Tinglash</button> <span class="muted">${sp.part2.model.split(/\s+/).length} so'z ≈ 2 daqiqa</span></p></details>` : ''}</section>
         ${recorderHtml()}
@@ -916,8 +916,8 @@ const views = {
     return `<h2>🔁 Noto'g'ri fe'llar (${irregularVerbs.length})</h2>
       <p class="muted">O'tgan zamon (V2) va 3-shakl (V3) "-ed" bilan yasalmaydigan fe'llar. 🔊 bosib uchala shaklni tinglang.</p>
       <p><a class="btn primary" href="#/verbs?mode=test">✍️ Test: 10 ta tasodifiy fe'l</a> ${best != null ? `<span class="badge ok">eng yaxshi: ${best}%</span>` : ''}</p>
-      <p><input id="vq" class="search" placeholder="Qidirish (inglizcha yoki o'zbekcha)…" autocomplete="off">
-        <select id="vl"><option value="">Barcha darajalar</option>${LEVELS.map((l) => `<option>${l}</option>`).join('')}</select></p>
+      <p><input id="vq" class="search" aria-label="Fe'llarni qidirish" placeholder="Qidirish (inglizcha yoki o'zbekcha)…" autocomplete="off">
+        <select id="vl" aria-label="Daraja"><option value="">Barcha darajalar</option>${LEVELS.map((l) => `<option>${l}</option>`).join('')}</select></p>
       <table class="tbl" id="verbs"><thead><tr><th>V1</th><th>V2</th><th>V3</th><th>O'zbekcha</th><th></th></tr></thead><tbody>
       ${irregularVerbs.map(([v1, v2, v3, uz, lvl]) => `<tr data-level="${lvl}" data-s="${esc(`${v1} ${v2} ${v3} ${uz}`.toLowerCase())}"><td><b>${esc(v1)}</b></td><td>${esc(v2)}</td><td>${esc(v3)}</td><td>${esc(uz)} <span class="badge">${lvl}</span></td>
         <td><button class="link" data-say="${esc(`${v1}, ${forms(v2)[0]}, ${forms(v3)[0]}`)}">🔊</button></td></tr>`).join('')}
@@ -1178,7 +1178,7 @@ const views = {
       };
       render(input.value);
     });
-    return `<h2>🔎 Qidiruv</h2><input id="sq" class="search" type="search" placeholder="So'z, grammatika, matn, IELTS mavzusi… (inglizcha yoki o'zbekcha)" value="${esc(params.get('q') ?? '')}" autocomplete="off">
+    return `<h2>🔎 Qidiruv</h2><input id="sq" class="search" type="search" aria-label="Qidiruv" placeholder="So'z, grammatika, matn, IELTS mavzusi… (inglizcha yoki o'zbekcha)" value="${esc(params.get('q') ?? '')}" autocomplete="off">
       <div id="sres" aria-live="polite"></div>`;
   },
 
@@ -1369,7 +1369,7 @@ const views = {
       <p><button class="btn" id="simulate">▶️ Simulyatorda sinash</button> <button class="btn" id="download">💾 Yuklab olish</button></p>
       <p><label>Variantlar soni <input id="variants" type="number" min="1" max="5" value="2" style="width:4rem"></label>
       <button class="btn" id="print">🖨️ Chop etish (javob kaliti bilan)</button></p>
-      <details><summary>JSON (tahrirlash mumkin)</summary><textarea id="json" rows="14" spellcheck="false"></textarea></details></section></div>`;
+      <details><summary>JSON (tahrirlash mumkin)</summary><textarea id="json" rows="14" spellcheck="false" aria-label="Test JSON"></textarea></details></section></div>`;
   },
 };
 
