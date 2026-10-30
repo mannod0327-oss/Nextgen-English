@@ -258,13 +258,13 @@ test('drill centre: every trainer valid, Uzbek explanations; gap trainers have e
   for (const t of trainers) assert.ok(drillItems.filter((q) => q.trainer === t.id).length >= 40 && t.icon && t.intro, t.id);
 });
 
-test('ielts bank: every number in a Task 1 model comes from its table (or a difference / rounded % change of two values)', () => {
+test('ielts bank: every number in a Task 1 model comes from its table (or a difference, sum or rounded % change of two values)', () => {
   const nums = (s) => (s.match(/\d[\d,]*(?:\.\d+)?/g) ?? []).map((x) => Number(x.replace(/,/g, '')));
   for (const w of writingBank.filter((x) => x.task === 1 && x.model)) {
     const raw = [...nums(w.prompt), ...w.table.flat().flatMap(nums)];
     const vals = [...raw, ...raw.map((v) => v / 1000), ...raw.map((v) => v * 1000)]; // thousands ↔ millions
     const ok = new Set(vals);
-    for (const a of vals) for (const b of vals) { ok.add(Math.round(Math.abs(a - b) * 10) / 10); if (a) { const p = Math.abs((b - a) / a) * 100; ok.add(Math.round(p)); ok.add(Math.round(p / 5) * 5); ok.add(Math.floor(p / 10) * 10); } }
+    for (const a of vals) for (const b of vals) { ok.add(Math.round(Math.abs(a - b) * 10) / 10); ok.add(Math.round((a + b) * 10) / 10); if (a) { const p = Math.abs((b - a) / a) * 100; ok.add(Math.round(p)); ok.add(Math.round(p / 5) * 5); ok.add(Math.floor(p / 10) * 10); } }
     for (const n of nums(w.model)) assert.ok(ok.has(n), `${w.id}: ${n} not derivable from the table`);
   }
 });

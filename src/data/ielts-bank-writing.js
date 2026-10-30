@@ -1,5 +1,5 @@
 // IELTS Writing prompt bank (original). Same schema as `writing` in ielts.js; `plan` gives an outline / ideas.
-// Task 1 items carry a data table; 30 tasks also carry a Band 7 `model` (see `models` at the end).
+// Task 1 items carry a data table; 36 tasks also carry a Band 7 `model` (see `models` at the end).
 
 const t1 = (id, prompt, table, plan) => ({ id: `bw1-${id}`, task: 1, minutes: 20, minWords: 150, type: 'Task 1 · Table', prompt: `${prompt} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.`, table, plan });
 // Chart tasks: `chart` is drawn as SVG (core/chart.js chartSvg); `table` is derived from it for the data view and the number checks.
@@ -428,5 +428,57 @@ In 2005, there were 30 million library visits and 45 million book loans. Over th
 The most dramatic change took place between 2015 and 2020. Visits almost halved, falling to 14 million, and loans dropped to just 18 million, less than half of the 2005 figure.
 
 In the final five years, however, libraries became more popular again. The number of visits rose by eight million to 22 million, and loans recovered to 21 million. For the first time in the period, therefore, visits exceeded loans, although by only one million.`,
+
+  'bw1-internet-access': `The line graph illustrates the proportion of urban and rural households in a country that had access to the internet between 2000 and 2025.
+
+Overall, internet access increased dramatically in both areas over the twenty-five years. Urban households were always more likely to be connected, but the gap between the two groups, which widened at first, narrowed considerably in the second half of the period.
+
+In 2000, only 12% of urban homes and just 2% of rural homes had internet access. Over the next ten years, the urban figure rose rapidly to 55%, while the rural figure grew more slowly to 20%. As a result, the difference between them reached its peak at around 35 percentage points in 2010.
+
+After 2010, rural access accelerated. It doubled to 41% by 2015 and then climbed to 65% in 2020 and 82% in 2025. Urban access continued to grow, although more gradually as it approached its maximum, reaching 78% in 2015, 90% in 2020 and 96% by the end of the period. By 2025, therefore, the gap had fallen to only 14 percentage points.`,
+
+  'bw1-museum-visits': `The graph compares the number of people, in thousands, who visited a history museum, an art museum and a science museum in a city at two-year intervals from 2015 to 2025.
+
+Overall, all three museums attracted more visitors at the end of the period than at the beginning, despite a sharp fall in 2021. The history museum was the most popular throughout, while the science museum showed the strongest growth.
+
+Between 2015 and 2019, attendance rose steadily at every museum. Visits to the history museum increased from 120,000 to 150,000, and the art museum grew from 80,000 to 95,000. The science museum saw a faster rise, from 50,000 to 90,000, almost catching up with the art museum.
+
+In 2021, however, visitor numbers collapsed. The history museum received only 60,000 visitors, the art museum 40,000 and the science museum 35,000. This was followed by a strong recovery. By 2023 the figures had returned to 140,000, 110,000 and 95,000 respectively, and in 2025 all three reached their highest levels: 170,000 for history, 150,000 for art and 130,000 for science. In other words, the number of visitors to the science museum more than doubled over the whole period.`,
+
+  'bw1-rainfall': `The line graph shows the average rainfall, measured in millimetres, in two cities, X and Y, in six selected months of the year.
+
+Overall, City Y received more rain than City X in every month shown. Both cities had their driest weather in July, but their wettest months were different: March in City X and November in City Y.
+
+In City X, rainfall was moderate in January, at 45 mm, and rose to a peak of 60 mm in March. It then fell sharply to 30 mm in May and reached a low of only 5 mm in July, which means that the summer was almost completely dry. Rainfall remained low in September, at 10 mm, before increasing to 40 mm in November.
+
+City Y followed a different pattern. It was wettest at the beginning and end of the year, with 90 mm in January and 100 mm in November, the highest figure on the graph. From January, rainfall declined steadily to 70 mm in March, 50 mm in May and 30 mm in July. After that it rose again, doubling to 60 mm in September. Even in its driest month, City Y received six times as much rain as City X.`,
+
+  'bw1-transport-mode': `The bar chart compares the ways in which students travelled to a university in 2015 and 2025.
+
+Overall, the bus lost its position as the most common form of transport, and the metro became the most popular choice by 2025. The use of bicycles also increased, while travel by car and on foot declined slightly.
+
+In 2015, the bus was by far the most popular option, used by 40% of students. A quarter of students travelled by car, and the metro and walking each accounted for 15%. Cycling was the least common method, at only 5%.
+
+Ten years later, the picture had changed considerably. The proportion of students taking the metro doubled to 30%, while the bus fell by twelve percentage points to 28%. Bicycle use more than doubled, rising from 5% to 12%. In contrast, the share of students who drove to the university decreased from 25% to 20%, and the percentage who walked fell from 15% to 10%.
+
+These changes suggest that the expansion of public rail transport and cycling had a significant effect on students' travel habits.`,
+
+  'bw1-reading-formats': `The bar chart illustrates the average number of hours per week that people in four age groups spent reading printed texts and digital texts.
+
+Overall, the two formats showed opposite trends. Time spent reading printed material increased with age, whereas time spent reading digital texts decreased. Younger people therefore preferred digital reading, while older people mainly read on paper.
+
+The youngest group, aged 18 to 24, spent 4.5 hours a week reading digital texts, which was the highest figure for any group and three times as much as their 1.5 hours of printed reading. People aged 25 to 44 also read more digital material, at 3.5 hours, compared with 2.0 hours of printed texts.
+
+The pattern was reversed for older readers. Those aged 45 to 64 spent 3.5 hours reading printed texts but only 2.0 hours reading on screens. The difference was most striking among people over 65, who read printed material for 5.0 hours a week, the highest value for printed reading, but spent just half an hour on digital texts. In other words, the oldest group read on paper ten times as much as on screen.`,
+
+  'bw1-household-waste': `The bar chart compares the amount of household waste per person, in kilograms per year, that was recycled or sent to landfill in four countries.
+
+Overall, in three of the four countries more waste went to landfill than was recycled. Country C was the only exception, while Country D had the worst record, with the highest landfill figure and the lowest recycling figure.
+
+Country C recycled 250 kg of waste per person, the highest amount shown, and sent only 150 kg to landfill. Country A had a more balanced pattern: it recycled 180 kg per person, which was only slightly less than the 220 kg that went to landfill.
+
+The situation was very different in Countries B and D. In Country B, just 90 kg per person was recycled, compared with 380 kg sent to landfill, more than four times as much. Country D performed even worse, recycling only 60 kg but sending 410 kg to landfill.
+
+It is interesting to note that the total amount of waste per person was fairly similar in all four countries, ranging from 400 kg in Countries A and C to 470 kg in Countries B and D, so the main difference was in how the waste was treated.`,
 };
 for (const w of writingBank) if (models[w.id]) w.model = models[w.id];
