@@ -108,6 +108,13 @@ await step('grammar C1: inversion topic renders, fill + order graded correct', a
   if ((await page.locator('.feedback.ok').count()) !== 2) throw new Error('inversion: expected 2 correct');
 });
 
+await step('ielts bank: writing task shows Band 7 model answer', async () => {
+  await page.goto(`${base}/#/ielts?w=bw2-gap-year`);
+  await page.waitForSelector('details .model', { state: 'attached' });
+  await page.click('details:has(.model) summary');
+  if (!(await page.locator('details .model').isVisible()) || !(await page.textContent('details .model')).includes('gap year')) throw new Error('model answer missing');
+});
+
 await step('grammar guide: section opens and unit page loads with practice', async () => {
   await page.goto(`${base}/#/grammar`);
   await page.locator('.guide summary').first().click();

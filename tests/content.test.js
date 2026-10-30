@@ -147,6 +147,9 @@ test('question ids are unique across grammar, readings and mocks (mistakes noteb
 test('ielts bank: 200+ original tasks, every question valid and every gap-fill answer in its text', () => {
   assert.ok(speakingBank.length >= 60 && writingBank.length >= 60 && readingBank.length >= 40 && listeningBank.length >= 40);
   assert.ok(speakingBank.length + writingBank.length + readingBank.length + listeningBank.length >= 200);
+  const modelled = writingBank.filter((w) => w.model);
+  assert.ok(modelled.length >= 12 && modelled.some((w) => w.task === 1) && modelled.some((w) => w.task === 2));
+  for (const w of modelled) assert.ok(w.model.split(/\s+/).length >= w.minWords, `${w.id} model too short`);
   const textIds = [...readings, ...readingBank, ...listeningBank].map((r) => r.id);
   assert.equal(new Set(textIds).size, textIds.length, 'text ids');
   for (const r of [...readingBank, ...listeningBank]) {

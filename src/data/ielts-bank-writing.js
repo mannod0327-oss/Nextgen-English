@@ -1,5 +1,5 @@
-// IELTS Writing prompt bank (original). Same schema as `writing` in ielts.js but without model answers:
-// `plan` gives an outline / ideas instead. Task 1 items carry a data table.
+// IELTS Writing prompt bank (original). Same schema as `writing` in ielts.js; `plan` gives an outline / ideas.
+// Task 1 items carry a data table; 12 tasks also carry a Band 7 `model` (see `models` at the end).
 
 const t1 = (id, prompt, table, plan) => ({ id: `bw1-${id}`, task: 1, minutes: 20, minWords: 150, type: 'Task 1 · Table', prompt: `${prompt} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.`, table, plan });
 const t2 = (id, type, prompt, plan) => ({ id: `bw2-${id}`, task: 2, minutes: 40, minWords: 250, type: `Task 2 · ${type}`, prompt, plan });
@@ -114,3 +114,113 @@ export const writingBank = [
   t2('family-meals', 'Problem–solution', `In many families, members rarely eat meals together any more. ${PS}`, ['Causes: work hours, phones, different schedules.', 'Solutions: fixed family time, phone-free rules, cooking together.']),
   t2('languages-disappearing', 'Opinion', `It is not important to protect minority languages because a few global languages are enough for communication. ${OPINION}`, ['Disagree: culture, identity, knowledge.', 'Agree partly: practicality, economics.', 'Your view.']),
 ];
+
+// Band 7 model answers (original) for a selection of bank tasks; shown after the learner's own attempt.
+const models = {
+  'bw1-cinema': `The table illustrates how many cinema tickets were sold in a country, measured in millions, at five-year intervals from 2000 to 2020.
+
+Overall, ticket sales grew steadily during the first decade and reached a peak in 2010, after which they declined slightly before collapsing in the final year of the period.
+
+In 2000, 42 million tickets were sold. This figure rose to 48 million five years later and climbed further to 55 million in 2010, which was the highest point shown in the table. In other words, sales increased by roughly 30% over these ten years.
+
+The following years saw a reversal of this trend. By 2015 the number had dipped to 51 million, a modest fall of four million. However, the most dramatic change took place between 2015 and 2020, when sales plummeted to only 19 million. This final figure was less than half the level recorded at the start of the period and well over 60% lower than in 2015, which suggests that some exceptional factor affected cinema attendance in that year.`,
+
+  'bw1-energy': `The table compares the proportion of electricity generated from four different sources in a country in 2005 and 2025.
+
+Overall, the country became noticeably less dependent on fossil fuels over the twenty years, while renewable sources expanded considerably. Nevertheless, gas remained the single largest source in both years.
+
+In 2005, gas was by far the dominant source, accounting for 60% of all electricity. Coal provided a quarter, whereas hydroelectric power contributed 12% and solar and wind energy only 3%. Together, fossil fuels therefore produced 85% of the total.
+
+By 2025, the picture had changed significantly. The share of gas fell by fifteen percentage points to 45%, and coal more than halved, dropping to just 10%. In contrast, hydro rose to 20%, and the most striking growth was in solar and wind power, whose share increased more than eightfold to 25%. As a result, solar and wind overtook coal and even hydro to become the second most important source, and renewables as a whole supplied 45% of the country's electricity, the same proportion as gas.`,
+
+  'bw1-spending': `The table shows how the monthly income of an average family was divided between five categories of spending in 2010 and 2020.
+
+Overall, food remained the largest expense in both years, although its share decreased. Meanwhile, families spent a larger proportion of their income on housing, transport and especially education.
+
+In 2010, food took 40% of a typical family's budget, followed by housing at 25%. "Other" expenses made up 17%, while transport and education accounted for the smallest shares, at 10% and 8% respectively.
+
+Ten years later, spending on food had fallen to 32%, a drop of eight percentage points. Housing, on the other hand, rose to 30%, so the gap between these two categories narrowed to only two points. The share spent on education almost doubled, increasing from 8% to 14%, which was the largest relative change in the table. Transport grew only slightly, from 10% to 12%. Finally, the proportion spent on other items declined by five points to 12%, which suggests that families had less money left for non-essential purchases.`,
+
+  'bw1-students-abroad': `The table provides information about the number of students from one country who were studying in four foreign destinations in 2015 and 2025.
+
+Overall, Russia was the most popular destination in both years, but it was the only one to lose students. All three other countries attracted considerably more students in 2025, with South Korea showing the most remarkable growth.
+
+In 2015, Russia hosted 12,000 students, which was more than the other three destinations combined. Turkey was a distant second with 3,200 students, followed by the UK with 2,100 and South Korea with only 1,500.
+
+By 2025, the number of students in Russia had fallen to 9,500, a decrease of 2,500. In contrast, South Korea saw a more than fourfold increase to 6,800 students, so it moved from last place to second. Turkey also became more popular, rising to 5,100, while the number of students in the UK almost doubled to 3,900. As a result, although Russia kept its leading position, the gap between it and the other destinations became much smaller than it had been ten years earlier.`,
+
+  'bw1-tourists': `The table shows how many international visitors, in thousands, travelled to four cities in 2019 and 2024.
+
+Overall, every city received more foreign tourists in 2024 than in 2019. Tashkent welcomed the largest number of visitors in both years, while Khiva experienced the fastest rate of growth.
+
+In 2019, Tashkent attracted 1.9 million international visitors, more than twice as many as Samarkand, which received 850,000. Bukhara was third with 520,000, and Khiva had the fewest visitors, at 300,000.
+
+Five years later, the number of tourists visiting Tashkent had risen to 2.3 million, an increase of 400,000. However, the historical cities grew much faster in relative terms. Samarkand gained 550,000 visitors to reach 1.4 million, and Bukhara rose by 380,000 to 900,000. Most impressively, the figure for Khiva roughly doubled, climbing to 610,000. Consequently, although Tashkent remained the most visited city, Samarkand narrowed the gap considerably, and the three historical cities together received more visitors than the capital in 2024.`,
+
+  'bw1-employment': `The table illustrates the percentage of the workforce employed in agriculture, industry and services in a country in 1990, 2005 and 2020.
+
+Overall, there was a clear shift away from agriculture towards the service sector over the thirty-year period, whereas the proportion of industrial workers remained relatively stable.
+
+In 1990, agriculture was the largest employer, accounting for 45% of all workers. The service sector employed just over a third of the workforce (35%), and industry only one fifth.
+
+By 2005, the situation had changed considerably. The share of agricultural workers had dropped to 30%, while services had grown to 46%, overtaking agriculture to become the leading sector. Industry rose slightly to 24%.
+
+This trend continued until 2020. The percentage of people working in agriculture fell further to 22%, which means that it roughly halved over the whole period. In contrast, services expanded to 55%, so more than half of all workers were employed in this sector by the end of the period. Industry, meanwhile, hardly changed, standing at 23%, which was almost the same as the figure for agriculture.`,
+
+  'bw2-online-learning': `In recent years, more and more courses have moved online, and some people predict that traditional classrooms will soon disappear. While I accept that online learning has clear advantages, I disagree that it will completely replace face-to-face teaching.
+
+On the one hand, online education offers flexibility and access that schools cannot match. Students can watch lectures at any time, repeat difficult parts and study while working. For young people in rural areas, an internet connection can open the door to courses that are simply not available locally. In addition, online programmes are often cheaper, because there are no costs for buildings or travel. During the pandemic, millions of learners proved that it is possible to continue studying from home.
+
+On the other hand, a classroom provides much more than information. Children learn to cooperate, to discuss ideas politely and to make friends, and these social skills are difficult to develop through a screen. Furthermore, many students lack the self-discipline to study alone; without a teacher who notices when they are confused or distracted, they easily fall behind. Practical subjects such as chemistry, medicine or sport also require physical equipment and direct supervision, which cannot be fully replaced by video lessons.
+
+In my view, the most likely future is blended learning, in which online materials support, rather than replace, the work of teachers. Universities may move some lectures online, but schools will remain essential places where young people learn both knowledge and how to live with others.
+
+In conclusion, although online learning will continue to grow, I believe that traditional classroom teaching will still play a central role in education.`,
+
+  'bw2-uniform': `Whether students should wear a uniform or be free to choose their own clothes is a question that divides parents and teachers. Both positions have reasonable arguments, but I believe that a simple and affordable uniform is the better option for most schools.
+
+Supporters of school uniforms argue that they create a sense of equality. When everyone wears the same clothes, children from poorer families are not embarrassed because they cannot afford fashionable brands, and bullying based on appearance becomes less common. Uniforms are also said to encourage discipline and a sense of belonging to the school community. Moreover, they save time and stress for parents, who do not have to buy many different outfits or argue with their children every morning.
+
+On the other hand, opponents believe that students should be allowed to express their personality through what they wear. Teenagers in particular are developing their identity, and choosing clothes is one harmless way of doing this. Some also point out that uniforms can be expensive if they must be bought from a single supplier, and that they are often uncomfortable, especially in hot weather or during physical activities.
+
+In my opinion, the advantages of uniforms outweigh these disadvantages, provided that schools design them sensibly. A uniform should be cheap, comfortable and suitable for the local climate, and parents should be able to buy it in ordinary shops. Schools could also allow some freedom, for example in hairstyles, accessories or on special "free dress" days.
+
+In conclusion, although free choice of clothing supports self-expression, I believe that a practical uniform helps to create a fairer and more focused learning environment.`,
+
+  'bw2-gap-year': `It is becoming increasingly common for school leavers to take a year off before starting university, during which they travel, work or volunteer. In my opinion, the benefits of a well-planned gap year are greater than its drawbacks.
+
+The main advantage of a gap year is personal development. Young people who travel or live away from home have to manage money, solve problems and communicate with strangers, often in a foreign language. These experiences build confidence and independence, which are valuable both at university and in later careers. Furthermore, a year of work can help students save money for their studies and give them a clearer idea of what they want to study. Many students choose their university course without really knowing what it involves; spending time in a real workplace may prevent them from making an expensive mistake.
+
+However, there are also some disadvantages. A gap year can be costly, particularly if it involves international travel, so it is not an option for every family. In addition, some students lose their study habits and find it difficult to return to academic work after a long break. There is also a risk that the year is simply wasted if it is not planned carefully, for example if a young person spends most of it at home playing computer games.
+
+Nevertheless, these problems can be reduced with good planning. Students can work locally rather than travel abroad, and they can keep studying a language or an online course to stay in the habit of learning.
+
+In conclusion, although a gap year has certain risks, I believe that, when it is used purposefully, its advantages clearly outweigh its disadvantages.`,
+
+  'bw2-family-meals': `In many households today, family members eat at different times and often in different rooms. This essay will examine the main reasons for this change and suggest some practical ways to bring families back to the table.
+
+The first cause is modern working life. Many parents work long hours or have long commutes, and some have more than one job, so they arrive home after the children have already eaten. Secondly, children themselves have busy schedules, with extra lessons, sports clubs and homework that take up their evenings. A third and increasingly important reason is technology. Smartphones, tablets and televisions mean that even when family members are at home together, they prefer to eat in front of a screen rather than talk to one another.
+
+Several solutions could help to address this problem. Firstly, families could agree on a fixed time for at least one shared meal each day, or a few times a week if daily meals are impossible. Even breakfast or a weekend lunch can serve this purpose. Secondly, a simple "no phones at the table" rule would make meals a time for real conversation. Parents need to set an example by putting their own devices away. Finally, involving children in shopping and cooking can make meals more enjoyable and help young people to value food and family time. On a wider level, employers could support flexible working hours so that parents can be at home in the evening.
+
+In conclusion, long working hours, busy schedules and digital devices have reduced the number of family meals. However, with clear family rules and a little planning, shared meals can once again become a normal part of daily life.`,
+
+  'bw2-obesity': `Childhood obesity has become a serious health concern in many parts of the world, including countries where it was once rare. This essay will discuss the main reasons for this trend and propose measures that families, schools and governments could take.
+
+The most obvious cause is diet. Fast food and sugary drinks are cheap, widely advertised and easy to buy, and many children consume them every day instead of home-cooked meals. Busy parents may also rely on processed food because it saves time. The second major cause is a lack of physical activity. In the past, children walked to school and played outside for hours, whereas today many are driven everywhere and spend their free time sitting in front of screens. In large cities, the lack of safe parks and playgrounds makes this problem even worse.
+
+To tackle this issue, action is needed at several levels. Firstly, parents should be better informed about healthy eating, for example through campaigns that explain how much sugar is hidden in popular snacks and drinks. Secondly, schools play a key role: they can serve balanced lunches, remove vending machines selling sweets, and make sure that every child has daily physical education. Thirdly, governments can use laws and taxes. Restricting advertisements for unhealthy food during children's programmes and taxing sugary drinks would make healthier choices more attractive. Investing in parks, sports facilities and safe cycling routes would also encourage children to be more active.
+
+In conclusion, childhood obesity is mainly the result of unhealthy diets and inactive lifestyles. Only a combined effort by families, schools and governments can reverse this worrying trend.`,
+
+  'bw2-languages-disappearing': `Some people argue that minority languages need not be protected, since a handful of global languages such as English, Chinese and Spanish are sufficient for communication. Although I understand the practical reasoning behind this view, I strongly disagree with it.
+
+It is true that global languages bring practical benefits. They allow people from different countries to do business, study abroad and share scientific knowledge. Supporting many small languages also costs money, for instance to print textbooks, train teachers and translate official documents. From a purely economic point of view, it might seem more efficient for everyone to use one of a few major languages.
+
+However, a language is far more than a tool for exchanging information. Each language carries the history, traditions, songs and humour of the people who speak it, and when it disappears, much of this culture is lost forever. Minority languages also contain unique knowledge, for example about local plants, medicine and the natural environment, which is often not recorded anywhere else. Moreover, language is closely connected to identity. Children who are not allowed to use the language of their parents and grandparents may feel cut off from their families and communities.
+
+Importantly, protecting minority languages does not mean rejecting global ones. Many people, including millions in Central Asia, grow up speaking two or three languages without difficulty. Governments can therefore teach a global language at school while also supporting local languages through education, media and cultural events.
+
+In conclusion, while global languages are clearly useful, they cannot replace the cultural value of minority languages. I believe that societies should make the effort to preserve them.`,
+};
+for (const w of writingBank) if (models[w.id]) w.model = models[w.id];
