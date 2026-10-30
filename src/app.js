@@ -10,6 +10,7 @@ import { linePoints, lastDays } from './core/chart.js';
 import { buildSearchIndex, search } from './core/search.js';
 import { checkWriting } from './core/writing-check.js';
 import { badges } from './core/badges.js';
+import { makeRound, normAnswer, ROUND_KINDS } from './core/numbers.js';
 import { vocabulary, categories } from './data/vocabulary.js';
 import { grammar } from './data/grammar.js';
 import { placementQuestions } from './data/placement.js';
@@ -776,6 +777,7 @@ const views = {
         <section class="card"><h3>📦 Mashqlar banki</h3><p class="muted">Jami <b>${ieltsLists.listening.length + ieltsLists.reading.length + allWriting.length + allSpeaking.length}</b> ta original IELTS topshirig'i.</p>
           <div class="list">
             <a class="row" href="#/ielts?bank=listening"><span class="badge">🎧</span><span><b>Listening</b> — Part 1–4</span><span class="muted">${ieltsLists.listening.length} ta</span></a>
+            <a class="row" href="#/numbers"><span class="badge">🔢</span><span><b>Raqamlar va sanalar</b> — Part 1 uchun tinglash trenajyori</span><span class="muted">cheksiz</span></a>
             <a class="row" href="#/ielts?bank=reading"><span class="badge">📰</span><span><b>Reading</b> — T/F/NG, MCQ, gap-fill</span><span class="muted">${ieltsLists.reading.length} ta</span></a>
             <a class="row" href="#/ielts?bank=writing"><span class="badge">✍️</span><span><b>Writing</b> — Task 1 & 2</span><span class="muted">${allWriting.length} ta</span></a>
             <a class="row" href="#/ielts?bank=speaking"><span class="badge">🗣</span><span><b>Speaking</b> — Part 1–3</span><span class="muted">${allSpeaking.length} ta</span></a>
@@ -957,7 +959,8 @@ const views = {
     if (!t) {
       return `<h2>🎯 Mashqlar markazi</h2><p class="muted">Har bir trenajyor — 10 ta tasodifiy savol, har javobdan keyin o'zbekcha izoh. Xatolar daftariga tushadi.</p>
         <div class="grid">${trainers.map((x) => `<a class="tile" href="#/drill?t=${x.id}"><span class="ico">${x.icon}</span><b>${esc(x.title)}</b>
-          <span class="muted">${esc(x.desc)} · ${drillItems.filter((q) => q.trainer === x.id).length} ta mashq</span>${bests[x.id] != null ? `<span class="badge ok">eng yaxshi: ${bests[x.id]}%</span>` : ''}</a>`).join('')}</div>`;
+          <span class="muted">${esc(x.desc)} · ${drillItems.filter((q) => q.trainer === x.id).length} ta mashq</span>${bests[x.id] != null ? `<span class="badge ok">eng yaxshi: ${bests[x.id]}%</span>` : ''}</a>`).join('')}
+          <a class="tile" href="#/numbers"><span class="ico">🔢</span><b>Raqamlar va sanalar (tinglash)</b><span class="muted">fifteen/fifty, sana, narx, telefon — har safar yangi</span></a></div>`;
     }
     const r = rand();
     const sets = drillSets.filter((x) => x.trainer === t.id);
@@ -984,6 +987,39 @@ const views = {
         <table class="tbl"><tbody>${x.rules.map(([w, rule, ex]) => `<tr><td><b>${esc(w)}</b></td><td>${esc(rule)}</td><td class="muted">${esc(ex)}</td></tr>`).join('')}</tbody></table></details>`).join('')}
       ${qs.map((q, n) => `<section class="card question" data-q="${q.id}"><b>${n + 1}. ${esc(q.prompt)}</b>${questionHtml(q, r)}<div class="fb"></div></section>`).join('')}
       <p><button class="btn primary" id="check">Tekshirish</button> <a class="btn" href="${link(`${set ? `&set=${set.id}` : ''}&r=${Date.now()}`)}">🔄 Yangi 10 ta</a> <b id="result"></b></p>`;
+  },
+
+  // Numbers & dates listening (IELTS Listening Part 1): generated rounds, not stored in the mistakes notebook.
+  numbers() {
+    const r = rand();
+    const kinds = shuffle([...ROUND_KINDS, ...ROUND_KINDS], r).slice(0, 10);
+    const rounds = kinds.map((k) => makeRound(k, r));
+    queueMicrotask(() => {
+      app.querySelectorAll('[data-slow]').forEach((b) => { b.onclick = () => speak(b.dataset.slow, 0.6); });
+      $('#check').onclick = () => {
+        let ok = 0;
+        rounds.forEach((rd, i) => {
+          const box = app.querySelector(`[data-round="${i}"]`);
+          const good = rd.accept.includes(normAnswer(box.querySelector('input').value));
+          ok += good;
+          box.querySelector('.fb').innerHTML = `<div class="feedback ${good ? 'ok' : 'bad'}">${good ? '✅' : '❌'} <b>${esc(rd.shown)}</b> — <span class="muted">"${esc(rd.say)}"</span></div>`;
+        });
+        const pct = ok * 10;
+        store.set('numbersBest', Math.max(store.get('numbersBest', 0), pct));
+        logActivity('numbers');
+        addXp(ok);
+        $('#result').textContent = `Natija: ${pct}%`;
+        $('#check').disabled = true;
+      };
+    });
+    const best = store.get('numbersBest', null);
+    return `<a href="#/drill">← Mashqlar markazi</a><h2>🔢 Raqamlar va sanalarni tinglash</h2>
+      <p class="muted">IELTS Listening Part 1'da eng ko'p xato: fifteen/fifty, sanalar, narxlar va telefon raqamlari. 🔊 bosing, eshitganingizni <b>raqam bilan</b> yozing. Telefon: "oh" = 0, "double four" = 44.</p>
+      ${best != null ? `<p><span class="badge ok">eng yaxshi: ${best}%</span></p>` : ''}
+      ${rounds.map((rd, i) => `<section class="card question" data-round="${i}"><b>${i + 1}. ${esc(rd.hint)}</b>
+        <p><button class="btn" data-say="${esc(rd.say)}">🔊 Tinglash</button> <button class="btn" data-slow="${esc(rd.say)}">🐢 Sekin</button></p>
+        <input class="fill" inputmode="text" autocomplete="off" aria-label="Javob ${i + 1}"><div class="fb"></div></section>`).join('')}
+      <p><button class="btn primary" id="check">Tekshirish</button> <a class="btn" href="#/numbers?r=${Date.now()}">🔄 Yangi 10 ta</a> <b id="result"></b></p>`;
   },
 
   collocations(params) {
@@ -1037,6 +1073,7 @@ const views = {
       ...allWriting.map((w) => ({ type: 'Writing', title: w.prompt.slice(0, 90), sub: w.type ?? `Task ${w.task}`, href: `#/ielts?w=${w.id}`, text: w.prompt })),
       ...allSpeaking.map((x) => ({ type: 'Speaking', title: x.topic, sub: x.part2.card, href: `#/ielts?s=${x.id}`, text: [...x.part1, ...x.part3].join(' ') })),
       ...Object.entries(mockTests).map(([k, m]) => ({ type: 'Sinov testi', title: m.title, sub: `${m.minutes} daqiqa`, href: `#/ielts?mock=${k}` })),
+      { type: 'Mashq', title: 'Raqamlar va sanalarni tinglash', sub: 'fifteen fifty sana narx telefon raqami numbers dates', href: '#/numbers' },
       ...drillSets.map((x) => ({ type: 'Mashq', title: x.title, sub: x.rules.map(([w]) => w).join(', '), text: x.items.map(([, t]) => t).join(' '), href: `#/drill?t=${x.trainer}&set=${x.id}` })),
       ...irregularVerbs.map(([v1, v2, v3, uz]) => ({ type: "Fe'l", title: `${v1} – ${v2} – ${v3}`, sub: uz, href: '#/verbs' })),
       ...collocations.flatMap((g) => g.items.map(([ph, uz, ex]) => ({ type: 'Ibora', title: ph, sub: uz, href: '#/collocations', text: ex }))),

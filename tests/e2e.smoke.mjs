@@ -124,6 +124,21 @@ await step('writing helper: check button reports words, linkers and Uzbek-speake
   await page.fill('#essay', '');
 });
 
+await step('numbers listening: 10 rounds with audio, wrong answer marked and correct one revealed', async () => {
+  await page.goto(`${base}/#/drill`);
+  await page.click('a.tile[href="#/numbers"]');
+  await page.waitForSelector('[data-round="9"] input');
+  if ((await page.locator('[data-round] [data-say]').count()) !== 10) throw new Error('each round needs a 🔊 button');
+  await page.fill('[data-round="0"] input', 'wrong');
+  await page.click('#check');
+  if (!(await page.locator('[data-round="0"] .feedback.bad').count())) throw new Error('wrong answer not marked');
+  const shown = (await page.textContent('[data-round="0"] .feedback b')).trim();
+  await page.goto(`${base}/#/`);
+  await page.goto(`${base}/#/numbers`);
+  await page.waitForSelector('[data-round="0"] input');
+  if (!shown) throw new Error('correct answer not revealed');
+});
+
 await step('vocab: flip and grade a card persists SRS state', async () => {
   await page.goto(`${base}/#/vocab?cat=Ovqat`);
   await page.waitForSelector('#flip');
@@ -505,7 +520,7 @@ await step('progress: achievements section shows earned badges from earlier step
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=language-podcast', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
+  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=language-podcast', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'numbers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
