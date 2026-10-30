@@ -485,4 +485,30 @@ export const grammar = [
       { id: 'b2vp5', type: 'single', prompt: "The printer isn't working. Try ___ it off and on again.", options: ['to turn', 'turning', 'turn', 'turned'], answer: 1, explanation: 'try + -ing — yechim sifatida sinab ko\'rish.' },
     ],
   },
+  {
+    id: 'cleft', title: 'Cleft sentences (What I need is… / It was… that)', level: 'C1',
+    rule: "Gapning bir qismini ta'kidlash uchun uni ikkiga bo'lamiz. It is/was + ta'kidlangan qism + that/who: It was Aziz who broke the window (Aziz — boshqa birov emas). What-cleft: What + ega + fe'l + is/was: What I need is a holiday. Fe'lni ta'kidlash: What she did was (to) call the police. IELTS Speaking va Writing'da \"range of structures\" uchun foydali.",
+    table: [['It … that/who', 'It was in 2019 that we moved to Tashkent.'], ['What … is', 'What surprised me was the price.'], ["fe'lni ta'kidlash", 'What he did was apologise.'], ['All … is', 'All I want is some sleep.']],
+    examples: ['It was the noise that kept me awake.', 'What I love about Samarkand is the architecture.', 'What we need to do is plan carefully.'],
+    exercises: [
+      { id: 'c1cl1', type: 'single', prompt: 'Choose the cleft sentence that emphasises "the price".', options: ['The price surprised me.', 'What surprised me was the price.', 'I was surprised by the price.', 'The price was surprising.'], answer: 1 },
+      { id: 'c1cl2', type: 'single', prompt: "It was my sister ___ found the keys.", options: ['which', 'who', 'what', 'whom'], answer: 1 },
+      { id: 'c1cl3', type: 'fill', prompt: '___ I need is a good night\'s sleep. (1 so\'z)', answer: 'What' },
+      { id: 'c1cl4', type: 'single', prompt: 'It was in 2020 ___ the company was founded.', options: ['when', 'that', 'what', 'which'], answer: 1 },
+      { id: 'c1cl5', type: 'order', prompt: 'Put the words in order:', items: ['What', 'he', 'did', 'was', 'apologise.'] },
+    ],
+  },
+  {
+    id: 'subjunctive', title: "Subjunctive & \"It's time\" / \"would rather\"", level: 'C1',
+    rule: "Rasmiy uslubda suggest, recommend, insist, demand, it is essential/important that + ega + V1 (barcha shaxslarda -s qo'shilmaydi!): I suggest that he see a doctor. Inkor: that he not be late. Hozirgi istak/afsus: It's (high) time we left (Past Simple, lekin hozir haqida); I'd rather you didn't smoke here; If only I knew the answer.",
+    table: [['suggest/recommend that + V1', 'The doctor recommended that she rest.'], ['it is essential that + V1', 'It is essential that every student be present.'], ["It's time + Past Simple", "It's time we went home."], ['would rather + kishi + Past', "I'd rather you called me first."]],
+    examples: ['The committee insisted that the report be published.', "It's high time you started revising.", "I'd rather you didn't tell anyone."],
+    exercises: [
+      { id: 'c1sj1', type: 'single', prompt: 'The teacher suggested that he ___ the essay again.', options: ['writes', 'write', 'wrote', 'to write'], answer: 1, explanation: "Subjunctive: suggest that + ega + V1 (he write)." },
+      { id: 'c1sj2', type: 'single', prompt: "It's time we ___ for the airport.", options: ['leave', 'left', 'will leave', 'are leaving'], answer: 1 },
+      { id: 'c1sj3', type: 'single', prompt: 'It is essential that every passenger ___ a valid ticket.', options: ['has', 'have', 'had', 'having'], answer: 1 },
+      { id: 'c1sj4', type: 'fill', prompt: "I'd rather you ___ (not / smoke) in the car. (2 so'z)", answer: ["didn't smoke", 'did not smoke'] },
+      { id: 'c1sj5', type: 'single', prompt: 'They demanded that the manager ___ immediately.', options: ['resigns', 'resign', 'resigned', 'will resign'], answer: 1 },
+    ],
+  },
 ];
