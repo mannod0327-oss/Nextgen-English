@@ -20,25 +20,31 @@ import { readings } from './data/readings.js';
 import { scenarios } from './data/dialogues.js';
 import { guideSections, guideUnits } from './data/grammar-guide.js';
 import { writing, writingCriteria, speaking, officialResources, toBand } from './data/ielts.js';
-import { mockTests } from './data/ielts-mock.js';
-import { guides } from './data/ielts-guides.js';
-import { speakingBank } from './data/ielts-bank-speaking.js';
-import { writingBank } from './data/ielts-bank-writing.js';
-import { readingBank } from './data/ielts-bank-reading.js';
-import { listeningBank } from './data/ielts-bank-listening.js';
 import { irregularVerbs } from './data/irregular-verbs.js';
 import { minimalPairs } from './data/minimal-pairs.js';
 import { collocations } from './data/collocations.js';
 import { trainers, drillSets, drillItems } from './data/drills.js';
 
 // IELTS practice bank: hand-made tasks + bank items. Bank texts open in the reading view but are listed only in #/ielts.
-const allTexts = [...readings, ...readingBank, ...listeningBank];
-const allWriting = [...writing, ...writingBank];
-const allSpeaking = [...speaking, ...speakingBank];
-const ieltsLists = {
-  listening: [...readings.filter((x) => x.listening), ...listeningBank],
-  reading: [...readings.filter((x) => !x.listening && x.questions.some((q) => q.options?.includes('Not Given'))), ...readingBank],
-};
+// The mocks, banks and guides (~390 KB) are not on the first-render path: loadIelts() imports them for the views in
+// IELTS_VIEWS (route() waits for it) and is also started when the browser is idle, so the service worker caches them.
+let allTexts = readings, allWriting = writing, allSpeaking = speaking, mockTests = {}, guides = [], ieltsLists;
+let ieltsPromise;
+const IELTS_VIEWS = new Set(['ielts', 'reading', 'progress', 'search']);
+const loadIelts = () => (ieltsPromise ??= Promise.all(['ielts-mock', 'ielts-guides', 'ielts-bank-speaking', 'ielts-bank-writing', 'ielts-bank-reading', 'ielts-bank-listening']
+  .map((f) => import(`./data/${f}.js`)))
+  .then(([m, g, { speakingBank }, { writingBank }, { readingBank }, { listeningBank }]) => {
+    ({ mockTests } = m);
+    ({ guides } = g);
+    allTexts = [...readings, ...readingBank, ...listeningBank];
+    allWriting = [...writing, ...writingBank];
+    allSpeaking = [...speaking, ...speakingBank];
+    ieltsLists = {
+      listening: [...readings.filter((x) => x.listening), ...listeningBank],
+      reading: [...readings.filter((x) => !x.listening && x.questions.some((q) => q.options?.includes('Not Given'))), ...readingBank],
+    };
+  })
+  .catch((e) => { ieltsPromise = null; throw e; })); // allow a retry (e.g. first visit while offline)
 
 // English definitions (Open English WordNet, ~80KB gzip) load only when a view needs them.
 let defsPromise;
@@ -285,7 +291,7 @@ const views = {
       ['#/exam', '⏱️', 'Imtihon simulyatori', "Taymer, navigatsiya, xatolar tahlili"],
       ['#/creator', '🛠️', 'Test yaratuvchi', "O'qituvchi uchun: test tuzish, variantlar, chop etish"],
     ];
-    const plan = dailyPlan({ date: today(), level: p.level, grammar, texts: allTexts, activity: store.get('activity', {})[today()] ?? [] });
+    const plan = dailyPlan({ date: today(), level: p.level, grammar, texts: readings, activity: store.get('activity', {})[today()] ?? [] });
     const planDone = plan.filter((t) => t.done).length;
     const wod = wordOfDay(today(), vocabulary, p.level);
     queueMicrotask(() => import('./data/definitions.js').then(({ definitions }) => {
@@ -1455,6 +1461,13 @@ async function startWaveform(canvas) {
 function route() {
   const [path, query] = location.hash.replace(/^#\/?/, '').split('?');
   const view = views[path || 'home'] ?? views.home;
+  if (IELTS_VIEWS.has(path) && !ieltsLists) {
+    const hash = location.hash;
+    app.innerHTML = '<p class="muted" aria-live="polite">⏳ Yuklanmoqda…</p>';
+    loadIelts().then(() => { if (location.hash === hash) route(); },
+      () => { if (location.hash === hash) app.innerHTML = '<section class="card"><p>📡 Bu bo\'lim hali yuklanmagan — internetga ulaning.</p><button class="btn" onclick="location.reload()">↻ Qayta urinish</button></section>'; });
+    return;
+  }
   document.onkeydown = null;
   app.classList.remove('dictation');
   app.innerHTML = view(new URLSearchParams(query));
@@ -1493,3 +1506,5 @@ applyPrefs();
 if ('serviceWorker' in navigator && location.protocol !== 'file:') navigator.serviceWorker.register('sw.js').catch(() => {});
 renderHeader();
 route();
+// Warm the IELTS modules once the first view is up (instant IELTS views, and the service worker caches them for offline).
+(window.requestIdleCallback ?? setTimeout)(() => loadIelts().catch(() => {}), { timeout: 3000 });

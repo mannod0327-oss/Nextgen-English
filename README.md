@@ -9,6 +9,7 @@ mustaqil ravishda (clean-room) qayta qurilgan.
 
 - **Bog'liqliksiz** — hech qanday `npm install` kerak emas; faqat brauzer va Node.js ≥ 20.
 - **Oflayn (PWA)** — bir marta internet bilan ochilgach, sayt internetsiz ham ishlaydi va telefonga ilova sifatida o'rnatiladi (brauzer menyusi → "Ilova sifatida o'rnatish"). Progress brauzerda saqlanadi.
+- **Tez ochiladi** — birinchi ekran uchun 470 KB JS (avval 859 KB): IELTS sinov testlari, banklar va strategiyalar faqat kerak bo'lganda (yoki brauzer bo'sh turganda) yuklanadi. O'lchash: `node scripts/initial-bytes.mjs`.
 - **Testlangan** — 35 ta unit/kontent testi + 17 bosqichli brauzer E2E testi.
 
 ## Ishga tushirish
