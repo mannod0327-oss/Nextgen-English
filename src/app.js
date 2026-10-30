@@ -8,6 +8,7 @@ import { createStore } from './core/store.js';
 import { dailyPlan } from './core/plan.js';
 import { linePoints, lastDays } from './core/chart.js';
 import { buildSearchIndex, search } from './core/search.js';
+import { checkWriting } from './core/writing-check.js';
 import { vocabulary, categories } from './data/vocabulary.js';
 import { grammar } from './data/grammar.js';
 import { placementQuestions } from './data/placement.js';
@@ -675,6 +676,19 @@ const views = {
         };
         ta.oninput = count;
         count();
+        $('#wcheck').onclick = () => {
+          const r = checkWriting(ta.value, { minWords: w.minWords });
+          const li = (ok, html) => `<li>${ok ? '✅' : '⚠️'} ${html}</li>`;
+          $('#wreport').innerHTML = `<section class="card wreport"><h3>🔍 Matn tahlili</h3><ul class="checks">
+            ${li(r.enough, `<b>${r.words}</b> so'z (kamida ${w.minWords})`)}
+            ${li(r.linkers.length >= 3, `Bog'lovchi so'zlar: <b>${r.linkers.length}</b>${r.linkers.length ? ` — ${esc(r.linkers.join(', '))}` : ''}${r.linkers.length < 3 ? ' · qo\'shing: however, moreover, as a result, for example…' : ''}`)}
+            ${li(!r.repeated.length, r.repeated.length ? `Ko'p takrorlangan so'zlar: ${r.repeated.map(([x, n]) => `<b>${esc(x)}</b> ×${n}`).join(', ')} — sinonim ishlating` : "So'zlar xilma-xil")}
+            ${li(!r.longSentences.length, `${r.sentences} gap, o'rtacha ${r.avgSentence} so'z${r.longSentences.length ? ` · ${r.longSentences.length} ta juda uzun gap (35+ so'z) — bo'ling` : ''}`)}
+            ${li(!r.contractions.length, r.contractions.length ? `Qisqartmalar (akademik uslubda yozilmaydi): ${esc(r.contractions.join(', '))} → do not, cannot…` : 'Qisqartmalar yo\'q (akademik uslub)')}
+            ${li(!r.mistakes.length, r.mistakes.length ? `<b>${r.mistakes.length}</b> ta tipik xato:` : 'Tipik xatolar topilmadi')}</ul>
+            ${r.mistakes.length ? `<ul class="mistake-list">${r.mistakes.map((m) => `<li><s>${esc(m.match)}</s> → <b>${esc(m.fix)}</b><br><span class="muted">${esc(m.uz)}</span></li>`).join('')}</ul>` : ''}
+            <p class="muted">Bu avtomatik maslahat — grammatikaning hammasini tekshirmaydi. Yakuniy bahoni 4 mezon bo'yicha o'zingiz qo'ying.</p></section>`;
+        };
         $('#timer-start').onclick = (e) => { e.target.disabled = true; countdown($('#timer'), w.minutes * 60, () => { $('#timer').textContent = "⏰ Vaqt tugadi!"; }); };
       });
       return `<a href="#/ielts">← IELTS</a><h2>Writing ${w.type ? esc(w.type) : `Task ${w.task}`} <span class="badge">${w.minutes} daqiqa · ${w.minWords}+ so'z</span></h2>
@@ -683,6 +697,7 @@ const views = {
         ${w.steps ? `<ol class="steps">${w.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ol>` : ''}</section>
         <p><button class="btn" id="timer-start">⏱ Taymerni boshlash</button> <b id="timer">${mmss(w.minutes * 60)}</b> <span id="wc" class="badge"></span></p>
         <textarea id="essay" rows="14" class="essay" placeholder="Javobingizni shu yerga yozing… (avtomatik saqlanadi)">${esc(drafts[w.id] ?? '')}</textarea>
+        <p><button class="btn" id="wcheck">🔍 Tekshirish</button> <span class="muted">so'z soni, bog'lovchilar, takrorlar va o'zbeklar ko'p qiladigan xatolar</span></p><div id="wreport"></div>
         <section class="card"><h3>✅ O'zingizni tekshiring (4 mezon)</h3>${writingCriteria.map(([c, d]) => `<label class="check"><input type="checkbox"> <b>${esc(c)}</b> — <span class="muted">${esc(d)}</span></label>`).join('')}</section>
         ${w.plan ? `<details class="card"><summary><b>📋 Reja va g'oyalar</b></summary><ul>${w.plan.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
           <p class="muted">${w.task === 1 ? "Tuzilma: 1) savolni qayta yozish · 2) Overview (2 asosiy tendensiya) · 3–4) raqamlar bilan taqqoslash." : "Tuzilma: kirish + pozitsiya · 2 asosiy abzas (fikr + sabab + misol) · xulosa."}</p></details>` : ''}

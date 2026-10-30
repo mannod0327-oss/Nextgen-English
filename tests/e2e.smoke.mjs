@@ -98,6 +98,15 @@ await step('articles & prepositions: 10 random questions, all correct → 100%, 
   if (!(await page.locator('.fb').first().textContent()).trim()) throw new Error('no feedback/explanation');
 });
 
+await step('writing helper: check button reports words, linkers and Uzbek-speaker mistakes', async () => {
+  await page.goto(`${base}/#/ielts?w=bw2-gap-year`);
+  await page.fill('#essay', 'i am agree that a gap year is useful. However, many peoples need more informations. In the other hand, it costs money.');
+  await page.click('#wcheck');
+  const rep = await page.textContent('#wreport');
+  for (const t of ['so\'z (kamida 250)', 'however', 'informations', 'on the other hand', 'agree — fe\'l']) if (!rep.includes(t)) throw new Error(`report missing "${t}"`);
+  await page.fill('#essay', '');
+});
+
 await step('vocab: flip and grade a card persists SRS state', async () => {
   await page.goto(`${base}/#/vocab?cat=Ovqat`);
   await page.waitForSelector('#flip');
@@ -433,7 +442,7 @@ await step('creator: add question, validate, simulate', async () => {
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'articles', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
+  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'articles', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);

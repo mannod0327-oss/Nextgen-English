@@ -146,3 +146,5 @@ pre { white-space: pre-wrap; }
 .bar span { width: 100%; background: var(--accent); border-radius: 3px 3px 0 0; min-height: 2px; }
 .bar small { font-size: .65rem; color: var(--muted); }
 select.select { max-width: 100%; padding: .5rem .6rem; border-radius: 10px; border: 1px solid var(--line); background: var(--card); color: var(--text); font: inherit; }
+.checks { list-style: none; padding-left: 0; } .checks li { margin: .3rem 0; }
+.mistake-list { padding-left: 1.2rem; } .mistake-list li { margin: .4rem 0; }
