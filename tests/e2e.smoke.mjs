@@ -57,6 +57,13 @@ await step('placement: 12 questions → level shown', async () => {
   if (!(await page.textContent('#stats')).includes(lvl)) throw new Error('header not updated');
 });
 
+await step('vocab: new everyday themes (airport, doctor, bank) are listed and open', async () => {
+  await page.goto(`${base}/#/vocab`);
+  for (const c of ['Aeroportda', 'Shifokorda', 'Bankda']) await page.waitForSelector(`a[href="#/vocab?cat=${c}"]`);
+  await page.goto(`${base}/#/vocab?cat=Bankda`);
+  await page.waitForSelector('text=1 / 20');
+});
+
 await step('vocab: flip and grade a card persists SRS state', async () => {
   await page.goto(`${base}/#/vocab?cat=Ovqat`);
   await page.waitForSelector('#flip');
@@ -362,7 +369,7 @@ await step('creator: add question, validate, simulate', async () => {
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'search?q=present']) {
+  for (const r of ['', 'creator', 'vocab', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'search?q=present']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
