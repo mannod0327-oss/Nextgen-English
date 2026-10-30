@@ -1260,4 +1260,210 @@ Other benefits, however, are less controversial. Bilingual people have access to
       },
     ],
   },
+
+  'listening-7': {
+    kind: 'listening', title: 'IELTS Listening — Mock Test 7', minutes: 30,
+    sections: [
+      {
+        title: 'Part 1 · Reporting lost luggage at an airport',
+        intro: 'You will hear a passenger talking to an airline employee. Questions 1–10.',
+        script: `Agent: Good afternoon, baggage services. How can I help?
+Passenger: Hello. My suitcase didn't arrive. I've just come in on the flight from Istanbul.
+Agent: I'm sorry to hear that. Can I see your baggage tag? Thank you. Can you describe the suitcase?
+Passenger: It's a large hard suitcase, dark green, with four wheels. There's a yellow ribbon tied to the handle.
+Agent: Is there a name on it?
+Passenger: Yes, there's a label with my name. It's Timur Rashidov. R-A-S-H-I-D-O-V.
+Agent: And what's inside, roughly?
+Passenger: Mostly clothes, but also a laptop charger and some presents for my family.
+Agent: Where are you staying?
+Passenger: At the Silk Way Hotel, on Navoi Street. I'll be there for six nights.
+Agent: Fine. Most delayed bags arrive on the next flight, which lands at eleven tonight. If it's on that flight, we'll deliver it to your hotel tomorrow morning, free of charge.
+Passenger: And if it doesn't come?
+Agent: Then you can buy essential items and claim the money back. Please keep all your receipts. The maximum we can pay is seventy-five dollars per day.
+Passenger: Can I check the progress online?
+Agent: Yes, use this reference number: B as in bravo, K, four, seven, two, nine.`,
+        questions: [
+          { id: 'n7l1', type: 'fill', prompt: '1. Flight from: ___', answer: 'Istanbul' },
+          { id: 'n7l2', type: 'single', prompt: '2. Colour of the suitcase:', options: ['dark green', 'black', 'yellow', 'dark blue'], answer: 0 },
+          { id: 'n7l3', type: 'fill', prompt: '3. Tied to the handle: a yellow ___', answer: 'ribbon' },
+          { id: 'n7l4', type: 'fill', prompt: '4. Surname: ___', answer: 'Rashidov' },
+          { id: 'n7l5', type: 'fill', prompt: '5. Contents: clothes, a laptop ___ and presents', answer: 'charger' },
+          { id: 'n7l6', type: 'fill', prompt: '6. Hotel: the Silk Way Hotel, ___ Street', answer: 'Navoi' },
+          { id: 'n7l7', type: 'fill', prompt: '7. Length of stay: ___ nights', answer: ['6', 'six'] },
+          { id: 'n7l8', type: 'single', prompt: '8. If the bag arrives tonight, it will be …', options: ['kept at the airport', 'delivered to the hotel tomorrow morning', 'sent back to Istanbul', 'delivered tonight for a fee'], answer: 1 },
+          { id: 'n7l9', type: 'fill', prompt: '9. Maximum payment for essentials: $___ per day', answer: ['75', 'seventy-five'] },
+          { id: 'n7l10', type: 'fill', prompt: '10. The next flight lands at ___ o’clock tonight.', answer: ['11', 'eleven'] },
+        ],
+      },
+      {
+        title: 'Part 2 · A city food festival',
+        intro: 'You will hear a radio presenter giving information about a food festival. Questions 11–20.',
+        script: `And now some news for food lovers. This year's City Food Festival takes place over three days, from Friday to Sunday, in Central Park, and for the first time entry is completely free.
+The festival is divided into four zones. Near the main entrance you'll find the Street Food zone, with more than forty stalls selling dishes from around the country. Behind it is the Family zone, where children can take part in baking workshops — places are limited, so please book them in advance on the festival website.
+The third zone, by the lake, is called Tastes of the World, with food from twelve different countries. And finally, in the Chef's Tent, well-known cooks will give demonstrations every two hours, starting at noon.
+This year the organisers are focusing on reducing waste. All stalls will use plates made from recycled paper, and visitors are asked to bring their own cups. If you do, you'll get a ten per cent discount on drinks.
+On Saturday evening there'll be a concert of traditional music on the main stage, starting at eight o'clock. Please note that the nearest metro station, Bunyodkor, will be closed for repairs that weekend, so we recommend using the extra buses that will run every fifteen minutes from the city centre.
+And one last thing: if it rains, the festival will continue, but the concert will move indoors to the Youth Palace.`,
+        questions: [
+          { id: 'n7l11', type: 'single', prompt: '11. The festival lasts …', options: ['one day', 'two days', 'three days', 'a week'], answer: 2 },
+          { id: 'n7l12', type: 'single', prompt: '12. What is new this year?', options: ['It is held in Central Park.', 'There is a concert.', 'It is held in winter.', 'Entry is free.'], answer: 3 },
+          { id: 'n7l13', type: 'fill', prompt: '13. Street Food zone: more than ___ stalls', answer: ['40', 'forty'] },
+          { id: 'n7l14', type: 'single', prompt: '14. Baking workshops should be …', options: ['booked in advance', 'paid for in cash', 'attended by adults only', 'held in the Chef’s Tent'], answer: 0 },
+          { id: 'n7l15', type: 'fill', prompt: '15. Tastes of the World: food from ___ countries', answer: ['12', 'twelve'] },
+          { id: 'n7l16', type: 'fill', prompt: '16. Chef demonstrations start at ___', answer: ['noon', '12'] },
+          { id: 'n7l17', type: 'fill', prompt: '17. Plates are made from recycled ___', answer: 'paper' },
+          { id: 'n7l18', type: 'single', prompt: '18. Visitors who bring their own cup get …', options: ['a free drink', 'a 10% discount on drinks', 'a free plate', 'a concert ticket'], answer: 1 },
+          { id: 'n7l19', type: 'single', prompt: '19. Why should visitors take the extra buses?', options: ['Parking is expensive.', 'The buses are free.', 'The metro station will be closed.', 'The park is far away.'], answer: 2 },
+          { id: 'n7l20', type: 'fill', prompt: '20. If it rains, the concert moves to the Youth ___', answer: 'Palace' },
+        ],
+      },
+      {
+        title: 'Part 3 · Planning a presentation on water saving',
+        intro: 'You will hear two students, Dilnoza and Mark, discussing a presentation with their tutor. Questions 21–30.',
+        script: `Tutor: So, you've chosen water saving in agriculture for your presentation. Why that topic?
+Dilnoza: Because farming uses most of the water in our region — around ninety per cent, according to the report we read.
+Tutor: Good. And how are you going to structure it?
+Mark: We thought we'd start with the problem, then look at three solutions, and finish with a case study.
+Tutor: Which solutions?
+Dilnoza: Drip irrigation, changing to crops that need less water, and repairing old canals, because a lot of water is lost through leaks.
+Tutor: And the case study?
+Mark: A farm near Jizzakh that switched to drip irrigation four years ago. The owner told us they now use about half as much water, and their tomato harvest actually increased.
+Tutor: That's a strong example. Did you get any figures on cost?
+Dilnoza: Not yet. The equipment is expensive, so we want to find out whether there's government support.
+Tutor: Yes, that's important — otherwise your audience will ask why everyone doesn't do it. How long is the presentation?
+Mark: Fifteen minutes, plus five for questions. I'll present the problem and the case study, and Dilnoza will do the solutions.
+Tutor: Fine. One suggestion: don't put too much text on the slides. Use a map and one or two charts instead.
+Dilnoza: We were going to make a short video at the farm, too.
+Tutor: Good idea, but keep it under two minutes. And please send me your slides by Wednesday so I can give you feedback.`,
+        questions: [
+          { id: 'n7l21', type: 'fill', prompt: '21. Farming uses around ___ % of the water in the region.', answer: ['90', 'ninety'] },
+          { id: 'n7l22', type: 'single', prompt: '22. The presentation will end with …', options: ['a quiz', 'a video only', 'a list of problems', 'a case study'], answer: 3 },
+          { id: 'n7l23', type: 'single', prompt: '23. Which is NOT one of their three solutions?', options: ['building a new dam', 'drip irrigation', 'less thirsty crops', 'repairing canals'], answer: 0 },
+          { id: 'n7l24', type: 'fill', prompt: '24. Water is lost from old canals through ___', answer: ['leaks', 'leak'] },
+          { id: 'n7l25', type: 'fill', prompt: '25. The farm is near ___', answer: 'Jizzakh' },
+          { id: 'n7l26', type: 'single', prompt: '26. Since switching to drip irrigation, the farm …', options: ['uses twice as much water', 'uses about half as much water', 'has stopped growing tomatoes', 'has closed'], answer: 1 },
+          { id: 'n7l27', type: 'single', prompt: '27. What do the students still need to find out?', options: ['the size of the farm', 'the price of tomatoes', 'whether there is government support', 'the farmer’s name'], answer: 2 },
+          { id: 'n7l28', type: 'single', prompt: '28. Who will present the solutions?', options: ['Mark', 'the tutor', 'both students together', 'Dilnoza'], answer: 3 },
+          { id: 'n7l29', type: 'single', prompt: '29. The tutor suggests using …', options: ['a map and charts', 'more text', 'handouts only', 'no slides'], answer: 0 },
+          { id: 'n7l30', type: 'fill', prompt: '30. Send the slides by ___', answer: 'Wednesday' },
+        ],
+      },
+      {
+        title: 'Part 4 · Lecture: Desertification',
+        intro: 'You will hear part of a lecture on environmental geography. Questions 31–40.',
+        script: `Today's topic is desertification — the process by which fertile land in dry regions gradually turns into desert. It's important to understand that desertification is not the natural movement of existing deserts. Rather, it is the loss of productive land, and it is mainly caused by human activity combined with climate variability.
+The first major cause is overgrazing. When too many sheep, goats or cattle feed on the same land, they remove the plants whose roots hold the soil together. The exposed soil is then easily carried away by wind.
+The second cause is poor irrigation. In hot climates, when fields are watered without proper drainage, water evaporates and leaves salt behind. Over time the soil becomes too salty for most crops. This is called salinisation, and it affects large areas of irrigated land in Central Asia.
+A third cause is deforestation, especially the cutting of trees and bushes for firewood.
+The consequences are serious. Desertification reduces food production, increases dust storms, and can force people to leave their land and move to cities.
+However, the process can be slowed and even reversed. One method is planting drought-resistant shrubs such as saxaul, which can survive with very little water and help to fix moving sand. Another is rotational grazing, where animals are moved regularly so that plants have time to recover. Some countries have also built "green walls" — long belts of trees designed to stop the advance of sand.
+Finally, local communities are essential. Projects are most successful when farmers themselves are involved in planning, rather than having solutions imposed from outside.`,
+        questions: [
+          { id: 'n7l31', type: 'single', prompt: '31. Desertification is defined as …', options: ['the natural movement of deserts', 'the loss of productive land in dry regions', 'a type of sandstorm', 'the melting of glaciers'], answer: 1 },
+          { id: 'n7l32', type: 'single', prompt: '32. It is mainly caused by …', options: ['volcanoes', 'earthquakes', 'human activity and climate variability', 'ocean currents'], answer: 2 },
+          { id: 'n7l33', type: 'fill', prompt: '33. Too many animals feeding on the same land is called ___', answer: 'overgrazing' },
+          { id: 'n7l34', type: 'fill', prompt: '34. Without plants, exposed soil is carried away by ___', answer: 'wind' },
+          { id: 'n7l35', type: 'fill', prompt: '35. Poor irrigation leaves ___ behind in the soil.', answer: 'salt' },
+          { id: 'n7l36', type: 'fill', prompt: '36. This process is called ___', answer: ['salinisation', 'salinization'] },
+          { id: 'n7l37', type: 'single', prompt: '37. Trees and bushes are often cut for …', options: ['furniture', 'paper', 'building houses', 'firewood'], answer: 3 },
+          { id: 'n7l38', type: 'fill', prompt: '38. A drought-resistant shrub that fixes sand: ___', answer: 'saxaul' },
+          { id: 'n7l39', type: 'single', prompt: '39. In rotational grazing, animals are …', options: ['moved regularly', 'kept indoors', 'sold every year', 'fed only grain'], answer: 0 },
+          { id: 'n7l40', type: 'single', prompt: '40. Projects are most successful when …', options: ['solutions come from outside', 'farmers are involved in planning', 'only trees are planted', 'people move to cities'], answer: 1 },
+        ],
+      },
+    ],
+  },
+
+  'reading-7': {
+    kind: 'reading', title: 'IELTS Academic Reading — Mock Test 7', minutes: 60,
+    sections: [
+      {
+        title: 'Passage 1 · The Water Towers of Central Asia',
+        intro: 'Questions 1–13. You should spend about 20 minutes on this passage.',
+        text: `The high mountain ranges of the Pamir and the Tien Shan are often called the "water towers" of Central Asia. Their snowfields and thousands of glaciers store water in winter and release it slowly during the hot summer months, feeding the great rivers that flow down into the plains. Without this summer meltwater, farming in much of the region would be almost impossible.
+
+Glaciers form where more snow falls each winter than melts each summer. Over many years, the snow is compressed into dense ice, which slowly flows downhill under its own weight. A glacier is therefore not a static block of ice but a moving river of ice, advancing or retreating depending on the balance between snowfall and melting.
+
+Scientists have observed that most glaciers in the region have been shrinking for several decades. Rising temperatures mean that melting now exceeds snowfall on many glaciers, and smaller glaciers at lower altitudes are disappearing fastest. Measuring these changes is difficult, because many glaciers are in remote areas that can only be reached on foot. Increasingly, researchers rely on satellite images, which they compare with old maps and photographs.
+
+In the short term, faster melting can actually increase the amount of water in rivers. In the long term, however, as glaciers become smaller, summer flows are expected to decline, just when water demand is highest. Rapid melting also creates new lakes behind natural walls of rock and ice, which can burst suddenly and cause dangerous floods in the valleys below.
+
+Governments and scientists are responding in several ways. Monitoring stations have been installed on key glaciers, and early-warning systems have been set up for some of the most dangerous lakes. At the same time, experts argue that the most effective response lies downstream: reducing the amount of water lost in irrigation channels would ease pressure on the region's shrinking frozen reserves.`,
+        questions: [
+          { id: 'n7r1', type: 'single', prompt: '1. Mountain snow and glaciers release most of their water in summer.', options: tfng, answer: 0 },
+          { id: 'n7r2', type: 'single', prompt: '2. A glacier is a block of ice that never moves.', options: tfng, answer: 1 },
+          { id: 'n7r3', type: 'single', prompt: '3. Glaciers at lower altitudes are disappearing fastest.', options: tfng, answer: 0 },
+          { id: 'n7r4', type: 'single', prompt: '4. The Pamir has more glaciers than the Tien Shan.', options: tfng, answer: 2 },
+          { id: 'n7r5', type: 'single', prompt: '5. Faster melting always reduces the amount of water in rivers.', options: tfng, answer: 1 },
+          { id: 'n7r6', type: 'single', prompt: '6. Early-warning systems have been installed for every glacial lake.', options: tfng, answer: 1 },
+          { id: 'n7r7', type: 'single', prompt: '7. Tourism has increased in the mountain valleys.', options: tfng, answer: 2 },
+          { id: 'n7r8', type: 'fill', prompt: '8. The mountains are called the "water ___" of Central Asia. (ONE WORD)', answer: 'towers' },
+          { id: 'n7r9', type: 'fill', prompt: '9. Over time, snow is compressed into dense ___. (ONE WORD)', answer: 'ice' },
+          { id: 'n7r10', type: 'fill', prompt: '10. Researchers increasingly rely on ___ images. (ONE WORD)', answer: 'satellite' },
+          { id: 'n7r11', type: 'fill', prompt: '11. In the long term, summer ___ are expected to decline. (ONE WORD)', answer: 'flows' },
+          { id: 'n7r12', type: 'fill', prompt: '12. New lakes can burst suddenly and cause dangerous ___. (ONE WORD)', answer: 'floods' },
+          { id: 'n7r13', type: 'fill', prompt: '13. Experts say reducing water lost in ___ channels would help. (ONE WORD)', answer: 'irrigation' },
+        ],
+      },
+      {
+        title: 'Passage 2 · Farming in the City',
+        intro: 'Questions 14–26. You should spend about 20 minutes on this passage.',
+        text: `A. Growing food in cities is not a new idea. For centuries, households kept vegetable gardens, fruit trees and chickens in courtyards and on the edges of towns. What is new is the scale and variety of urban agriculture today, which ranges from community gardens on empty land to high-tech indoor farms in former warehouses.
+
+B. Supporters argue that urban farming brings several benefits. Food grown close to where it is eaten needs less transport and packaging, and it can be sold fresher. Community gardens also give residents, especially in crowded neighbourhoods, a place to meet, exercise and learn practical skills. Several studies have found that children who take part in school gardening projects are more willing to try vegetables.
+
+C. One of the fastest-growing forms is vertical farming, in which crops such as lettuce and herbs are grown in stacked layers indoors, under LED lights. Because the environment is fully controlled, these farms can produce crops all year round, use far less water than traditional fields and need no pesticides. Some companies claim they can grow the same amount of food on a fraction of the land.
+
+D. Critics, however, point to serious limitations. Vertical farms consume large amounts of electricity for lighting and climate control, so their environmental benefits depend heavily on where that energy comes from. They are also expensive to build, and so far they are profitable only for a narrow range of high-value crops. Staple foods such as wheat and rice are still far cheaper to grow in open fields.
+
+E. There are also practical concerns about outdoor city farming. Soil in former industrial areas can be contaminated with heavy metals, so it must be tested, and gardeners often grow crops in raised beds filled with clean soil. In addition, land in city centres is valuable, and community gardens are sometimes removed when developers want to build.
+
+F. Most researchers conclude that urban agriculture will not replace rural farming, but it can play a useful supporting role — improving access to fresh food, strengthening communities and making cities more resilient during disruptions to supply chains.`,
+        questions: [
+          { id: 'n7r14', type: 'single', prompt: '14. Which paragraph explains how indoor stacked farms work?', options: ['A', 'B', 'C', 'E'], answer: 2 },
+          { id: 'n7r15', type: 'single', prompt: '15. Which paragraph mentions polluted soil?', options: ['B', 'D', 'E', 'F'], answer: 2 },
+          { id: 'n7r16', type: 'single', prompt: '16. Which paragraph gives a historical background?', options: ['A', 'C', 'D', 'F'], answer: 0 },
+          { id: 'n7r17', type: 'single', prompt: '17. Which paragraph discusses the energy use of vertical farms?', options: ['B', 'C', 'D', 'E'], answer: 2 },
+          { id: 'n7r18', type: 'single', prompt: '18. Children in school gardening projects are …', options: ['better at maths', 'less active', 'more willing to try vegetables', 'more interested in cooking'], answer: 2 },
+          { id: 'n7r19', type: 'single', prompt: '19. Vertical farms are currently profitable mainly for …', options: ['wheat and rice', 'all crops', 'fruit trees', 'a narrow range of high-value crops'], answer: 3 },
+          { id: 'n7r20', type: 'single', prompt: '20. What do most researchers conclude?', options: ['Urban farming can play a supporting role.', 'Urban farming will replace rural farming.', 'Urban farming has no value.', 'Vertical farms should be banned.'], answer: 0 },
+          { id: 'n7r21', type: 'single', prompt: '21. Urban food can be sold fresher because it travels less.', options: tfng, answer: 0 },
+          { id: 'n7r22', type: 'single', prompt: '22. Vertical farms need large amounts of pesticides.', options: tfng, answer: 1 },
+          { id: 'n7r23', type: 'single', prompt: '23. Most vertical farms are owned by governments.', options: tfng, answer: 2 },
+          { id: 'n7r24', type: 'single', prompt: '24. Community gardens are sometimes removed for building projects.', options: tfng, answer: 0 },
+          { id: 'n7r25', type: 'fill', prompt: '25. Vertical farms grow crops under ___ lights. (ONE WORD)', answer: 'LED' },
+          { id: 'n7r26', type: 'fill', prompt: '26. Gardeners often use raised ___ filled with clean soil. (ONE WORD)', answer: 'beds' },
+        ],
+      },
+      {
+        title: 'Passage 3 · Why We Put Things Off',
+        intro: 'Questions 27–40. You should spend about 20 minutes on this passage.',
+        text: `Almost everyone delays important tasks from time to time, but for some people procrastination becomes a serious problem that affects their studies, work and health. Surveys suggest that around a fifth of adults consider themselves chronic procrastinators, and the figure among university students is considerably higher.
+
+For a long time, procrastination was seen simply as a problem of poor time management or laziness. Psychologists now believe this view is mistaken. Many procrastinators are not lazy at all: they may work very hard on other activities while avoiding one particular task. According to a widely supported theory, procrastination is better understood as a problem of emotion regulation. When a task makes us feel anxious, bored or insecure, putting it off provides immediate relief from those unpleasant feelings. The relief is short-lived, however, and the task usually returns with even more stress attached.
+
+This explains why procrastination is so closely linked with perfectionism. People who fear that their work will not be good enough may avoid starting at all, since an unfinished task cannot be judged. It also explains the role of "present bias" — the human tendency to value immediate rewards much more highly than future ones. Checking a phone gives an instant reward, while the benefits of writing an essay lie weeks ahead.
+
+Fortunately, research suggests several effective strategies. One is to break large tasks into small, specific steps, so that the first action feels manageable: "write the first paragraph" rather than "write the essay". Another is to make a concrete plan stating when and where a task will be done, a technique known as forming "implementation intentions". Removing distractions, such as keeping a phone in another room, also helps.
+
+Perhaps surprisingly, self-compassion appears to be important too. In one study, students who forgave themselves for procrastinating before a first exam procrastinated less before the next one. Criticising ourselves harshly, it seems, only increases the negative emotions that cause procrastination in the first place.`,
+        questions: [
+          { id: 'n7r27', type: 'single', prompt: '27. Around what proportion of adults see themselves as chronic procrastinators?', options: ['a tenth', 'a fifth', 'a quarter', 'a half'], answer: 1 },
+          { id: 'n7r28', type: 'single', prompt: '28. According to current theory, procrastination is mainly a problem of …', options: ['laziness', 'poor time management', 'emotion regulation', 'low intelligence'], answer: 2 },
+          { id: 'n7r29', type: 'single', prompt: '29. Why may perfectionists avoid starting a task?', options: ['They have too much free time.', 'They prefer group work.', 'They forget deadlines.', 'An unfinished task cannot be judged.'], answer: 3 },
+          { id: 'n7r30', type: 'single', prompt: '30. "Present bias" means people …', options: ['value immediate rewards more than future ones', 'prefer working in the morning', 'remember the past better', 'like presents'], answer: 0 },
+          { id: 'n7r31', type: 'single', prompt: '31. What happened to students who forgave themselves?', options: ['They failed the exam.', 'They procrastinated less before the next exam.', 'They stopped studying.', 'They became perfectionists.'], answer: 1 },
+          { id: 'n7r32', type: 'single', prompt: '32. The rate of procrastination is higher among university students.', options: tfng, answer: 0 },
+          { id: 'n7r33', type: 'single', prompt: '33. Procrastinators are usually lazy in all areas of life.', options: tfng, answer: 1 },
+          { id: 'n7r34', type: 'single', prompt: '34. The relief from putting off a task lasts for a long time.', options: tfng, answer: 1 },
+          { id: 'n7r35', type: 'single', prompt: '35. Men procrastinate more than women.', options: tfng, answer: 2 },
+          { id: 'n7r36', type: 'single', prompt: '36. Harsh self-criticism makes procrastination worse.', options: tfng, answer: 0 },
+          { id: 'n7r37', type: 'fill', prompt: '37. Procrastination is closely linked with ___. (ONE WORD)', answer: 'perfectionism' },
+          { id: 'n7r38', type: 'fill', prompt: '38. Large tasks should be broken into small, specific ___. (ONE WORD)', answer: 'steps' },
+          { id: 'n7r39', type: 'fill', prompt: '39. A plan stating when and where is called forming implementation ___. (ONE WORD)', answer: ['intentions', 'intention'] },
+          { id: 'n7r40', type: 'fill', prompt: '40. Keeping a phone in another room removes ___. (ONE WORD)', answer: ['distractions', 'distraction'] },
+        ],
+      },
+    ],
+  },
 };
