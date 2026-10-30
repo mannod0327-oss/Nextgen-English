@@ -22,4 +22,10 @@ export const minimalPairs = [
     pairs: [['cot', 'caught'], ['not', 'nought'], ['shot', 'short'], ['pot', 'port'], ['cod', 'cord'], ['spot', 'sport']] },
   { id: 'oo-u', sounds: '/uː/ – /ʊ/', tip: "/uː/ uzun, lablar oldinga (pool); /ʊ/ qisqa va bo'sh (pull).",
     pairs: [['pool', 'pull'], ['fool', 'full'], ['Luke', 'look'], ['suit', 'soot'], ['wooed', 'wood'], ['stewed', 'stood']] },
+  { id: 'ei-e', sounds: '/eɪ/ – /e/', tip: "/eɪ/ — ikki tovush: \"e\" dan \"i\" ga sirpanadi (late); /e/ — bitta qisqa tovush (let). O'zbeklar ko'pincha /eɪ/ ni qisqa \"e\" deb aytadi.",
+    pairs: [['late', 'let'], ['wait', 'wet'], ['pain', 'pen'], ['sail', 'sell'], ['gate', 'get'], ['taste', 'test']] },
+  { id: 'ou-or', sounds: '/əʊ/ – /ɔː/', tip: "/əʊ/ — \"ə\" dan \"u\" ga sirpanadi, lablar oxirida dumaloqlanadi (coat); /ɔː/ — uzun, bitta tovush (caught). Inglizcha \"o\" har doim o'zbekcha \"o\" emas!",
+    pairs: [['coat', 'caught'], ['boat', 'bought'], ['low', 'law'], ['so', 'saw'], ['woke', 'walk'], ['hole', 'hall']] },
+  { id: 'er-ar', sounds: '/ɜː/ – /ɑː/', tip: "/ɜː/ — og'iz yarim ochiq, til o'rtada, lablar yoyilgan (heard); /ɑː/ — og'iz keng ochiq, til pastda (hard). Britaniya talaffuzida ikkalasida ham \"r\" aytilmaydi.",
+    pairs: [['heard', 'hard'], ['firm', 'farm'], ['hurt', 'heart'], ['fur', 'far'], ['stir', 'star'], ['burn', 'barn']] },
 ];
