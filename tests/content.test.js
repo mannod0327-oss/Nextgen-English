@@ -239,5 +239,9 @@ test('drill centre: every trainer valid, Uzbek explanations; gap trainers have e
   const sp = drillItems.filter((q) => q.trainer === 'spelling');
   assert.ok(sp.every((q) => new Set(q.options).size === 3 && q.options.filter((o) => o.toLowerCase() === q.options[q.answer].toLowerCase()).length === 1), 'spelling: 3 distinct options');
   assert.ok(new Set(sp.map((q) => q.answer)).size === 3, 'spelling: correct answer is not always in the same position');
+  for (const t of trainers) {
+    const pos = drillItems.filter((q) => q.trainer === t.id).map((q) => q.answer);
+    assert.ok(Math.max(...[0, 1, 2, 3].map((i) => pos.filter((a) => a === i).length)) <= pos.length * 0.6, `${t.id}: correct answer position too predictable`);
+  }
   for (const t of trainers) assert.ok(drillItems.filter((q) => q.trainer === t.id).length >= 40 && t.icon && t.intro, t.id);
 });

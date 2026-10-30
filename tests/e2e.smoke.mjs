@@ -107,6 +107,12 @@ await step('articles & prepositions: 10 random questions, all correct → 100%, 
   for (const id of sp) await page.locator(`[data-q="${id}"] input[value="${drillItems.find((q) => q.id === id).answer}"]`).check();
   await page.click('#check');
   if ((await page.textContent('#result')) !== 'Natija: 100%') throw new Error('spelling: ' + (await page.textContent('#result')));
+  await page.goto(`${base}/#/drill?t=linkers`);
+  await page.waitForSelector('.question[data-q^="lk"]');
+  const lk = await page.$$eval('.question', (els) => els.map((e) => e.dataset.q));
+  for (const id of lk) await page.locator(`[data-q="${id}"] input[value="${drillItems.find((q) => q.id === id).answer}"]`).check();
+  await page.click('#check');
+  if ((await page.textContent('#result')) !== 'Natija: 100%') throw new Error('linkers: ' + (await page.textContent('#result')));
 });
 
 await step('writing helper: check button reports words, linkers and Uzbek-speaker mistakes', async () => {
@@ -499,7 +505,7 @@ await step('progress: achievements section shows earned badges from earlier step
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=language-podcast', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
+  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=language-podcast', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);

@@ -3,6 +3,7 @@
 // per-item options override the set's (e.g. spelling variants).
 import { drillSets as articleSets } from './articles.js';
 import { spellingSets } from './spelling.js';
+import { linkerSets } from './linkers.js';
 
 export const trainers = [
   { id: 'articles', icon: '🅰️', title: 'Artikl va predloglar', desc: 'a / an / the va in / on / at',
@@ -11,6 +12,9 @@ export const trainers = [
   { id: 'spelling', icon: '🔤', title: 'Imlo trenajyori', desc: "accommodation, necessary… to'g'ri yozilishi",
     intro: "IELTS Listening va Reading'da noto'g'ri yozilgan javob — noto'g'ri javob. Bu so'zlarni ko'pchilik xato yozadi.",
     sets: spellingSets },
+  { id: 'linkers', icon: '🔗', title: "Bog'lovchi so'zlar", desc: 'however / although / despite / because of…',
+    intro: "IELTS Writing'da \"Coherence and cohesion\" bali: bog'lovchidan keyin gap keladimi yoki otmi — shunga qarab tanlanadi.",
+    sets: linkerSets },
 ];
 
 export const drillSets = trainers.flatMap((t) => t.sets.map((s) => ({ ...s, trainer: t.id })));
@@ -19,7 +23,10 @@ export const drillSets = trainers.flatMap((t) => t.sets.map((s) => ({ ...s, trai
 export const drillItems = drillSets.flatMap((set) =>
   set.items.map(([id, prompt, answer, explanation, own]) => {
     const cap = answer !== answer.toLowerCase() && !own;
-    const options = (own ?? set.options).map((o) => (cap && o !== '—' ? o[0].toUpperCase() + o.slice(1) : o));
+    let options = (own ?? set.options).map((o) => (cap && o !== '—' ? o[0].toUpperCase() + o.slice(1) : o));
+    // Per-item options are usually written answer-first: rotate them by a hash of the id so the
+    // correct position varies but stays stable (mistakes notebook stores the answer index).
+    if (own) { const k = [...id].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7) % options.length; options = [...options.slice(k), ...options.slice(0, k)]; }
     return { id, set: set.id, trainer: set.trainer, type: 'single', prompt, options, answer: options.indexOf(answer), explanation };
   }),
 );
