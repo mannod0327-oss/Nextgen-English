@@ -446,4 +446,43 @@ export const grammar = [
       { id: 'a2fq5', type: 'order', prompt: 'Put the words in order:', items: ['We', 'never', 'eat', 'fast', 'food.'] },
     ],
   },
+  {
+    id: 'deduction', title: "Modals of deduction: must / might / can't (have)", level: 'B2',
+    rule: "Taxmin qilish: must — deyarli aniq ishonaman (✓ 95%), might / may / could — ehtimol (50%), can't — imkonsiz deb o'ylayman (✗ 95%). Hozir haqida: modal + V1 (He must be tired). O'tmish haqida: modal + have + V3 (She must have left; He can't have seen us). Diqqat: ishonchli inkor taxminda mustn't emas, can't ishlatiladi.",
+    table: [['hozir ✓', 'The lights are on — they must be at home.'], ['hozir ?', 'She might be in the library.'], ['hozir ✗', "He can't be hungry — he's just eaten."], ["o'tmish ✓", 'The ground is wet — it must have rained.'], ["o'tmish ✗", "She can't have forgotten — I reminded her twice."]],
+    examples: ["You must be Aziz's brother — you look just like him.", 'I might have left my keys in the car.', "They can't have finished already!"],
+    exercises: [
+      { id: 'b2dd1', type: 'single', prompt: "He's been working all day. He ___ be exhausted.", options: ['must', "can't", 'mustn\'t', 'might not'], answer: 0 },
+      { id: 'b2dd2', type: 'single', prompt: "That ___ be Malika — she's in Samarkand this week.", options: ['must', "can't", 'might', "mustn't"], answer: 1, explanation: "Ishonchli inkor taxmin → can't (mustn't emas)." },
+      { id: 'b2dd3', type: 'single', prompt: 'The road is wet. It ___ rained last night.', options: ['must have', 'must', "can't have", 'should'], answer: 0 },
+      { id: 'b2dd4', type: 'fill', prompt: "I'm not sure where my phone is. I ___ left it at work. (2 so'z: might + ?)", answer: ['might have', 'may have', 'could have'] },
+      { id: 'b2dd5', type: 'single', prompt: "She ___ seen the message — she replied an hour ago.", options: ["can't have", 'must have', "mustn't have", 'might'], answer: 1 },
+    ],
+  },
+  {
+    id: 'reported-questions', title: 'Reported questions', level: 'B2',
+    rule: "Savolni o'zlashtirib aytganda u oddiy darak gapga aylanadi: so'z tartibi ega + fe'l, do/does/did tushib qoladi, savol belgisi yo'q. Wh-savol: She asked where I lived. Ha/yo'q savol: if yoki whether: He asked if I was ready. Zamon odatda bir pog'ona orqaga suriladi.",
+    table: [['"Where do you live?"', 'She asked me where I lived.'], ['"Are you ready?"', 'He asked if / whether I was ready.'], ['"What did you buy?"', 'They asked what I had bought.'], ['"Can you help?"', 'She asked if I could help.']],
+    examples: ['The officer asked me where I was going.', 'My teacher asked whether I had finished the essay.'],
+    exercises: [
+      { id: 'b2rq1', type: 'single', prompt: '"Where are you from?" → She asked me where ___.', options: ['am I from', 'I was from', 'was I from', 'I am from?'], answer: 1 },
+      { id: 'b2rq2', type: 'single', prompt: '"Do you like coffee?" → He asked ___ I liked coffee.', options: ['that', 'if', 'do', 'what'], answer: 1 },
+      { id: 'b2rq3', type: 'single', prompt: '"What time does the train leave?" → I asked what time the train ___.', options: ['does leave', 'left', 'did leave', 'leaves?'], answer: 1 },
+      { id: 'b2rq4', type: 'fill', prompt: '"Have you seen my bag?" → She asked if I ___ her bag. (2 so\'z)', answer: ['had seen'] },
+      { id: 'b2rq5', type: 'order', prompt: 'Put the words in order:', items: ['He', 'asked', 'me', 'where', 'I', 'worked.'] },
+    ],
+  },
+  {
+    id: 'verb-patterns', title: 'Verb patterns: stop / remember / try + -ing / to', level: 'B2',
+    rule: "Ba'zi fe'llarda -ing va to ma'noni o'zgartiradi. stop doing — qilishni to'xtatmoq; stop to do — biror narsa qilish uchun to'xtamoq. remember doing — qilganini eslamoq (o'tmish); remember to do — qilishni unutmaslik (kelajak). try doing — sinab ko'rmoq (natija uchun); try to do — harakat qilmoq (qiyin). regret doing — qilganiga afsuslanmoq; regret to tell — afsus bilan xabar bermoq.",
+    table: [['stop', 'I stopped smoking. ≠ I stopped to buy water.'], ['remember', 'I remember meeting her. ≠ Remember to lock the door.'], ['forget', "I'll never forget visiting Khiva. ≠ Don't forget to call."], ['try', 'Try restarting the computer. ≠ I tried to lift the box, but it was too heavy.']],
+    examples: ['He stopped to ask for directions.', 'Did you remember to buy bread?', 'If you have a headache, try drinking more water.'],
+    exercises: [
+      { id: 'b2vp1', type: 'single', prompt: 'My grandfather stopped ___ ten years ago. Now he is much healthier.', options: ['to smoke', 'smoking', 'smoke', 'smoked'], answer: 1 },
+      { id: 'b2vp2', type: 'single', prompt: 'On the way home, we stopped ___ some fruit.', options: ['buying', 'to buy', 'buy', 'bought'], answer: 1 },
+      { id: 'b2vp3', type: 'single', prompt: "Please remember ___ the windows before you leave.", options: ['closing', 'to close', 'close', 'closed'], answer: 1 },
+      { id: 'b2vp4', type: 'single', prompt: 'I remember ___ to Bukhara when I was six.', options: ['going', 'to go', 'go', 'went'], answer: 0 },
+      { id: 'b2vp5', type: 'single', prompt: "The printer isn't working. Try ___ it off and on again.", options: ['to turn', 'turning', 'turn', 'turned'], answer: 1, explanation: 'try + -ing — yechim sifatida sinab ko\'rish.' },
+    ],
+  },
 ];
