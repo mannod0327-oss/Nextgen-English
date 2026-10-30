@@ -92,6 +92,15 @@ await step('grammar: answer + check shows feedback and stores %', async () => {
   await page.screenshot({ path: `${shots}/grammar.png`, fullPage: true });
 });
 
+await step('grammar C1: inversion topic renders, fill + order graded correct', async () => {
+  await page.goto(`${base}/#/grammar?topic=inversion`);
+  await page.waitForSelector('[data-q="inv3"]');
+  await page.fill('[data-q="inv3"] .fill', 'had we left');
+  for (const w of ['Rarely', 'does', 'she', 'complain', 'about', 'work.']) await page.click(`[data-q="inv5"] .order-bank [data-word="${w}"]`);
+  await page.click('#check');
+  if ((await page.locator('.feedback.ok').count()) !== 2) throw new Error('inversion: expected 2 correct');
+});
+
 await step('grammar guide: section opens and unit page loads with practice', async () => {
   await page.goto(`${base}/#/grammar`);
   await page.locator('.guide summary').first().click();
@@ -353,7 +362,7 @@ await step('creator: add question, validate, simulate', async () => {
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'grammar?topic=conditionals', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'search?q=present']) {
+  for (const r of ['', 'creator', 'vocab', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'search?q=present']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);

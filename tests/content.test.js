@@ -44,6 +44,15 @@ test('grammar: every topic exercise set is a valid exam with unique ids', () => 
   }
 });
 
+test('grammar: advanced topics (used to … participle clauses) are complete; C1 has ≥3 topics', () => {
+  for (const id of ['used-to', 'causative', 'future-perfect', 'mixed-conditionals', 'inversion', 'participle-clauses']) {
+    const t = grammar.find((x) => x.id === id);
+    assert.ok(t, id);
+    assert.ok(t.table.length >= 2 && t.examples.length >= 2 && t.exercises.length >= 5, id);
+  }
+  assert.ok(grammar.filter((t) => t.level === 'C1').length >= 3);
+});
+
 test('placement: valid questions with coverage at every level', () => {
   assert.deepEqual(validateExam(asExam('placement', placementQuestions)), []);
   for (const lvl of LEVELS) assert.ok(placementQuestions.filter((q) => q.level === lvl).length >= 3, lvl);
