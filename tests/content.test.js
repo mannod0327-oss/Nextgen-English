@@ -97,6 +97,7 @@ test('readings: valid questions, unique ids, every CEFR band A1–C1 covered, li
   for (const lvl of ['A1', 'A2', 'B1', 'B2', 'C1']) assert.ok(readings.some((r) => r.level === lvl), lvl);
   for (const lvl of ['A1', 'A2']) assert.ok(readings.filter((r) => r.level === lvl && !r.listening).length >= 6, `${lvl}: at least 6 beginner texts`);
   assert.ok(readings.filter((r) => r.level === 'B1' && !r.listening).length >= 8, 'B1: at least 8 texts');
+  assert.ok(readings.filter((r) => r.level === 'B2' && !r.listening).length >= 8, 'B2: at least 8 texts');
   const listening = readings.filter((r) => r.listening);
   assert.ok(listening.length >= 12, 'at least 12 listening tasks');
   for (const r of listening) for (const q of r.questions.filter((x) => x.type === 'fill'))

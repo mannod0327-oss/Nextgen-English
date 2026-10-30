@@ -34,7 +34,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 21  | **Yutuqlar (nishonlar)**                      | Motivatsiya: aniq maqsadlar                                     | ≥12 nishon (birinchi test, 7 kun ketma-ket, 100 karta, Band 6+ …) `src/core/badges.js` sof funksiya; Progress sahifasida; unit test + E2E                                                                 | ✅    |
 | 22  | **Tinglash mashqlari +6**                     | Atigi 6 ta tinglash matni                                       | +6 tinglash (A2–B1 ko'proq), matn javobdan keyin ochiladi, har biri 5 savol; kontent testi ≥12                                                                                                            | ✅    |
 | 23  | **A1 grammatika +3** | A1 da atigi 4 mavzu | can/can't, egalik (my/your, 's), ko'plik + this/that/these/those; har biri qoida+jadval+≥5 mashq; A1 ≥7 | ✅ |
-| 24  | **B2 o'qish +4** | B2 da 4 ta matn | 4 ta B2 matn, har biri 6 savol (T/F/NG, MCQ, gap-fill); B2 ≥8 | ⬜ |
+| 24  | **B2 o'qish +4** | B2 da 4 ta matn | 4 ta B2 matn, har biri 6 savol (T/F/NG, MCQ, gap-fill); B2 ≥8 | ✅ |
 | 25  | **Umumiy mashqlar markazi** (`#/drill`) | Yangi trenajyorlar bitta joyda bo'lishi kerak | Artikl trenajyorini umumiy `drillSets` dvigateliga ko'chirish (#/articles saqlanadi), hub sahifa; E2E | ⬜ |
 | 26  | **Imlo trenajyori** | accommodation, necessary… — IELTS'da imlo xatosi = noto'g'ri javob | ≥40 ko'p xato qilinadigan so'z, 3 variantdan to'g'ri yozilganini tanlash, o'zbekcha maslahat | ⬜ |
 | 27  | **Bog'lovchilar trenajyori** | Writing'da coherence balini oshiradi | ≥40 gap: however/although/despite/because of/therefore…, izoh bilan | ⬜ |
@@ -91,3 +91,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 
 **4-bosqich (foydalanuvchi: "SCEP DRIVE LOOP x100"):** maqsad — 100 iteratsiya (23–122). Backlog 20 tadan qo'shiladi; har bir partiya tugaganda keyingisi eng katta bo'shliqlarga qarab yoziladi.
 - **23-iteratsiya** — 📐 A1 grammatika +3 (jami +16 mashq): can/can't (qobiliyat, ruxsat; can + V1, to'siz), egalik (my/your/his/her/its/our/their, 's va ko'plik '; its ≠ it's), ko'plik (-s/-es/-ies, men/children/teeth/people) + this/that/these/those. A1 da endi 7 mavzu. Kontent testi (A1 ≥7) + E2E (can: tartiblash + inkor; plurals) + mobil.
+- **24-iteratsiya** — 📰 4 ta B2 matn × 6 savol (+24): to'rt kunlik ish haftasi, kulgi haqidagi fan, mikrobiom, aqlli shaharlar. B2 da endi 8 ta matn; ta'riflar 2875 so'z. Topilgan: matn ID 'fast-fashion' C1 matn bilan to'qnashdi (yagona ID testi ushladi) va mavzu takrorlanardi → boshqa mavzu (kulgi) yozildi. Kontent testi B2 ≥8 + E2E + mobil.

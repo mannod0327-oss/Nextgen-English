@@ -230,6 +230,17 @@ await step('listening: new tasks listed; doctor call script hidden until checked
   if ((await page.textContent('#result')) !== 'Natija: 33%') throw new Error(await page.textContent('#result'));
 });
 
+await step('reading B2: new texts listed, smart cities answers graded', async () => {
+  await page.goto(`${base}/#/reading`);
+  for (const id of ['four-day-week', 'laughter', 'microbiome', 'smart-cities']) await page.waitForSelector(`a[href="#/reading?t=${id}"]`);
+  await page.click('a[href="#/reading?t=smart-cities"]');
+  await page.waitForSelector('[data-q="b2sc5"]');
+  await page.fill('[data-q="b2sc5"] .fill', 'divide');
+  await page.locator('[data-q="b2sc2"] input[value="2"]').check();
+  await page.click('#check');
+  if ((await page.locator('.feedback.ok').count()) !== 2) throw new Error('B2 reading: expected 2 correct');
+});
+
 await step('reading gloss + dictionary definitions (lazy-loaded WordNet)', async () => {
   await page.goto(`${base}/#/`); // same-URL goto would keep the previous step's hidden text
   await page.goto(`${base}/#/reading?t=my-family`);

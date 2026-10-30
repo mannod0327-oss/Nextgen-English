@@ -345,6 +345,79 @@ On the day, plan your journey so that you arrive ten or fifteen minutes early. D
       { id: 'b1ji6', type: 'match', prompt: 'Match the word to its meaning:', pairs: [['strengths', 'kuchli tomonlar'], ['weaknesses', 'zaif tomonlar'], ['confidently', 'ishonch bilan'], ['interviewer', 'suhbat oluvchi']] },
     ],
   },
+  // ---- More B2 reading
+  {
+    id: 'four-day-week', level: 'B2', title: 'The Four-Day Working Week', uzTitle: 'To‘rt kunlik ish haftasi',
+    text: `In recent years, a growing number of companies have experimented with a four-day working week, in which employees work around thirty-two hours instead of forty, usually without any reduction in pay. The idea is not simply to give people an extra day off, but to test whether shorter, more focused working time can deliver the same results.
+
+The largest trials, involving dozens of companies in several countries, have produced encouraging results. Most participating firms reported that productivity stayed the same or even rose slightly, while staff said they felt less stressed and slept better. Many companies also found it easier to recruit new employees, and the number of sick days fell. As a result, the majority of firms decided to continue with the new schedule after the trial ended.
+
+Critics, however, point out that the model does not suit every type of work. In hospitals, schools and shops, someone must be present every day, so a four-day week for individual employees would require hiring more staff, which increases costs. There are also concerns that some workers simply squeeze five days of tasks into four longer days, which may increase pressure rather than reduce it.
+
+Supporters respond that the trials have forced managers to rethink how time is used. Long meetings were shortened, unnecessary emails were cut, and teams agreed on "focus hours" without interruptions. Even companies that eventually returned to a five-day week said they kept some of these new habits.`,
+    questions: [
+      { id: 'b2fd1', type: 'single', prompt: 'In most four-day week trials, pay …', options: ['was reduced by 20%', 'stayed the same', 'increased', 'depended on productivity'], answer: 1 },
+      { id: 'b2fd2', type: 'single', prompt: 'Most participating firms reported that productivity fell sharply.', options: ['True', 'False', 'Not Given'], answer: 1 },
+      { id: 'b2fd3', type: 'single', prompt: 'The number of sick days decreased.', options: ['True', 'False', 'Not Given'], answer: 0 },
+      { id: 'b2fd4', type: 'single', prompt: 'Workers in technology companies benefited the most.', options: ['True', 'False', 'Not Given'], answer: 2 },
+      { id: 'b2fd5', type: 'single', prompt: 'Why is the model difficult for hospitals and shops?', options: ['Staff do not want it.', 'Someone must be present every day, so more staff are needed.', 'It is illegal.', 'Customers complain.'], answer: 1 },
+      { id: 'b2fd6', type: 'fill', prompt: 'Teams agreed on "___ hours" without interruptions.', answer: 'focus' },
+    ],
+  },
+  {
+    id: 'laughter', level: 'B2', title: 'The Science of Laughter', uzTitle: 'Kulgi haqidagi fan',
+    text: `Most people assume that we laugh mainly because something is funny. Surprisingly, research suggests that this is true only a small part of the time. When scientists recorded thousands of everyday conversations, they found that most laughter followed ordinary comments such as "See you later" or "I know", not jokes. Laughter, it seems, is above all a social signal: it shows friendliness and helps people feel connected.
+
+This may explain why we are around thirty times more likely to laugh when we are with other people than when we are alone. Laughter is also contagious; hearing someone else laugh activates areas of the brain that prepare the muscles of our own face to smile. Television comedies have used this effect for decades by adding recorded laughter to their programmes.
+
+Laughter appears to have real physical benefits as well. A good laugh increases the heart rate and breathing for a short time, and afterwards the muscles relax. Some studies have found that laughing with others raises people's tolerance for pain, probably because it causes the brain to release endorphins, natural chemicals that make us feel good.
+
+Humans are not the only animals that laugh. Chimpanzees and gorillas make breathy panting sounds when they are tickled or playing, and even rats produce high-pitched sounds during play that humans cannot hear without special equipment. This suggests that laughter developed long before language, as a way of saying "this is just play".`,
+    questions: [
+      { id: 'b2lf1', type: 'single', prompt: 'According to research, most laughter follows …', options: ['jokes', 'ordinary comments', 'funny films', 'surprises'], answer: 1 },
+      { id: 'b2lf2', type: 'fill', prompt: 'We are about ___ times more likely to laugh with other people.', answer: ['thirty', '30'] },
+      { id: 'b2lf3', type: 'single', prompt: 'Laughter is contagious.', options: ['True', 'False', 'Not Given'], answer: 0 },
+      { id: 'b2lf4', type: 'single', prompt: 'Women laugh more often than men.', options: ['True', 'False', 'Not Given'], answer: 2 },
+      { id: 'b2lf5', type: 'fill', prompt: 'Laughing causes the brain to release ___.', answer: 'endorphins' },
+      { id: 'b2lf6', type: 'single', prompt: 'What do the animal examples suggest?', options: ['Only humans laugh.', 'Laughter developed before language.', 'Rats laugh louder than humans.', 'Animals laugh at jokes.'], answer: 1 },
+    ],
+  },
+  {
+    id: 'microbiome', level: 'B2', title: 'The World Inside Us', uzTitle: 'Ichimizdagi olam',
+    text: `Every human body is home to trillions of microorganisms — bacteria, fungi and viruses — most of which live in the gut. Together they are known as the microbiome. For a long time, scientists thought of bacteria mainly as a cause of disease, but research over the last twenty years has shown that many of these microbes are essential for our health.
+
+Gut bacteria help us digest food, particularly fibre, which our own bodies cannot break down. In the process they produce substances that protect the lining of the intestine and help to control inflammation. The microbiome also plays an important role in training the immune system, especially in early childhood.
+
+Perhaps the most surprising discovery is the connection between the gut and the brain. Experiments with mice have shown that changing their gut bacteria can affect their behaviour and stress levels, and researchers are now investigating whether similar links exist in humans. However, scientists warn that much of this research is still at an early stage.
+
+So how can we keep our microbiome healthy? The most consistent advice is to eat a varied diet rich in vegetables, fruit, beans and whole grains, as well as fermented foods such as yoghurt. Antibiotics, while sometimes necessary, can kill helpful bacteria along with harmful ones, so they should only be taken when a doctor prescribes them.`,
+    questions: [
+      { id: 'b2mb1', type: 'single', prompt: 'Most of the body’s microorganisms live in the …', options: ['skin', 'gut', 'lungs', 'blood'], answer: 1 },
+      { id: 'b2mb2', type: 'fill', prompt: 'Gut bacteria help us digest ___, which our bodies cannot break down.', answer: 'fibre' },
+      { id: 'b2mb3', type: 'single', prompt: 'The microbiome helps to train the immune system.', options: ['True', 'False', 'Not Given'], answer: 0 },
+      { id: 'b2mb4', type: 'single', prompt: 'The gut–brain link has already been fully proven in humans.', options: ['True', 'False', 'Not Given'], answer: 1 },
+      { id: 'b2mb5', type: 'single', prompt: 'People in cities have fewer gut bacteria.', options: ['True', 'False', 'Not Given'], answer: 2 },
+      { id: 'b2mb6', type: 'single', prompt: 'Why should antibiotics be used carefully?', options: ['They are expensive.', 'They also kill helpful bacteria.', 'They cause allergies.', 'They make food taste bad.'], answer: 1 },
+    ],
+  },
+  {
+    id: 'smart-cities', level: 'B2', title: 'How Smart Are Smart Cities?', uzTitle: 'Aqlli shaharlar qanchalik aqlli?',
+    text: `The term "smart city" describes an urban area that uses sensors, data and digital technology to improve services and quality of life. Traffic lights that adjust to the number of cars, rubbish bins that report when they are full and apps that show the exact arrival time of the next bus are all examples of smart-city technology.
+
+The potential benefits are considerable. In some cities, intelligent traffic systems have reduced journey times by around a fifth, and sensors in water pipes can detect leaks before they cause serious damage. Data on air quality can warn people with asthma when pollution is high, and smart street lights that dim when no one is around can cut energy use significantly.
+
+However, critics raise several concerns. Collecting huge amounts of data about people's movements creates risks for privacy, especially if cameras and phone data are used without clear rules. There is also the danger of a "digital divide": services that are only available through apps may exclude older people or those without smartphones. Finally, technology is expensive, and some projects have been abandoned after a few years because they did not solve real problems.
+
+For this reason, many urban planners now argue that a city is not smart because of its gadgets, but because of how well it listens to its residents. Technology, they say, should be a tool to solve specific problems, not an end in itself.`,
+    questions: [
+      { id: 'b2sc1', type: 'multiple', prompt: 'Which are examples of smart-city technology in the text?', options: ['traffic lights that adjust to cars', 'flying taxis', 'bins that report when full', 'robot police officers'], answer: [0, 2] },
+      { id: 'b2sc2', type: 'single', prompt: 'Intelligent traffic systems have reduced journey times by about …', options: ['5%', '10%', '20%', '50%'], answer: 2 },
+      { id: 'b2sc3', type: 'single', prompt: 'Sensors in water pipes can detect leaks early.', options: ['True', 'False', 'Not Given'], answer: 0 },
+      { id: 'b2sc4', type: 'single', prompt: 'All smart-city projects have been successful.', options: ['True', 'False', 'Not Given'], answer: 1 },
+      { id: 'b2sc5', type: 'fill', prompt: 'Services available only through apps may create a "digital ___".', answer: 'divide' },
+      { id: 'b2sc6', type: 'single', prompt: 'According to planners, a city is truly smart when it …', options: ['has the most gadgets', 'listens well to its residents', 'has no cars', 'spends the most money'], answer: 1 },
+    ],
+  },
   // ---- Listening tasks (IELTS-style): text hidden until checked; "Name: " speaker labels are not read aloud.
   {
     id: 'hotel-booking', level: 'A2', listening: true, title: 'Booking a Hotel Room', uzTitle: 'Tinglash: mehmonxona band qilish',
