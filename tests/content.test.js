@@ -228,13 +228,16 @@ test('collocations: 60+, verb phrases start with their verb, examples use the ph
   assert.ok(collocations.filter((g) => g.kind === 'verb').length >= 4, 'verb quiz needs 4 options');
 });
 
-test('articles & prepositions drill: ≥60 valid one-gap items with Uzbek explanations', () => {
+test('drill centre: every trainer valid, Uzbek explanations; gap trainers have exactly one gap', () => {
   assert.ok(drillItems.length >= 60);
   assert.deepEqual(validateExam(asExam('drill', drillItems)), []);
   for (const q of drillItems) {
-    assert.equal(q.prompt.split('___').length, 2, `${q.id}: exactly one gap`);
+    if (q.trainer !== 'spelling') assert.equal(q.prompt.split('___').length, 2, `${q.id}: exactly one gap`);
     assert.ok(q.answer >= 0 && q.explanation, q.id);
   }
   for (const set of drillSets.filter((x) => x.trainer === 'articles')) assert.ok(set.items.length >= 25 && set.rules.length >= 3, set.id);
+  const sp = drillItems.filter((q) => q.trainer === 'spelling');
+  assert.ok(sp.every((q) => new Set(q.options).size === 3 && q.options.filter((o) => o.toLowerCase() === q.options[q.answer].toLowerCase()).length === 1), 'spelling: 3 distinct options');
+  assert.ok(new Set(sp.map((q) => q.answer)).size === 3, 'spelling: correct answer is not always in the same position');
   for (const t of trainers) assert.ok(drillItems.filter((q) => q.trainer === t.id).length >= 40 && t.icon && t.intro, t.id);
 });
