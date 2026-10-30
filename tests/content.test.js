@@ -101,6 +101,7 @@ test('readings: valid questions, unique ids, every CEFR band A1–C1 covered, li
   assert.ok(readings.filter((r) => r.level === 'C1' && !r.listening).length >= 8, 'C1: at least 8 texts');
   const listening = readings.filter((r) => r.listening);
   assert.ok(listening.length >= 12, 'at least 12 listening tasks');
+  assert.ok(listening.filter((r) => r.level === 'A1').length >= 4, 'A1 listening');
   for (const r of listening) for (const q of r.questions.filter((x) => x.type === 'fill'))
     assert.ok([].concat(q.answer).some((a) => r.text.toLowerCase().includes(String(a).toLowerCase())), `${q.id}: answer not in script`);
   assert.ok(readings.filter((r) => r.listening).length >= 4);

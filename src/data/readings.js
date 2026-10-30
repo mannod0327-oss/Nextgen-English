@@ -808,4 +808,76 @@ The agriculture office hopes that a quarter of all farmland in the valley will u
       { id: 'lb2ws6', type: 'single', prompt: 'His only complaint is that the tubes …', options: ['are expensive', 'need regular cleaning', 'break in winter', 'are too long'], answer: 1 },
     ],
   },
+  // ---- A1 listening (short and slow)
+  {
+    id: 'l-meet-new-friend', level: 'A1', listening: true, title: 'Meeting a New Classmate', uzTitle: 'Tinglash: yangi sinfdosh bilan tanishuv',
+    text: `Anna: Hi! I'm Anna. What's your name?
+Jasur: Hello, Anna. My name is Jasur.
+Anna: Nice to meet you, Jasur. Where are you from?
+Jasur: I'm from Namangan. And you?
+Anna: I'm from Poland. How old are you?
+Jasur: I'm nineteen. I study computer science.
+Anna: Me too! Do you have a brother or sister?
+Jasur: Yes, I have two sisters. They are at school.
+Anna: I have one brother. He is ten.`,
+    questions: [
+      { id: 'la1mf1', type: 'fill', prompt: "The boy's name is ___.", answer: 'Jasur' },
+      { id: 'la1mf2', type: 'single', prompt: 'Where is Jasur from?', options: ['Tashkent', 'Namangan', 'Poland', 'Bukhara'], answer: 1 },
+      { id: 'la1mf3', type: 'fill', prompt: 'Jasur is ___ years old.', answer: ['19', 'nineteen'] },
+      { id: 'la1mf4', type: 'single', prompt: 'What does Jasur study?', options: ['English', 'medicine', 'computer science', 'music'], answer: 2 },
+      { id: 'la1mf5', type: 'single', prompt: 'How many sisters does Jasur have?', options: ['one', 'two', 'three', 'none'], answer: 1 },
+    ],
+  },
+  {
+    id: 'l-what-time', level: 'A1', listening: true, title: 'What Time Is It?', uzTitle: 'Tinglash: soat necha?',
+    text: `Man: Excuse me, what time is it?
+Woman: It's half past eight.
+Man: Oh no! My bus leaves at a quarter to nine.
+Woman: Where are you going?
+Man: To the university. My lesson starts at nine o'clock.
+Woman: The bus stop is next to the bank. It's five minutes from here.
+Man: Thank you very much!
+Woman: You're welcome. Good luck!`,
+    questions: [
+      { id: 'la1wt1', type: 'single', prompt: 'What time is it now?', options: ['8:00', '8:30', '8:45', '9:00'], answer: 1 },
+      { id: 'la1wt2', type: 'single', prompt: 'The bus leaves at …', options: ['8:15', '8:30', '8:45', '9:15'], answer: 2 },
+      { id: 'la1wt3', type: 'fill', prompt: 'The man is going to the ___.', answer: 'university' },
+      { id: 'la1wt4', type: 'fill', prompt: 'The bus stop is next to the ___.', answer: 'bank' },
+      { id: 'la1wt5', type: 'fill', prompt: 'The bus stop is ___ minutes from here.', answer: ['5', 'five'] },
+    ],
+  },
+  {
+    id: 'l-at-the-cafe', level: 'A1', listening: true, title: 'At the Café', uzTitle: 'Tinglash: kafeda',
+    text: `Waiter: Good morning. What would you like?
+Customer: A cup of green tea, please.
+Waiter: Anything to eat?
+Customer: Yes. Can I have a samsa, please?
+Waiter: Of course. Meat or pumpkin?
+Customer: Pumpkin, please.
+Waiter: OK. One green tea and one pumpkin samsa. That's twelve thousand sum.
+Customer: Here you are. Is there free Wi-Fi here?
+Waiter: Yes, there is. The password is on the table.
+Customer: Great. And where is the toilet, please?
+Waiter: It's on the left, next to the door.
+Customer: Thank you.
+Waiter: You're welcome. Have a nice day!`,
+    questions: [
+      { id: 'la1cf1', type: 'single', prompt: 'What does the customer drink?', options: ['black tea', 'green tea', 'coffee', 'water'], answer: 1 },
+      { id: 'la1cf2', type: 'fill', prompt: 'The customer eats a ___.', answer: 'samsa' },
+      { id: 'la1cf3', type: 'single', prompt: 'What is in the samsa?', options: ['meat', 'pumpkin', 'cheese', 'potato'], answer: 1 },
+      { id: 'la1cf4', type: 'fill', prompt: 'The price is ___ thousand sum.', answer: ['12', 'twelve'] },
+      { id: 'la1cf5', type: 'single', prompt: 'When does this conversation happen?', options: ['in the morning', 'in the afternoon', 'in the evening', 'at night'], answer: 0 },
+    ],
+  },
+  {
+    id: 'l-my-room', level: 'A1', listening: true, title: 'My Room', uzTitle: 'Tinglash: mening xonam',
+    text: `Hello! This is my room. It is small, but I like it. There is a bed next to the window. There is a desk and a chair under the window, and there is a computer on the desk. My clothes are in the big brown wardrobe. On the wall there is a map of the world and a photo of my family. My favourite thing is the green lamp on the desk. I read books there every evening.`,
+    questions: [
+      { id: 'la1rm1', type: 'single', prompt: 'The room is …', options: ['big', 'small', 'dark', 'new'], answer: 1 },
+      { id: 'la1rm2', type: 'fill', prompt: 'The bed is next to the ___.', answer: 'window' },
+      { id: 'la1rm3', type: 'single', prompt: 'What is on the desk?', options: ['a TV', 'a computer', 'a phone', 'a cat'], answer: 1 },
+      { id: 'la1rm4', type: 'single', prompt: 'What colour is the wardrobe?', options: ['green', 'brown', 'white', 'black'], answer: 1 },
+      { id: 'la1rm5', type: 'fill', prompt: 'The speaker’s favourite thing is the green ___.', answer: 'lamp' },
+    ],
+  },
 ];
