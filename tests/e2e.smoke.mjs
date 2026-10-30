@@ -210,6 +210,19 @@ await step('ielts bank: writing task shows Band 7 model answer', async () => {
   if (!(await page.locator('details .model').isVisible()) || !(await page.textContent('details .model')).includes('gap year')) throw new Error('model answer missing');
 });
 
+await step('ielts guide: strategy page from hub, mini practice scored, best shown on hub', async () => {
+  await page.goto(`${base}/#/`);
+  await page.goto(`${base}/#/ielts`);
+  await page.click('a[href="#/ielts?guide=tfng"]');
+  await page.waitForSelector('#guide-check');
+  for (const [id, i] of [['gd-tf1', 0], ['gd-tf2', 1], ['gd-tf3', 2], ['gd-tf4', 0]]) await page.check(`[data-q="${id}"] input[value="${i}"]`);
+  await page.click('#guide-check');
+  if ((await page.textContent('#guide-result')) !== 'Natija: 100%') throw new Error('guide score');
+  await page.goto(`${base}/#/`);
+  await page.goto(`${base}/#/ielts`);
+  if (!(await page.textContent('a[href="#/ielts?guide=tfng"]')).includes('100%')) throw new Error('guide best not on hub');
+});
+
 await step('ielts mock 4: listed on hub, reading-4 scores answers', async () => {
   await page.goto(`${base}/#/ielts`);
   await page.waitForSelector('a[href="#/ielts?mock=listening-4"]');
@@ -575,7 +588,7 @@ await step('progress: achievements section shows earned badges from earlier step
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'vocab?mode=test&cat=Jinoyat va qonun', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'grammar?topic=question-tags', 'grammar?topic=must-have-to', 'grammar?topic=verb-patterns', 'grammar?topic=subjunctive', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?w=bw2-zoos', 'ielts?w=bw1-commute', 'ielts?s=b-tradition', 'ielts?s=b-books', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=l-at-the-cafe', 'reading?t=placebo', 'reading?t=language-podcast', 'reading?t=debate-tourism', 'mistakes', 'sounds', 'sounds?set=th-s', 'sounds?set=ou-or', 'speech?s=lost', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'drill?t=stress', 'drill?t=task1', 'drill?t=synonyms', 'numbers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'ielts?mock=listening-5', 'ielts?mock=reading-5', 'ielts?mock=listening-6', 'ielts?mock=reading-6', 'search?q=present']) {
+  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'vocab?mode=test&cat=Jinoyat va qonun', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'grammar?topic=question-tags', 'grammar?topic=must-have-to', 'grammar?topic=verb-patterns', 'grammar?topic=subjunctive', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?w=bw2-zoos', 'ielts?w=bw1-commute', 'ielts?s=b-tradition', 'ielts?s=b-books', 'ielts?guide=listening', 'ielts?guide=task2', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=l-at-the-cafe', 'reading?t=placebo', 'reading?t=language-podcast', 'reading?t=debate-tourism', 'mistakes', 'sounds', 'sounds?set=th-s', 'sounds?set=ou-or', 'speech?s=lost', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'drill?t=stress', 'drill?t=task1', 'drill?t=synonyms', 'numbers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'ielts?mock=listening-5', 'ielts?mock=reading-5', 'ielts?mock=listening-6', 'ielts?mock=reading-6', 'search?q=present']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);

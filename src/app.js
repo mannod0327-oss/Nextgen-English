@@ -21,6 +21,7 @@ import { scenarios } from './data/dialogues.js';
 import { guideSections, guideUnits } from './data/grammar-guide.js';
 import { writing, writingCriteria, speaking, officialResources, toBand } from './data/ielts.js';
 import { mockTests } from './data/ielts-mock.js';
+import { guides } from './data/ielts-guides.js';
 import { speakingBank } from './data/ielts-bank-speaking.js';
 import { writingBank } from './data/ielts-bank-writing.js';
 import { readingBank } from './data/ielts-bank-reading.js';
@@ -679,6 +680,30 @@ const views = {
           ${sec.questions.map((q) => `<div class="question" data-q="${q.id}"><b>${esc(q.prompt)}</b>${questionHtml(q, r)}<div class="fb"></div></div>`).join('')}</section>`).join('')}
         <p><button class="btn primary" id="mock-finish">✅ Testni yakunlash</button></p><p id="mock-result" aria-live="polite"></p>`;
     }
+    const g = guides.find((x) => x.id === params.get('guide'));
+    if (g) {
+      queueMicrotask(() => {
+        $('#guide-play')?.addEventListener('click', () => speak(g.script.replace(/\b[A-Z][a-z]+: /g, ''), 0.85));
+        $('#guide-check').onclick = () => {
+          let total = 0;
+          g.questions.forEach((q) => { total += gradeBox(q, app.querySelector(`[data-q="${q.id}"]`), `IELTS strategiya: ${g.title}`); });
+          const pct = Math.round((total / g.questions.length) * 100);
+          store.set('guideBest', { ...store.get('guideBest', {}), [g.id]: Math.max(store.get('guideBest', {})[g.id] ?? 0, pct) });
+          if (g.script) $('#guide-script').hidden = false;
+          $('#guide-result').textContent = `Natija: ${pct}%`;
+        };
+      });
+      return `<a href="#/ielts">← IELTS</a><h2>${g.icon} ${esc(g.title)} <span class="badge">${esc(g.skill)}</span></h2>
+        <p>${esc(g.intro)}</p>
+        <section class="card"><h3>📋 Qadamlar</h3><ol>${g.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ol></section>
+        <section class="card"><h3>⚠️ Tuzoqlar</h3><ul>${g.traps.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></section>
+        <section class="card"><h3>🏋️ Mini mashq</h3>
+          ${g.text ? `<div class="reading-text" lang="en">${esc(g.text)}</div>` : ''}
+          ${g.script ? `<p><button class="btn" id="guide-play">🔊 Tinglash</button></p><div class="reading-text script" id="guide-script" lang="en" hidden>${esc(g.script)}</div>` : ''}
+          ${g.questions.map((q) => `<div class="question" data-q="${q.id}"><b lang="en">${esc(q.prompt)}</b>${questionHtml(q)}<div class="fb"></div></div>`).join('')}
+          <p><button class="btn primary" id="guide-check">Tekshirish</button> <span id="guide-result" aria-live="polite"></span></p></section>
+        <p>${guides.filter((x) => x !== g).map((x) => `<a class="btn" href="#/ielts?guide=${x.id}">${x.icon} ${esc(x.title)}</a>`).join(' ')}</p>`;
+    }
     const w = allWriting.find((x) => x.id === params.get('w'));
     if (w) {
       const drafts = store.get('ieltsDrafts', {});
@@ -797,6 +822,8 @@ const views = {
             <a class="row" href="#/ielts?bank=writing"><span class="badge">✍️</span><span><b>Writing</b> — Task 1 & 2</span><span class="muted">${allWriting.length} ta</span></a>
             <a class="row" href="#/ielts?bank=speaking"><span class="badge">🗣</span><span><b>Speaking</b> — Part 1–3</span><span class="muted">${allSpeaking.length} ta</span></a>
           </div></section>
+        <section class="card"><h3>🧭 Savol turlari strategiyasi</h3><p class="muted">Har bir savol turi uchun o'zbekcha qadamlar, tuzoqlar va mini mashq.</p>
+          <div class="list">${guides.map((x) => `<a class="row" href="#/ielts?guide=${x.id}"><span class="badge">${x.icon}</span><span><b>${esc(x.title)}</b> — ${esc(x.skill)}</span><span class="muted">${store.get('guideBest', {})[x.id] != null ? `${store.get('guideBest', {})[x.id]}%` : ''}</span></a>`).join('')}</div></section>
         <section class="card"><h3>📝 To'liq sinov testi</h3><p class="muted">Haqiqiy format: 40 savol, umumiy taymer, yakunda band.</p>
           ${Object.entries(mockTests).map(([k, m]) => { const res = store.get('ieltsMock', {})[k]; return `<p><a class="btn primary" href="#/ielts?mock=${k}">${m.kind === 'listening' ? '🎧' : '📰'} ${esc(m.title.replace(/^IELTS (Academic )?/, ''))} · ${m.minutes} daq</a>
             ${res ? `<span class="badge ok">oxirgi: ${res.raw}/40 → ${res.band}</span>` : ''}</p>`; }).join('')}</section>

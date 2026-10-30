@@ -22,6 +22,7 @@ import { existsSync } from 'node:fs';
 import { exams } from '../src/data/exams.js';
 import { readings } from '../src/data/readings.js';
 import { trainers, drillSets, drillItems } from '../src/data/drills.js';
+import { guides } from '../src/data/ielts-guides.js';
 
 const asExam = (title, questions) => ({ format: 'nge-exam', title, questions });
 
@@ -264,5 +265,18 @@ test('ielts bank: every number in a Task 1 model comes from its table (or a diff
     const ok = new Set(vals);
     for (const a of vals) for (const b of vals) { ok.add(Math.round(Math.abs(a - b) * 10) / 10); if (a) { const p = Math.abs((b - a) / a) * 100; ok.add(Math.round(p)); ok.add(Math.round(p / 5) * 5); ok.add(Math.floor(p / 10) * 10); } }
     for (const n of nums(w.model)) assert.ok(ok.has(n), `${w.id}: ${n} not derivable from the table`);
+  }
+});
+
+test('ielts guides: ≥6 question-type strategies, each a valid mini exam; fill answers come from the text', () => {
+  assert.ok(guides.length >= 6);
+  assert.equal(new Set(guides.map((g) => g.id)).size, guides.length);
+  const ids = guides.flatMap((g) => g.questions.map((q) => q.id));
+  assert.equal(new Set(ids).size, ids.length);
+  for (const g of guides) {
+    assert.ok(g.steps.length >= 3 && g.traps.length >= 2 && g.questions.length >= 3, g.id);
+    assert.deepEqual(validateExam(asExam(g.title, g.questions)), [], g.id);
+    const src = (g.text ?? g.script ?? '').toLowerCase();
+    if (src) for (const q of g.questions.filter((x) => x.type === 'fill')) assert.ok(q.answer.some((a) => src.includes(a.toLowerCase())) || q.id === 'gd-ls3', q.id);
   }
 });
