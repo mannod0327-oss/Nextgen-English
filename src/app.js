@@ -326,9 +326,41 @@ const views = {
 
   vocab(params) {
     const cat = params.get('cat');
+    if (params.get('mode') === 'test') {
+      // Writing test: half "Uzbek → English", half "listen and write" (sentence context with the word blanked).
+      const r = rand();
+      const pool = cat && cat !== '__all' ? vocabulary.filter((v) => v.category === cat) : vocabulary;
+      const qs = shuffle(pool, r).slice(0, 10).map((w, n) => {
+        const blanked = w.example.replace(new RegExp(w.word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'), '___');
+        const listen = n % 2 === 1 && blanked !== w.example;
+        return { id: `vt-${w.id.toLowerCase().replace(/[^a-z]+/g, '-')}`, type: 'fill', answer: w.word, say: listen ? w.word : null,
+          prompt: listen ? `🔊 Eshiting va yozing: ${blanked}` : `${w.emoji} "${w.uz}" inglizcha qanday? (${w.pos})` };
+      });
+      queueMicrotask(() => {
+        $('#check').onclick = () => {
+          let total = 0;
+          qs.forEach((q) => { total += gradeBox(q, app.querySelector(`[data-q="${q.id}"]`), "Lug'at testi"); });
+          const pct = Math.round((total / qs.length) * 100);
+          store.set('vocabTestBest', Math.max(store.get('vocabTestBest', 0), pct));
+          logActivity('vocab-test');
+          addXp(total);
+          $('#result').textContent = `Natija: ${pct}%`;
+          $('#check').disabled = true;
+        };
+      });
+      return `<a href="#/vocab">← Lug'at</a><h2>✍️ Lug'at yozish testi${cat && cat !== '__all' ? ` · ${esc(cat)}` : ''}</h2>
+        <p class="muted">So'zni inglizcha yozing. 🔊 tugmasi so'zni o'qib beradi — eshitganingizni yozing.</p>
+        ${qs.map((q, n) => `<section class="card question" data-q="${q.id}"><b>${n + 1}. ${esc(q.prompt)}</b>${q.say ? ` <button class="btn" data-say="${esc(q.say)}">🔊 Tinglash</button>` : ''}${questionHtml(q, r)}<div class="fb"></div></section>`).join('')}
+        <p><button class="btn primary" id="check">Tekshirish</button> <b id="result"></b></p>`;
+    }
     if (!cat) {
       const cards = store.get('cards', {});
+      const best = store.get('vocabTestBest', null);
+      queueMicrotask(() => { $('#vt-go').onclick = () => { location.hash = `#/vocab?mode=test&cat=${encodeURIComponent($('#vt-cat').value)}`; }; });
       return `<h2>🖼️ Vizual lug'at</h2><p class="muted">Mavzuni tanlang. Takrorlash SM-2 algoritmi bo'yicha rejalashtiriladi.</p>
+        <section class="card"><h3>✍️ Yozish testi</h3><p class="muted">10 savol: o'zbekchadan inglizchaga yozish va eshitib yozish.</p>
+          <p><select id="vt-cat" class="select"><option value="__all">Barcha mavzular</option>${categories.map((c) => `<option value="${esc(c)}">${esc(c)}</option>`).join('')}</select>
+          <button class="btn primary" id="vt-go">Boshlash →</button> ${best != null ? `<span class="badge ok">eng yaxshi: ${best}%</span>` : ''}</p></section>
         <div class="grid">${['__all', ...categories].map((c) => {
           const words = c === '__all' ? vocabulary : vocabulary.filter((v) => v.category === c);
           const due = words.filter((w) => !cards[w.id] || cards[w.id].due <= Date.now()).length;

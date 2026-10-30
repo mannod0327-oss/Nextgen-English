@@ -33,6 +33,8 @@ test('vocabulary: unique ids, complete fields, valid CEFR levels', () => {
   }
   assert.ok(vocabulary.length >= 40);
   for (const c of ['Aeroportda', 'Shifokorda', 'Bankda']) assert.equal(vocabulary.filter((v) => v.category === c).length, 20, c);
+  // listening questions in the writing test blank the word inside its example (others fall back to Uzbek → English)
+  assert.ok(vocabulary.filter((v) => v.example.toLowerCase().includes(v.word.toLowerCase())).length >= vocabulary.length * 0.9);
 });
 
 test('grammar: every topic exercise set is a valid exam with unique ids', () => {

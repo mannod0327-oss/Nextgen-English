@@ -64,6 +64,22 @@ await step('vocab: new everyday themes (airport, doctor, bank) are listed and op
   await page.waitForSelector('text=1 / 20');
 });
 
+await step('vocab writing test: pick a theme, write + listen questions, 100% saved as best', async () => {
+  await page.goto(`${base}/#/vocab`);
+  await page.selectOption('#vt-cat', 'Bankda');
+  await page.click('#vt-go');
+  await page.waitForSelector('.question[data-q^="vt-"]');
+  const ids = await page.$$eval('.question[data-q^="vt-"]', (els) => els.map((e) => e.dataset.q));
+  if (ids.length !== 10) throw new Error(`expected 10 questions, got ${ids.length}`);
+  if (!(await page.locator('.question [data-say]').count())) throw new Error('no listening question');
+  for (const id of ids) await page.fill(`[data-q="${id}"] .fill`, id.slice(3).replace(/-/g, ' '));
+  await page.click('#check');
+  if ((await page.textContent('#result')) !== 'Natija: 100%') throw new Error(await page.textContent('#result'));
+  await page.goto(`${base}/#/`);
+  await page.goto(`${base}/#/vocab`);
+  if (!(await page.textContent('.badge.ok')).includes('100%')) throw new Error('best score not shown');
+});
+
 await step('vocab: flip and grade a card persists SRS state', async () => {
   await page.goto(`${base}/#/vocab?cat=Ovqat`);
   await page.waitForSelector('#flip');
@@ -399,7 +415,7 @@ await step('creator: add question, validate, simulate', async () => {
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
+  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);
