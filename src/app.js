@@ -987,7 +987,7 @@ const views = {
         ${bests[t.id] != null ? `<span class="badge ok">eng yaxshi: ${bests[t.id]}%</span>` : ''}</p>
       ${(set ? [set] : sets).filter((x) => x.rules).map((x) => `<details class="card"><summary><b>📋 Qoidalar: ${esc(x.title)}</b></summary>
         <table class="tbl"><tbody>${x.rules.map(([w, rule, ex]) => `<tr><td><b>${esc(w)}</b></td><td>${esc(rule)}</td><td class="muted">${esc(ex)}</td></tr>`).join('')}</tbody></table></details>`).join('')}
-      ${qs.map((q, n) => `<section class="card question" data-q="${q.id}"><b>${n + 1}. ${esc(q.prompt)}</b>${questionHtml(q, r)}<div class="fb"></div></section>`).join('')}
+      ${qs.map((q, n) => `<section class="card question" data-q="${q.id}"><b>${n + 1}. ${esc(q.prompt)}</b>${q.say ? ` <button class="btn" data-say="${esc(q.say)}">🔊</button>` : ''}${questionHtml(q, r)}<div class="fb"></div></section>`).join('')}
       <p><button class="btn primary" id="check">Tekshirish</button> <a class="btn" href="${link(`${set ? `&set=${set.id}` : ''}&r=${Date.now()}`)}">🔄 Yangi 10 ta</a> <b id="result"></b></p>`;
   },
 

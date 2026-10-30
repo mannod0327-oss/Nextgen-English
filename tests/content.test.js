@@ -234,14 +234,16 @@ test('drill centre: every trainer valid, Uzbek explanations; gap trainers have e
   assert.ok(drillItems.length >= 60);
   assert.deepEqual(validateExam(asExam('drill', drillItems)), []);
   for (const q of drillItems) {
-    if (q.trainer !== 'spelling') assert.equal(q.prompt.split('___').length, 2, `${q.id}: exactly one gap`);
+    if (!['spelling', 'stress'].includes(q.trainer)) assert.equal(q.prompt.split('___').length, 2, `${q.id}: exactly one gap`);
     assert.ok(q.answer >= 0 && q.explanation, q.id);
   }
   for (const set of drillSets.filter((x) => x.trainer === 'articles')) assert.ok(set.items.length >= 25 && set.rules.length >= 3, set.id);
   const sp = drillItems.filter((q) => q.trainer === 'spelling');
   assert.ok(sp.every((q) => new Set(q.options).size === 3 && q.options.filter((o) => o.toLowerCase() === q.options[q.answer].toLowerCase()).length === 1), 'spelling: 3 distinct options');
   assert.ok(new Set(sp.map((q) => q.answer)).size === 3, 'spelling: correct answer is not always in the same position');
-  for (const t of trainers) {
+  const st = drillItems.filter((q) => q.trainer === 'stress');
+  assert.ok(st.length >= 40 && st.every((q) => new Set(q.options).size === q.options.length && q.say === q.options.join('')), 'stress: unique syllables, spoken word');
+  for (const t of trainers.filter((x) => x.id !== 'stress')) {
     const pos = drillItems.filter((q) => q.trainer === t.id).map((q) => q.answer);
     assert.ok(Math.max(...[0, 1, 2, 3].map((i) => pos.filter((a) => a === i).length)) <= pos.length * 0.6, `${t.id}: correct answer position too predictable`);
   }
