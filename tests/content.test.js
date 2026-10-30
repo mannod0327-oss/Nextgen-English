@@ -242,7 +242,7 @@ test('drill centre: every trainer valid, Uzbek explanations; gap trainers have e
   assert.ok(drillItems.length >= 60);
   assert.deepEqual(validateExam(asExam('drill', drillItems)), []);
   for (const q of drillItems) {
-    if (['articles', 'linkers', 'task1', 'forms'].includes(q.trainer)) assert.equal(q.prompt.split('___').length, 2, `${q.id}: exactly one gap`);
+    if (['articles', 'linkers', 'task1', 'forms', 'deps'].includes(q.trainer)) assert.equal(q.prompt.split('___').length, 2, `${q.id}: exactly one gap`);
     assert.ok(q.answer >= 0 && q.explanation, q.id);
   }
   for (const set of drillSets.filter((x) => x.trainer === 'articles')) assert.ok(set.items.length >= 25 && set.rules.length >= 3, set.id);

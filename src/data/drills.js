@@ -9,6 +9,7 @@ import { stressSets } from './stress.js';
 import { task1Sets } from './task1.js';
 import { synonymSets } from './synonyms.js';
 import { formSets } from './forms.js';
+import { depSets } from './deps.js';
 
 export const trainers = [
   { id: 'articles', icon: '🅰️', title: 'Artikl va predloglar', desc: 'a / an / the va in / on / at',
@@ -32,6 +33,9 @@ export const trainers = [
   { id: 'forms', icon: '🧬', title: "So'z yasalishi", desc: 'economy → economic / economical / economically',
     intro: "Bo'sh joyga qaysi so'z turkumi kerakligini gapdan aniqlang: artikldan keyin ot, fe'ldan keyin ravish, be/become dan keyin sifat. IELTS gap-fill va Writing'da muhim.",
     sets: formSets },
+  { id: 'deps', icon: '🧷', title: "Predlogli fe'l va sifatlar", desc: 'depend on, interested in, good at, lead to…',
+    intro: "O'zbek tilida -ga, -dan, -da qo'shimchalari bor; inglizchada esa har fe'l/sifatning o'z predlogi bor va uni birga yodlash kerak: depend ON, interested IN.",
+    sets: depSets },
 ];
 
 export const drillSets = trainers.flatMap((t) => t.sets.map((s) => ({ ...s, trainer: t.id })));
