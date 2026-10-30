@@ -6,7 +6,7 @@ import { createPlacement, nextQuestion, answerPlacement, placementResult, LEVELS
 import { renderPrintable, esc } from './core/printable.js';
 import { createStore } from './core/store.js';
 import { dailyPlan, wordOfDay, goalStatus, XP_GOALS } from './core/plan.js';
-import { linePoints, lastDays } from './core/chart.js';
+import { linePoints, lastDays, chartSvg } from './core/chart.js';
 import { buildSearchIndex, search } from './core/search.js';
 import { checkWriting } from './core/writing-check.js';
 import { badges } from './core/badges.js';
@@ -770,7 +770,8 @@ const views = {
       });
       return `<a href="#/ielts">← IELTS</a><h2>Writing ${w.type ? esc(w.type) : `Task ${w.task}`} <span class="badge">${w.minutes} daqiqa · ${w.minWords}+ so'z</span></h2>
         <section class="card"><p><b>${esc(w.prompt)}</b></p>
-        ${w.table ? `<table class="tbl">${w.table.map((row, i) => `<tr>${row.map((c) => (i ? `<td>${esc(c)}</td>` : `<th>${esc(c)}</th>`)).join('')}</tr>`).join('')}</table>` : ''}
+        ${w.chart ? `<figure class="card t1-fig">${chartSvg(w.chart)}</figure>` : ''}
+        ${w.table ? `${w.chart ? '<details><summary>📋 Ma\'lumotlar jadvali</summary>' : ''}<table class="tbl">${w.table.map((row, i) => `<tr>${row.map((c) => (i ? `<td>${esc(c)}</td>` : `<th>${esc(c)}</th>`)).join('')}</tr>`).join('')}</table>${w.chart ? '</details>' : ''}` : ''}
         ${w.steps ? `<ol class="steps">${w.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ol>` : ''}</section>
         <p><button class="btn" id="timer-start">⏱ Taymerni boshlash</button> <b id="timer">${mmss(w.minutes * 60)}</b> <span id="wc" class="badge"></span></p>
         <textarea id="essay" rows="14" class="essay" aria-label="Javobingiz" placeholder="Javobingizni shu yerga yozing… (avtomatik saqlanadi)">${esc(drafts[w.id] ?? '')}</textarea>

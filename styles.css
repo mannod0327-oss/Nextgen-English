@@ -178,3 +178,12 @@ select.select { max-width: 100%; padding: .5rem .6rem; border-radius: 10px; bord
   .print-list tr { break-inside: avoid; }
   .badge { border: 1px solid #999; background: none; color: #000; }
 }
+/* IELTS Task 1 charts (core/chart.js chartSvg) */
+.t1-fig { margin: 0 0 1rem; padding: .75rem; }
+.t1-chart { width: 100%; max-width: 560px; height: auto; display: block; margin: 0 auto; }
+.t1-chart .grid-line { stroke: var(--line); }
+.t1-chart .axis { font-size: 10px; fill: var(--muted); }
+.t1-chart .s0 { fill: #3b5bdb; stroke: #3b5bdb; } .t1-chart .s1 { fill: #e8590c; stroke: #e8590c; }
+.t1-chart .s2 { fill: #2f9e44; stroke: #2f9e44; } .t1-chart .s3 { fill: #ae3ec9; stroke: #ae3ec9; }
+.t1-chart rect.s0, .t1-chart rect.s1, .t1-chart rect.s2, .t1-chart rect.s3 { stroke: none; }
+.t1-chart .line { fill: none; stroke-width: 2; }

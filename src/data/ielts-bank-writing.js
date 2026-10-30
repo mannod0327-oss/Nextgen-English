@@ -2,6 +2,12 @@
 // Task 1 items carry a data table; 30 tasks also carry a Band 7 `model` (see `models` at the end).
 
 const t1 = (id, prompt, table, plan) => ({ id: `bw1-${id}`, task: 1, minutes: 20, minWords: 150, type: 'Task 1 · Table', prompt: `${prompt} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.`, table, plan });
+// Chart tasks: `chart` is drawn as SVG (core/chart.js chartSvg); `table` is derived from it for the data view and the number checks.
+const t1c = (id, kind, prompt, labels, series, unit, plan) => ({
+  ...t1(id, prompt, [['', ...labels], ...series.map(([name, ...values]) => [name, ...values.map((v) => `${v}${unit === '%' ? '%' : ''}`)])], plan),
+  type: `Task 1 · ${kind === 'bar' ? 'Bar chart' : 'Line graph'}`,
+  chart: { type: kind, labels, series: series.map(([name, ...values]) => ({ name, values })), unit },
+});
 const t2 = (id, type, prompt, plan) => ({ id: `bw2-${id}`, task: 2, minutes: 40, minWords: 250, type: `Task 2 · ${type}`, prompt, plan });
 
 const OPINION = 'To what extent do you agree or disagree?';
@@ -72,6 +78,25 @@ export const writingBank = [
     [['Age', 'Men', 'Women'], ['18–29', '58%', '49%'], ['30–44', '41%', '44%'], ['45–59', '33%', '38%'], ['60+', '22%', '30%']],
     ['Overview: exercise declines with age; women overtake men after 30.', 'Biggest gender gap: 18–29.', 'Lowest: men 60+.']),
 
+  // ---- Task 1 (line graphs and bar charts)
+  t1c('internet-access', 'line', 'The graph shows the percentage of urban and rural households with internet access in a country between 2000 and 2025.',
+    ['2000', '2005', '2010', '2015', '2020', '2025'], [['Urban', 12, 30, 55, 78, 90, 96], ['Rural', 2, 8, 20, 41, 65, 82]], '%',
+    ['Overview: both rose steadily; the urban–rural gap first widened, then narrowed.', 'Urban: 12% → 96%.', 'Rural: 2% → 82%; fastest growth after 2010.']),
+  t1c('museum-visits', 'line', 'The graph shows the number of visitors (in thousands) to three museums in a city between 2015 and 2025.',
+    ['2015', '2017', '2019', '2021', '2023', '2025'], [['History', 120, 135, 150, 60, 140, 170], ['Art', 80, 85, 95, 40, 110, 150], ['Science', 50, 70, 90, 35, 95, 130]], '',
+    ['Overview: all three grew, with a sharp dip in 2021 and full recovery by 2025.', 'History museum always most visited.', 'Science museum: biggest relative growth (50 → 130).']),
+  t1c('rainfall', 'line', 'The graph shows the average monthly rainfall (in millimetres) in two cities, X and Y, in selected months of the year.',
+    ['Jan', 'Mar', 'May', 'Jul', 'Sep', 'Nov'], [['City X', 45, 60, 30, 5, 10, 40], ['City Y', 90, 70, 50, 30, 60, 100]], 'mm',
+    ['Overview: Y wetter all year; both driest in July.', 'X: peak 60 mm in March, almost dry in summer.', 'Y: highest 100 mm in November.']),
+  t1c('transport-mode', 'bar', 'The chart shows how students travelled to a university in 2015 and 2025.',
+    ['Bus', 'Metro', 'Car', 'Bicycle', 'Walking'], [['2015', 40, 15, 25, 5, 15], ['2025', 28, 30, 20, 12, 10]], '%',
+    ['Overview: the bus lost its lead to the metro, which doubled (15% → 30%).', 'Bicycle more than doubled.', 'Car and walking fell slightly.']),
+  t1c('reading-formats', 'bar', 'The chart shows the average number of hours per week that people in different age groups spent reading printed and digital texts.',
+    ['18–24', '25–44', '45–64', '65+'], [['Printed', 1.5, 2.0, 3.5, 5.0], ['Digital', 4.5, 3.5, 2.0, 0.5]], 'h',
+    ['Overview: printed reading rises with age, digital falls — opposite trends.', 'Youngest: digital three times printed.', '65+: printed ten times digital.']),
+  t1c('household-waste', 'bar', 'The chart shows the amount of household waste per person (kg per year) that was recycled or sent to landfill in four countries.',
+    ['Country A', 'Country B', 'Country C', 'Country D'], [['Recycled', 180, 90, 250, 60], ['Landfill', 220, 380, 150, 410]], 'kg',
+    ['Overview: only C recycled more than it sent to landfill.', 'D: highest landfill, lowest recycling.', 'Total waste per person similar (400–470 kg).']),
   // ---- Task 2
   t2('online-learning', 'Opinion', `Online learning will soon replace traditional classroom teaching. ${OPINION}`, ['Agree partly: flexibility, cost, access in rural areas.', 'Disagree: social skills, discipline, practical subjects.', 'Conclusion: blended learning.']),
   t2('homework', 'Opinion', `Homework should be banned in primary schools. ${OPINION}`, ['For: play time, family time, stress.', 'Against: habit of study, practice.', 'Your view: limited, short homework.']),

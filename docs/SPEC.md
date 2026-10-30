@@ -73,6 +73,26 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 60  | **B1 tinglash +3 va A2 +2**                                              |                                                                                        | 5 ta tinglash × 5 savol                                                                                                                                                                                   | ✅    |
 | 61  | **Lug'at +60** (ta'lim tizimi, fan va tadqiqot, san'at va madaniyat)     | IELTS Task 2 mavzulari                                                                 | 3 × 20 so'z                                                                                                                                                                                               | ✅    |
 | 62  | **Mock Test 8**                                                          |                                                                                        | 40+40 original savol                                                                                                                                                                                      | ✅    |
+| 63 | **Task 1: chiziqli va ustunli grafiklar (SVG)** | Task 1 bankida faqat jadvallar bor, imtihonda esa grafiklar ko'p | Ma'lumotdan SVG grafik chizuvchi pure modul (unit test) + 3 line + 3 bar topshiriq; mobil kenglikda sig'adi | ✅ |
+| 64 | **Grafik topshiriqlariga Band 7 namunalar** |  | 6 ta namuna (≥150 so'z), raqamlar ma'lumot bilan avtomatik mos | ⬜ |
+| 65 | **So'z yasalishi trenajyori** | economy/economic/economical — IELTS'da ko'p xato | `#/drill?t=forms`: 42 ta gap, o'zbekcha izoh | ⬜ |
+| 66 | **Predlogli fe'l/sifatlar trenajyori** | depend on, interested in, good at… | `#/drill?t=deps`: 42 ta gap | ⬜ |
+| 67 | **Grammatika +4** (past perfect, present perfect continuous, wish/if only, some/any/much/many) | Muhim B1–B2/A2 mavzular yo'q | 4 mavzu × ≥5 mashq, jadval va o'zbekcha izoh | ⬜ |
+| 68 | **B2 va C1 tinglash +4** | C1 tinglash atigi 4 ta | 2 × B2, 2 × C1 (har biri 5 savol) | ⬜ |
+| 69 | **B2 va C1 o'qish +4** |  | 4 matn × 5 savol, mavzular takrorlanmaydi | ⬜ |
+| 70 | **Speaking Part 3 namunalari** | Part 3 ga qanday chuqur javob berish ko'rinmaydi | 10 to'plamda Part 3 namunaviy javoblari (har biri ≥60 so'z), 🔊 | ⬜ |
+| 71 | **Writing Task 2 namunalari +6** | 40 tadan 18 tasida namuna | 6 ta yangi Band 7 (≥250 so'z), writing-check xatosiz | ⬜ |
+| 72 | **Lug'at +60** (davlat va jamiyat, sog'lom turmush, koinot va texnologiya) | IELTS Task 2 mavzulari | 3 × 20 so'z, definitions qayta qurish | ⬜ |
+| 73 | **O'qish tezligi (WPM)** | IELTS Reading vaqtga bog'liq | Matnni o'qish vaqti → so'z/daqiqa, progressda tarix; unit test | ⬜ |
+| 74 | **Xatolarni takrorlash navbati** | Xatolar daftari faqat ro'yxat | Kunlik 10 ta xatoni qayta ishlash rejimi (eng eskilari birinchi); unit test + E2E | ⬜ |
+| 75 | **Task 1: jarayon diagrammasi** | Process tasvirlash — passive va ketma-ketlik | 2 topshiriq (bosqichlar sxemasi SVG/HTML) + namunalar | ⬜ |
+| 76 | **Idiomalar va kollokatsiyalar +30** |  | 30 ta yangi element, test rejimida ishlaydi | ⬜ |
+| 77 | **Mock Test 9** |  | 40+40 original savol | ⬜ |
+| 78 | **Writing tekshiruvi: so'z boyligi** | Lexical resource'ni ko'rsatish | Leksik xilma-xillik (TTR), akademik so'zlar ulushi; unit test | ⬜ |
+| 79 | **Shadowing mashqi** | Ravon nutq: IELTS Part 1 javoblarini takrorlash | 10 ta namunaviy javob, 🔊 → yozib olish → solishtirish; E2E | ⬜ |
+| 80 | **Progressni CSV eksport** | O'qituvchiga natijalarni yuborish | Xatolar, testlar, so'zlar holati CSV; unit test | ⬜ |
+| 81 | **A1 boshlang'ich +4** | Boshlovchilar uchun kontent kam | 2 ta A1 grammatika + 2 ta A1 o'qish | ⬜ |
+| 82 | **Mock Test 10** |  | 40+40 original savol | ⬜ |
 
 ## Iteratsiyalar jurnali
 
@@ -154,3 +174,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **60-iteratsiya** — Tinglash +5: A2 — avtovokzal e'lonlari, telefondagi xabar; B1 — universitet kutubxonasi, pazandachilik darsi, yarim kunlik ish qo'ng'irog'i (5×5 savol); jami 26 tinglash, A2/B1 soni testlanadi; v=75.
 - **61-iteratsiya** — Lug'at +60: "Ta'lim tizimi", "Fan va tadqiqot", "San'at va madaniyat" (har biri 20 so'z, IPA, o'zbekcha, misol) — 519 so'z / 39 mavzu; definitions.js qayta qurildi (3309 so'z, OEWN); v=76.
 - **62-iteratsiya** — Mock 8: Listening (talabalar turar joyi, botanika bog'i, tog' qishlog'ida dala tadqiqoti, qushlar yo'l topishi ma'ruzasi) + Reading (choy tarixi va odobi, shovqinning yashirin narxi, vulqonlar va iqlim); 80 savol, MCQ javob o'rinlari aylantirildi (harfli variantlar tartibda); v=77. Batch 5 (43–62) yakunlandi.
+- **63-iteratsiya** — Batch 6 (63–82) SPEC'ga yozildi. Task 1 grafiklari: chart.js ga niceMax + chartSvg (line/bar, legend, <title>, role=img, escaping) + unit test; bankda 3 line (internet, muzeylar, yog'ingarchilik) + 3 bar (transport, o'qish formati, chiqindi) topshiriq, jadval <details> ichida; mobil yo'nalishlar; v=78.

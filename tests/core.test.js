@@ -8,7 +8,7 @@ import { createPlacement, nextQuestion, answerPlacement, placementResult } from 
 import { renderPrintable, answerKey } from '../src/core/printable.js';
 import { createStore } from '../src/core/store.js';
 import { dailyPlan, wordOfDay, goalStatus } from '../src/core/plan.js';
-import { linePoints, lastDays } from '../src/core/chart.js';
+import { linePoints, lastDays, niceMax, chartSvg } from '../src/core/chart.js';
 import { buildSearchIndex, search, norm } from '../src/core/search.js';
 import { sampleExam } from '../src/data/sample-exam.js';
 import { placementQuestions } from '../src/data/placement.js';
@@ -290,4 +290,15 @@ test('first render loads no IELTS mocks/banks/guides and stays under 600 KB of J
   for (const lazy of ['ielts-mock', 'ielts-guides', 'ielts-bank-', 'definitions']) assert.ok(!files.some((f) => f.includes(lazy)), `${lazy} is on the first-render path`);
   const kb = [...g.values()].reduce((a, b) => a + b, 0) / 1024;
   assert.ok(kb < 600, `${kb.toFixed(0)} KB`);
+});
+
+test('niceMax and chartSvg: nice axis, one mark per value, legend, escaped labels', () => {
+  assert.deepEqual([niceMax(42), niceMax(55), niceMax(9.8), niceMax(1400), niceMax(0)], [50, 60, 10, 1500, 1]);
+  const bar = chartSvg({ type: 'bar', labels: ['2010', '2020'], series: [{ name: 'Men', values: [10, 20] }, { name: 'Women & girls', values: [15, 25] }], unit: '%' });
+  assert.equal((bar.match(/<rect [^>]*><title>/g) ?? []).length, 4, "one bar per value (legend squares have no title)");
+  assert.ok(bar.includes('Women &amp; girls') && !bar.includes('Women & girls'));
+  assert.ok(bar.startsWith('<svg') && bar.includes('role="img"'));
+  const line = chartSvg({ type: 'line', labels: ['A', 'B', 'C'], series: [{ name: 'X', values: [1, 2, 3] }] });
+  assert.equal((line.match(/<polyline/g) ?? []).length, 1);
+  assert.equal((line.match(/<circle/g) ?? []).length, 3);
 });
