@@ -62,7 +62,7 @@ await step('placement: 12 questions → level shown', async () => {
 
 await step('vocab: new everyday themes (airport, doctor, bank) are listed and open', async () => {
   await page.goto(`${base}/#/vocab`);
-  for (const c of ['Aeroportda', 'Shifokorda', 'Bankda', 'Ekologiya va iqlim', 'Jinoyat va qonun', 'Media va reklama']) await page.waitForSelector(`a[href="#/vocab?cat=${encodeURIComponent(c)}"]`);
+  for (const c of ['Aeroportda', 'Shifokorda', 'Bankda', 'Ekologiya va iqlim', 'Jinoyat va qonun', 'Media va reklama', 'Turizm', 'Iqtisodiyot', 'Shahar va uy-joy']) await page.waitForSelector(`a[href="#/vocab?cat=${encodeURIComponent(c)}"]`);
   await page.goto(`${base}/#/vocab?cat=Bankda`);
   await page.waitForSelector('text=1 / 20');
 });
