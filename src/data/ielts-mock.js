@@ -1055,4 +1055,209 @@ Whether trolleybuses make a widespread return will depend on local conditions: t
       },
     ],
   },
+
+  'listening-6': {
+    kind: 'listening', title: 'IELTS Listening — Mock Test 6', minutes: 30,
+    sections: [
+      {
+        title: 'Part 1 · Enrolling in an evening language course',
+        intro: 'You will hear a woman phoning a language school. Questions 1–10.',
+        script: `Receptionist: Good evening, Global Language Centre.
+Caller: Hello. I'd like to enrol in one of your evening courses, please. I'm interested in Korean.
+Receptionist: Certainly. We have a beginners' course on Tuesdays and Fridays from half past six to eight.
+Caller: That's perfect. How long does the course last?
+Receptionist: Twelve weeks. It starts on the third of October.
+Caller: And what's the fee?
+Receptionist: It's one hundred and eighty dollars, and that includes the textbook. There's a ten per cent discount if you pay for the whole course in advance.
+Caller: Great, I'll pay in advance. How many students are in a class?
+Receptionist: The maximum is fourteen.
+Caller: Do I need to take a test first?
+Receptionist: Not for beginners. Can I take your name?
+Caller: Yes, it's Shahnoza Mirzayeva. M-I-R-Z-A-Y-E-V-A.
+Receptionist: And a contact number?
+Caller: Oh nine three, five five two, one seven eight eight.
+Receptionist: Thank you. The classes are in room twenty-one, on the third floor. Please bring a notebook and arrive ten minutes early on the first day to collect your student card.`,
+        questions: [
+          { id: 'n6l1', type: 'fill', prompt: '1. Language: ___', answer: 'Korean' },
+          { id: 'n6l2', type: 'fill', prompt: '2. Days: Tuesdays and ___', answer: 'Fridays' },
+          { id: 'n6l3', type: 'fill', prompt: '3. Length of course: ___ weeks', answer: ['12', 'twelve'] },
+          { id: 'n6l4', type: 'fill', prompt: '4. Start date: the ___ of October', answer: ['third', '3rd', '3'] },
+          { id: 'n6l5', type: 'fill', prompt: '5. Fee: $___', answer: ['180', 'one hundred and eighty'] },
+          { id: 'n6l6', type: 'single', prompt: '6. The fee includes …', options: ['a dictionary', 'the textbook', 'a test', 'parking'], answer: 1 },
+          { id: 'n6l7', type: 'fill', prompt: '7. Discount for paying in advance: ___ %', answer: ['10', 'ten'] },
+          { id: 'n6l8', type: 'fill', prompt: '8. Maximum class size: ___', answer: ['14', 'fourteen'] },
+          { id: 'n6l9', type: 'fill', prompt: '9. Surname: ___', answer: 'Mirzayeva' },
+          { id: 'n6l10', type: 'fill', prompt: '10. On the first day, collect your student ___.', answer: 'card' },
+        ],
+      },
+      {
+        title: 'Part 2 · Volunteering at a nature reserve',
+        intro: 'You will hear a coordinator talking to new volunteers. Questions 11–20.',
+        script: `Good morning, everyone, and thank you for volunteering at the Zarafshan Nature Reserve. I'm Akmal, the volunteer coordinator.
+Let me explain how the week will work. On Monday and Tuesday you'll be helping with tree planting along the river. We plant mainly poplar and willow, because their roots help to stop the riverbanks from washing away.
+On Wednesday, we'll be counting birds. This is part of a national survey, and the data is sent to the Academy of Sciences. You don't need any experience — you'll each be paired with a member of staff, and we'll provide binoculars.
+Thursday is maintenance day. We'll be repairing the wooden walkways and replacing information signs that were damaged by floods in the spring.
+On Friday, you'll help with our education programme, when two groups of schoolchildren visit. You'll lead small groups along the nature trail.
+A few rules: please never feed the animals, stay on the marked paths, and take all your rubbish home with you. Lunch is provided every day at one o'clock in the visitor centre, but please bring your own water bottle — we have a refill point but no plastic bottles for sale. Finally, if you see a Bukhara deer, which is quite rare, please write the time and place in the logbook at reception.`,
+        questions: [
+          { id: 'n6l11', type: 'single', prompt: '11. Akmal’s job is …', options: ['park ranger', 'volunteer coordinator', 'scientist', 'teacher'], answer: 1 },
+          { id: 'n6l12', type: 'single', prompt: '12. Poplar and willow are planted because …', options: ['they grow fast', 'their roots protect the riverbanks', 'birds like them', 'they are cheap'], answer: 1 },
+          { id: 'n6l13', type: 'fill', prompt: '13. Bird data is sent to the Academy of ___.', answer: 'Sciences' },
+          { id: 'n6l14', type: 'single', prompt: '14. For bird counting, volunteers …', options: ['need experience', 'work alone', 'are paired with staff', 'bring binoculars'], answer: 2 },
+          { id: 'n6l15', type: 'fill', prompt: '15. Thursday: repairing wooden ___.', answer: ['walkways', 'walkway'] },
+          { id: 'n6l16', type: 'single', prompt: '16. The signs were damaged by …', options: ['fire', 'floods', 'visitors', 'snow'], answer: 1 },
+          { id: 'n6l17', type: 'single', prompt: '17. On Friday volunteers will …', options: ['plant trees', 'lead schoolchildren on the trail', 'count birds', 'clean the river'], answer: 1 },
+          { id: 'n6l18', type: 'fill', prompt: '18. Lunch is at ___ o’clock.', answer: ['1', 'one'] },
+          { id: 'n6l19', type: 'single', prompt: '19. Volunteers should bring …', options: ['lunch', 'a water bottle', 'plastic bottles', 'binoculars'], answer: 1 },
+          { id: 'n6l20', type: 'fill', prompt: '20. Record Bukhara deer sightings in the ___ at reception.', answer: 'logbook' },
+        ],
+      },
+      {
+        title: 'Part 3 · Discussing a business case study',
+        intro: 'You will hear two students, Rustam and Ellie, discussing a case study with their lecturer. Questions 21–30.',
+        script: `Lecturer: So, which company did you choose for your case study?
+Ellie: A small bakery chain in Tashkent that started as one shop eight years ago and now has eleven branches.
+Lecturer: Interesting. What's the main question you're investigating?
+Rustam: Why it grew so quickly when many similar businesses failed.
+Lecturer: And what have you found so far?
+Ellie: The founder told us the key was consistency — every branch uses exactly the same recipes, and staff train for three weeks before they start.
+Rustam: But I think location was just as important. Almost all the branches are next to metro stations.
+Lecturer: Good — two possible explanations. How will you decide between them?
+Ellie: We're planning to compare sales from branches near metro stations with the two that aren't.
+Lecturer: That's a sensible approach. What about weaknesses?
+Rustam: Their biggest problem is staff turnover. Many young employees leave after a few months for better-paid jobs.
+Lecturer: Do they have a solution?
+Ellie: They've just introduced a bonus system, but it's too early to know if it's working.
+Lecturer: Then mention that as an area for further research. Make sure your report includes a SWOT analysis, and keep it under three thousand words. It's due at the end of next month.`,
+        questions: [
+          { id: 'n6l21', type: 'fill', prompt: '21. The bakery chain now has ___ branches.', answer: ['11', 'eleven'] },
+          { id: 'n6l22', type: 'single', prompt: '22. The students want to find out why the company …', options: ['closed shops', 'grew so quickly', 'changed its recipes', 'moved to Samarkand'], answer: 1 },
+          { id: 'n6l23', type: 'single', prompt: '23. According to the founder, the key to success was …', options: ['low prices', 'consistency', 'advertising', 'delivery'], answer: 1 },
+          { id: 'n6l24', type: 'fill', prompt: '24. New staff train for ___ weeks.', answer: ['3', 'three'] },
+          { id: 'n6l25', type: 'single', prompt: '25. Rustam believes success was also due to …', options: ['location near metro stations', 'online sales', 'cheap rent', 'famous chefs'], answer: 0 },
+          { id: 'n6l26', type: 'single', prompt: '26. How will they test the two explanations?', options: ['interview customers', 'compare sales of branches near and far from metro stations', 'ask the lecturer', 'visit other countries'], answer: 1 },
+          { id: 'n6l27', type: 'fill', prompt: '27. The company’s biggest problem is staff ___.', answer: 'turnover' },
+          { id: 'n6l28', type: 'single', prompt: '28. The new solution is …', options: ['higher prices', 'a bonus system', 'fewer branches', 'longer training'], answer: 1 },
+          { id: 'n6l29', type: 'fill', prompt: '29. The report must include a ___ analysis.', answer: 'SWOT' },
+          { id: 'n6l30', type: 'fill', prompt: '30. Maximum length: ___ words', answer: ['3000', 'three thousand', '3,000'] },
+        ],
+      },
+      {
+        title: 'Part 4 · Lecture: How bees communicate',
+        intro: 'You will hear part of a biology lecture. Questions 31–40.',
+        script: `Today I'd like to look at one of the most remarkable communication systems in the animal world: the dance of the honeybee.
+In the 1940s, the Austrian scientist Karl von Frisch discovered that a forager bee returning to the hive can tell other bees exactly where to find food. He later received the Nobel Prize for this work.
+If the food is close to the hive — less than about fifty metres away — the bee performs a "round dance", moving quickly in small circles. This tells the others that food is nearby, but not its exact direction; they find it mainly by smell.
+For more distant food, the bee performs the "waggle dance". It walks in a straight line while shaking its body from side to side, then circles back and repeats. The angle of the straight run in relation to vertical shows the direction of the food relative to the sun. And the length of the waggle run indicates the distance: the longer the waggle, the further away the food.
+What's especially impressive is that bees adjust for the movement of the sun during the day, so the direction they communicate stays accurate.
+Bees also use chemical signals called pheromones. For example, when a bee stings, it releases an alarm pheromone that smells a little like bananas, which warns other bees and encourages them to attack.
+Understanding bee communication has practical value. Bees pollinate about a third of the crops we eat, and their numbers have declined in many regions because of pesticides, disease and loss of habitat. Researchers now use dance information to discover which plants bees prefer, helping farmers to plant flowers that support healthy colonies.`,
+        questions: [
+          { id: 'n6l31', type: 'fill', prompt: '31. Von Frisch was from ___.', answer: 'Austria' },
+          { id: 'n6l32', type: 'fill', prompt: '32. He later received the ___ Prize.', answer: 'Nobel' },
+          { id: 'n6l33', type: 'fill', prompt: '33. A round dance means food is less than about ___ metres away.', answer: ['50', 'fifty'] },
+          { id: 'n6l34', type: 'single', prompt: '34. After a round dance, bees find the food mainly by …', options: ['sight', 'smell', 'sound', 'temperature'], answer: 1 },
+          { id: 'n6l35', type: 'single', prompt: '35. The angle of the waggle run shows the food’s direction relative to …', options: ['the hive door', 'the sun', 'the wind', 'the queen'], answer: 1 },
+          { id: 'n6l36', type: 'single', prompt: '36. A longer waggle run means the food is …', options: ['sweeter', 'closer', 'further away', 'in a tree'], answer: 2 },
+          { id: 'n6l37', type: 'fill', prompt: '37. Chemical signals are called ___.', answer: ['pheromones', 'pheromone'] },
+          { id: 'n6l38', type: 'fill', prompt: '38. The alarm pheromone smells a little like ___.', answer: ['bananas', 'banana'] },
+          { id: 'n6l39', type: 'single', prompt: '39. Bees pollinate about … of the crops we eat.', options: ['a tenth', 'a quarter', 'a third', 'half'], answer: 2 },
+          { id: 'n6l40', type: 'fill', prompt: '40. Bee numbers have declined because of pesticides, disease and loss of ___.', answer: 'habitat' },
+        ],
+      },
+    ],
+  },
+
+  'reading-6': {
+    kind: 'reading', title: 'IELTS Academic Reading — Mock Test 6', minutes: 60,
+    sections: [
+      {
+        title: 'Passage 1 · Suzani: Stories in Thread',
+        intro: 'Questions 1–13. You should spend about 20 minutes on this passage.',
+        text: `Suzani are large embroidered textiles that have been made in Uzbekistan, Tajikistan and neighbouring regions for centuries. The name comes from the Persian word for "needle". Traditionally, they were part of a bride's dowry: a girl's mother and female relatives would begin stitching them when she was still a child, so that several would be ready by the time she married.
+
+A suzani is usually made from strips of cotton cloth, which are embroidered separately by different women and then sewn together. This is why the pattern on one strip sometimes does not match its neighbour perfectly. The most common designs include large circles representing the sun or moon, flowers, pomegranates — a symbol of fertility — and chili peppers, which were believed to protect against evil.
+
+Each region developed its own style. Suzani from Bukhara often have delicate floral patterns on a light background, while those from Samarkand are known for bold, dark red circles. Nurata embroideries frequently feature a single large central star surrounded by flowers.
+
+Originally, the threads were coloured with natural dyes: madder root for red, indigo for blue and pomegranate skin or saffron for yellow. In the twentieth century, cheaper synthetic dyes became common, and machine-made imitations appeared in tourist markets.
+
+Today, there is renewed interest in traditional techniques. Workshops in Bukhara and Samarkand train young women in hand embroidery, and antique suzani are now sold to collectors and museums around the world for high prices.`,
+        questions: [
+          { id: 'n6r1', type: 'single', prompt: '1. The word suzani comes from the Persian word for "needle".', options: tfng, answer: 0 },
+          { id: 'n6r2', type: 'single', prompt: '2. Suzani were traditionally given to the groom’s family as payment.', options: tfng, answer: 1 },
+          { id: 'n6r3', type: 'single', prompt: '3. Different strips of one suzani were often embroidered by different women.', options: tfng, answer: 0 },
+          { id: 'n6r4', type: 'single', prompt: '4. Bukhara suzani usually have dark backgrounds.', options: tfng, answer: 1 },
+          { id: 'n6r5', type: 'single', prompt: '5. Nurata embroideries are the most expensive.', options: tfng, answer: 2 },
+          { id: 'n6r6', type: 'single', prompt: '6. Synthetic dyes became common in the twentieth century.', options: tfng, answer: 0 },
+          { id: 'n6r7', type: 'single', prompt: '7. Antique suzani are now sold only in Uzbekistan.', options: tfng, answer: 1 },
+          { id: 'n6r8', type: 'fill', prompt: '8. Suzani are usually made from strips of ___ cloth. (ONE WORD)', answer: 'cotton' },
+          { id: 'n6r9', type: 'fill', prompt: '9. Pomegranates are a symbol of ___. (ONE WORD)', answer: 'fertility' },
+          { id: 'n6r10', type: 'fill', prompt: '10. Chili peppers were believed to protect against ___. (ONE WORD)', answer: 'evil' },
+          { id: 'n6r11', type: 'fill', prompt: '11. Samarkand suzani are known for bold, dark red ___. (ONE WORD)', answer: ['circles', 'circle'] },
+          { id: 'n6r12', type: 'fill', prompt: '12. Red dye came from madder ___. (ONE WORD)', answer: 'root' },
+          { id: 'n6r13', type: 'fill', prompt: '13. Workshops in Bukhara and Samarkand train young women in hand ___. (ONE WORD)', answer: 'embroidery' },
+        ],
+      },
+      {
+        title: 'Passage 2 · Can Cities Be Designed for Happiness?',
+        intro: 'Questions 14–26. You should spend about 20 minutes on this passage.',
+        text: `A. For most of the twentieth century, cities were planned mainly around the needs of cars. Wide roads, separate zones for housing, offices and shopping, and large car parks were seen as signs of modern, efficient design. In recent decades, however, a growing number of planners and psychologists have asked a different question: how does the design of a city affect the well-being of the people who live in it?
+
+B. One of the clearest findings concerns commuting. Surveys in several countries have found that long daily commutes, especially by car in heavy traffic, are associated with lower life satisfaction. Some economists have calculated that a person who commutes for an hour each way would need a considerably higher salary to be as satisfied as someone who lives close to work.
+
+C. Access to nature is another important factor. People living near parks, trees or water tend to report lower stress levels, and hospital patients with a view of trees have been found to recover slightly faster than those facing a brick wall. Even small green spaces, such as pocket parks, appear to have measurable benefits.
+
+D. Social connection matters too. Streets with front gardens, benches and small shops encourage brief, informal encounters between neighbours, which research links with a stronger sense of belonging. By contrast, high-speed roads tend to divide communities: one well-known study found that residents of streets with heavy traffic had far fewer friends among their neighbours than residents of quiet streets.
+
+E. Critics caution that happiness is influenced by many factors, such as income, health and relationships, and that design alone cannot solve deep social problems. They also note that improvements can raise property prices, pushing out the very residents they were meant to help.
+
+F. Nevertheless, many cities are now experimenting with "people-first" design, from car-free streets to tree-planting programmes, and are measuring residents' well-being alongside traditional indicators such as economic growth.`,
+        questions: [
+          { id: 'n6r14', type: 'single', prompt: '14. Which paragraph describes the car-centred planning of the past?', options: ['A', 'B', 'C', 'D'], answer: 0 },
+          { id: 'n6r15', type: 'single', prompt: '15. Which paragraph links green space with lower stress?', options: ['B', 'C', 'D', 'E'], answer: 1 },
+          { id: 'n6r16', type: 'single', prompt: '16. Which paragraph mentions a possible negative side effect of improvements?', options: ['B', 'D', 'E', 'F'], answer: 2 },
+          { id: 'n6r17', type: 'single', prompt: '17. Which paragraph compares streets with heavy and light traffic?', options: ['A', 'C', 'D', 'F'], answer: 2 },
+          { id: 'n6r18', type: 'single', prompt: '18. Long commutes are associated with …', options: ['higher salaries', 'lower life satisfaction', 'better health', 'more friends'], answer: 1 },
+          { id: 'n6r19', type: 'single', prompt: '19. Hospital patients with a view of trees …', options: ['recovered slightly faster', 'needed more medicine', 'left earlier by a week', 'were happier with food'], answer: 0 },
+          { id: 'n6r20', type: 'single', prompt: '20. What do critics say?', options: ['Design has no effect.', 'Design alone cannot solve deep social problems.', 'Parks are too expensive.', 'Cars make people happy.'], answer: 1 },
+          { id: 'n6r21', type: 'single', prompt: '21. Small green spaces seem to have measurable benefits.', options: tfng, answer: 0 },
+          { id: 'n6r22', type: 'single', prompt: '22. Residents of busy streets had more friends among neighbours.', options: tfng, answer: 1 },
+          { id: 'n6r23', type: 'single', prompt: '23. Most cities have stopped building roads.', options: tfng, answer: 2 },
+          { id: 'n6r24', type: 'single', prompt: '24. Improvements can push up property prices.', options: tfng, answer: 0 },
+          { id: 'n6r25', type: 'fill', prompt: '25. Small green spaces are sometimes called ___ parks. (ONE WORD)', answer: 'pocket' },
+          { id: 'n6r26', type: 'fill', prompt: '26. Some cities now measure residents’ well-being alongside economic ___. (ONE WORD)', answer: 'growth' },
+        ],
+      },
+      {
+        title: 'Passage 3 · The Science of Bilingualism',
+        intro: 'Questions 27–40. You should spend about 20 minutes on this passage.',
+        text: `More than half of the world's population uses two or more languages in daily life. In Uzbekistan, for example, many people move easily between Uzbek, Russian and, increasingly, English. Yet for much of the twentieth century, bilingualism was regarded with suspicion in some countries, and parents were sometimes advised to raise children with only one language to avoid confusing them.
+
+Early studies seemed to support this view, finding that bilingual children performed worse on intelligence tests. Later researchers pointed out serious flaws in these studies: many of the bilingual children came from poorer families, and they were often tested in their weaker language. When these factors were controlled, the apparent disadvantage largely disappeared.
+
+From the 1960s onwards, the picture changed dramatically. Studies began to report a "bilingual advantage" in so-called executive functions — mental skills such as ignoring distractions, switching between tasks and holding information in mind. The explanation offered was that bilinguals constantly have both languages active and must suppress the one they are not using, which provides a kind of continuous mental training.
+
+More recently, this claim has itself been challenged. Several large studies have failed to find consistent advantages in executive function, and some researchers argue that earlier positive results were partly due to small sample sizes and the tendency of journals to publish striking findings. The debate remains unresolved, and many scientists now believe that any cognitive advantages are smaller and more dependent on circumstances than once thought.
+
+Other benefits, however, are less controversial. Bilingual people have access to more cultures, literature and job opportunities. There is also some evidence that lifelong bilingualism may delay the appearance of symptoms of dementia by several years, although this too requires further research. What is clear is that learning two languages does not harm children's development, and that the old advice to avoid bilingualism was mistaken.`,
+        questions: [
+          { id: 'n6r27', type: 'single', prompt: '27. In the past, some parents were advised to …', options: ['teach three languages', 'use only one language with children', 'start languages at university', 'avoid English'], answer: 1 },
+          { id: 'n6r28', type: 'single', prompt: '28. What was wrong with early studies?', options: ['They used too many children.', 'Bilingual children were often poorer and tested in their weaker language.', 'They were done in Uzbekistan.', 'They tested only adults.'], answer: 1 },
+          { id: 'n6r29', type: 'single', prompt: '29. The suggested reason for a bilingual advantage is that bilinguals …', options: ['read more books', 'suppress the language they are not using', 'sleep more', 'learn faster at school'], answer: 1 },
+          { id: 'n6r30', type: 'single', prompt: '30. Why may earlier positive results have been misleading?', options: ['small samples and publication of striking findings', 'poor translation', 'government pressure', 'lack of computers'], answer: 0 },
+          { id: 'n6r31', type: 'single', prompt: '31. What does the writer conclude?', options: ['Bilingualism harms children.', 'Bilingualism does not harm development; cognitive benefits are debated.', 'The bilingual advantage is proven.', 'Only children should learn languages.'], answer: 1 },
+          { id: 'n6r32', type: 'single', prompt: '32. More than half of the world’s population uses two or more languages.', options: tfng, answer: 0 },
+          { id: 'n6r33', type: 'single', prompt: '33. Controlling for background removed most of the apparent disadvantage.', options: tfng, answer: 0 },
+          { id: 'n6r34', type: 'single', prompt: '34. All recent large studies confirm the bilingual advantage.', options: tfng, answer: 1 },
+          { id: 'n6r35', type: 'single', prompt: '35. Bilingual children learn to read earlier than monolingual children.', options: tfng, answer: 2 },
+          { id: 'n6r36', type: 'single', prompt: '36. The link between bilingualism and dementia is fully proven.', options: tfng, answer: 1 },
+          { id: 'n6r37', type: 'fill', prompt: '37. Skills like ignoring distractions are called executive ___. (ONE WORD)', answer: ['functions', 'function'] },
+          { id: 'n6r38', type: 'fill', prompt: '38. Bilingualism was once regarded with ___. (ONE WORD)', answer: 'suspicion' },
+          { id: 'n6r39', type: 'fill', prompt: '39. Lifelong bilingualism may delay symptoms of ___. (ONE WORD)', answer: 'dementia' },
+          { id: 'n6r40', type: 'fill', prompt: '40. Bilinguals have access to more cultures, literature and job ___. (ONE WORD)', answer: ['opportunities', 'opportunity'] },
+        ],
+      },
+    ],
+  },
 };
