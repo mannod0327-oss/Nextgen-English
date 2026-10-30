@@ -22,6 +22,8 @@ await step('home renders tiles', async () => {
   await page.goto(base);
   await page.waitForSelector('.tile');
   if ((await page.locator('.tile').count()) !== 14) throw new Error('expected 14 tiles');
+  await page.waitForSelector('.wod [data-say]');
+  if (!(await page.textContent('.wod b')).trim()) throw new Error('word of the day missing');
   await page.screenshot({ path: `${shots}/home.png` });
 });
 

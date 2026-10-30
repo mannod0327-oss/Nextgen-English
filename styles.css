@@ -153,3 +153,4 @@ select.select { max-width: 100%; padding: .5rem .6rem; border-radius: 10px; bord
 .bdg:not(.earned) .ico { filter: grayscale(1); opacity: .45; }
 .bdg.earned { border-color: var(--ok); background: color-mix(in srgb, var(--ok) 10%, transparent); }
 .bdg progress { width: 100%; height: .4rem; accent-color: var(--accent); }
+.wod-word { font-size: 1.25rem; } .wod-word .ico { font-size: 1.6rem; }

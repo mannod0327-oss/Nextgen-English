@@ -33,3 +33,11 @@ export function dailyPlan({ date, level, grammar, texts, activity = [] }) {
       : { key: 'verbs', icon: '🔁', title: "Noto'g'ri fe'llar testi", href: '#/verbs?mode=test', done: activity.includes('verbs') },
   ];
 }
+
+/** "Kun so'zi": one word per date, the same for everyone that day, from the learner's level (or below). */
+export function wordOfDay(date, words, level) {
+  const r = mulberry32(seedOf(`word:${date}`));
+  const lvl = LEVELS.includes(level) ? level : 'A2';
+  const pool = words.filter((w) => LEVELS.indexOf(w.level) <= LEVELS.indexOf(lvl) && LEVELS.indexOf(w.level) >= LEVELS.indexOf(lvl) - 1);
+  return pick(pool.length ? pool : words, r);
+}

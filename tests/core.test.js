@@ -7,7 +7,7 @@ import { validateExam, scoreQuestion, gradeExam, makeVariant, parseExam, seriali
 import { createPlacement, nextQuestion, answerPlacement, placementResult } from '../src/core/placement.js';
 import { renderPrintable, answerKey } from '../src/core/printable.js';
 import { createStore } from '../src/core/store.js';
-import { dailyPlan } from '../src/core/plan.js';
+import { dailyPlan, wordOfDay } from '../src/core/plan.js';
 import { linePoints, lastDays } from '../src/core/chart.js';
 import { buildSearchIndex, search, norm } from '../src/core/search.js';
 import { sampleExam } from '../src/data/sample-exam.js';
@@ -244,4 +244,14 @@ test('search: normalises apostrophes/case, ranks title prefix first, searches bo
   assert.deepEqual(search(idx, 'sumalak').map((e) => e.type), ['c'], 'body text');
   assert.deepEqual(search(idx, 'habits present').map((e) => e.type), ['b'], 'all words must match');
   assert.deepEqual(search(idx, 'x'), [], 'too short');
+});
+
+test('wordOfDay: same word all day, changes across days, matches level band', () => {
+  const words = ['A1', 'A2', 'B1', 'B2', 'C1'].flatMap((level) => Array.from({ length: 20 }, (_, i) => ({ word: `${level}-${i}`, level })));
+  const a = wordOfDay('2026-10-30', words, 'B1');
+  assert.equal(wordOfDay('2026-10-30', words, 'B1'), a);
+  assert.ok(['A2', 'B1'].includes(a.level), 'level or one below');
+  const week = new Set(Array.from({ length: 7 }, (_, i) => wordOfDay(`2026-11-0${i + 1}`, words, 'B1').word));
+  assert.ok(week.size >= 5, 'varies day to day');
+  assert.ok(['A1', 'A2'].includes(wordOfDay('2026-10-30', words, null).level), 'no level → A2 band');
 });

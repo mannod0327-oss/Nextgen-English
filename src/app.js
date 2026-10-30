@@ -5,7 +5,7 @@ import { gradeExam, scoreQuestion, makeVariant, parseExam, serializeExam, valida
 import { createPlacement, nextQuestion, answerPlacement, placementResult, LEVELS } from './core/placement.js';
 import { renderPrintable, esc } from './core/printable.js';
 import { createStore } from './core/store.js';
-import { dailyPlan } from './core/plan.js';
+import { dailyPlan, wordOfDay } from './core/plan.js';
 import { linePoints, lastDays } from './core/chart.js';
 import { buildSearchIndex, search } from './core/search.js';
 import { checkWriting } from './core/writing-check.js';
@@ -284,6 +284,17 @@ const views = {
     ];
     const plan = dailyPlan({ date: today(), level: p.level, grammar, texts: allTexts, activity: store.get('activity', {})[today()] ?? [] });
     const planDone = plan.filter((t) => t.done).length;
+    const wod = wordOfDay(today(), vocabulary, p.level);
+    queueMicrotask(() => import('./data/definitions.js').then(({ definitions }) => {
+      const d = definitions[wod.word.toLowerCase()];
+      const el = $('#wod-def');
+      if (d?.[0] && el) el.textContent = d[0][1];
+    }).catch(() => {}));
+    const wodHtml = `<section class="card wod"><h3>🌟 Kun so'zi</h3>
+      <p class="wod-word"><span class="ico">${wod.emoji}</span> <b>${esc(wod.word)}</b> <span class="muted">${esc(wod.ipa)} · ${esc(wod.pos)} · ${wod.level}</span> <button class="btn" data-say="${esc(wod.word)}">🔊</button></p>
+      <p><b>${esc(wod.uz)}</b> — <i id="wod-def" class="muted"></i></p>
+      <p>${esc(wod.example)} <button class="link" data-say="${esc(wod.example)}">🔊</button></p>
+      <p><a href="#/vocab?cat=${encodeURIComponent(wod.category)}">Mavzu: ${esc(wod.category)} →</a></p></section>`;
     const planHtml = `<section class="card plan"><h3>📅 Bugungi reja <span class="badge ${planDone === plan.length ? 'ok' : ''}">${planDone}/${plan.length}</span></h3>
       ${p.level ? '' : `<p class="muted">Darajangiz aniqlanmagan — reja A1 uchun. <a href="#/placement">Daraja testini topshiring</a>, reja moslashadi.</p>`}
       <div class="list">${plan.map((t) => `<a class="row${t.done ? ' done' : ''}" href="${t.href}"><span class="badge">${t.done ? '✅' : t.icon}</span><span>${esc(t.title)}</span></a>`).join('')}</div>
@@ -294,6 +305,7 @@ const views = {
       <div class="hero-actions">${p.level ? '' : '<a class="btn primary" href="#/placement">Daraja testini boshlash →</a>'}
       <a class="btn" href="grammar-guide/index.html">📚 Grammatika qo'llanmasi (${guideUnits.length} unit)</a></div></section>
       ${planHtml}
+      ${wodHtml}
       <div class="grid">${tiles.map(([href, icon, t, d]) => `<a class="tile" href="${href}"><span class="ico">${icon}</span><b>${t}</b><span class="muted">${d}</span></a>`).join('')}</div>
       <section class="card"><h3>💾 Zaxira nusxa</h3>
         <p class="muted">Progress faqat shu brauzerda saqlanadi. Telefon yoki kompyuter almashtirsangiz, faylni yuklab oling va yangi qurilmada qayta yuklang.</p>
