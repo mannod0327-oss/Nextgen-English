@@ -5,7 +5,7 @@ import { gradeExam, scoreQuestion, makeVariant, parseExam, serializeExam, valida
 import { createPlacement, nextQuestion, answerPlacement, placementResult, LEVELS } from './core/placement.js';
 import { renderPrintable, esc } from './core/printable.js';
 import { createStore } from './core/store.js';
-import { dailyPlan, wordOfDay } from './core/plan.js';
+import { dailyPlan, wordOfDay, goalStatus, XP_GOALS } from './core/plan.js';
 import { linePoints, lastDays } from './core/chart.js';
 import { buildSearchIndex, search } from './core/search.js';
 import { checkWriting } from './core/writing-check.js';
@@ -60,6 +60,8 @@ function addXp(n) {
   const today = new Date().toISOString().slice(0, 10);
   if (!p.days.includes(today)) p.days = [...p.days, today].slice(-60);
   store.set('profile', { ...p, xp: p.xp + n });
+  const xd = store.get('xpDays', {});
+  store.set('xpDays', Object.fromEntries([...Object.entries(xd).filter(([d]) => d !== today).sort().slice(-59), [today, (xd[today] ?? 0) + n]]));
   renderHeader();
 }
 // Best drill scores per trainer; older versions stored one number for the articles trainer.
@@ -296,6 +298,16 @@ const views = {
       <p><b>${esc(wod.uz)}</b> — <i id="wod-def" class="muted"></i></p>
       <p>${esc(wod.example)} <button class="link" data-say="${esc(wod.example)}">🔊</button></p>
       <p><a href="#/vocab?cat=${encodeURIComponent(wod.category)}">Mavzu: ${esc(wod.category)} →</a></p></section>`;
+    const xpGoal = store.get('xpGoal', 50);
+    const gs = goalStatus(store.get('xpDays', {}), xpGoal, today());
+    const WD = ['Ya', 'Du', 'Se', 'Ch', 'Pa', 'Ju', 'Sh'];
+    queueMicrotask(() => app.querySelectorAll('[data-goal]').forEach((b) => { b.onclick = () => { store.set('xpGoal', Number(b.dataset.goal)); route(); }; }));
+    const goalHtml = `<section class="card goal"><h3>🎯 Kunlik maqsad</h3>
+      <div class="goal-row"><div class="ring" style="--p:${gs.pct}" role="img" aria-label="Bugun ${gs.today} / ${xpGoal} XP"><span>${gs.today}<small>/${xpGoal} XP</small></span></div>
+        <div><p>${gs.met ? '🎉 Bugungi maqsad bajarildi!' : `Yana <b>${xpGoal - gs.today} XP</b> — mashq, test yoki kartalar bilan.`}</p>
+          <p class="muted">${gs.streak ? `🔥 ${gs.streak} kun ketma-ket maqsad bajarilgan` : "Maqsadni har kuni bajarib, ketma-ketlik yarating."}</p>
+          <p class="goal-pick">${XP_GOALS.map((g) => `<button class="btn${g === xpGoal ? ' primary' : ''}" data-goal="${g}" aria-pressed="${g === xpGoal}">${g} XP</button>`).join(' ')}</p></div></div>
+      <div class="week" aria-label="Oxirgi 7 kun">${gs.week.map((d) => `<div class="day${d.met ? ' met' : ''}" title="${d.date}: ${d.xp} XP"><i style="height:${Math.min(100, Math.round((d.xp / xpGoal) * 100))}%"></i><span>${WD[new Date(`${d.date}T00:00:00Z`).getUTCDay()]}</span></div>`).join('')}</div></section>`;
     const planHtml = `<section class="card plan"><h3>📅 Bugungi reja <span class="badge ${planDone === plan.length ? 'ok' : ''}">${planDone}/${plan.length}</span></h3>
       ${p.level ? '' : `<p class="muted">Darajangiz aniqlanmagan — reja A1 uchun. <a href="#/placement">Daraja testini topshiring</a>, reja moslashadi.</p>`}
       <div class="list">${plan.map((t) => `<a class="row${t.done ? ' done' : ''}" href="${t.href}"><span class="badge">${t.done ? '✅' : t.icon}</span><span>${esc(t.title)}</span></a>`).join('')}</div>
@@ -306,6 +318,7 @@ const views = {
       <div class="hero-actions">${p.level ? '' : '<a class="btn primary" href="#/placement">Daraja testini boshlash →</a>'}
       <a class="btn" href="grammar-guide/index.html">📚 Grammatika qo'llanmasi (${guideUnits.length} unit)</a></div></section>
       ${planHtml}
+      ${goalHtml}
       ${wodHtml}
       <div class="grid">${tiles.map(([href, icon, t, d]) => `<a class="tile" href="${href}"><span class="ico">${icon}</span><b>${t}</b><span class="muted">${d}</span></a>`).join('')}</div>
       <section class="card"><h3>💾 Zaxira nusxa</h3>

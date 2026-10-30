@@ -7,7 +7,7 @@ import { validateExam, scoreQuestion, gradeExam, makeVariant, parseExam, seriali
 import { createPlacement, nextQuestion, answerPlacement, placementResult } from '../src/core/placement.js';
 import { renderPrintable, answerKey } from '../src/core/printable.js';
 import { createStore } from '../src/core/store.js';
-import { dailyPlan, wordOfDay } from '../src/core/plan.js';
+import { dailyPlan, wordOfDay, goalStatus } from '../src/core/plan.js';
 import { linePoints, lastDays } from '../src/core/chart.js';
 import { buildSearchIndex, search, norm } from '../src/core/search.js';
 import { sampleExam } from '../src/data/sample-exam.js';
@@ -268,4 +268,17 @@ test('placement: with rand, questions vary between runs but the result logic is 
   assert.equal(placementResult(a), 'B1');
   assert.equal(placementResult(b), 'B1');
   assert.equal(new Set(a.history.map((h) => h.id)).size, a.history.length);
+});
+
+test('goalStatus: today %, 7-day week, streak of met days', () => {
+  const xp = { '2026-10-24': 60, '2026-10-25': 55, '2026-10-26': 10, '2026-10-27': 50, '2026-10-28': 70, '2026-10-29': 20 };
+  const s = goalStatus(xp, 50, '2026-10-29');
+  assert.deepEqual([s.today, s.pct, s.met], [20, 40, false]);
+  assert.equal(s.week.length, 7);
+  assert.deepEqual(s.week.map((d) => d.date), ['2026-10-23', '2026-10-24', '2026-10-25', '2026-10-26', '2026-10-27', '2026-10-28', '2026-10-29']);
+  assert.deepEqual(s.week.map((d) => d.met), [false, true, true, false, true, true, false]);
+  assert.equal(s.streak, 2, 'today not met yet → streak counts yesterday and before');
+  assert.equal(goalStatus({ ...xp, '2026-10-29': 50 }, 50, '2026-10-29').streak, 3);
+  assert.equal(goalStatus(xp, 100, '2026-10-29').streak, 0);
+  assert.equal(goalStatus({ '2026-10-29': 500 }, 20, '2026-10-29').pct, 100);
 });

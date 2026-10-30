@@ -1,6 +1,7 @@
 // "Bugungi reja": four level-appropriate tasks per day, chosen deterministically from the date,
 // and marked done from the day's activity log (strings like 'vocab', 'grammar:<id>', 'reading:<id>', 'verbs').
 import { mulberry32 } from './exam.js';
+import { lastDays } from './chart.js';
 
 const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1'];
 
@@ -41,3 +42,22 @@ export function wordOfDay(date, words, level) {
   const pool = words.filter((w) => LEVELS.indexOf(w.level) <= LEVELS.indexOf(lvl) && LEVELS.indexOf(w.level) >= LEVELS.indexOf(lvl) - 1);
   return pick(pool.length ? pool : words, r);
 }
+
+export const XP_GOALS = [20, 50, 100];
+
+/**
+ * Daily XP goal. xpDays = { 'YYYY-MM-DD': xp }. Returns today's progress, the last 7 days (oldest first)
+ * and the streak of consecutive days the goal was met (today counts only once it is met).
+ */
+export function goalStatus(xpDays, goal, date) {
+  const week = lastDays(date, 7).map((d) => ({ date: d, xp: xpDays[d] ?? 0, met: (xpDays[d] ?? 0) >= goal }));
+  const todayXp = xpDays[date] ?? 0;
+  let streak = 0;
+  const back = lastDays(date, 61).reverse();
+  for (const [i, d] of back.entries()) {
+    if ((xpDays[d] ?? 0) >= goal) streak++;
+    else if (i > 0) break;
+  }
+  return { today: todayXp, pct: Math.min(100, Math.round((todayXp / goal) * 100)), met: todayXp >= goal, week, streak };
+}
+

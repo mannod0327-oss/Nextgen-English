@@ -586,6 +586,21 @@ await step('progress: achievements section shows earned badges from earlier step
   if ((await page.getAttribute('[data-badge="band-7"]', 'class')).includes('earned')) throw new Error('band-7 must not be earned');
 });
 
+await step('daily goal: ring shows today\'s XP, goal choice persists, week has 7 days', async () => {
+  await page.goto(`${base}/#/verbs`);
+  await page.goto(`${base}/#/`);
+  await page.click('[data-goal="20"]');
+  await page.waitForSelector('[data-goal="20"][aria-pressed="true"]');
+  const xp = await page.evaluate(() => JSON.parse(localStorage.getItem('nge:xpDays'))[new Date().toISOString().slice(0, 10)]);
+  if (!(xp > 0)) throw new Error('xpDays not recorded by earlier steps');
+  const label = await page.getAttribute('.ring', 'aria-label');
+  if (label !== `Bugun ${xp} / 20 XP`) throw new Error(`ring label ${label}`);
+  if ((await page.$$('.week .day')).length !== 7) throw new Error('week');
+  await page.goto(`${base}/#/verbs`);
+  await page.goto(`${base}/#/`);
+  if (!(await page.isVisible('[data-goal="20"][aria-pressed="true"]'))) throw new Error('goal not persisted');
+});
+
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
   for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'vocab?mode=test&cat=Jinoyat va qonun', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'grammar?topic=question-tags', 'grammar?topic=must-have-to', 'grammar?topic=verb-patterns', 'grammar?topic=subjunctive', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?w=bw2-zoos', 'ielts?w=bw1-commute', 'ielts?s=b-tradition', 'ielts?s=b-books', 'ielts?guide=listening', 'ielts?guide=task2', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=l-at-the-cafe', 'reading?t=placebo', 'reading?t=language-podcast', 'reading?t=debate-tourism', 'mistakes', 'sounds', 'sounds?set=th-s', 'sounds?set=ou-or', 'speech?s=lost', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'drill?t=stress', 'drill?t=task1', 'drill?t=synonyms', 'numbers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'ielts?mock=listening-5', 'ielts?mock=reading-5', 'ielts?mock=listening-6', 'ielts?mock=reading-6', 'ielts?mock=listening-7', 'ielts?mock=reading-7', 'search?q=present']) {
