@@ -115,6 +115,18 @@ await step('ielts bank: writing task shows Band 7 model answer', async () => {
   if (!(await page.locator('details .model').isVisible()) || !(await page.textContent('details .model')).includes('gap year')) throw new Error('model answer missing');
 });
 
+await step('ielts mock 4: listed on hub, reading-4 scores answers', async () => {
+  await page.goto(`${base}/#/ielts`);
+  await page.waitForSelector('a[href="#/ielts?mock=listening-4"]');
+  await page.goto(`${base}/#/ielts?mock=reading-4`);
+  await page.waitForSelector('[data-q="n4r13"]');
+  await page.fill('[data-q="n4r13"] .fill', 'saxaul');
+  await page.fill('[data-q="n4r12"] .fill', '2005');
+  await page.locator('[data-q="n4r1"] input[value="0"]').check();
+  await page.click('#mock-finish');
+  if (!(await page.textContent('#mock-result')).includes('3 / 40')) throw new Error(await page.textContent('#mock-result'));
+});
+
 await step('grammar guide: section opens and unit page loads with practice', async () => {
   await page.goto(`${base}/#/grammar`);
   await page.locator('.guide summary').first().click();
@@ -376,7 +388,7 @@ await step('creator: add question, validate, simulate', async () => {
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'search?q=present']) {
+  for (const r of ['', 'creator', 'vocab', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);

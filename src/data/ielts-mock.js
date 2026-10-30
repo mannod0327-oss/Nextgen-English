@@ -652,4 +652,208 @@ Research on workers' own views presents a mixed picture. Surveys suggest that th
       },
     ],
   },
+
+  'listening-4': {
+    kind: 'listening', title: 'IELTS Listening — Mock Test 4', minutes: 30,
+    sections: [
+      {
+        title: 'Part 1 · Joining a sports centre',
+        intro: 'You will hear a woman asking about membership at a sports centre. Questions 1–10.',
+        script: `Assistant: Good morning, Lakeside Sports Centre. How can I help?
+Caller: Hi. I'd like some information about membership, please.
+Assistant: Of course. We have two options. Standard membership costs thirty-two pounds a month and includes the gym and the swimming pool. Premium is forty-five pounds and also includes all fitness classes.
+Caller: I'd like to do yoga, so I think premium is better for me.
+Assistant: Good choice. Yoga classes are on Mondays and Thursdays at six thirty in the evening.
+Caller: Is there a joining fee?
+Assistant: Normally it's twenty pounds, but this month it's free.
+Caller: Great. And what are your opening hours?
+Assistant: We open at six a.m. on weekdays and close at ten p.m. At weekends we open at eight.
+Caller: Is there parking?
+Assistant: Yes, it's free for members, but you need to register your car at reception.
+Caller: Fine. Can I join today?
+Assistant: Certainly. Can I have your full name?
+Caller: Malika Tursunova. Tursunova is spelt T-U-R-S-U-N-O-V-A.
+Assistant: And a phone number?
+Caller: It's oh-seven-nine-one, four-four-six, two-eight-three.
+Assistant: Thank you. On your first visit, please bring a photo for your membership card. And don't forget a towel — we don't provide them.`,
+        questions: [
+          { id: 'n4l1', type: 'fill', prompt: '1. Standard membership: £___ a month', answer: ['32', 'thirty-two'] },
+          { id: 'n4l2', type: 'fill', prompt: '2. Premium membership: £___ a month', answer: ['45', 'forty-five'] },
+          { id: 'n4l3', type: 'single', prompt: '3. Premium membership also includes …', options: ['parking', 'fitness classes', 'a personal trainer', 'towels'], answer: 1 },
+          { id: 'n4l4', type: 'fill', prompt: '4. Yoga days: Mondays and ___', answer: 'Thursdays' },
+          { id: 'n4l5', type: 'single', prompt: '5. This month the joining fee is …', options: ['£20', '£10', 'free', '£32'], answer: 2 },
+          { id: 'n4l6', type: 'fill', prompt: '6. Weekend opening time: ___ a.m.', answer: ['8', 'eight'] },
+          { id: 'n4l7', type: 'single', prompt: '7. To park for free, members must …', options: ['pay at reception', 'register their car at reception', 'arrive before 8 a.m.', 'buy a permit online'], answer: 1 },
+          { id: 'n4l8', type: 'fill', prompt: '8. Surname: ___', answer: 'Tursunova' },
+          { id: 'n4l9', type: 'fill', prompt: '9. On the first visit, bring a ___ for the card.', answer: 'photo' },
+          { id: 'n4l10', type: 'fill', prompt: '10. Members must bring their own ___.', answer: 'towel' },
+        ],
+      },
+      {
+        title: 'Part 2 · A guided tour of a science museum',
+        intro: 'You will hear a guide talking to visitors at the start of a museum tour. Questions 11–20.',
+        script: `Welcome to the City Science Museum. My name is Daniel and I'll be your guide this morning. The tour lasts about ninety minutes, and we'll finish in the café on the ground floor, where you can get a ten percent discount with your ticket.
+We'll begin on the first floor in the Space Gallery. The highlight there is a real rocket engine, which was donated to the museum in nineteen ninety-eight. Next, we'll move to the Human Body section, where you can test your reaction speed and your sense of balance.
+After that, we'll go up to the second floor to see our newest exhibition, called "Water World". It opened just last month and explains how cities clean and recycle water. Please note that photography is not allowed in this exhibition, because some of the models are on loan from other museums.
+The tour ends at around half past eleven. In the afternoon there is a free science show for children in the lecture theatre at two o'clock, but places are limited, so you should collect a ticket from the information desk.
+Finally, a few practical points. Lockers for bags are next to the main entrance; they cost one pound, which is returned when you open the locker again. The toilets are on every floor next to the lifts. If you get lost, just look for a member of staff in a green shirt.`,
+        questions: [
+          { id: 'n4l11', type: 'fill', prompt: '11. The tour lasts about ___ minutes.', answer: ['90', 'ninety'] },
+          { id: 'n4l12', type: 'fill', prompt: '12. Ticket holders get a ___ % discount in the café.', answer: ['10', 'ten'] },
+          { id: 'n4l13', type: 'single', prompt: '13. The rocket engine is in the …', options: ['Human Body section', 'Space Gallery', 'Water World', 'lecture theatre'], answer: 1 },
+          { id: 'n4l14', type: 'fill', prompt: '14. The rocket engine was donated in ___.', answer: ['1998', 'nineteen ninety-eight'] },
+          { id: 'n4l15', type: 'single', prompt: '15. In the Human Body section visitors can test their …', options: ['memory', 'reaction speed and balance', 'eyesight', 'hearing'], answer: 1 },
+          { id: 'n4l16', type: 'single', prompt: '16. Why is photography not allowed in Water World?', options: ['It is too dark.', 'Some models are on loan.', 'It is very crowded.', 'It is still being built.'], answer: 1 },
+          { id: 'n4l17', type: 'fill', prompt: '17. The children’s science show starts at ___ o’clock.', answer: ['2', 'two'] },
+          { id: 'n4l18', type: 'single', prompt: '18. To attend the show, visitors should …', options: ['pay at the door', 'collect a ticket from the information desk', 'book online', 'ask the guide'], answer: 1 },
+          { id: 'n4l19', type: 'single', prompt: '19. The locker fee is …', options: ['free', '£1, returned later', '£2', '£1, not returned'], answer: 1 },
+          { id: 'n4l20', type: 'fill', prompt: '20. Staff wear ___ shirts.', answer: 'green' },
+        ],
+      },
+      {
+        title: 'Part 3 · Planning a survey on student sleep',
+        intro: 'You will hear two students, Aziz and Hannah, talking to their tutor about a research project. Questions 21–30.',
+        script: `Tutor: So, what have you decided to investigate?
+Hannah: We'd like to find out how much sleep university students get during the exam period compared with the rest of the term.
+Tutor: Interesting. How will you collect the data?
+Aziz: At first we wanted to use interviews, but they take too long, so we'll use an online questionnaire instead.
+Tutor: And how many students do you hope to include?
+Hannah: About two hundred, from three different faculties.
+Tutor: How will you make sure the answers are accurate? People often don't remember how much they slept.
+Aziz: That's a good point. We're going to ask a smaller group, around twenty students, to keep a sleep diary for two weeks, and compare it with their questionnaire answers.
+Tutor: Excellent, that will help you check reliability. What do you expect to find?
+Hannah: We think students will sleep about one hour less during exams, and that they'll drink more coffee.
+Tutor: Have you thought about ethical issues?
+Aziz: Yes. The questionnaire will be anonymous, and we'll ask permission from the ethics committee before we start.
+Tutor: Good. One more thing — I'd suggest adding a question about phone use at night. Screens are a major factor in poor sleep.
+Hannah: That's a great idea. We'll add it.
+Tutor: Your first draft is due on the twentieth of March.`,
+        questions: [
+          { id: 'n4l21', type: 'single', prompt: '21. The students want to compare sleep during exams with …', options: ['the holidays', 'the rest of the term', 'school years', 'weekends'], answer: 1 },
+          { id: 'n4l22', type: 'single', prompt: '22. Why did they decide not to use interviews?', options: ['They are too expensive.', 'They take too long.', 'Students dislike them.', 'The tutor refused.'], answer: 1 },
+          { id: 'n4l23', type: 'fill', prompt: '23. Data will be collected with an online ___.', answer: 'questionnaire' },
+          { id: 'n4l24', type: 'fill', prompt: '24. Number of students in the main survey: about ___', answer: ['200', 'two hundred'] },
+          { id: 'n4l25', type: 'fill', prompt: '25. Students will come from ___ faculties.', answer: ['3', 'three'] },
+          { id: 'n4l26', type: 'fill', prompt: '26. A smaller group will keep a sleep ___.', answer: 'diary' },
+          { id: 'n4l27', type: 'single', prompt: '27. The diaries will help the students check …', options: ['costs', 'reliability', 'grades', 'coffee prices'], answer: 1 },
+          { id: 'n4l28', type: 'single', prompt: '28. They expect students to sleep … during exams.', options: ['two hours more', 'about one hour less', 'the same', 'half as much'], answer: 1 },
+          { id: 'n4l29', type: 'fill', prompt: '29. The tutor suggests a question about ___ use at night.', answer: 'phone' },
+          { id: 'n4l30', type: 'fill', prompt: '30. First draft due: the ___ of March', answer: ['twentieth', '20th', '20'] },
+        ],
+      },
+      {
+        title: 'Part 4 · Lecture: How cities stay cool',
+        intro: 'You will hear part of a lecture about urban heat. Questions 31–40.',
+        script: `In today's lecture I want to look at a problem that affects almost every large city: the urban heat island effect. This is the reason why city centres are often several degrees warmer than the surrounding countryside, particularly at night.
+There are three main causes. First, materials such as concrete and asphalt absorb heat during the day and release it slowly after sunset. Second, cities have fewer trees and less open soil, so there is less evaporation to cool the air. Third, cars, air conditioners and factories all produce waste heat.
+The consequences can be serious. During heatwaves, hospitals in hot cities report more admissions, especially among elderly people. Higher temperatures also increase the demand for electricity, because more people use air conditioning, which in turn produces more heat.
+So what can be done? One of the simplest solutions is planting trees. A single large tree can provide the same cooling effect as several air conditioners, mainly through shade and the water it releases from its leaves. Another approach is the so-called cool roof: painting roofs white or covering them with reflective materials. In some trials, white roofs were up to thirty degrees cooler than dark ones on a sunny afternoon.
+Green roofs, which are covered with plants, offer additional benefits: they reduce the risk of flooding by absorbing rainwater and they provide habitats for insects and birds. However, they are more expensive to build and need regular maintenance.
+Traditional architecture also offers lessons. In many Central Asian cities, old houses were built around shaded courtyards with a small pool in the centre, and narrow streets kept people out of direct sunlight. Modern planners are now rediscovering these ideas.`,
+        questions: [
+          { id: 'n4l31', type: 'single', prompt: '31. City centres are especially warmer than the countryside …', options: ['in the morning', 'at night', 'in winter', 'at midday'], answer: 1 },
+          { id: 'n4l32', type: 'fill', prompt: '32. Concrete and ___ absorb heat during the day.', answer: 'asphalt' },
+          { id: 'n4l33', type: 'fill', prompt: '33. Fewer trees means less ___ to cool the air.', answer: 'evaporation' },
+          { id: 'n4l34', type: 'single', prompt: '34. During heatwaves, hospitals see more admissions especially of …', options: ['children', 'elderly people', 'workers', 'tourists'], answer: 1 },
+          { id: 'n4l35', type: 'single', prompt: '35. Greater use of air conditioning …', options: ['cools the whole city', 'produces more heat', 'reduces electricity demand', 'has no effect'], answer: 1 },
+          { id: 'n4l36', type: 'single', prompt: '36. A large tree cools the air mainly through …', options: ['wind', 'shade and water from its leaves', 'its roots', 'absorbing pollution'], answer: 1 },
+          { id: 'n4l37', type: 'fill', prompt: '37. In trials, white roofs were up to ___ degrees cooler.', answer: ['30', 'thirty'] },
+          { id: 'n4l38', type: 'fill', prompt: '38. Green roofs reduce the risk of ___.', answer: 'flooding' },
+          { id: 'n4l39', type: 'single', prompt: '39. A disadvantage of green roofs is that they …', options: ['attract insects', 'are expensive and need maintenance', 'make buildings hotter', 'cannot hold rainwater'], answer: 1 },
+          { id: 'n4l40', type: 'fill', prompt: '40. Old Central Asian houses had shaded ___ with a small pool.', answer: ['courtyards', 'courtyard'] },
+        ],
+      },
+    ],
+  },
+
+  'reading-4': {
+    kind: 'reading', title: 'IELTS Academic Reading — Mock Test 4', minutes: 60,
+    sections: [
+      {
+        title: 'Passage 1 · The Aral Sea',
+        intro: 'Questions 1–13. You should spend about 20 minutes on this passage.',
+        text: `In the middle of the twentieth century, the Aral Sea, which lies between Kazakhstan and Uzbekistan, was the fourth-largest lake in the world. It supported a thriving fishing industry, and towns such as Muynak on its southern shore were busy ports where thousands of people worked in canneries.
+
+The decline of the sea began in the 1960s, when large irrigation projects diverted water from the two rivers that fed it, the Amu Darya and the Syr Darya, to grow cotton in the surrounding desert. Within a few decades, the amount of water reaching the sea had fallen dramatically. By the early 2000s, the Aral had split into separate northern and southern parts, and its total area had shrunk by roughly ninety per cent.
+
+The consequences for the region were severe. As the water retreated, the remaining sea became so salty that most native fish species disappeared, and the fishing industry collapsed. Old ships were left stranded on dry land, many kilometres from the new shoreline. Strong winds now carry dust and salt from the exposed seabed across a wide area, and local doctors have reported higher rates of respiratory illness. The climate has also changed: summers have become hotter and winters colder, because the sea no longer moderates temperatures.
+
+There has been some progress, however. In 2005, a dam was completed in Kazakhstan to keep water in the smaller northern part of the sea. Since then, the water level there has risen, salinity has fallen, and several fish species have returned, allowing a small fishing industry to restart. In Uzbekistan, the focus has been on planting drought-resistant shrubs such as saxaul on the dry seabed to stop the dust from blowing away. Millions of hectares are planned to be covered in this way.`,
+        questions: [
+          { id: 'n4r1', type: 'single', prompt: '1. The Aral Sea was once the fourth-largest lake in the world.', options: tfng, answer: 0 },
+          { id: 'n4r2', type: 'single', prompt: '2. Muynak was located on the northern shore of the sea.', options: tfng, answer: 1 },
+          { id: 'n4r3', type: 'single', prompt: '3. Irrigation water was used mainly to grow wheat.', options: tfng, answer: 1 },
+          { id: 'n4r4', type: 'single', prompt: '4. The sea had split into two parts by the early 2000s.', options: tfng, answer: 0 },
+          { id: 'n4r5', type: 'single', prompt: '5. Some tourists now visit the stranded ships.', options: tfng, answer: 2 },
+          { id: 'n4r6', type: 'single', prompt: '6. Winters in the region have become milder.', options: tfng, answer: 1 },
+          { id: 'n4r7', type: 'single', prompt: '7. Fish have returned to the northern part of the sea.', options: tfng, answer: 0 },
+          { id: 'n4r8', type: 'fill', prompt: '8. Many people in Muynak worked in ___. (ONE WORD)', answer: 'canneries' },
+          { id: 'n4r9', type: 'fill', prompt: '9. The total area shrank by about ninety ___. (TWO WORDS)', answer: 'per cent' },
+          { id: 'n4r10', type: 'fill', prompt: '10. Winds carry dust and ___ from the seabed. (ONE WORD)', answer: 'salt' },
+          { id: 'n4r11', type: 'fill', prompt: '11. Doctors report more ___ illness. (ONE WORD)', answer: 'respiratory' },
+          { id: 'n4r12', type: 'fill', prompt: '12. The dam in Kazakhstan was completed in ___. (NUMBER)', answer: '2005' },
+          { id: 'n4r13', type: 'fill', prompt: '13. Uzbekistan is planting shrubs such as ___ on the dry seabed. (ONE WORD)', answer: 'saxaul' },
+        ],
+      },
+      {
+        title: 'Passage 2 · The Science of Habits',
+        intro: 'Questions 14–26. You should spend about 20 minutes on this passage.',
+        text: `A. Psychologists estimate that a large proportion of our daily behaviour — perhaps as much as forty per cent — is performed out of habit rather than conscious decision. We brush our teeth, check our phones and take the same route to work without thinking about it. Habits save mental effort, freeing the brain to deal with new or difficult problems.
+
+B. Research suggests that habits are built through a simple loop. First, a cue, such as a time of day or a place, triggers the behaviour. Next comes the routine itself, and finally a reward, which tells the brain that the loop is worth remembering. Over time, the link between cue and routine becomes automatic, and the reward is anticipated even before it arrives.
+
+C. A popular belief holds that it takes exactly twenty-one days to form a new habit. However, a study at a London university that followed volunteers for twelve weeks found that the average time was about sixty-six days, and that it varied enormously between people and behaviours. Drinking a glass of water after breakfast became automatic much faster than doing fifty sit-ups.
+
+D. The same study found that missing a single day did not seriously damage the process. What mattered more was repetition in a stable context. This is why experts recommend attaching a new behaviour to an existing one — for example, doing a minute of stretching immediately after making morning tea.
+
+E. Breaking bad habits is often harder than creating good ones, because the cue continues to trigger a strong desire for the reward. Rather than relying on willpower, researchers advise changing the environment: keeping sweets out of sight, or leaving the phone in another room while studying. Replacing the routine while keeping the same cue and reward can also be effective.
+
+F. Finally, habits are closely connected to identity. People who see themselves as "a runner" or "a reader" tend to maintain those behaviours longer than people who simply set themselves a goal, such as running a certain distance.`,
+        questions: [
+          { id: 'n4r14', type: 'single', prompt: '14. Which paragraph explains the three stages of a habit loop?', options: ['A', 'B', 'C', 'D'], answer: 1 },
+          { id: 'n4r15', type: 'single', prompt: '15. Which paragraph challenges a popular belief about habit formation?', options: ['B', 'C', 'E', 'F'], answer: 1 },
+          { id: 'n4r16', type: 'single', prompt: '16. Which paragraph gives advice on breaking bad habits?', options: ['C', 'D', 'E', 'F'], answer: 2 },
+          { id: 'n4r17', type: 'single', prompt: '17. Which paragraph links habits with how people see themselves?', options: ['A', 'D', 'E', 'F'], answer: 3 },
+          { id: 'n4r18', type: 'single', prompt: '18. According to paragraph A, habits are useful because they …', options: ['make us happier', 'save mental effort', 'improve memory', 'reduce stress at work'], answer: 1 },
+          { id: 'n4r19', type: 'single', prompt: '19. In the London study, the average time to form a habit was about …', options: ['21 days', '50 days', '66 days', '12 days'], answer: 2 },
+          { id: 'n4r20', type: 'single', prompt: '20. Experts recommend attaching a new behaviour to …', options: ['a reward', 'an existing behaviour', 'a goal', 'a friend'], answer: 1 },
+          { id: 'n4r21', type: 'single', prompt: '21. Missing one day seriously damages habit formation.', options: tfng, answer: 1 },
+          { id: 'n4r22', type: 'single', prompt: '22. Simple behaviours became automatic faster than difficult ones.', options: tfng, answer: 0 },
+          { id: 'n4r23', type: 'single', prompt: '23. Women form habits faster than men.', options: tfng, answer: 2 },
+          { id: 'n4r24', type: 'single', prompt: '24. Researchers advise relying mainly on willpower to stop bad habits.', options: tfng, answer: 1 },
+          { id: 'n4r25', type: 'fill', prompt: '25. A habit loop begins with a ___. (ONE WORD)', answer: 'cue' },
+          { id: 'n4r26', type: 'fill', prompt: '26. Repetition in a stable ___ matters most. (ONE WORD)', answer: 'context' },
+        ],
+      },
+      {
+        title: 'Passage 3 · Can Machines Translate?',
+        intro: 'Questions 27–40. You should spend about 20 minutes on this passage.',
+        text: `The dream of a machine that could translate between languages is almost as old as the computer itself. In 1954, researchers in the United States demonstrated a system that translated around sixty Russian sentences into English, and confidently predicted that the problem would be solved within a few years. In reality, progress was slow. Early systems relied on hand-written rules and bilingual dictionaries, and they struggled with ambiguity: the same word can have many meanings, and word order differs greatly between languages.
+
+From the 1990s, a different approach became dominant. Instead of rules, statistical systems learned from huge collections of texts that had already been translated by humans, such as the proceedings of international organisations. By calculating which phrases most often corresponded to one another, these systems produced translations that were rough but often understandable. Their quality depended heavily on the amount of parallel text available, so they worked much better for widely used language pairs than for languages with few digital resources.
+
+The most recent revolution came with neural networks. Rather than translating phrase by phrase, neural systems process a whole sentence at once and represent its meaning as a long list of numbers. This allows them to produce far more fluent output and to handle word order more naturally. For many common language pairs, professional translators now report that machine output can be a useful first draft.
+
+Nevertheless, important limitations remain. Neural systems can produce sentences that sound perfectly natural but contain factual errors, which makes their mistakes harder to notice. They also have difficulty with humour, poetry and culturally specific expressions, and they may reproduce stereotypes found in their training data — for example, by assuming that a doctor is male. For languages with few digital texts, including many spoken in Central Asia and Africa, quality is still considerably lower.
+
+As a result, the role of human translators is changing rather than disappearing. Many now work as post-editors, correcting and improving machine output, while legal, medical and literary translation still depend largely on human expertise. The question for the future is not whether machines can translate, but how humans and machines can best work together.`,
+        questions: [
+          { id: 'n4r27', type: 'single', prompt: '27. The 1954 demonstration translated sentences from …', options: ['English into Russian', 'Russian into English', 'French into English', 'German into Russian'], answer: 1 },
+          { id: 'n4r28', type: 'single', prompt: '28. Early systems struggled mainly with …', options: ['speed', 'ambiguity and word order', 'the cost of computers', 'spelling'], answer: 1 },
+          { id: 'n4r29', type: 'single', prompt: '29. Statistical systems learned from …', options: ['grammar books', 'texts already translated by humans', 'conversations', 'dictionaries only'], answer: 1 },
+          { id: 'n4r30', type: 'single', prompt: '30. Neural systems differ because they …', options: ['use bilingual dictionaries', 'process a whole sentence at once', 'translate word by word', 'need no data'], answer: 1 },
+          { id: 'n4r31', type: 'single', prompt: '31. What is the writer’s main conclusion?', options: ['Machines will soon replace all translators.', 'Humans and machines will increasingly work together.', 'Machine translation has stopped improving.', 'Neural systems are worse than statistical ones.'], answer: 1 },
+          { id: 'n4r32', type: 'single', prompt: '32. The 1954 researchers correctly predicted how long progress would take.', options: tfng, answer: 1 },
+          { id: 'n4r33', type: 'single', prompt: '33. Statistical systems worked better for widely used language pairs.', options: tfng, answer: 0 },
+          { id: 'n4r34', type: 'single', prompt: '34. Neural systems are cheaper to build than statistical systems.', options: tfng, answer: 2 },
+          { id: 'n4r35', type: 'single', prompt: '35. Errors in neural translations can be hard to notice.', options: tfng, answer: 0 },
+          { id: 'n4r36', type: 'single', prompt: '36. Literary translation is now done mostly by machines.', options: tfng, answer: 1 },
+          { id: 'n4r37', type: 'fill', prompt: '37. The 1954 system translated around ___ sentences. (ONE WORD)', answer: 'sixty' },
+          { id: 'n4r38', type: 'fill', prompt: '38. Neural systems may reproduce ___ from their training data. (ONE WORD)', answer: ['stereotypes', 'stereotype'] },
+          { id: 'n4r39', type: 'fill', prompt: '39. Translators say machine output can be a useful first ___. (ONE WORD)', answer: 'draft' },
+          { id: 'n4r40', type: 'fill', prompt: '40. Many translators now work as ___, correcting machine output. (ONE WORD)', answer: ['post-editors', 'post-editor'] },
+        ],
+      },
+    ],
+  },
 };
