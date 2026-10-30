@@ -185,3 +185,77 @@ export const speakingBank = [
     'Describe something you would like to invent.', ['what it would be', 'how it would work', 'who would use it', 'and explain how it would change the world.'],
     ['Is space exploration a waste of money?', 'Will humans live on other planets?', 'Who should own resources in space?']),
 ];
+
+// Band 7 Part 2 sample answers (original, spoken style — contractions and fillers are normal in Speaking).
+const models = {
+  'b-family': `I'd like to talk about my grandmother, who I probably spend more time with than anyone else in my family. She's seventy-two, but she's still incredibly active, and she lives with us in our house in Tashkent, so I see her every single day.
+
+We do lots of things together. In the mornings, if I don't have early classes, we have breakfast together and she tells me stories about what life was like when she was young. At weekends we often go to the bazaar together, because she insists on choosing the vegetables herself — she says the supermarket ones have no taste! And in the evenings she sometimes teaches me how to cook traditional dishes. Last month she finally showed me her secret recipe for plov, which was a big moment for me.
+
+The reason I enjoy spending time with her is that she's extremely calm and wise. Whenever I'm stressed about exams or something at university, she listens without interrupting and then gives me really practical advice. She also has a great sense of humour, so we laugh a lot together. I think I've learned a lot of patience from her, and I feel very lucky that she's part of my daily life.`,
+
+  'b-friends': `The friend I'd like to describe is Sardor, who I've known for about six years now. We met in our first year of secondary school, when the teacher put us at the same desk, and to be honest, at first we didn't get on at all, because he was very serious and I was quite lazy back then.
+
+Sardor is one of the most disciplined people I know. He gets up at six every morning, he plans his week on Sunday evening, and he always does what he says he's going to do. At the same time, he's very generous with his time — if someone in our class didn't understand maths, he would stay after school and explain it again and again.
+
+He's influenced me in a few important ways. The biggest one is that he showed me how to study properly. Before I met him, I used to leave everything until the night before an exam. He convinced me to try studying for just thirty minutes every day, and after a couple of months my grades improved dramatically. He also got me interested in reading, because he was always lending me books. Even now that we study at different universities, we still talk every week, and I'd say a lot of my good habits come from him.`,
+
+  'b-holidays': `I'd like to describe Navruz, the spring festival, which I celebrated last March with my whole extended family in my grandparents' village near Samarkand. It's the beginning of the new year in the traditional calendar, and it's probably the most joyful celebration of the year in Uzbekistan.
+
+The celebration took place mainly in my grandparents' courtyard, although the whole village was involved. Preparations started a day earlier, when the women gathered to cook sumalak, a sweet dish made from sprouted wheat. It has to be stirred for almost twenty-four hours, so people take turns all through the night, singing songs and telling stories. The next day, everyone visited their neighbours, children received small presents, and in the afternoon there was a concert with traditional music and dancing in the village square.
+
+I enjoyed it for several reasons. First of all, it was the first time in years that all my cousins were together in one place, so it felt like a big reunion. Secondly, I loved the atmosphere — everyone was in a good mood, and even people who didn't know each other were wishing each other a happy new year. And finally, I actually took a turn stirring the sumalak, so I felt I'd contributed to the celebration rather than just watching it.`,
+
+  'b-city': `A city I've wanted to visit for a long time is Kyoto in Japan. It was the capital of the country for more than a thousand years, so it's full of history, but it's also a modern city with excellent public transport.
+
+From what I've read and seen in documentaries, Kyoto has around two thousand temples and shrines, beautiful traditional wooden houses, and a district where you can still sometimes see people wearing traditional clothes. It's also famous for its gardens, especially in spring when the cherry trees are in blossom, and in autumn when the leaves turn red.
+
+If I went there, I'd definitely visit some of the most famous temples early in the morning, before the crowds arrive. I'd also like to stay one night in a traditional guesthouse, sleep on a mattress on the floor, and try a proper Japanese breakfast. Food is a big part of travelling for me, so I'd try to eat at local markets rather than in tourist restaurants.
+
+The main reason I want to go is that I'm fascinated by how Japan has kept its traditions while becoming one of the most technologically advanced countries in the world. I think Uzbekistan is facing a similar challenge right now, so it would be interesting to see how another culture has managed it.`,
+
+  'b-goals': `An achievement I'm really proud of is getting a band seven in my first IELTS test, which happened about a year ago, when I was in my final year of school.
+
+It was a big goal for me because I needed that score to apply to a foundation programme abroad, and when I started preparing, my level was only around band five. So I had roughly eight months to improve quite a lot.
+
+I achieved it mainly through a very strict routine. Every day I spent at least an hour on English: I did one listening or reading test, learned around fifteen new words, and wrote a short essay twice a week, which my teacher corrected. For speaking, I recorded myself answering questions on my phone and then listened back, which was painful at first, because I hated the sound of my own voice! I also changed the language on my phone and started watching films with English subtitles instead of Uzbek ones.
+
+I'm proud of it not only because of the result, but because it was the first time I'd worked towards something so consistently for such a long time. There were many days when I wanted to give up, especially with writing, but I kept going. Now, whenever I face a difficult task, I remind myself that I've done something hard before and I can do it again.`,
+
+  'b-gifts': `I'd like to talk about a gift I gave to my younger brother on his fifteenth birthday last autumn. It was a set of beginner's oil paints, a few brushes and a small wooden easel.
+
+I chose it because, for about a year, I'd noticed that he was always drawing — in his school notebooks, on napkins, even on the back of receipts. But he only ever used a simple pencil, and he once mentioned that he'd love to try painting with real colours. Our parents are quite practical people, and they thought he should spend more time on maths and physics, so I knew they probably wouldn't buy him art supplies. I'd saved some money from my part-time job, so I decided to surprise him.
+
+To be honest, I was a bit nervous before I gave it to him, because he's at an age where he pretends not to care about things. But when he opened the box, his face completely changed — he didn't say much, but he spent the rest of the evening setting up the easel in his room. A week later, he showed me his first painting, a view of the mountains from a photo of our summer trip, and it was surprisingly good. Since then he's joined an art club at school, and our parents have become much more supportive, which makes me feel the gift was really worth it.`,
+
+  'b-skills': `A skill I taught someone recently was how to drive a car — I taught my older sister last summer. It might sound strange that the younger sibling taught the older one, but she'd been afraid of driving for years, and she finally decided she wanted to learn before her first child was born.
+
+I've been driving for about three years, so I felt fairly confident. We practised in the early mornings, around six o'clock, when the roads near our house were almost empty. At first, we didn't even leave the car park of a big shopping centre that was closed at that time. I started with very basic things, like adjusting the mirrors, finding the right seat position and moving off smoothly without stalling the engine.
+
+I tried to be patient and break everything into small steps. Every lesson we focused on just one new thing — turning, reversing, or using the roundabout — and we always finished with something she was already good at, so she'd go home feeling positive. The hardest part for me was staying calm when she made mistakes, because I'm naturally quite impatient!
+
+In the end, it was quite successful. She passed her driving test on the second attempt, and now she drives to work every day. She still jokes that I was a strict teacher, but I think she's grateful.`,
+
+  'b-tradition': `A tradition that's very important in Uzbekistan is the custom of "hashar", which means people working together voluntarily to help a neighbour or the whole community.
+
+It doesn't happen on a fixed date; it can happen at any time when someone needs help. For example, when a family is building a new house, or when a street needs cleaning before a holiday, someone announces a hashar, and neighbours, relatives and friends turn up to help. In spring, there are often large hashars in towns and villages where people plant trees and clean parks and canals.
+
+What people do depends on the task. Men usually do the heavy physical work, such as carrying bricks or digging, while others prepare food for everyone — and there is always food! At the end of the day, the family who received the help usually invites everyone to share a big meal, often plov, so it becomes a social event as well as hard work. Nobody gets paid, and it's understood that if you help others today, they will help you in the future.
+
+I think it's important because it keeps communities connected. In big cities, people sometimes don't even know their neighbours' names, but a hashar brings them together. It also teaches children that helping others is a normal part of life, not something special.`,
+
+  'b-childhood': `One of my happiest childhood memories is a fishing trip with my father and my uncle when I was about eight years old. We went to Charvak, a large reservoir in the mountains about two hours' drive from Tashkent, at the beginning of the summer holidays.
+
+We left really early, while it was still dark, which felt like a big adventure to me, because I'd never been awake at that time before. I remember my father bought me my first proper fishing rod at a small shop on the way, and I was so excited that I held it on my lap for the rest of the journey.
+
+At the lake, my uncle showed me how to put the bait on the hook and how to wait quietly without moving. For hours I caught absolutely nothing, and I was starting to get bored and upset. Then, just before lunch, I felt a strong pull, and with my father's help I pulled out a fish that was nearly as long as my arm. Everyone around us clapped, and my uncle took a photo, which is still on the wall in my grandparents' house.
+
+I think it was such a happy memory because it was the first time I felt treated like one of the adults. My father and uncle let me do everything myself, and I was incredibly proud of that fish for the rest of the summer.`,
+
+  'b-internet': `The app I use most often, apart from messaging apps, is a language-learning app with flashcards. I found it about two years ago, when a classmate showed me how she was using it to learn vocabulary for the IELTS exam, and I downloaded it the same evening.
+
+Basically, you create sets of digital flashcards, with a word on one side and the meaning and an example on the other. The clever part is that the app uses something called spaced repetition: it shows you the words you find difficult more often, and the ones you know well less often, so you don't waste time. I use it every day, usually on the bus on my way to university, for about fifteen or twenty minutes. At the moment I have around two thousand words saved, and I've also added sets for my economics course, with key terms and definitions.
+
+I find it extremely useful for a few reasons. First, it fits into small gaps in my day, so I don't need to find a special time to study. Second, it keeps statistics, so I can see my progress, which really motivates me. And third, it works offline, which is important because the mobile signal on my route isn't always reliable. I'd say it's probably the main reason my vocabulary has improved so much recently.`,
+};
+for (const s of speakingBank) if (models[s.id]) s.part2.model = models[s.id];

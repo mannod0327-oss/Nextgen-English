@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { checkWriting } from '../src/core/writing-check.js';
 import { writing } from '../src/data/ielts.js';
 import { writingBank } from '../src/data/ielts-bank-writing.js';
+import { speakingBank } from '../src/data/ielts-bank-speaking.js';
 
 test('writing check: counts, linkers, repetition, long sentences, contractions', () => {
   const r = checkWriting('Technology is useful. However, technology can be harmful. Technology changes fast, and technology is everywhere. We don\'t know.', { minWords: 10 });
@@ -30,5 +31,15 @@ test('writing check: no false alarms on the Band 7–8 model answers', () => {
     const r = checkWriting(w.model, { minWords: w.minWords });
     assert.deepEqual(r.mistakes, [], w.id);
     assert.ok(r.enough && r.linkers.length >= 1, `${w.id}: ${r.words} words, linkers ${r.linkers}`);
+  }
+});
+
+test('speaking Part 2 sample answers: ≥10, about two minutes long, no typical mistakes', () => {
+  const models = speakingBank.filter((s) => s.part2.model);
+  assert.ok(models.length >= 10);
+  for (const s of models) {
+    const r = checkWriting(s.part2.model, { minWords: 200 });
+    assert.ok(r.enough, `${s.id}: ${r.words} words`);
+    assert.deepEqual(r.mistakes, [], s.id);
   }
 });

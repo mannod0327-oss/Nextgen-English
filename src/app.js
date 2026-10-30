@@ -735,7 +735,9 @@ const views = {
           <ul>${sp.part2.points.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
           <p><button class="btn primary" id="cue-start">⏱ 1 daqiqa tayyorlanish + 2 daqiqa gapirish</button> <span id="cue-phase"></span> <b id="cue-timer"></b></p>
           <label class="check"><input type="checkbox" id="rec-auto" checked> "Gapiring!" boshlanganda avtomatik yozib olish</label>
-          <textarea rows="3" class="essay" placeholder="Qisqa eslatmalar (faqat kalit so'zlar)…"></textarea></section>
+          <textarea rows="3" class="essay" placeholder="Qisqa eslatmalar (faqat kalit so'zlar)…"></textarea>
+          ${sp.part2.model ? `<details class="card"><summary><b>📄 Namunaviy javob (Band 7)</b> — avval o'zingiz gapiring!</summary><div class="model">${esc(sp.part2.model)}</div>
+            <p><button class="btn" data-say="${esc(sp.part2.model)}">🔊 Tinglash</button> <span class="muted">${sp.part2.model.split(/\s+/).length} so'z ≈ 2 daqiqa</span></p></details>` : ''}</section>
         ${recorderHtml()}
         <section class="card"><h3>Part 3 · Muhokama</h3>${qs(sp.part3)}</section>
         <p><a class="btn" href="#/speech">🎙 Talaffuzni baholash — Nutq laboratoriyasi</a></p>`;
