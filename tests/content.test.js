@@ -60,7 +60,8 @@ test('grammar: advanced topics (used to … participle clauses) are complete; C1
 
 test('placement: valid questions with coverage at every level', () => {
   assert.deepEqual(validateExam(asExam('placement', placementQuestions)), []);
-  for (const lvl of LEVELS) assert.ok(placementQuestions.filter((q) => q.level === lvl).length >= 3, lvl);
+  for (const lvl of LEVELS) assert.ok(placementQuestions.filter((q) => q.level === lvl).length >= 10, lvl);
+  assert.equal(new Set(placementQuestions.map((q) => q.id)).size, placementQuestions.length);
 });
 
 test('grammar guide: sections cover units 1..N without gaps and every unit page exists', () => {

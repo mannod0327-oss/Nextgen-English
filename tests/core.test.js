@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { newCard, review, dueCards, isMature } from '../src/core/srs.js';
 import { buildIndex, prefixSearch, lookup, lemmaCandidates, levenshtein, lookupDefinition } from '../src/core/dictionary.js';
 import { scorePronunciation } from '../src/core/pronunciation.js';
-import { validateExam, scoreQuestion, gradeExam, makeVariant, parseExam, serializeExam } from '../src/core/exam.js';
+import { validateExam, scoreQuestion, gradeExam, makeVariant, parseExam, serializeExam, mulberry32 } from '../src/core/exam.js';
 import { createPlacement, nextQuestion, answerPlacement, placementResult } from '../src/core/placement.js';
 import { renderPrintable, answerKey } from '../src/core/printable.js';
 import { createStore } from '../src/core/store.js';
@@ -254,4 +254,18 @@ test('wordOfDay: same word all day, changes across days, matches level band', ()
   const week = new Set(Array.from({ length: 7 }, (_, i) => wordOfDay(`2026-11-0${i + 1}`, words, 'B1').word));
   assert.ok(week.size >= 5, 'varies day to day');
   assert.ok(['A1', 'A2'].includes(wordOfDay('2026-10-30', words, null).level), 'no level → A2 band');
+});
+
+test('placement: with rand, questions vary between runs but the result logic is unchanged', () => {
+  const seq = (seed) => {
+    let s = createPlacement(placementQuestions, { rand: mulberry32(seed) });
+    for (let q = nextQuestion(s); q; q = nextQuestion(s)) s = answerPlacement(s, q, ['A1', 'A2', 'B1'].includes(q.level));
+    return s;
+  };
+  const a = seq(1);
+  const b = seq(2);
+  assert.notDeepEqual(a.history.map((h) => h.id), b.history.map((h) => h.id));
+  assert.equal(placementResult(a), 'B1');
+  assert.equal(placementResult(b), 'B1');
+  assert.equal(new Set(a.history.map((h) => h.id)).size, a.history.length);
 });

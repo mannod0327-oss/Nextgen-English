@@ -3,8 +3,9 @@
 
 export const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1'];
 
-export function createPlacement(questions, { maxQuestions = 12, startLevel = 'A2' } = {}) {
-  return { questions, maxQuestions, level: LEVELS.indexOf(startLevel), streak: 0, history: [] };
+// rand (optional) picks a random unasked question at the level; without it the first one is used (deterministic tests).
+export function createPlacement(questions, { maxQuestions = 12, startLevel = 'A2', rand = null } = {}) {
+  return { questions, maxQuestions, level: LEVELS.indexOf(startLevel), streak: 0, history: [], rand };
 }
 
 export function nextQuestion(state) {
@@ -14,7 +15,8 @@ export function nextQuestion(state) {
   // nearest level that still has unasked questions
   for (let d = 0; d < LEVELS.length; d++) {
     for (const lvl of [state.level + d, state.level - d]) {
-      if (lvl >= 0 && lvl < LEVELS.length && pool(lvl).length) return pool(lvl)[0];
+      const p = lvl >= 0 && lvl < LEVELS.length ? pool(lvl) : [];
+      if (p.length) return p[state.rand ? Math.floor(state.rand() * p.length) : 0];
     }
   }
   return null;

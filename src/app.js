@@ -315,7 +315,7 @@ const views = {
   },
 
   placement() {
-    let state = createPlacement(placementQuestions);
+    let state = createPlacement(placementQuestions, { rand: rand() });
     const step = () => {
       const q = nextQuestion(state);
       if (!q) {
