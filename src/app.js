@@ -9,6 +9,7 @@ import { dailyPlan } from './core/plan.js';
 import { linePoints, lastDays } from './core/chart.js';
 import { buildSearchIndex, search } from './core/search.js';
 import { checkWriting } from './core/writing-check.js';
+import { badges } from './core/badges.js';
 import { vocabulary, categories } from './data/vocabulary.js';
 import { grammar } from './data/grammar.js';
 import { placementQuestions } from './data/placement.js';
@@ -925,6 +926,13 @@ const views = {
         ${stat('🧾', 'ochiq xato', Object.keys(store.get('mistakes', {})).length, '<a href="#/mistakes">ishlash →</a>')}
         ${stat('🔁', "fe'llar testi", store.get('verbsBest', null) != null ? `${store.get('verbsBest')}%` : '—', 'eng yaxshi')}
       </div>
+      ${(() => {
+        const list = badges({ xp: p.xp, streak: streak(p.days), level: p.level, cards: cards.length, mature: cards.filter(isMature).length,
+          grammar: grammarDone, reading: readingDone, bands: history.map((h) => h.band), verbsBest: store.get('verbsBest', null), drillBest: store.get('drillBest', null) });
+        return `<section class="card"><h3>🏆 Yutuqlar <span class="badge">${list.filter((b) => b.earned).length} / ${list.length}</span></h3>
+          <div class="badges">${list.map((b) => `<div class="bdg${b.earned ? ' earned' : ''}" data-badge="${b.id}" title="${esc(b.desc)}"><span class="ico">${b.icon}</span><b>${esc(b.title)}</b>
+            <span class="muted">${b.earned ? '✅ olindi' : `${esc(b.desc)} · ${b.value}/${b.goal}`}</span>${b.earned ? '' : `<progress max="${b.goal}" value="${b.value}"></progress>`}</div>`).join('')}</div></section>`;
+      })()}
       <section class="card"><h3>🎓 IELTS sinov testlari</h3>
         ${history.length ? `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Band natijalari grafigi">
             ${[3, 5, 7, 9].map((b) => { const y = linePoints([b], W, H, 0, 9, 18).split(',')[1]; return `<line x1="16" x2="${W}" y1="${y}" y2="${y}" class="grid-line"/><text x="2" y="${Number(y) + 3}" class="axis">${b}</text>`; }).join('')}

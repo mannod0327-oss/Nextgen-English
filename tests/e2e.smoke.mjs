@@ -440,6 +440,15 @@ await step('creator: add question, validate, simulate', async () => {
   await page.waitForSelector('text=Mening testim');
 });
 
+await step('progress: achievements section shows earned badges from earlier steps', async () => {
+  await page.goto(`${base}/#/`);
+  await page.goto(`${base}/#/progress`);
+  await page.waitForSelector('.badges .bdg');
+  if ((await page.locator('.bdg').count()) < 12) throw new Error('expected ≥12 badges');
+  for (const id of ['first-step', 'first-mock', 'drill-100']) if (!(await page.getAttribute(`[data-badge="${id}"]`, 'class')).includes('earned')) throw new Error(`${id} should be earned`);
+  if ((await page.getAttribute('[data-badge="band-7"]', 'class')).includes('earned')) throw new Error('band-7 must not be earned');
+});
+
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
   for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'articles', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
