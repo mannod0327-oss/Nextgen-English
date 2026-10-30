@@ -1,5 +1,6 @@
 // Articles & prepositions trainer (original). Uzbek has no articles, and in/on/at map to one suffix (-da),
 // so these are the most frequent errors. Row: [id, sentence with ___, answer, uz explanation]; options come from the set.
+// Items are built by the shared drill engine in drills.js.
 
 export const drillSets = [
   {
@@ -90,12 +91,3 @@ export const drillSets = [
     ],
   },
 ];
-
-// Gaps that start a sentence (answer written "The", "A"…) get capitalised options so the answer reads naturally.
-export const drillItems = drillSets.flatMap((set) =>
-  set.items.map(([id, prompt, answer, explanation]) => {
-    const cap = answer !== answer.toLowerCase();
-    const options = set.options.map((o) => (cap && o !== '—' ? o[0].toUpperCase() + o.slice(1) : o));
-    return { id, set: set.id, type: 'single', prompt, options, answer: options.indexOf(answer), explanation };
-  }),
-);

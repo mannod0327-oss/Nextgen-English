@@ -4,7 +4,7 @@ import { createRequire } from 'node:module';
 import { mkdirSync } from 'node:fs';
 
 const require = createRequire(import.meta.url);
-const { drillItems } = await import('../src/data/articles.js');
+const { drillItems } = await import('../src/data/drills.js');
 const { chromium } = require('playwright');
 
 const base = process.argv[2] ?? 'http://localhost:8080';
@@ -83,8 +83,9 @@ await step('vocab writing test: pick a theme, write + listen questions, 100% sav
 
 await step('articles & prepositions: 10 random questions, all correct → 100%, explanation shown', async () => {
   await page.goto(`${base}/#/`);
-  await page.click('a.tile[href="#/articles"]');
-  await page.click('a[href="#/articles?set=prepositions"]');
+  await page.click('a.tile[href="#/drill"]');
+  await page.click('a.tile[href="#/drill?t=articles"]');
+  await page.click('a[href="#/drill?t=articles&set=prepositions"]');
   await page.waitForSelector('.question[data-q^="pr"]');
   const ids = await page.$$eval('.question', (els) => els.map((e) => e.dataset.q));
   if (ids.length !== 10 || !ids.every((id) => id.startsWith('pr'))) throw new Error(`bad question set ${ids}`);
@@ -96,6 +97,10 @@ await step('articles & prepositions: 10 random questions, all correct → 100%, 
   await page.locator(`[data-q] input[type=radio]`).first().check();
   await page.click('#check');
   if (!(await page.locator('.fb').first().textContent()).trim()) throw new Error('no feedback/explanation');
+  await page.goto(`${base}/#/drill`);
+  if (!(await page.textContent('a.tile[href="#/drill?t=articles"]')).includes('100%')) throw new Error('best score missing on hub');
+  await page.goto(`${base}/#/articles?set=articles`);
+  await page.waitForSelector('.question[data-q^="ar"]');
 });
 
 await step('writing helper: check button reports words, linkers and Uzbek-speaker mistakes', async () => {
@@ -488,7 +493,7 @@ await step('progress: achievements section shows earned badges from earlier step
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=language-podcast', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'articles', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
+  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=language-podcast', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);

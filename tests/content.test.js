@@ -21,7 +21,7 @@ import { collocations } from '../src/data/collocations.js';
 import { existsSync } from 'node:fs';
 import { exams } from '../src/data/exams.js';
 import { readings } from '../src/data/readings.js';
-import { drillSets, drillItems } from '../src/data/articles.js';
+import { trainers, drillSets, drillItems } from '../src/data/drills.js';
 
 const asExam = (title, questions) => ({ format: 'nge-exam', title, questions });
 
@@ -235,5 +235,6 @@ test('articles & prepositions drill: ≥60 valid one-gap items with Uzbek explan
     assert.equal(q.prompt.split('___').length, 2, `${q.id}: exactly one gap`);
     assert.ok(q.answer >= 0 && q.explanation, q.id);
   }
-  for (const set of drillSets) assert.ok(set.items.length >= 25 && set.rules.length >= 3, set.id);
+  for (const set of drillSets.filter((x) => x.trainer === 'articles')) assert.ok(set.items.length >= 25 && set.rules.length >= 3, set.id);
+  for (const t of trainers) assert.ok(drillItems.filter((q) => q.trainer === t.id).length >= 40 && t.icon && t.intro, t.id);
 });
