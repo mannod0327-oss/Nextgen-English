@@ -407,4 +407,43 @@ export const grammar = [
       { id: 'b1te5', type: 'order', prompt: 'Put the words in order:', items: ["The", "room", "isn't", "big", "enough."] },
     ],
   },
+  {
+    id: 'must-have-to', title: 'must / have to / mustn\'t / don\'t have to', level: 'A2',
+    rule: "must — so'zlovchining o'zi zarur deb bilgan majburiyat (I must study tonight); have to — tashqi qoida/majburiyat (I have to wear a uniform). mustn't — taqiqlangan (qilmaslik kerak!); don't have to — shart emas (qilsang ham, qilmasang ham bo'ladi). O'tmishda faqat had to.",
+    table: [['must', 'I must call my mum.'], ['have to', 'Students have to wear a uniform.'], ["mustn't (taqiq)", "You mustn't smoke here."], ["don't have to (shart emas)", "You don't have to come — it's optional."], ["o'tmish", 'I had to work late yesterday.']],
+    examples: ['You must be careful on the road.', 'He has to get up at six for work.', "We don't have to pay — it's free."],
+    exercises: [
+      { id: 'a2mh1', type: 'single', prompt: "You ___ use your phone during the exam. It's not allowed.", options: ["mustn't", "don't have to", 'must', 'have to'], answer: 0 },
+      { id: 'a2mh2', type: 'single', prompt: "It's Saturday, so I ___ go to school.", options: ["mustn't", "don't have to", 'must', 'has to'], answer: 1 },
+      { id: 'a2mh3', type: 'single', prompt: 'My sister ___ wear glasses to read.', options: ['have to', 'has to', 'must to', 'musts'], answer: 1 },
+      { id: 'a2mh4', type: 'fill', prompt: 'Yesterday I ___ (have to) wait for an hour. (2 so\'z)', answer: ['had to'] },
+      { id: 'a2mh5', type: 'single', prompt: 'Which sentence is correct?', options: ['You must to study.', 'You must study.', 'You musts study.', 'You must studying.'], answer: 1, explanation: 'must + V1 (to siz).' },
+    ],
+  },
+  {
+    id: 'pronouns', title: 'Pronouns: me / mine / myself', level: 'A2',
+    rule: "Ega olmoshi (I, he, she) — fe'ldan oldin; to'ldiruvchi olmoshi (me, him, her, us, them) — fe'l yoki predlogdan keyin: Call me. With them. Egalik olmoshi (mine, yours, his, hers, ours, theirs) — otsiz ishlatiladi: This book is mine. O'zlik olmoshi (myself, yourself…) — harakat o'ziga qaytganda: I cut myself.",
+    table: [['ega', 'I / he / she / we / they'], ["to'ldiruvchi", 'me / him / her / us / them'], ['egalik (otsiz)', 'mine / his / hers / ours / theirs'], ["o'zlik", 'myself / herself / ourselves / themselves']],
+    examples: ['Can you help me?', 'Is this bag yours?', 'She taught herself to play the guitar.'],
+    exercises: [
+      { id: 'a2pr1', type: 'single', prompt: 'Please give the keys to ___.', options: ['I', 'me', 'my', 'mine'], answer: 1 },
+      { id: 'a2pr2', type: 'single', prompt: 'This isn\'t my coat. ___ is black.', options: ['My', 'Mine', 'Me', 'I'], answer: 1 },
+      { id: 'a2pr3', type: 'single', prompt: 'We met Ali and Sara and went to the cinema with ___.', options: ['they', 'their', 'them', 'theirs'], answer: 2 },
+      { id: 'a2pr4', type: 'fill', prompt: "Be careful! Don't hurt ___ . (you — o'zlik)", answer: 'yourself' },
+      { id: 'a2pr5', type: 'single', prompt: 'Is this phone ___? — Yes, it\'s hers.', options: ['her', 'hers', 'she', 'herself'], answer: 1 },
+    ],
+  },
+  {
+    id: 'frequency', title: 'Adverbs of frequency: always / usually / never', level: 'A2',
+    rule: "Qanchalik tez-tez: always (100%) → usually → often → sometimes → rarely → never (0%). O'rni: oddiy fe'ldan OLDIN (I usually walk), lekin be fe'lidan KEYIN (She is always late). Savol: How often…? Javob: once a week, twice a month, every day (gap oxirida).",
+    table: [['fe\'ldan oldin', 'I often drink tea.'], ['be dan keyin', 'He is never angry.'], ['How often?', 'once / twice / three times a week'], ['oxirida', 'We go swimming every Sunday.']],
+    examples: ['I always brush my teeth before bed.', 'They are usually at home in the evening.', 'How often do you visit your grandparents?'],
+    exercises: [
+      { id: 'a2fq1', type: 'single', prompt: 'Choose the correct sentence.', options: ['I go always to work by bus.', 'I always go to work by bus.', 'Always I go to work by bus.', 'I go to work always by bus.'], answer: 1 },
+      { id: 'a2fq2', type: 'single', prompt: 'Choose the correct sentence.', options: ['She always is late.', 'She is always late.', 'Always she is late.', 'She is late always is.'], answer: 1, explanation: 'be fe\'lidan keyin.' },
+      { id: 'a2fq3', type: 'fill', prompt: '___ often do you go to the gym? (1 so\'z)', answer: 'How' },
+      { id: 'a2fq4', type: 'single', prompt: 'I go to the dentist ___ a year.', options: ['two', 'twice', 'second', 'two times a'], answer: 1 },
+      { id: 'a2fq5', type: 'order', prompt: 'Put the words in order:', items: ['We', 'never', 'eat', 'fast', 'food.'] },
+    ],
+  },
 ];

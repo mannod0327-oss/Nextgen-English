@@ -53,6 +53,26 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 40  | **Writing Task 2 namunalari +12**                                        | Bankdagi ko'proq topshiriqqa namuna                                                    | 12 ta yangi Band 7 javob (≥250), writing-check'da 0 soxta xato                                                                                                                                            | ✅    |
 | 41  | **C1 o'qish +3**                                                         | Yuqori daraja                                                                          | 3 ta C1 matn × 6 savol                                                                                                                                                                                    | ✅    |
 | 42  | **Mock Test 6**                                                          |                                                                                        | 40+40 original savol                                                                                                                                                                                      | ✅    |
+| 43  | **A2 grammatika +3** | A2 o'rtacha qamrov | must / have to, object & possessive pronouns (me/mine), adverbs of frequency; har biri ≥5 mashq | ✅ |
+| 44  | **B2 grammatika +3** | B2 da deduction yo'q | modals of deduction (must have / can't have), reported questions, verb patterns (stop/remember/try + -ing/to) | ⬜ |
+| 45  | **C1 grammatika +2** | C1 da 4 mavzu | cleft sentences (What I need is… / It was… that), subjunctive & "It's time" (I suggest he go) | ⬜ |
+| 46  | **A1 tinglash +4** | A1 da birorta tinglash yo'q | 4 ta sekin, qisqa A1 tinglash (tanishuv, raqamlar, vaqt, do'kon), har biri 5 savol | ⬜ |
+| 47  | **Daraja testi +20** | 40 savol — aniqlik past | 60 ta savol, har darajada ≥10; adaptiv algoritm o'zgarmaydi, testlar o'tadi | ⬜ |
+| 48  | **C1 imtihon** | Imtihon simulyatorida C1 yo'q | 25 savollik C1 imtihon (grammatika, lug'at, o'qish), exams ro'yxatida | ⬜ |
+| 49  | **Idiomalar +20** | Kollokatsiyalarda 10 ta idioma | +20 idioma o'zbekcha ma'no va misol bilan, testga kiradi | ⬜ |
+| 50  | **Minimal juftlar +3** | Yana qiyin tovushlar | /eɪ/–/e/ (late/let), /əʊ/–/ɔː/ (coat/caught), /ɜː/–/ɑː/ (heard/hard) × 6 juft | ⬜ |
+| 51  | **Speech Lab +6 vaziyat** | 17 vaziyat | 6 ta yangi vaziyat (ish suhbati, shifokor, bank, taksi, telefon, mehmonxona shikoyati) | ⬜ |
+| 52  | **Task 1 namunalari +6** | Task 1 bankda namunalar kam | 6 ta yangi Band 7 Task 1 javobi (≥150), raqamlar jadval bilan mos | ⬜ |
+| 53  | **Speaking Part 2 namunalari +10** | | 10 ta yangi cue card namunasi (≥200) | ⬜ |
+| 54  | **IELTS strategiyalari** | Savol turlarini bilmaslik — ball yo'qotish | `#/ielts?guide=…`: T/F/NG, matching headings, gap-fill, Part 1–4 listening, Writing tuzilmasi — o'zbekcha qo'llanma + mini mashq | ⬜ |
+| 55  | **Mock Test 7** | | 40+40 original savol | ⬜ |
+| 56  | **Haftalik maqsad** | Motivatsiya: kunlik XP maqsadi | Kunlik maqsad (20/50/100 XP) tanlash, bosh sahifada halqa, haftalik ko'rinish; unit test | ⬜ |
+| 57  | **Lug'atni chop etish** | Oflayn qog'oz varaq | Mavzu bo'yicha so'zlar ro'yxati chop etish ko'rinishi (print CSS), E2E | ⬜ |
+| 58  | **Ishlash tezligi: dangasa yuklash** | Kontent ko'paydi — boshlang'ich JS katta | IELTS mock/bank modullari faqat kerak bo'lganda yuklanadi; boshlang'ich baytlar o'lchanadi va kamayadi | ⬜ |
+| 59  | **Qulaylik (a11y) auditi** | Klaviatura va ekran o'quvchi | Barcha tugmalarda nom, fokus ko'rinishi, til atributlari; E2E'da avtomatik tekshiruv | ⬜ |
+| 60  | **B1 tinglash +3 va A2 +2** | | 5 ta tinglash × 5 savol | ⬜ |
+| 61  | **Lug'at +60** (ta'lim tizimi, fan va tadqiqot, san'at va madaniyat) | IELTS Task 2 mavzulari | 3 × 20 so'z | ⬜ |
+| 62  | **Mock Test 8** | | 40+40 original savol | ⬜ |
 
 ## Iteratsiyalar jurnali
 
@@ -111,3 +131,6 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **40-iteratsiya** — ✍️ Writing bankiga yana 12 ta original Band 7 Task 2 javobi (jami 24): uy vazifasi, imtihon va coursework, o'qituvchilar maoshi, boshlang'ich maktabda chet tili, shakarli ichimliklar solig'i, sportni moliyalash, aholining qarishi, tirbandlik sabablari/yechimlari, markazda avtomobillarni taqiqlash, xalqaro turizm, bir martalik plastik, hayvonot bog'lari. Har biri ≥250 so'z, writing-check bo'yicha 0 ta tipik xato (test). Kontent testi (≥24) + E2E + mobil.
 - **41-iteratsiya** — 📰 3 ta C1 matn × 6 savol (+18): platsebo effekti (open-label placebo, etika), tanlov ko'pligi va decision fatigue (murabbo tajribasi, takrorlash natijalari), cho'ldagi qadimiy suv muhandisligi — kariz/qanat. "Diqqat iqtisodiyoti" matni yozilgan edi, lekin Mock 2'dagi passage bilan mavzu takrorlanishi aniqlandi → almashtirildi. Har bir darajada endi ≥7 ta matn (C1 8); ta'riflar 3188. Kontent testi C1 ≥8 + E2E + mobil.
 - **42-iteratsiya** — 📝 Mock Test 6 (80 original savol): Listening — kechki koreys tili kursiga yozilish, Zarafshon qo'riqxonasida ko'ngillilik, toshkentlik nonvoyxona tarmog'i bo'yicha case study, ma'ruza: asalarilar raqsi (von Frisch, round/waggle dance, feromonlar); Reading — suzani kashtachiligi (mintaqaviy uslublar, tabiiy bo'yoqlar), baxt uchun shahar dizayni (paragraf moslash), bilingvizm ilmi (bilingual advantage bahsi). Kontent testi (40 savol, yagona ID, gap-fill javoblari matnda) + E2E mobil. 4-partiya (23–42) tugadi.
+
+**4-partiya (23–42) bajarildi.** 5-partiya: 43–62.
+- **43-iteratsiya** — 📐 A2 grammatika +3 (+15 mashq): must / have to / mustn't / don't have to (taqiq ≠ shart emas, had to), olmoshlar me / mine / myself (to'ldiruvchi, egalik, o'zlik), adverbs of frequency (always…never, fe'ldan oldin / be dan keyin, How often, once/twice). 36 mavzu / 156 mashq, A2 da 9 ta. 5-partiya backlog'i (43–62) yozildi. Kontent testi + E2E (frequency: tartiblash + be dan keyin) + mobil.
