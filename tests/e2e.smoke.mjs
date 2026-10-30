@@ -88,7 +88,7 @@ await step('articles & prepositions: 10 random questions, all correct → 100%, 
   await page.click('a.tile[href="#/drill"]');
   await page.click('a.tile[href="#/drill?t=articles"]');
   await page.click('a[href="#/drill?t=articles&set=prepositions"]');
-  await page.waitForSelector('.question[data-q^="pr"]');
+  await page.waitForFunction(() => { const q = [...document.querySelectorAll('.question')]; return q.length && q.every((e) => e.dataset.q.startsWith('pr')); });
   const ids = await page.$$eval('.question', (els) => els.map((e) => e.dataset.q));
   if (ids.length !== 10 || !ids.every((id) => id.startsWith('pr'))) throw new Error(`bad question set ${ids}`);
   for (const id of ids) await page.locator(`[data-q="${id}"] input[value="${drillItems.find((q) => q.id === id).answer}"]`).check();
@@ -475,12 +475,12 @@ await step('global search: finds words, grammar, texts and IELTS tasks; links wo
 });
 
 await step('dictation: text blurred until an attempt is scored', async () => {
-  await page.goto(`${base}/#/speech?s=taxi`);
+  await page.goto(`${base}/#/speech?s=complaint`);
   await page.check('#dict');
   const blur = () => page.locator('.line').first().locator('.say .t').evaluate((el) => getComputedStyle(el).filter);
   if (!(await blur()).includes('blur')) throw new Error('text not hidden in dictation mode');
   const box = page.locator('.line').first();
-  await box.locator('.typed').fill('could you take me to the railway station please');
+  await box.locator('.typed').fill("Excuse me, the air conditioning in my room isn't working.");
   await box.locator('.typed').press('Enter');
   if ((await blur()) !== 'none') throw new Error('text not revealed after attempt');
   if (!(await box.locator('.score').textContent()).startsWith('100')) throw new Error('dictation score');
@@ -575,7 +575,7 @@ await step('progress: achievements section shows earned badges from earlier step
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'vocab?mode=test&cat=Jinoyat va qonun', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'grammar?topic=question-tags', 'grammar?topic=must-have-to', 'grammar?topic=verb-patterns', 'grammar?topic=subjunctive', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?w=bw2-zoos', 'ielts?s=b-tradition', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=l-at-the-cafe', 'reading?t=placebo', 'reading?t=language-podcast', 'reading?t=debate-tourism', 'mistakes', 'sounds', 'sounds?set=th-s', 'sounds?set=ou-or', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'drill?t=stress', 'drill?t=task1', 'drill?t=synonyms', 'numbers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'ielts?mock=listening-5', 'ielts?mock=reading-5', 'ielts?mock=listening-6', 'ielts?mock=reading-6', 'search?q=present']) {
+  for (const r of ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'vocab?mode=test&cat=Jinoyat va qonun', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'grammar?topic=question-tags', 'grammar?topic=must-have-to', 'grammar?topic=verb-patterns', 'grammar?topic=subjunctive', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?w=bw2-zoos', 'ielts?s=b-tradition', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=l-at-the-cafe', 'reading?t=placebo', 'reading?t=language-podcast', 'reading?t=debate-tourism', 'mistakes', 'sounds', 'sounds?set=th-s', 'sounds?set=ou-or', 'speech?s=lost', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'drill?t=stress', 'drill?t=task1', 'drill?t=synonyms', 'numbers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'ielts?mock=listening-5', 'ielts?mock=reading-5', 'ielts?mock=listening-6', 'ielts?mock=reading-6', 'search?q=present']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);

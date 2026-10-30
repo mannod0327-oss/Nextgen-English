@@ -89,4 +89,40 @@ export const scenarios = [
     'How long will it take to arrive?',
     'Can I track the delivery online?',
   ] },
+  { id: 'complaint', title: '🛎️ Mehmonxonada shikoyat', lines: [
+    "Excuse me, the air conditioning in my room isn't working.",
+    'There are no clean towels in the bathroom.',
+    'The room next door is very noisy. Could I change rooms?',
+    "I'm sorry, but this isn't the room I booked.",
+  ] },
+  { id: 'train', title: '🚆 Vokzalda', lines: [
+    'A return ticket to Samarkand, please.',
+    'Which platform does the train leave from?',
+    'Is this seat taken?',
+    'How long is the journey?',
+  ] },
+  { id: 'rent', title: '🏠 Kvartira ijarasi', lines: [
+    "I'm calling about the flat you advertised.",
+    'How much is the rent per month?',
+    'Are the bills included?',
+    'When would it be possible to see it?',
+  ] },
+  { id: 'lost', title: '🔎 Yo‘qolgan buyum', lines: [
+    "I think I've lost my wallet on the bus.",
+    "It's a small black leather wallet with my ID card inside.",
+    'Has anyone handed in a phone today?',
+    'Could you call me if you find it?',
+  ] },
+  { id: 'hairdresser', title: '💇 Sartaroshxonada', lines: [
+    "I'd like a haircut, please.",
+    'Just a little shorter at the sides.',
+    'Not too short on top, please.',
+    'How much do I owe you?',
+  ] },
+  { id: 'gym', title: '🏋️ Sport zalida', lines: [
+    "I'd like to join the gym. What are your membership options?",
+    'Is there a discount for students?',
+    'Could you show me how to use this machine?',
+    'What time do you close on Sundays?',
+  ] },
 ];

@@ -108,8 +108,10 @@ test('readings: valid questions, unique ids, every CEFR band A1–C1 covered, li
   assert.ok(readings.filter((r) => r.listening).length >= 4);
 });
 
-test('scenarios: each has lines', () => {
+test('scenarios: each has lines, ids unique', () => {
   for (const s of scenarios) assert.ok(s.lines.length >= 2, s.id);
+  assert.equal(new Set(scenarios.map((s) => s.id)).size, scenarios.length);
+  assert.ok(scenarios.length >= 23);
 });
 
 test('definitions are well-formed and cover the vocabulary', () => {
