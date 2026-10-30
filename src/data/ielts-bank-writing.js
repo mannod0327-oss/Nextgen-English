@@ -1,5 +1,5 @@
 // IELTS Writing prompt bank (original). Same schema as `writing` in ielts.js; `plan` gives an outline / ideas.
-// Task 1 items carry a data table; 24 tasks also carry a Band 7 `model` (see `models` at the end).
+// Task 1 items carry a data table; 30 tasks also carry a Band 7 `model` (see `models` at the end).
 
 const t1 = (id, prompt, table, plan) => ({ id: `bw1-${id}`, task: 1, minutes: 20, minWords: 150, type: 'Task 1 · Table', prompt: `${prompt} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.`, table, plan });
 const t2 = (id, type, prompt, plan) => ({ id: `bw2-${id}`, task: 2, minutes: 40, minWords: 250, type: `Task 2 · ${type}`, prompt, plan });
@@ -343,5 +343,65 @@ On the other hand, supporters argue that modern zoos make an important contribut
 In my opinion, zoos should not be closed, but they must change. Only zoos that meet strict standards of animal welfare and that take part in genuine conservation programmes should be allowed to operate. Species that clearly suffer in captivity, such as elephants, should gradually be moved to large sanctuaries.
 
 In conclusion, although some zoos are cruel and outdated, well-run modern zoos help to protect endangered species and educate the public. Therefore, I believe they should be reformed rather than abolished.`,
+
+  'bw1-internet-age': `The table compares the average number of hours that four age groups spent online each day in 2025, on weekdays and at weekends.
+
+Overall, time spent on the internet clearly declined with age, and every group was online for longer at weekends than on weekdays. The youngest users spent by far the most time online.
+
+People aged 15 to 24 were online for 5.5 hours a day during the week, and this figure rose to 7.0 hours at weekends, the highest value in the table. The 25–44 group came second, with 4.0 hours on weekdays and slightly more, 4.5 hours, at weekends.
+
+Older people used the internet much less. Those aged 45 to 64 spent 2.5 hours online on weekdays and 3.0 hours at weekends. The lowest figures belonged to people over 65, who were online for only 1.0 hour on a typical weekday and 1.5 hours at the weekend. In other words, the oldest group spent roughly a fifth of the time that the youngest group spent online.
+
+It is also worth noting that the weekend increase was largest for the youngest users, at 1.5 hours, while for the other groups it was only half an hour.`,
+
+  'bw1-water-use': `The table shows how many litres of water per person were used each day for household, agricultural and industrial purposes in five countries, labelled A to E.
+
+Overall, agriculture was the largest user of water in most of the countries, especially in B and D. However, countries C and E used more water for industry than for farming.
+
+Country B used the most water for agriculture, at 1,400 litres per person, followed by country A with 900 litres and country D with 700. In contrast, agricultural use was much lower in country C (400 litres) and country E (300 litres).
+
+Industrial use varied widely. It was highest in country C, at 600 litres, and in country E, at 500, whereas country A used 300 litres, country B 120 and country D only 50.
+
+As for household consumption, the figures were smaller everywhere. Country C used the most, at 220 litres per person, while country E used 180 and country A 150. Households in country B used 90 litres, and those in country D used just 60, which means that country D had the lowest figure in every category except agriculture.`,
+
+  'bw1-commute': `The table compares the average time, in minutes, that people in four cities spent commuting to work in 2010 and 2025.
+
+Overall, commuting times increased in three of the four cities over the fifteen-year period, and the most dramatic growth was in City D. City C was the only city where journeys became shorter.
+
+In 2010, City C had the longest average commute, at 45 minutes, followed by City A with 35 minutes and City B with 28. City D had the shortest journeys, at just 22 minutes.
+
+By 2025, the situation had changed considerably. City A's commuting time rose by 17 minutes to 52 minutes, making it the city with the longest journeys. The figure for City D nearly doubled, climbing to 41 minutes, which was the largest increase in the table. In City B, by contrast, the change was minimal: the average commute grew by only two minutes, from 28 to 30.
+
+City C followed the opposite trend. Its average commuting time fell by seven minutes to 38, so it moved from having the longest journeys in 2010 to only the third longest in 2025.`,
+
+  'bw1-smartphones': `The table shows what percentage of people in four age groups owned a smartphone in 2012 and in 2024.
+
+Overall, smartphone ownership rose sharply in every age group over the twelve years. Younger people were more likely to own a smartphone in both years, but the gap between the age groups narrowed considerably.
+
+In 2012, just over half of people aged 16 to 24 (52%) had a smartphone, and the figure for the 25–34 group was slightly lower, at 44%. Ownership was much less common among older people: only a quarter of those aged 35 to 54 owned one, and the figure for people over 55 was a mere 6%.
+
+By 2024, smartphones had become almost universal among younger adults. Ownership reached 98% in the youngest group and 96% among 25 to 34-year-olds. The 35–54 group saw a dramatic rise, from 25% to 89%. The most striking change, however, was among people aged 55 and over, where ownership increased more than tenfold, from 6% to 68%.
+
+As a result, while the difference between the youngest and the oldest groups was 46 percentage points in 2012, it had fallen to 30 points by 2024.`,
+
+  'bw1-food-prices': `The table compares the average price per kilogram, in sum, of bread, rice, meat and apples in 2020 and 2025.
+
+Overall, all four items became more expensive over the five-year period. Meat was by far the most expensive item in both years, while the price of apples rose the least.
+
+In 2020, a kilogram of meat cost 65,000 sum, which was more than five times the price of rice (12,000 sum). Apples cost 8,000 sum per kilogram, and bread was the cheapest item, at 6,000 sum.
+
+By 2025, the price of meat had increased by 30,000 sum to 95,000, the largest rise in absolute terms. Rice also became considerably more expensive, rising to 18,500 sum. The price of bread went up from 6,000 to 9,000 sum, an increase of 50%, which was the biggest rise in percentage terms, although rice rose by a similar proportion.
+
+Apples, in contrast, saw only a modest change. Their price grew by 1,500 sum to 9,500 sum per kilogram. As a result, apples were only slightly more expensive than bread in 2025, whereas in 2020 the difference had been 2,000 sum.`,
+
+  'bw1-libraries': `The table shows the number of visits to libraries and the number of books borrowed, both in millions, in a country at five-year intervals between 2005 and 2025.
+
+Overall, both figures fell over most of the period and reached their lowest point in 2020, before recovering partly in 2025. Loans fell more sharply than visits, and by the end of the period visits were slightly higher than loans.
+
+In 2005, there were 30 million library visits and 45 million book loans. Over the next ten years both figures declined gradually. Visits dropped to 28 million in 2010 and 25 million in 2015, while loans fell more quickly, to 38 million and then 30 million.
+
+The most dramatic change took place between 2015 and 2020. Visits almost halved, falling to 14 million, and loans dropped to just 18 million, less than half of the 2005 figure.
+
+In the final five years, however, libraries became more popular again. The number of visits rose by eight million to 22 million, and loans recovered to 21 million. For the first time in the period, therefore, visits exceeded loans, although by only one million.`,
 };
 for (const w of writingBank) if (models[w.id]) w.model = models[w.id];
