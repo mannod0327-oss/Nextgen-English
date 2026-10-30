@@ -150,6 +150,17 @@ await step('reading: answer questions, hide text, score stored', async () => {
   await page.screenshot({ path: `${shots}/reading.png`, fullPage: true });
 });
 
+await step('reading B1: new texts listed, Registan answers graded', async () => {
+  await page.goto(`${base}/#/reading`);
+  for (const id of ['registan', 'chorsu', 'teen-sleep', 'food-waste', 'electric-cars', 'job-interview']) await page.waitForSelector(`a[href="#/reading?t=${id}"]`);
+  await page.click('a[href="#/reading?t=registan"]');
+  await page.waitForSelector('[data-q="b1rg5"]');
+  await page.locator('[data-q="b1rg1"] input[value="1"]').check();
+  await page.fill('[data-q="b1rg5"] .fill', 'deer');
+  await page.click('#check');
+  if ((await page.locator('.feedback.ok').count()) !== 2) throw new Error('B1 reading: expected 2 correct');
+});
+
 await step('reading gloss + dictionary definitions (lazy-loaded WordNet)', async () => {
   await page.goto(`${base}/#/`); // same-URL goto would keep the previous step's hidden text
   await page.goto(`${base}/#/reading?t=my-family`);
@@ -388,7 +399,7 @@ await step('creator: add question, validate, simulate', async () => {
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
-  for (const r of ['', 'creator', 'vocab', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
+  for (const r of ['', 'creator', 'vocab', 'vocab?cat=Shifokorda', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'mistakes', 'sounds', 'sounds?set=th-s', 'progress', 'collocations', 'collocations?mode=test', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'search?q=present']) {
     await page.goto(`${base}/#/${r}`);
     await page.waitForTimeout(150);
     const over = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth);

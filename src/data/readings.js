@@ -248,6 +248,103 @@ Nodira`,
       { id: 'vd5', type: 'fill', prompt: 'The next clean-up day will be in ___.', answer: 'spring' },
     ],
   },
+  // ---- More B1 reading
+  {
+    id: 'registan', level: 'B1', title: 'Registan Square', uzTitle: 'Registon maydoni',
+    text: `Registan Square in Samarkand is one of the most famous places in Central Asia. Its name means "sandy place", because in the past the ground there was covered with sand. For centuries it was the centre of city life: people came to the square to hear royal announcements, watch public events and buy goods at the market.
+
+The square is surrounded by three large madrasas, or Islamic schools. The oldest, the Ulugbek Madrasa, was built in the fifteenth century by Ulugbek, a ruler who was also a famous astronomer. Students studied mathematics, astronomy and philosophy there as well as religion. The other two, the Sher-Dor and Tilya-Kori madrasas, were added about two hundred years later. The Sher-Dor Madrasa is known for its unusual tile pictures of lions chasing deer, with a human face in the sun above them.
+
+In the twentieth century, earthquakes and time damaged the buildings, and some towers started to lean. Engineers spent many years repairing them, and today the square is a UNESCO World Heritage Site. In the evening, there is often a light show, and thousands of tourists visit every year.`,
+    questions: [
+      { id: 'b1rg1', type: 'single', prompt: 'What does the name "Registan" mean?', options: ['royal square', 'sandy place', 'blue city', 'old market'], answer: 1 },
+      { id: 'b1rg2', type: 'single', prompt: 'Ulugbek was a ruler and also a famous astronomer.', options: ['True', 'False', 'Not Given'], answer: 0 },
+      { id: 'b1rg3', type: 'single', prompt: 'All three madrasas were built in the same century.', options: ['True', 'False', 'Not Given'], answer: 1 },
+      { id: 'b1rg4', type: 'single', prompt: 'Students at the madrasas paid high fees.', options: ['True', 'False', 'Not Given'], answer: 2 },
+      { id: 'b1rg5', type: 'fill', prompt: 'The Sher-Dor tiles show lions chasing ___.', answer: 'deer' },
+      { id: 'b1rg6', type: 'single', prompt: 'Why did the buildings need repairs?', options: ['because of fires', 'because of earthquakes and time', 'because of wars', 'because tourists damaged them'], answer: 1 },
+    ],
+  },
+  {
+    id: 'chorsu', level: 'B1', title: 'A Morning at the Bazaar', uzTitle: 'Bozorda bir tong',
+    text: `If you want to see everyday life in Tashkent, go to Chorsu Bazaar early in the morning. The market is under a huge blue dome, and by seven o'clock it is already full of noise and colour. Sellers shout prices, carts full of watermelons move between the stalls, and the smell of fresh bread comes from the tandir ovens.
+
+Inside the dome, you can buy meat, cheese and dried fruit. Outside, there are long rows of vegetables, spices and nuts. Most sellers let you taste before you buy, and it is normal to bargain. A good tip is to smile, ask the price, and then offer a little less. Many sellers are happy to talk, and some will even teach you a few words of Uzbek.
+
+In recent years, large supermarkets have opened in the city, and some young people prefer to shop online. However, many families still believe that the bazaar is the best place for fresh, seasonal food. For them, shopping there is not only about buying things — it is also a chance to meet friends and neighbours.`,
+    questions: [
+      { id: 'b1cb1', type: 'single', prompt: 'What covers the main part of the market?', options: ['a glass roof', 'a huge blue dome', 'tents', 'trees'], answer: 1 },
+      { id: 'b1cb2', type: 'fill', prompt: 'Fresh bread is baked in ___ ovens.', answer: 'tandir' },
+      { id: 'b1cb3', type: 'single', prompt: 'Bargaining is normal at the bazaar.', options: ['True', 'False', 'Not Given'], answer: 0 },
+      { id: 'b1cb4', type: 'single', prompt: 'Prices at the bazaar are lower than in supermarkets.', options: ['True', 'False', 'Not Given'], answer: 2 },
+      { id: 'b1cb5', type: 'single', prompt: 'What is the writer’s tip for bargaining?', options: ['pay the first price', 'smile and offer a little less', 'shout loudly', 'come back later'], answer: 1 },
+      { id: 'b1cb6', type: 'multiple', prompt: 'Why do many families still use the bazaar?', options: ['fresh, seasonal food', 'free delivery', 'meeting friends and neighbours', 'online payment'], answer: [0, 2] },
+    ],
+  },
+  {
+    id: 'teen-sleep', level: 'B1', title: 'Why Teenagers Need More Sleep', uzTitle: 'Nega o‘smirlarga ko‘proq uyqu kerak',
+    text: `Many parents complain that their teenage children go to bed late and find it hard to get up in the morning. It is easy to think that teenagers are simply lazy, but scientists say the real reason is biology. During the teenage years, the body releases melatonin, the hormone that makes us feel sleepy, about two hours later than in younger children. As a result, many teenagers do not feel tired until eleven o'clock or even midnight.
+
+Experts recommend that teenagers sleep between eight and ten hours a night, but surveys show that most get only six or seven on school days. Lack of sleep can make it harder to concentrate, remember new information and control emotions. It may also increase the risk of accidents for young drivers.
+
+Some schools in other countries have started classes later in the morning, and the results have been positive: students arrive on time more often and their grades improve. Doctors also advise teenagers to stop using phones and computers at least an hour before bed, because the blue light from screens delays sleep even more.`,
+    questions: [
+      { id: 'b1ts1', type: 'single', prompt: 'According to scientists, teenagers go to bed late mainly because of …', options: ['laziness', 'biology', 'homework', 'television'], answer: 1 },
+      { id: 'b1ts2', type: 'fill', prompt: 'The hormone that makes us sleepy is called ___.', answer: 'melatonin' },
+      { id: 'b1ts3', type: 'single', prompt: 'Teenagers should sleep between eight and ten hours a night.', options: ['True', 'False', 'Not Given'], answer: 0 },
+      { id: 'b1ts4', type: 'single', prompt: 'Most teenagers sleep nine hours on school days.', options: ['True', 'False', 'Not Given'], answer: 1 },
+      { id: 'b1ts5', type: 'single', prompt: 'What happened in schools that started later?', options: ['grades got worse', 'students arrived on time more often and grades improved', 'nothing changed', 'students slept at school'], answer: 1 },
+      { id: 'b1ts6', type: 'fill', prompt: 'The blue ___ from screens delays sleep.', answer: 'light' },
+    ],
+  },
+  {
+    id: 'food-waste', level: 'B1', title: 'The Problem of Food Waste', uzTitle: 'Oziq-ovqat isrofi muammosi',
+    text: `Around the world, roughly one third of all food that is produced is never eaten. Some of it is lost on farms or during transport, but a large amount is thrown away in shops, restaurants and homes. At the same time, millions of people do not have enough to eat.
+
+Food waste is also bad for the environment. When food rots in rubbish dumps, it produces methane, a gas that contributes to climate change. In addition, all the water, energy and land used to grow the food are wasted too.
+
+There are many simple ways to reduce waste at home. Plan your meals for the week and write a shopping list, so you only buy what you need. Store fruit and vegetables correctly, and use leftovers to make new dishes — many traditional recipes, such as soups, were invented for exactly this purpose. It also helps to understand date labels: "best before" means the food may lose some quality after that date, but it is usually still safe to eat. Some supermarkets now sell imperfect vegetables at lower prices, and apps allow cafés to sell unsold food cheaply at the end of the day.`,
+    questions: [
+      { id: 'b1fw1', type: 'single', prompt: 'How much of the world’s food is never eaten?', options: ['about a tenth', 'about a third', 'about half', 'almost all'], answer: 1 },
+      { id: 'b1fw2', type: 'fill', prompt: 'Rotting food produces a gas called ___.', answer: 'methane' },
+      { id: 'b1fw3', type: 'single', prompt: 'Food after the "best before" date is usually dangerous to eat.', options: ['True', 'False', 'Not Given'], answer: 1 },
+      { id: 'b1fw4', type: 'single', prompt: 'Restaurants waste more food than homes.', options: ['True', 'False', 'Not Given'], answer: 2 },
+      { id: 'b1fw5', type: 'multiple', prompt: 'Which tips does the writer give?', options: ['plan meals and write a shopping list', 'buy food every day', 'use leftovers in new dishes', 'throw away imperfect vegetables'], answer: [0, 2] },
+      { id: 'b1fw6', type: 'fill', prompt: 'Some supermarkets sell ___ vegetables at lower prices.', answer: 'imperfect' },
+    ],
+  },
+  {
+    id: 'electric-cars', level: 'B1', title: 'Are Electric Cars the Future?', uzTitle: 'Elektromobillar kelajakmi?',
+    text: `Ten years ago, electric cars were rare and expensive. Today they are a common sight in many cities, including Tashkent, where charging stations are appearing in car parks and outside shopping centres. Supporters say that electric cars are cleaner and quieter than petrol cars, and that they are cheaper to run, because electricity costs less than fuel and the engines need less maintenance.
+
+However, there are still some problems. The price of a new electric car is usually higher than that of a similar petrol car, although it is falling. Charging takes longer than filling a tank — from thirty minutes at a fast charger to several hours at home. In very cold weather, batteries lose some of their range, which means the car can travel a shorter distance before it needs charging.
+
+Experts also point out that an electric car is only as clean as the electricity it uses. If most power comes from burning coal or gas, the benefit for the environment is smaller. Nevertheless, as more solar and wind power is built, electric cars are likely to become an even better choice.`,
+    questions: [
+      { id: 'b1ec1', type: 'multiple', prompt: 'Which advantages of electric cars are mentioned?', options: ['cleaner and quieter', 'faster than petrol cars', 'cheaper to run', 'cheaper to buy'], answer: [0, 2] },
+      { id: 'b1ec2', type: 'single', prompt: 'The price of new electric cars is falling.', options: ['True', 'False', 'Not Given'], answer: 0 },
+      { id: 'b1ec3', type: 'single', prompt: 'Fast charging takes about thirty minutes.', options: ['True', 'False', 'Not Given'], answer: 0 },
+      { id: 'b1ec4', type: 'single', prompt: 'Electric cars are banned in some city centres.', options: ['True', 'False', 'Not Given'], answer: 2 },
+      { id: 'b1ec5', type: 'fill', prompt: 'In cold weather, batteries lose some of their ___.', answer: 'range' },
+      { id: 'b1ec6', type: 'single', prompt: 'When is the environmental benefit smaller?', options: ['when the car is old', 'when electricity comes from coal or gas', 'when the car is charged at home', 'in summer'], answer: 1 },
+    ],
+  },
+  {
+    id: 'job-interview', level: 'B1', title: 'How to Succeed in a Job Interview', uzTitle: 'Ish suhbatidan qanday o‘tish kerak',
+    text: `A job interview can be stressful, but good preparation makes a big difference. Before the interview, find out as much as you can about the company: what it does, who its customers are and what its plans are for the future. This will help you answer questions confidently and show that you are really interested in the job.
+
+Think about the questions you are likely to be asked, such as "Why do you want this job?" or "What are your strengths and weaknesses?" Prepare short examples from your studies or work experience that show your skills. Practising your answers aloud, perhaps with a friend, can help you feel more relaxed.
+
+On the day, plan your journey so that you arrive ten or fifteen minutes early. Dress smartly, switch off your phone, and greet the interviewer with a smile. During the interview, listen carefully to each question and do not be afraid to ask for a moment to think. At the end, you will often be asked if you have any questions. It is a good idea to prepare one or two, for example about training or the team you would work with. Finally, send a short thank-you email the same day.`,
+    questions: [
+      { id: 'b1ji1', type: 'single', prompt: 'Why should you research the company?', options: ['to ask for a higher salary', 'to answer confidently and show interest', 'to find other jobs', 'to meet the customers'], answer: 1 },
+      { id: 'b1ji2', type: 'single', prompt: 'You should practise your answers aloud.', options: ['True', 'False', 'Not Given'], answer: 0 },
+      { id: 'b1ji3', type: 'single', prompt: 'You should arrive exactly on time, not earlier.', options: ['True', 'False', 'Not Given'], answer: 1 },
+      { id: 'b1ji4', type: 'single', prompt: 'Most interviews last about one hour.', options: ['True', 'False', 'Not Given'], answer: 2 },
+      { id: 'b1ji5', type: 'fill', prompt: 'After the interview, send a short thank-you ___.', answer: 'email' },
+      { id: 'b1ji6', type: 'match', prompt: 'Match the word to its meaning:', pairs: [['strengths', 'kuchli tomonlar'], ['weaknesses', 'zaif tomonlar'], ['confidently', 'ishonch bilan'], ['interviewer', 'suhbat oluvchi']] },
+    ],
+  },
   // ---- Listening tasks (IELTS-style): text hidden until checked; "Name: " speaker labels are not read aloud.
   {
     id: 'hotel-booking', level: 'A2', listening: true, title: 'Booking a Hotel Room', uzTitle: 'Tinglash: mehmonxona band qilish',

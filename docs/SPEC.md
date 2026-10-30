@@ -27,6 +27,12 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 14  | **Writing namunalari**                       | Bank topshiriqlarida namuna yo'q                                | 12 ta bank topshirig'iga Band 7 namunaviy javob (≥ minWords, test)                                                                                  | ✅    |
 | 15  | **Mock Test 4**                              | Ko'proq to'liq format                                           | 40+40 original savol, mavjud testlar o'tadi                                                                                                         | ✅    |
 | 16  | **Tungi rejim va shrift o'lchami**           | Kechqurun o'qish, ko'rish qulayligi                             | Sarlavhada 🌙/☀️ va A−/A+ tugmalari, tanlov saqlanadi; ikkala mavzuda kontrast; E2E                                                                 | ✅    |
+| 17  | **B1 o'qish matnlari** | B1 da atigi 2 ta matn — A2→B2 o'tishdagi eng katta bo'shliq | +6 B1 matn (O'zbekiston va dunyo mavzulari), har biri 5–6 savol (T/F/NG, MCQ, gap-fill); kontent testi B1 ≥8 | ✅ |
+| 18  | **Lug'at yozish testi** (`#/vocab?mode=test`) | Kartalar faqat tanishni o'rgatadi, yozishni emas | 10 savol: o'zbekchadan inglizcha yozish + 🔊 eshitib yozish; mavzu tanlash; xatolar daftari, eng yaxshi natija, kunlik faollik; E2E | ⬜ |
+| 19  | **Artikl va predlog trenajyori** | O'zbek tilida artikl yo'q — a/an/the va in/on/at eng ko'p xato | ≥60 gap-fill gap, o'zbekcha izoh bilan; 10 tasodifiy savol; xatolar daftari; kontent testi; E2E | ⬜ |
+| 20  | **Writing yordamchisi** | Yozgan matnga darhol fikr kerak | `src/core/writing-check.js`: so'z soni, takroriy so'zlar, bog'lovchi so'zlar, o'zbeklar xatolari (I am agree, informations…), juda uzun gaplar; IELTS Writing sahifasida "🔍 Tekshirish"; unit test + E2E | ⬜ |
+| 21  | **Yutuqlar (nishonlar)** | Motivatsiya: aniq maqsadlar | ≥12 nishon (birinchi test, 7 kun ketma-ket, 100 karta, Band 6+ …) `src/core/badges.js` sof funksiya; Progress sahifasida; unit test + E2E | ⬜ |
+| 22  | **Tinglash mashqlari +6** | Atigi 6 ta tinglash matni | +6 tinglash (A2–B1 ko'proq), matn javobdan keyin ochiladi, har biri 5 savol; kontent testi ≥12 | ⬜ |
 
 ## Iteratsiyalar jurnali
 
@@ -51,3 +57,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **16-iteratsiya** — 🌙 Ko'rinish sozlamalari: sarlavhada 🌙/☀️ (birinchi marta qurilma mavzusiga ergashadi, keyin tanlov saqlanadi) va A−/A+ (5 bosqich, 87.5–137.5%, chegaralarda tugma o'chadi). Butun sayt rem birliklarida bo'lgani uchun `html` shrifti bitta `--fs` o'zgaruvchisi bilan masshtablanadi; mavjud `data-theme` CSS'dan foydalanildi. E2E: almashish, qayta yuklashdan keyin saqlanishi, ikkala mavzuda kontrast (matn ≥7:1, ikkinchi darajali ≥4.5:1), eng katta shriftda 375px ekranda gorizontal skroll yo'q.
 
 **11–16 bajarildi.** Yangi ish uchun backlog'ga ⬜ qator qo'shing.
+
+**3-bosqich:** 17–22-punktlar.
+
+- **17-iteratsiya** — 📰 6 ta yangi B1 matn (har biri 6 savol: T/F/NG, MCQ, gap-fill, juftlash; +36): Registon maydoni, Chorsu bozorida tong, o'smirlar uyqusi, oziq-ovqat isrofi, elektromobillar, ish suhbati. B1 da endi 8 ta matn; ta'riflar qayta qurildi (2755 so'z). Kontent testi B1 ≥8 + E2E (6 matn ro'yxatda, Registon javoblari baholanadi) + mobil.
