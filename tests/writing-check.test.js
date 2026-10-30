@@ -36,7 +36,7 @@ test('writing check: no false alarms on the Band 7–8 model answers', () => {
 
 test('speaking Part 2 sample answers: ≥10, about two minutes long, no typical mistakes', () => {
   const models = speakingBank.filter((s) => s.part2.model);
-  assert.ok(models.length >= 10);
+  assert.ok(models.length >= 20);
   for (const s of models) {
     const r = checkWriting(s.part2.model, { minWords: 200 });
     assert.ok(r.enough, `${s.id}: ${r.words} words`);

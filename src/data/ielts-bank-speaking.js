@@ -257,5 +257,89 @@ I think it was such a happy memory because it was the first time I felt treated 
 Basically, you create sets of digital flashcards, with a word on one side and the meaning and an example on the other. The clever part is that the app uses something called spaced repetition: it shows you the words you find difficult more often, and the ones you know well less often, so you don't waste time. I use it every day, usually on the bus on my way to university, for about fifteen or twenty minutes. At the moment I have around two thousand words saved, and I've also added sets for my economics course, with key terms and definitions.
 
 I find it extremely useful for a few reasons. First, it fits into small gaps in my day, so I don't need to find a special time to study. Second, it keeps statistics, so I can see my progress, which really motivates me. And third, it works offline, which is important because the mobile signal on my route isn't always reliable. I'd say it's probably the main reason my vocabulary has improved so much recently.`,
+
+  'b-food': `I'd like to talk about plov, which is probably the most famous traditional dish in Uzbekistan. It's a rice dish, but it's much more than that, because it's cooked with meat, carrots, onions and a lot of oil, and every region has its own version.
+
+The preparation is quite a long process. First, the cook heats the oil in a huge metal pot called a kazan and fries the meat and onions. Then come the carrots, which are cut into long thin strips, and after that the rice is added and cooked slowly with water and spices like cumin. Some people also put in chickpeas, raisins or a whole head of garlic. In my family it's always my father who makes it, and he's quite strict about how the carrots should be cut.
+
+People eat plov on all kinds of occasions. It's a typical Thursday or Friday lunch for many families, but it's also served at weddings and big celebrations, where men sometimes cook it for hundreds of guests early in the morning.
+
+The reason it's so important in our culture is that plov is really about sharing. It's usually served on one big plate in the middle of the table, and everyone eats together. When someone invites you for plov, it means they're inviting you into their life, so for me it's a symbol of hospitality and of being part of a community.`,
+
+  'b-music': `The piece of music I'd like to describe is an old Uzbek folk song that my grandmother used to sing to me when I was a small child. I don't actually know who wrote it, because it's one of those songs that has been passed down from generation to generation.
+
+I first heard it when I was about four or five. My grandmother would sing it in the evenings while she was making bread or sewing, and I remember sitting next to her and trying to join in, even though I didn't understand all the words.
+
+The song is about a young man who leaves his village to work in a faraway city and misses his mother and the mountains where he grew up. The melody is quite slow and a little sad, but at the end it becomes more hopeful, because he promises to return home one day.
+
+It's special to me for a couple of reasons. First, it reminds me of my grandmother, who passed away a few years ago, so whenever I hear it I feel as if she's still with me. Second, when I moved to Tashkent to study, I suddenly understood the meaning of the song much better, because I was also living far from my family. Now I sometimes listen to a recording of it on my phone when I feel homesick, and it always makes me feel calmer.`,
+
+  'b-sport': `I'm going to talk about a local football final that I watched about two years ago in my home town. It wasn't a professional match, but it was one of the most exciting sporting events I've ever seen.
+
+It took place at the town stadium on a warm evening at the end of May. The two teams were from neighbouring districts, and there's always been a friendly rivalry between them, so almost the whole town came to watch. I went with my father and my younger brother, and we had to arrive an hour early to find seats.
+
+The players were mostly young men in their twenties, and quite a few of them were people I knew personally. In fact, my cousin was the goalkeeper for our team, which made the whole experience even more nerve-racking for us.
+
+The match itself was really dramatic. Our team was losing one–nil until the last ten minutes, and then they scored twice. When the final whistle blew, everyone ran onto the pitch, and people were hugging complete strangers.
+
+As for how I felt, I remember being incredibly tense during most of the game, and then feeling a huge sense of joy and relief at the end. What I liked most, though, was the atmosphere. It showed me how sport can bring a whole community together, regardless of age or background.`,
+
+  'b-books': `The book I'd like to describe is a popular science book about sleep, which I finished reading about a month ago. It was written by a researcher who has spent many years studying how the brain works at night.
+
+The book explains why we need sleep, what happens in our body during different stages of sleep, and how a lack of sleep affects our memory, mood and health. What surprised me was how much evidence there is that even one bad night can make it harder to learn new things the following day. The author also gives practical advice, for example about avoiding screens late in the evening and keeping a regular bedtime.
+
+I decided to read it because I was having real problems with my own sleep. I was preparing for exams, and I often stayed up until two or three in the morning, which meant I felt exhausted during the day. A friend of mine had read the book and said it had completely changed her habits, so I thought I'd give it a try.
+
+I would definitely recommend it, especially to students. It's written in a clear and engaging style, with lots of interesting examples, so you don't need a background in science to understand it. Since reading it, I've started going to bed much earlier, and I honestly feel more focused in my classes, so in my case it's been genuinely useful rather than just interesting.`,
+
+  'b-films': `I'd like to talk about a documentary I saw last year about the Aral Sea. I watched it at a small film club at my university, where students meet every Friday to watch a film and discuss it afterwards.
+
+The documentary tells the story of how one of the largest lakes in the world almost disappeared within a few decades. It uses old film footage, satellite photographs and interviews with people who live in the region. There's one scene I'll never forget, where an old fisherman walks across sand to the place where his boat used to be in the water, and now there's just a rusty ship in the middle of a desert.
+
+The reason it impressed me so much is that I had heard about the Aral Sea at school, but only as a fact in a geography textbook. The film made the problem feel real and personal. It showed how the disaster affected people's health, their jobs and even their sense of identity, and it explained clearly how decisions about water and farming led to it.
+
+It also made me think about my own behaviour, for example how much water I waste every day without noticing. After the screening we had a long discussion, and a few of us later joined a volunteer group that plants trees in the region. So for me it wasn't just a film; it actually changed what I do.`,
+
+  'b-transport': `The journey I remember best is a train trip I took from Tashkent to Khiva with two of my closest friends last summer, right after we finished our final exams.
+
+We travelled by overnight train, which took about fourteen hours. We'd booked a compartment with four beds, and the fourth bed belonged to a retired teacher from Urgench, who turned out to be the most interesting part of the whole journey.
+
+We left in the early evening, and at first we just played cards and ate the snacks we'd brought. Then the teacher started telling us stories about the history of the places we were passing through, and we ended up talking with him until after midnight. He even taught us a few words of the local dialect and gave us a list of places to visit that most tourists never see.
+
+When I woke up the next morning, the landscape outside had completely changed. There was desert on both sides of the train, and the sunrise over the sand was absolutely beautiful.
+
+I think I remember this journey so well for two reasons. Firstly, it was the first long trip I'd ever made without my parents, so it felt like the beginning of adult life. Secondly, it taught me that the journey itself can be as valuable as the destination, especially if you're open to talking to the people you meet along the way.`,
+
+  'b-home': `My ideal home would be a two-storey house on the edge of a small town in the foothills of the mountains, perhaps somewhere near Chimgan, so that I'd have fresh air and beautiful views but still be within driving distance of Tashkent.
+
+In terms of what it would look like, I'd like it to be built in a modern style but with some traditional features, like a covered terrace and a courtyard with a fruit garden in the middle. Inside, I'd want large windows, a big open kitchen, because cooking together is important in my family, and a quiet study with lots of bookshelves where I could work from home.
+
+As for who would live there, I imagine living there with my own family in the future, and I'd also like to have a separate guest room for my parents, so they could come and stay for long periods. And I'd definitely have a dog, because there'd be plenty of space for it to run around.
+
+The reason this would be ideal for me is that it combines two things I really value: peace and connection. At the moment I live in a flat in the city centre, which is convenient but very noisy, and I rarely see any greenery. A house like this would give me a calm place to rest and think, but it would also be big enough to bring the whole family together at weekends and on holidays.`,
+
+  'b-school': `The teacher I'd like to describe is my English teacher from secondary school, Mrs Karimova, who taught me for four years, from the age of thirteen until I finished school.
+
+She taught English, of course, but in a way she taught us much more than the language. Her lessons were never just about grammar exercises. She brought in songs, short stories and newspaper articles, and every Friday we had a debate on a topic we had chosen ourselves, which was something no other teacher did.
+
+As a person, she was strict but very fair. She expected everyone to do their homework and to speak only English in class, but she never made anyone feel stupid for making a mistake. In fact, she used to say that a mistake simply shows you're brave enough to try. She also stayed after school twice a week to help students who were struggling, without being paid for it.
+
+She influenced me in two important ways. The first is that she made me love English. Before her classes I found it boring, but she showed me that a language opens the door to other cultures and ideas. The second is that she gave me confidence. I used to be extremely shy, and those Friday debates taught me how to express my opinion in front of other people. I'm sure that's one of the reasons I'm now studying international relations.`,
+
+  'b-jobs': `The job I'd really like to do in the future is to work as a software developer for a company that builds educational apps, especially tools that help children in rural areas learn more effectively.
+
+This kind of job needs a mixture of technical and personal skills. On the technical side, you obviously need to be good at programming and to keep learning new technologies, because the industry changes so quickly. But you also need to understand how people learn, so knowledge of education and psychology would be really helpful. And because developers usually work in teams, you need good communication skills and the ability to accept criticism of your work.
+
+As for how I could get this job, I'm currently studying computer science at university, and I'm planning to do an internship at an IT company next summer. I've also started building a small vocabulary app as a personal project, which I hope will show employers what I can do. Improving my English is part of the plan too, because most documentation and online courses in this field are in English.
+
+The main reason I'd like this job is that it would allow me to combine my two interests: technology and education. I grew up in a small village where we didn't have many good teachers or books, and I know how much a well-designed app could have helped me. So I'd like to do work that is creative, well paid and, most importantly, useful for other people.`,
+
+  'b-nature': `The natural place I'd like to describe is Lake Aydarkul, a large lake in the middle of the desert in the north of Uzbekistan. It's about a four-hour drive from Samarkand, and it's quite surprising to suddenly see so much blue water surrounded by sand.
+
+I went there two years ago in early autumn with a group of students from my university. Our geography lecturer organised the trip, and we stayed for two nights in a yurt camp near the shore.
+
+We did all sorts of things while we were there. During the day we swam in the lake, which was still warm, and we went for a short camel ride across the dunes, which was a completely new experience for most of us. In the evenings, the people who ran the camp cooked dinner over an open fire, and afterwards someone played a traditional instrument while we sat and talked.
+
+There are several reasons why I liked this place so much. The first is the contrast between the desert and the water, which made the landscape feel almost unreal. The second is the silence. Living in a big city, I'd forgotten what real quiet sounds like. But the best moment was at night, when we lay on the sand and looked at the sky. There was no light pollution at all, so we could see thousands of stars and even the Milky Way, and I remember feeling very small but also very peaceful.`,
 };
 for (const s of speakingBank) if (models[s.id]) s.part2.model = models[s.id];
