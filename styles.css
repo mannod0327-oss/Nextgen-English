@@ -197,3 +197,6 @@ select.select { max-width: 100%; padding: .5rem .6rem; border-radius: 10px; bord
 .cloze .gap { font: inherit; padding: 0 .25rem; border: 0; border-bottom: 2px solid var(--accent); background: transparent; color: var(--text); max-width: 100%; }
 .cloze .gap.ok { border-color: var(--ok); } .cloze .gap.bad { border-color: var(--bad); }
 .cloze .fix { color: var(--ok); }
+/* home quick access */
+.quick .chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+.chip { display: inline-block; padding: .3rem .7rem; border: 1px solid var(--line); border-radius: 999px; text-decoration: none; background: var(--bg); font-size: .9rem; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

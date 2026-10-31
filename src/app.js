@@ -5,7 +5,7 @@ import { gradeExam, scoreQuestion, makeVariant, parseExam, serializeExam, valida
 import { createPlacement, nextQuestion, answerPlacement, placementResult, LEVELS } from './core/placement.js';
 import { renderPrintable, esc } from './core/printable.js';
 import { createStore } from './core/store.js';
-import { dailyPlan, wordOfDay, goalStatus, XP_GOALS, reviewQueue, personalCards, MY_WORDS, examPlan, learningPath } from './core/plan.js';
+import { dailyPlan, wordOfDay, goalStatus, XP_GOALS, reviewQueue, personalCards, MY_WORDS, examPlan, learningPath, pushRecent } from './core/plan.js';
 import { linePoints, lastDays, chartSvg } from './core/chart.js';
 import { buildSearchIndex, search } from './core/search.js';
 import { checkWriting, readingSpeed, makeCloze } from './core/writing-check.js';
@@ -327,6 +327,7 @@ const views = {
     const examDate = store.get('examDate', '');
     const ep = examDate ? examPlan(examDate, today()) : null;
     queueMicrotask(() => {
+      $('#home-search').onsubmit = (e) => { e.preventDefault(); location.hash = `#/search?q=${encodeURIComponent($('#hq').value)}`; };
       $('#exam-date').onchange = (e) => { store.set('examDate', e.target.value); route(); };
     });
     const examHtml = `<section class="card exam-plan"><h3>🎓 IELTS sanasigacha</h3>
@@ -343,6 +344,8 @@ const views = {
       ${mature} ta so'z uzoq muddatli xotirada.</p>
       <div class="hero-actions">${p.level ? '<a class="btn primary" href="#/path">🧭 Shaxsiy yo\'lim</a>' : '<a class="btn primary" href="#/placement">Daraja testini boshlash →</a>'}
       <a class="btn" href="grammar-guide/index.html">📚 Grammatika qo'llanmasi (${guideUnits.length} unit)</a></div></section>
+      <section class="card quick"><form id="home-search" role="search"><input id="hq" class="search" type="search" aria-label="Qidiruv" placeholder="🔎 Qidirish: so'z, grammatika, matn, IELTS…"></form>
+        ${store.get('recent', []).length ? `<p class="muted">Oxirgi ochilganlar:</p><div class="chips">${store.get('recent', []).map((x) => `<a class="chip" href="${esc(x.hash)}">${esc(x.title)}</a>`).join('')}</div>` : ''}</section>
       ${planHtml}
       ${goalHtml}
       ${examHtml}
@@ -1595,6 +1598,12 @@ function route() {
   document.onkeydown = null;
   app.classList.remove('dictation');
   app.innerHTML = view(new URLSearchParams(query));
+  const hash = location.hash;
+  setTimeout(() => { // after async views have rendered their heading
+    if (location.hash !== hash) return;
+    const title = app.querySelector('h2')?.textContent.replace(/\s+/g, ' ').trim().slice(0, 60);
+    store.set('recent', pushRecent(store.get('recent', []), { hash, title }));
+  }, 0);
   document.querySelectorAll('.nav a').forEach((a) => a.classList.toggle('active', a.getAttribute('href') === `#/${path}`));
   queueMicrotask(() => {
     const accent = $('#accent');

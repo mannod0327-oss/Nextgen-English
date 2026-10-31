@@ -361,3 +361,14 @@ test('learningPath: level-matched grammar, texts and themes; revision from the l
   assert.equal(learningPath(undefined, { grammar, texts, vocabulary }).level, 'A1');
   assert.deepEqual(learningPath('A1', { grammar, texts, vocabulary }).review, []);
 });
+
+test('pushRecent: newest first, no duplicates, capped, ignores home', async () => {
+  const { pushRecent } = await import('../src/core/plan.js');
+  let l = [];
+  for (const h of ['#/a', '#/b', '#/c', '#/a']) l = pushRecent(l, { hash: h, title: h.slice(2) });
+  assert.deepEqual(l.map((x) => x.hash), ['#/a', '#/c', '#/b']);
+  assert.deepEqual(pushRecent(l, { hash: '#/', title: 'Home' }), l);
+  assert.deepEqual(pushRecent(l, { hash: '#/x', title: '' }), l);
+  for (const h of ['#/1', '#/2', '#/3', '#/4']) l = pushRecent(l, { hash: h, title: h });
+  assert.equal(l.length, 5);
+});

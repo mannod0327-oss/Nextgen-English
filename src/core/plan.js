@@ -118,3 +118,9 @@ export function learningPath(level, { grammar, texts, vocabulary }) {
     themes: themes.slice(0, 6),
   };
 }
+
+/** Recently opened pages, newest first, without duplicates; the home page itself is not recorded. */
+export function pushRecent(list, entry, n = 5) {
+  if (!entry.hash || entry.hash === '#/' || !entry.title) return list;
+  return [entry, ...list.filter((x) => x.hash !== entry.hash)].slice(0, n);
+}

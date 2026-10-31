@@ -729,6 +729,19 @@ await step('learning path: level-based plan from home, links to grammar, texts a
   if (!(await page.$('a.row[href^="#/grammar?topic="]'))) throw new Error('no grammar links');
 });
 
+await step('home quick access: recently opened pages as chips, search box goes to results', async () => {
+  await page.goto(`${base}/#/verbs`);
+  await page.waitForTimeout(100);
+  await page.goto(`${base}/#/grammar?topic=wish`);
+  await page.waitForTimeout(100);
+  await page.goto(`${base}/#/`);
+  const chips = await page.$$eval('.quick .chip', (a) => a.map((x) => x.getAttribute('href')));
+  if (chips[0] !== '#/grammar?topic=wish' || !chips.includes('#/verbs')) throw new Error(`chips ${chips}`);
+  await page.fill('#hq', 'present');
+  await page.press('#hq', 'Enter');
+  await page.waitForFunction(() => location.hash === '#/search?q=present');
+});
+
 await step('daily goal: ring shows today\'s XP, goal choice persists, week has 7 days', async () => {
   await page.goto(`${base}/#/verbs`);
   await page.goto(`${base}/#/`);

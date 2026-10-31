@@ -110,7 +110,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 97 | **Speaking Part 1 namunalari** | Part 1 javob uzunligi noaniq | 10 to'plamda 2–3 gaplik namunalar, 🔊 | ✅ |
 | 98 | **Mock Test 12** |  | 40+40 original savol | ✅ |
 | 99 | **B1 grammatika +3** (future continuous, would (o'tmish odati), both/either/neither) |  | har biri ≥5 mashq | ✅ |
-| 100 | **Bosh sahifa: tez kirish va qidiruv** | Kontent ko'p — topish qiyin | Oxirgi ochilgan 5 sahifa, bosh sahifada qidiruv maydoni; E2E | ⬜ |
+| 100 | **Bosh sahifa: tez kirish va qidiruv** | Kontent ko'p — topish qiyin | Oxirgi ochilgan 5 sahifa, bosh sahifada qidiruv maydoni; E2E | ✅ |
 | 101 | **Foydalanuvchi qo'llanmasi** | Yangi foydalanuvchi qayerdan boshlashni bilmaydi | `#/help`: 1-kun, 1-hafta, IELTS yo'li; barcha bo'limlar tavsifi; E2E | ⬜ |
 | 102 | **Mock Test 13** |  | 40+40 original savol | ⬜ |
 
@@ -231,3 +231,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **97-iteratsiya** — Speaking Part 1: 10 to'plamda 40 ta qisqa namuna (javob + sabab + misol, 2–3 gap, 15–45 so'z — testlanadi), savol ostida <details> + 🔊 va maslahat; ishlatilmay qolgan qs yordamchisi olib tashlandi; E2E; v=113.
 - **98-iteratsiya** — Mock 12: Listening (til almashinuvi klubi, avtomobil zavodi ekskursiyasi, oshxonadagi oziq-ovqat isrofi loyihasi, birinchi taassurot ma'ruzasi) + Reading (za'faron, tungi poyezdlar qaytishi, yolg'onni aniqlash mumkinmi); 80 savol; v=114.
 - **99-iteratsiya** — B1 grammatika +3: Future Continuous, would/used to (o'tmish odatlari; holat — faqat used to), both/either/neither (+ juft bog'lovchilar) — 15 mashq; jami 53 mavzu / 242 mashq; v=115.
+- **100-iteratsiya** — Tez kirish: plan.js pushRecent (yangisi birinchi, takrorsiz, 5 ta, bosh sahifa yozilmaydi) + unit test; route() sahifa sarlavhasini (h2) yozib boradi; bosh sahifada qidiruv maydoni va oxirgi sahifalar chiplari; E2E; v=116.
