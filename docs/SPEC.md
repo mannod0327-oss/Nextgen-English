@@ -108,7 +108,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 95 | **Gap urg'usi va intonatsiya** | Nutqning ritmi | Trenajyor: gapda qaysi so'z urg'uli (🔊), 40 ta; E2E | ✅ |
 | 96 | **Kollokatsiyalar +30** |  | Yangi fe'l/sifat guruhlari, testda ishlaydi | ✅ |
 | 97 | **Speaking Part 1 namunalari** | Part 1 javob uzunligi noaniq | 10 to'plamda 2–3 gaplik namunalar, 🔊 | ✅ |
-| 98 | **Mock Test 12** |  | 40+40 original savol | ⬜ |
+| 98 | **Mock Test 12** |  | 40+40 original savol | ✅ |
 | 99 | **B1 grammatika +3** (future continuous, would (o'tmish odati), both/either/neither) |  | har biri ≥5 mashq | ⬜ |
 | 100 | **Bosh sahifa: tez kirish va qidiruv** | Kontent ko'p — topish qiyin | Oxirgi ochilgan 5 sahifa, bosh sahifada qidiruv maydoni; E2E | ⬜ |
 | 101 | **Foydalanuvchi qo'llanmasi** | Yangi foydalanuvchi qayerdan boshlashni bilmaydi | `#/help`: 1-kun, 1-hafta, IELTS yo'li; barcha bo'limlar tavsifi; E2E | ⬜ |
@@ -229,3 +229,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **95-iteratsiya** — Gap urg'usi trenajyori: src/data/sentence-stress.js — 40 ta savol-javob, javobdagi yangi/qarama-qarshi so'zni tanlash (variantlar — javob so'zlari tartibda), 4 qoida, o'zbekcha izoh; drill markazida 9 trenajyor; v=111.
 - **96-iteratsiya** — Kollokatsiya +30: give, save, go, run (har biri 6: give priority, save energy, go viral, run a risk…) va Task 1/akademik sifat+ot (marked increase, detrimental effect…); jami 178; v=112.
 - **97-iteratsiya** — Speaking Part 1: 10 to'plamda 40 ta qisqa namuna (javob + sabab + misol, 2–3 gap, 15–45 so'z — testlanadi), savol ostida <details> + 🔊 va maslahat; ishlatilmay qolgan qs yordamchisi olib tashlandi; E2E; v=113.
+- **98-iteratsiya** — Mock 12: Listening (til almashinuvi klubi, avtomobil zavodi ekskursiyasi, oshxonadagi oziq-ovqat isrofi loyihasi, birinchi taassurot ma'ruzasi) + Reading (za'faron, tungi poyezdlar qaytishi, yolg'onni aniqlash mumkinmi); 80 savol; v=114.

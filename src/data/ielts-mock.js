@@ -2295,4 +2295,212 @@ The sharing economy, then, is neither the simple solution its supporters promise
       },
     ],
   },
+
+  'listening-12': {
+    kind: 'listening', title: 'IELTS Listening — Mock Test 12', minutes: 30,
+    sections: [
+      {
+        title: 'Part 1 · Joining a language exchange club',
+        intro: 'You will hear a student phoning a language exchange club. Questions 1–10.',
+        script: `Coordinator: Talk Together Language Club, Diana speaking.
+Student: Hi, I'd like to join your language exchange. A friend told me about it.
+Coordinator: Great. So, the idea is that you meet a partner who speaks the language you want to learn, and you help them with your language. Which language would you like to practise?
+Student: English, and I can offer Uzbek and Russian.
+Coordinator: Perfect, we have several English speakers looking for Russian at the moment. Meetings are on Wednesday evenings, from six thirty to eight thirty, at the Bookworm café on Shota Rustaveli Street.
+Student: Is there a membership fee?
+Coordinator: It's free for the first month. After that, it's fifty thousand sum per month, which includes one hot drink at each meeting.
+Student: That's reasonable. What happens at the meetings?
+Coordinator: For the first hour you talk in one language, and then you switch. We also organise a cinema evening once a month, where we watch a film with subtitles.
+Student: Sounds fun. What details do you need?
+Coordinator: Your name, please.
+Student: Kamron Yusupov. That's K-A-M-R-O-N.
+Coordinator: And your level of English?
+Student: I'd say intermediate.
+Coordinator: OK. Could you also tell me what you'd like to talk about?
+Student: Travel and technology, mainly.
+Coordinator: Fine. I'll send you an email with your partner's details by Monday. Please bring a notebook to the first meeting.`,
+        questions: [
+          { id: 'n12l1', type: 'fill', prompt: '1. Language to practise: ___', answer: 'English' },
+          { id: 'n12l2', type: 'single', prompt: '2. The student can offer …', options: ['Uzbek and Russian', 'Uzbek only', 'Russian and Kazakh', 'English'], answer: 0 },
+          { id: 'n12l3', type: 'fill', prompt: '3. Meetings are on ___ evenings.', answer: 'Wednesday' },
+          { id: 'n12l4', type: 'fill', prompt: '4. Place: the Bookworm ___', answer: 'café' },
+          { id: 'n12l5', type: 'fill', prompt: '5. Fee after the first month: ___ thousand sum', answer: ['fifty', '50'] },
+          { id: 'n12l6', type: 'single', prompt: '6. The fee includes …', options: ['a book', 'one hot drink per meeting', 'a cinema ticket', 'a T-shirt'], answer: 1 },
+          { id: 'n12l7', type: 'single', prompt: '7. How often is there a cinema evening?', options: ['every week', 'twice a month', 'once a month', 'once a year'], answer: 2 },
+          { id: 'n12l8', type: 'fill', prompt: '8. First name: ___', answer: 'Kamron' },
+          { id: 'n12l9', type: 'fill', prompt: '9. Topics: travel and ___', answer: 'technology' },
+          { id: 'n12l10', type: 'fill', prompt: '10. Bring a ___ to the first meeting.', answer: 'notebook' },
+        ],
+      },
+      {
+        title: 'Part 2 · A tour of a car factory',
+        intro: 'You will hear a guide talking to visitors at a car factory. Questions 11–20.',
+        script: `Good morning, and welcome to the factory. I'm Javlon, and I'll be guiding you today. Before we start, please put on the safety glasses and the visitor badges you received at the entrance, and keep them on throughout the tour.
+The factory opened in 2008 and employs about three thousand people working in three shifts, so production continues day and night. At full capacity, we can produce up to six hundred cars a day.
+Our first stop is the press shop, where large sheets of steel are pressed into doors, roofs and other body parts. It's very noisy, so we'll give you ear protection there. After that, we'll visit the welding area, where around two hundred robots join the parts together. Then we'll see the paint shop through a glass window — visitors can't go inside, because the air must be kept completely free of dust.
+The final stop is the assembly line, where workers fit the engines, seats and electronics. Each car is tested for about four hours before it leaves the factory.
+Please stay on the green path marked on the floor, and don't touch any machines. Photography is allowed everywhere except in the paint shop area.
+The tour lasts about ninety minutes, and at the end you can visit our small museum, which shows the history of the factory's models, and the gift shop.`,
+        questions: [
+          { id: 'n12l11', type: 'single', prompt: '11. Visitors must wear …', options: ['helmets', 'gloves', 'special shoes', 'safety glasses and badges'], answer: 3 },
+          { id: 'n12l12', type: 'fill', prompt: '12. The factory opened in ___', answer: '2008' },
+          { id: 'n12l13', type: 'fill', prompt: '13. Number of employees: about ___', answer: ['3000', 'three thousand', '3,000'] },
+          { id: 'n12l14', type: 'fill', prompt: '14. Maximum production: ___ cars a day', answer: ['600', 'six hundred'] },
+          { id: 'n12l15', type: 'single', prompt: '15. What happens in the press shop?', options: ['Steel sheets are pressed into body parts.', 'Cars are painted.', 'Engines are fitted.', 'Cars are tested.'], answer: 0 },
+          { id: 'n12l16', type: 'fill', prompt: '16. About ___ robots work in the welding area.', answer: ['200', 'two hundred'] },
+          { id: 'n12l17', type: 'single', prompt: '17. Why can’t visitors enter the paint shop?', options: ['It is too hot.', 'The air must be free of dust.', 'It is closed today.', 'It is dangerous.'], answer: 1 },
+          { id: 'n12l18', type: 'fill', prompt: '18. Each car is tested for about ___ hours.', answer: ['four', '4'] },
+          { id: 'n12l19', type: 'fill', prompt: '19. Visitors must stay on the ___ path.', answer: 'green' },
+          { id: 'n12l20', type: 'fill', prompt: '20. The tour lasts about ___ minutes.', answer: ['ninety', '90'] },
+        ],
+      },
+      {
+        title: 'Part 3 · Investigating food waste in the canteen',
+        intro: 'You will hear two students, Shirin and Leo, discussing their project with their tutor. Questions 21–30.',
+        script: `Tutor: So, how is the food waste project going?
+Shirin: Well, we measured the waste in the university canteen for two weeks. On average, about eighteen per cent of the food served was thrown away.
+Tutor: Which items were wasted most?
+Leo: Bread, by far. Students take two or three pieces automatically and then leave them. Salad came second.
+Tutor: Interesting. Did you find out why?
+Shirin: We interviewed thirty students. Most said the portions were too big, especially at lunchtime.
+Leo: Some also said they didn't like the taste of certain dishes, but that was less common.
+Tutor: What solutions are you going to propose?
+Shirin: First, offering two portion sizes, with the smaller one at a lower price. Second, putting bread at the end of the counter, so students only take it if they really want it.
+Tutor: That's a clever idea. Have you discussed it with the canteen manager?
+Leo: Yes. She agreed to try the bread idea for one week. We'll measure the waste again to compare.
+Tutor: Excellent — that gives you a proper experiment. What about the food that's still left over?
+Shirin: A local charity collects unused food from restaurants, so we're asking whether they could collect from the canteen too.
+Tutor: Good. In your report, make sure you explain how you weighed the waste, so others could repeat the study. And include photographs if you can.
+Leo: When should we present?
+Tutor: At the sustainability fair in March.`,
+        questions: [
+          { id: 'n12l21', type: 'fill', prompt: '21. They measured waste for ___ weeks.', answer: ['two', '2'] },
+          { id: 'n12l22', type: 'fill', prompt: '22. About ___ % of food served was thrown away.', answer: ['18', 'eighteen'] },
+          { id: 'n12l23', type: 'single', prompt: '23. Which item was wasted most?', options: ['salad', 'rice', 'bread', 'soup'], answer: 2 },
+          { id: 'n12l24', type: 'fill', prompt: '24. They interviewed ___ students.', answer: ['thirty', '30'] },
+          { id: 'n12l25', type: 'single', prompt: '25. The main reason given for waste was …', options: ['bad taste', 'high prices', 'no time to eat', 'portions too big'], answer: 3 },
+          { id: 'n12l26', type: 'single', prompt: '26. The smaller portion would be …', options: ['cheaper', 'free', 'only for staff', 'served at dinner'], answer: 0 },
+          { id: 'n12l27', type: 'single', prompt: '27. Where will the bread be placed?', options: ['at the start of the counter', 'at the end of the counter', 'on every table', 'in the kitchen'], answer: 1 },
+          { id: 'n12l28', type: 'single', prompt: '28. The manager agreed to try the idea for …', options: ['one day', 'one month', 'one week', 'a semester'], answer: 2 },
+          { id: 'n12l29', type: 'fill', prompt: '29. A local ___ might collect leftover food.', answer: 'charity' },
+          { id: 'n12l30', type: 'fill', prompt: '30. They will present at the sustainability fair in ___', answer: 'March' },
+        ],
+      },
+      {
+        title: 'Part 4 · Lecture: First impressions',
+        intro: 'You will hear part of a psychology lecture. Questions 31–40.',
+        script: `Today we're looking at first impressions — how quickly we judge other people, and how accurate those judgements are.
+Research suggests that we form impressions extremely fast. In one well-known set of experiments, participants saw photographs of faces for just a tenth of a second, and their judgements of how trustworthy the person looked were very similar to judgements made with no time limit. In other words, extra time made people more confident, but it didn't change their opinion much.
+What influences these rapid judgements? Facial expression is important: people who smile slightly are usually seen as more trustworthy. Clothing and posture also play a role, and so does the voice — a calm, steady voice tends to be associated with competence.
+The problem is that first impressions are often wrong. Studies show that our judgements of trustworthiness based on faces are only slightly better than chance. Even so, they can have real consequences. Some research has found that candidates who look more competent are more likely to win elections, and similar effects have been found in job interviews.
+Once formed, impressions are hard to change, partly because of something called confirmation bias: we pay more attention to information that supports our first opinion and tend to ignore information that contradicts it.
+So what can we do? Being aware of these biases helps. Organisations can also reduce their influence — for example, by using structured interviews in which every candidate is asked the same questions and scored against clear criteria, rather than relying on a general feeling.`,
+        questions: [
+          { id: 'n12l31', type: 'fill', prompt: '31. Participants saw faces for just a ___ of a second.', answer: 'tenth' },
+          { id: 'n12l32', type: 'single', prompt: '32. With more time, people became …', options: ['more accurate', 'less sure', 'more positive', 'more confident'], answer: 3 },
+          { id: 'n12l33', type: 'single', prompt: '33. People who smile slightly are seen as more …', options: ['trustworthy', 'intelligent', 'attractive', 'nervous'], answer: 0 },
+          { id: 'n12l34', type: 'single', prompt: '34. A calm, steady voice is associated with …', options: ['kindness', 'competence', 'humour', 'age'], answer: 1 },
+          { id: 'n12l35', type: 'fill', prompt: '35. Judgements of trustworthiness from faces are only slightly better than ___', answer: 'chance' },
+          { id: 'n12l36', type: 'fill', prompt: '36. Candidates who look more competent are more likely to win ___', answer: ['elections', 'election'] },
+          { id: 'n12l37', type: 'fill', prompt: '37. Similar effects have been found in job ___', answer: ['interviews', 'interview'] },
+          { id: 'n12l38', type: 'fill', prompt: '38. Paying attention only to supporting information is called confirmation ___', answer: 'bias' },
+          { id: 'n12l39', type: 'single', prompt: '39. Structured interviews ask every candidate …', options: ['different questions', 'no questions', 'the same questions', 'personal questions'], answer: 2 },
+          { id: 'n12l40', type: 'fill', prompt: '40. Candidates are scored against clear ___', answer: 'criteria' },
+        ],
+      },
+    ],
+  },
+
+  'reading-12': {
+    kind: 'reading', title: 'IELTS Academic Reading — Mock Test 12', minutes: 60,
+    sections: [
+      {
+        title: 'Passage 1 · Saffron: Red Gold',
+        intro: 'Questions 1–13. You should spend about 20 minutes on this passage.',
+        text: `Saffron is the most expensive spice in the world by weight. It consists of the dried red stigmas — the thread-like parts of the flower that collect pollen — of the saffron crocus. Each flower produces only three stigmas, and around 150,000 flowers are needed to make a single kilogram of the spice. Because the flowers must be picked and the stigmas removed by hand, production requires a great deal of labour.
+
+The saffron crocus flowers for only a few weeks in autumn, and each flower lasts just one or two days. Pickers therefore start early in the morning, before the sun becomes strong, and collect the flowers as soon as they open. Later the same day, the stigmas are carefully separated and dried, either in the sun or over gentle heat. Drying reduces the weight by around four-fifths.
+
+Saffron has been used for thousands of years, not only to flavour and colour food but also as a dye and in traditional medicine. Today it is an important ingredient in dishes such as Persian rice, Spanish paella and Indian desserts. Only a tiny amount is needed: a few threads soaked in warm water are enough to give a whole dish a golden colour and a distinctive aroma.
+
+Iran produces the great majority of the world's saffron, and smaller quantities come from Afghanistan, India, Spain and Greece. In recent years, farmers in parts of Central Asia have begun experimenting with the crop, attracted by its high value and low water needs compared with crops such as cotton.
+
+Its price makes saffron a target for fraud. Dishonest sellers may mix it with dyed flower petals or with the yellow parts of the flower, which have no flavour. Buyers are advised to purchase whole threads rather than powder, since powder is easier to fake.`,
+        questions: [
+          { id: 'n12r1', type: 'single', prompt: '1. Saffron is the most expensive spice by weight.', options: tfng, answer: 0 },
+          { id: 'n12r2', type: 'single', prompt: '2. Each saffron flower produces five stigmas.', options: tfng, answer: 1 },
+          { id: 'n12r3', type: 'single', prompt: '3. Machines are now used to remove the stigmas.', options: tfng, answer: 1 },
+          { id: 'n12r4', type: 'single', prompt: '4. Each flower lasts only one or two days.', options: tfng, answer: 0 },
+          { id: 'n12r5', type: 'single', prompt: '5. Spanish saffron is of higher quality than Iranian saffron.', options: tfng, answer: 2 },
+          { id: 'n12r6', type: 'single', prompt: '6. Saffron needs less water than cotton.', options: tfng, answer: 0 },
+          { id: 'n12r7', type: 'single', prompt: '7. Saffron powder is easier to fake than whole threads.', options: tfng, answer: 0 },
+          { id: 'n12r8', type: 'fill', prompt: '8. About ___ flowers are needed for one kilogram. (NUMBER)', answer: ['150,000', '150000'] },
+          { id: 'n12r9', type: 'fill', prompt: '9. The crocus flowers in ___. (ONE WORD)', answer: 'autumn' },
+          { id: 'n12r10', type: 'fill', prompt: '10. Drying reduces the weight by around four-___. (ONE WORD)', answer: 'fifths' },
+          { id: 'n12r11', type: 'fill', prompt: '11. Saffron gives dishes a golden colour and a distinctive ___. (ONE WORD)', answer: 'aroma' },
+          { id: 'n12r12', type: 'fill', prompt: '12. ___ produces most of the world’s saffron. (ONE WORD)', answer: 'Iran' },
+          { id: 'n12r13', type: 'fill', prompt: '13. Saffron may be mixed with dyed flower ___. (ONE WORD)', answer: 'petals' },
+        ],
+      },
+      {
+        title: 'Passage 2 · The Return of the Night Train',
+        intro: 'Questions 14–26. You should spend about 20 minutes on this passage.',
+        text: `A. For much of the late twentieth century, overnight sleeper trains seemed to belong to the past. As cheap flights spread and high-speed rail made daytime journeys shorter, many routes were closed because they were unprofitable. Yet in recent years, night trains have made a surprising comeback in several countries.
+
+B. The main reason is environmental. A passenger travelling by train produces far less carbon dioxide than one flying the same distance, and for journeys of up to around a thousand kilometres, an overnight train can compete with air travel on convenience. Travellers can leave in the evening, sleep on board and arrive in the city centre the next morning, avoiding airport security queues and the journey from the airport.
+
+C. Changing attitudes also play a role. Some travellers, particularly younger people, have chosen to avoid flying for environmental reasons, and others simply enjoy the experience of a slower journey. Social media has helped to make sleeper trains fashionable again, with images of comfortable cabins and views from the window.
+
+D. However, operating night trains remains difficult. The carriages are expensive to build and can only be used once a day, unlike daytime trains, which may complete several journeys. Track access charges, which train companies pay to use the railway, can also be high, especially when a route crosses several countries with different rules. As a result, tickets are often more expensive than budget flights.
+
+E. Governments have begun to offer support, for example by reducing track charges or funding new rolling stock. Some operators have also introduced new types of compartment, including small private "pods" for solo travellers, which are cheaper than a full cabin but more private than a shared couchette.
+
+F. Whether the revival lasts will depend on prices, reliability and political support. Supporters argue that night trains could play an important role in reducing short-haul flights, but only if they are integrated into a well-coordinated international network.`,
+        questions: [
+          { id: 'n12r14', type: 'single', prompt: '14. Which paragraph explains why night trains are costly to run?', options: ['A', 'B', 'D', 'E'], answer: 2 },
+          { id: 'n12r15', type: 'single', prompt: '15. Which paragraph mentions the role of social media?', options: ['B', 'C', 'D', 'F'], answer: 1 },
+          { id: 'n12r16', type: 'single', prompt: '16. Which paragraph describes the decline of night trains?', options: ['A', 'B', 'C', 'D'], answer: 0 },
+          { id: 'n12r17', type: 'single', prompt: '17. Which paragraph mentions new types of compartment?', options: ['C', 'D', 'E', 'F'], answer: 2 },
+          { id: 'n12r18', type: 'single', prompt: '18. Night trains compete with flights for journeys of up to around …', options: ['200 km', '500 km', '1,000 km', '5,000 km'], answer: 2 },
+          { id: 'n12r19', type: 'single', prompt: '19. Why can night-train carriages earn less money?', options: ['They are slower.', 'They are smaller.', 'They need more staff.', 'They can only be used once a day.'], answer: 3 },
+          { id: 'n12r20', type: 'single', prompt: '20. What will the future of night trains depend on?', options: ['prices, reliability and political support', 'only ticket prices', 'airport rules', 'the weather'], answer: 0 },
+          { id: 'n12r21', type: 'single', prompt: '21. Many night-train routes were closed because they lost money.', options: tfng, answer: 0 },
+          { id: 'n12r22', type: 'single', prompt: '22. Night-train tickets are usually cheaper than budget flights.', options: tfng, answer: 1 },
+          { id: 'n12r23', type: 'single', prompt: '23. Most night-train passengers are business travellers.', options: tfng, answer: 2 },
+          { id: 'n12r24', type: 'single', prompt: '24. Some governments have reduced track charges.', options: tfng, answer: 0 },
+          { id: 'n12r25', type: 'fill', prompt: '25. Night trains avoid airport security ___. (ONE WORD)', answer: ['queues', 'queue'] },
+          { id: 'n12r26', type: 'fill', prompt: '26. Small private compartments for solo travellers are called ___. (ONE WORD)', answer: ['pods', 'pod'] },
+        ],
+      },
+      {
+        title: 'Passage 3 · Can We Detect a Lie?',
+        intro: 'Questions 27–40. You should spend about 20 minutes on this passage.',
+        text: `Popular culture is full of supposedly reliable signs that someone is lying: avoiding eye contact, touching the face, fidgeting or speaking hesitantly. Many people, including professionals such as police officers, believe they can recognise these signals. Yet decades of psychological research suggest that most of us are surprisingly poor lie detectors.
+
+In laboratory studies, people asked to judge whether others are telling the truth typically perform only slightly better than chance, identifying lies correctly about fifty-four per cent of the time. Professionals often do no better than students, although they tend to be more confident. One reason is that many of the behaviours associated with lying are also caused by nervousness, which honest people may feel when they fear they will not be believed.
+
+The polygraph, or "lie detector", measures physical signs of stress such as heart rate, breathing and sweating. However, these reactions are not specific to lying, and a nervous innocent person may produce the same pattern as a calm liar. For this reason, polygraph results are not accepted as evidence in courts in many countries, although they are still used in some workplaces and investigations.
+
+More promising approaches focus on what people say rather than on how they behave. Telling a lie is often mentally demanding, because the liar must invent a story, remember it and watch the listener's reaction. Researchers have found that increasing this "cognitive load" — for example, by asking people to tell their story in reverse order or to answer unexpected questions — can make differences between liars and truth-tellers more noticeable. Truthful accounts also tend to contain more specific, checkable details.
+
+Some technology companies now claim that artificial intelligence can detect lies from video or voice recordings. Scientists remain cautious, pointing out that such systems have rarely been tested independently and may reflect the same biases as the human judgements on which they were trained.`,
+        questions: [
+          { id: 'n12r27', type: 'single', prompt: '27. How accurate are people at detecting lies in laboratory studies?', options: ['about 90%', 'about 75%', 'about 54%', 'about 20%'], answer: 2 },
+          { id: 'n12r28', type: 'single', prompt: '28. Compared with students, professionals are …', options: ['much more accurate', 'more confident but not more accurate', 'less confident', 'always correct'], answer: 1 },
+          { id: 'n12r29', type: 'single', prompt: '29. Why are many "lying" behaviours unreliable?', options: ['They are rare.', 'Only children show them.', 'Nervous honest people show them too.', 'They are hard to see.'], answer: 2 },
+          { id: 'n12r30', type: 'single', prompt: '30. Increasing cognitive load can …', options: ['calm the speaker', 'replace interviews', 'stop people lying', 'make differences between liars and truth-tellers clearer'], answer: 3 },
+          { id: 'n12r31', type: 'single', prompt: '31. What is the scientists’ view of AI lie detection?', options: ['They remain cautious.', 'It is proven.', 'It is banned.', 'It is better than humans.'], answer: 0 },
+          { id: 'n12r32', type: 'single', prompt: '32. Many police officers believe they can recognise signs of lying.', options: tfng, answer: 0 },
+          { id: 'n12r33', type: 'single', prompt: '33. The polygraph measures brain activity.', options: tfng, answer: 1 },
+          { id: 'n12r34', type: 'single', prompt: '34. Polygraph results are accepted in courts in every country.', options: tfng, answer: 1 },
+          { id: 'n12r35', type: 'single', prompt: '35. Women are better lie detectors than men.', options: tfng, answer: 2 },
+          { id: 'n12r36', type: 'single', prompt: '36. Truthful accounts tend to contain more specific details.', options: tfng, answer: 0 },
+          { id: 'n12r37', type: 'fill', prompt: '37. Telling a lie is often mentally ___. (ONE WORD)', answer: 'demanding' },
+          { id: 'n12r38', type: 'fill', prompt: '38. People may be asked to tell their story in ___ order. (ONE WORD)', answer: 'reverse' },
+          { id: 'n12r39', type: 'fill', prompt: '39. Truthful accounts contain details that can be ___. (ONE WORD)', answer: 'checkable' },
+          { id: 'n12r40', type: 'fill', prompt: '40. AI systems may reflect the same ___ as human judgements. (ONE WORD)', answer: 'biases' },
+        ],
+      },
+    ],
+  },
 };
