@@ -1067,4 +1067,59 @@ How can trust be rebuilt? Researchers who study public communication suggest sev
       { id: 'scd5', type: 'fill', prompt: 'After school he walks home with his friend ___.', answer: 'Aziz' },
     ],
   },
+  {
+    id: 'l-my-family-photo', level: 'A1', listening: true, title: 'A Family Photo', uzTitle: 'Tinglash: oilaviy surat',
+    text: `Look at this photo. This is my family. The tall man is my father. His name is Rustam. He is a doctor. The woman next to him is my mother, Gulnora. She is a teacher. The little girl with the red dress is my sister, Zarina. She is six years old. And this is me, in the blue T-shirt. I am twelve. The old man on the left is my grandfather. He lives with us. We have a cat too, but she is not in the photo!`,
+    questions: [
+      { id: 'lfp1', type: 'single', prompt: 'What is the father’s job?', options: ['teacher', 'doctor', 'driver', 'cook'], answer: 1 },
+      { id: 'lfp2', type: 'fill', prompt: 'The mother’s name is ___.', answer: 'Gulnora' },
+      { id: 'lfp3', type: 'single', prompt: 'How old is Zarina?', options: ['six', 'four', 'eight', 'twelve'], answer: 0 },
+      { id: 'lfp4', type: 'single', prompt: 'What colour is the speaker’s T-shirt?', options: ['red', 'green', 'white', 'blue'], answer: 3 },
+      { id: 'lfp5', type: 'single', prompt: 'Who lives with the family?', options: ['the grandmother', 'an uncle', 'the grandfather', 'a dog'], answer: 2 },
+    ],
+  },
+  {
+    id: 'l-weather-today', level: 'A1', listening: true, title: 'The Weather Today', uzTitle: 'Tinglash: bugungi ob-havo',
+    text: `Good morning! Here is the weather for today. In Tashkent it is sunny and warm, about twenty-five degrees. In Samarkand it is cloudy in the morning, but sunny in the afternoon. In Nukus it is windy and cold, only ten degrees, so wear a jacket. In Fergana it is rainy all day — take an umbrella! Tomorrow it will be sunny everywhere. Have a nice day!`,
+    questions: [
+      { id: 'lwt1', type: 'single', prompt: 'What is the weather like in Tashkent?', options: ['rainy', 'sunny and warm', 'windy', 'snowy'], answer: 1 },
+      { id: 'lwt2', type: 'fill', prompt: 'In Tashkent it is about ___ degrees.', answer: ['twenty-five', '25'] },
+      { id: 'lwt3', type: 'single', prompt: 'Where is it windy and cold?', options: ['Nukus', 'Samarkand', 'Fergana', 'Tashkent'], answer: 0 },
+      { id: 'lwt4', type: 'fill', prompt: 'In Fergana, take an ___.', answer: 'umbrella' },
+      { id: 'lwt5', type: 'single', prompt: 'What will the weather be like tomorrow?', options: ['rainy', 'cold', 'cloudy', 'sunny'], answer: 3 },
+    ],
+  },
+  {
+    id: 'l-at-the-shop', level: 'A1', listening: true, title: 'At the Shop', uzTitle: 'Tinglash: do‘konda',
+    text: `Seller: Hello! Can I help you? Customer: Yes, please. I want some bread and milk. Seller: Here you are. Anything else? Customer: How much are the apples? Seller: They are ten thousand sum a kilo. Customer: OK, two kilos, please. And one bottle of water. Seller: That's thirty-five thousand sum, please. Customer: Here's forty thousand. Seller: Thank you. Here's your change, five thousand. Customer: Thank you. Goodbye! Seller: Goodbye!`,
+    questions: [
+      { id: 'lsh1', type: 'single', prompt: 'What does the customer want first?', options: ['apples and water', 'tea and sugar', 'bread and milk', 'eggs'], answer: 2 },
+      { id: 'lsh2', type: 'fill', prompt: 'Apples are ___ thousand sum a kilo.', answer: ['ten', '10'] },
+      { id: 'lsh3', type: 'single', prompt: 'How many kilos of apples does the customer buy?', options: ['one', 'two', 'three', 'four'], answer: 1 },
+      { id: 'lsh4', type: 'fill', prompt: 'The customer also buys one bottle of ___.', answer: 'water' },
+      { id: 'lsh5', type: 'single', prompt: 'How much change does the customer get?', options: ['five thousand', 'ten thousand', 'thirty-five thousand', 'nothing'], answer: 0 },
+    ],
+  },
+  {
+    id: 'l-cinema-plan', level: 'A2', listening: true, title: 'Going to the Cinema', uzTitle: 'Tinglash: kinoga borish',
+    text: `Malika: Hi Sardor! Are you free on Saturday? Sardor: I think so. Why? Malika: There's a new animated film at the Magic City cinema. Do you want to come? Sardor: Sounds great. What time does it start? Malika: There are two shows, at four o'clock and at seven. Sardor: Let's go to the early one. I have to be home by nine. Malika: OK. The tickets are thirty thousand sum each, but it's cheaper if we buy them online. Sardor: Can you buy them? I'll give you the money on Saturday. Malika: No problem. Let's meet outside the cinema at a quarter to four. Sardor: Perfect. See you then!`,
+    questions: [
+      { id: 'lcp1', type: 'single', prompt: 'What kind of film is it?', options: ['an action film', 'a horror film', 'a documentary', 'an animated film'], answer: 3 },
+      { id: 'lcp2', type: 'single', prompt: 'Which show will they go to?', options: ['two o’clock', 'seven o’clock', 'four o’clock', 'nine o’clock'], answer: 2 },
+      { id: 'lcp3', type: 'single', prompt: 'Why does Sardor want the early show?', options: ['It is cheaper.', 'He has to be home by nine.', 'He works in the evening.', 'It is less busy.'], answer: 1 },
+      { id: 'lcp4', type: 'single', prompt: 'Who will buy the tickets?', options: ['Malika', 'Sardor', 'Sardor’s brother', 'nobody — they buy at the cinema'], answer: 0 },
+      { id: 'lcp5', type: 'fill', prompt: 'They will meet at a quarter to ___.', answer: ['four', '4'] },
+    ],
+  },
+  {
+    id: 'l-lost-cat-notice', level: 'A2', listening: true, title: 'A Radio Notice: Lost Cat', uzTitle: 'Tinglash: radioda e’lon — yo‘qolgan mushuk',
+    text: `And now a short notice from one of our listeners. Mrs Aziza from Yunusobod has lost her cat. His name is Tiger, and he is three years old. He is orange with white feet and a long tail. He is wearing a green collar with a small bell. Tiger went missing last Wednesday evening near the park on Amir Temur Street. He is very friendly, but he is afraid of dogs, so he may be hiding in a garden or under a car. If you see Tiger, please call Mrs Aziza on ninety, five five five, twelve, thirty-four. There is a small reward. Thank you for listening.`,
+    questions: [
+      { id: 'llc1', type: 'fill', prompt: 'The cat’s name is ___.', answer: 'Tiger' },
+      { id: 'llc2', type: 'single', prompt: 'What colour is the cat?', options: ['black and white', 'grey', 'all white', 'orange with white feet'], answer: 3 },
+      { id: 'llc3', type: 'fill', prompt: 'He is wearing a green collar with a small ___.', answer: 'bell' },
+      { id: 'llc4', type: 'single', prompt: 'When did he go missing?', options: ['last Monday morning', 'yesterday', 'last Wednesday evening', 'two weeks ago'], answer: 2 },
+      { id: 'llc5', type: 'single', prompt: 'Why might he be hiding?', options: ['He is hungry.', 'He is afraid of dogs.', 'He is ill.', 'It is raining.'], answer: 1 },
+    ],
+  },
 ];
