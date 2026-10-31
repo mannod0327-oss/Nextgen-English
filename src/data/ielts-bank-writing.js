@@ -1,5 +1,5 @@
 // IELTS Writing prompt bank (original). Same schema as `writing` in ielts.js; `plan` gives an outline / ideas.
-// Task 1 items carry a data table; 50 tasks also carry a Band 7 `model` (see `models` at the end).
+// Task 1 items carry a data table; 56 tasks also carry a Band 7 `model` (see `models` at the end).
 
 const t1 = (id, prompt, table, plan) => ({ id: `bw1-${id}`, task: 1, minutes: 20, minWords: 150, type: 'Task 1 · Table', prompt: `${prompt} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.`, table, plan });
 // Chart tasks: `chart` is drawn as SVG (core/chart.js chartSvg); `table` is derived from it for the data view and the number checks.
@@ -666,5 +666,63 @@ Please let me know what you think. Thank you again for your kindness.
 
 Warm wishes,
 Dilshod`,
+
+  'bw2-flights': `Air travel has become cheaper and more popular than ever, but it is also a significant source of greenhouse gas emissions. Some people therefore argue that we should fly less, even if this restricts our freedom to travel. I largely agree with this view, although I believe the responsibility should not fall on individuals alone.
+
+There are strong reasons to reduce flying. A single long-haul return flight can produce more carbon dioxide per passenger than many people in developing countries produce in a whole year. Moreover, aviation is one of the hardest sectors to decarbonise, because there is currently no realistic alternative to jet fuel for long distances. Choosing a train for shorter journeys, holding business meetings online and taking fewer but longer holidays are all practical ways to cut emissions without giving up travel completely.
+
+However, it would be unfair to ask ordinary people to make all the sacrifices. For many, flying is the only way to visit family abroad or to study and work in other countries. In addition, frequent flyers, who are usually wealthy, are responsible for a large share of all flights. It would therefore be more effective for governments to tax frequent flying, invest in high-speed rail and support research into cleaner aircraft, rather than simply telling everyone to stay at home.
+
+In my view, a balanced approach is needed. Individuals should think carefully before taking unnecessary flights, especially short ones that could be replaced by trains. At the same time, policies should target the biggest polluters and make greener alternatives cheaper and more convenient.
+
+In conclusion, I agree that people should fly less for the sake of the environment, but this change will only be fair and effective if it is supported by strong government action.`,
+
+  'bw2-remote-work': `Since the pandemic, many companies have allowed their staff to work from home for some or all of the week. While this arrangement has clear benefits for both employees and employers, it also creates certain problems. Overall, I believe the advantages outweigh the disadvantages, particularly when remote work is combined with some time in the office.
+
+The most obvious benefit for workers is the time and money saved on commuting. Instead of spending an hour or more in traffic each day, employees can use this time to rest, exercise or be with their families. Remote work also offers flexibility, which is especially valuable for parents and for people with health problems. For employers, the advantages include lower office costs and the ability to recruit talented staff who live far from the company's headquarters.
+
+On the other hand, working from home can be isolating, especially for young employees who live alone and rely on the workplace for social contact. It can also be harder for new staff to learn from experienced colleagues when they rarely see them in person. Furthermore, some people find it difficult to separate work from private life, so they end up working longer hours and feeling more stressed.
+
+However, many of these problems can be reduced. A hybrid model, in which employees spend two or three days a week in the office, allows teams to meet, train new members and build relationships while keeping most of the benefits of flexibility. Clear rules about working hours can also help to protect employees' free time.
+
+In conclusion, although remote work has some drawbacks, its benefits in terms of time, cost and flexibility are greater, especially when it is organised as part of a hybrid system.`,
+
+  'bw2-job-satisfaction': `When choosing a job, people have different priorities. Some believe that a high salary is the most important factor, while others argue that enjoying one's work matters more. Both views have merit, but in my opinion, job satisfaction is more important in the long term, provided that the salary is sufficient to live comfortably.
+
+Those who prioritise salary make a reasonable point. Money pays for housing, food, education and healthcare, and it provides security for the future. For people supporting a family or repaying loans, a well-paid job may simply be a necessity rather than a choice. Furthermore, a high salary can bring freedom later in life, such as the possibility of retiring early or travelling.
+
+On the other hand, people spend a large part of their lives at work, often more than forty hours a week for several decades. If they find their job boring or stressful, this can damage their mental health and relationships, regardless of how much they earn. Research on wellbeing suggests that once income reaches a level that covers basic needs, further increases have a relatively small effect on happiness. In contrast, factors such as interesting tasks, supportive colleagues and a sense of purpose have a strong influence on how satisfied people feel.
+
+In my view, the ideal is to find a balance. People should make sure that their income meets their needs, but beyond that point, they are likely to be happier choosing work that they find meaningful, even if it pays a little less.
+
+In conclusion, although a good salary is important for security, job satisfaction has a greater impact on overall quality of life, and it should therefore be the main consideration once basic financial needs are met.`,
+
+  'bw2-working-mothers': `In many countries, the high cost of childcare prevents one parent, usually the mother, from returning to work. For this reason, some people argue that governments should provide free childcare so that both parents can work. I strongly agree with this proposal, as it benefits families, the economy and society as a whole.
+
+Firstly, free childcare gives parents a real choice. At present, many mothers would like to continue their careers but find that the cost of a nursery is almost equal to their salary. As a result, they stay at home, often losing skills and confidence and finding it harder to return to work later. Free childcare would remove this barrier and help to reduce the gap in earnings between men and women.
+
+Secondly, the policy makes economic sense. When more parents work, they pay more taxes, which can partly cover the cost of the childcare itself. In countries with ageing populations and shortages of workers, encouraging skilled parents to stay in the labour market is particularly valuable. Furthermore, high-quality early education has been shown to improve children's social and language skills, especially for those from disadvantaged backgrounds.
+
+Of course, there are concerns. Free childcare is expensive to provide, and some people believe that very young children are better cared for at home. However, the policy does not force anyone to use it; it simply gives families an option. Governments should also make sure that childcare centres have enough qualified staff so that quality is not sacrificed.
+
+In conclusion, I believe that free childcare is a worthwhile investment. It supports gender equality, strengthens the economy and gives children a good start in life, while still allowing parents to choose what is best for their own family.`,
+
+  'bw2-phones-school': `Mobile phones have become an essential part of young people's lives, and many schools are now considering whether to ban them during the school day. I agree that phones should be banned in classrooms, although I do not think a complete ban across the whole school is necessary.
+
+The main argument for a ban is that phones distract students. Notifications from social media and games make it very difficult to concentrate, and several studies have found that students' test results improve when phones are removed from lessons. In addition, phones can be used to cheat in tests or to take photos and videos of classmates without permission, which can lead to bullying. Without phones, students are also more likely to talk to each other and play together during breaks, which supports their social development.
+
+Nevertheless, a total ban has some drawbacks. Many parents want to be able to contact their children before and after school, particularly if the children travel alone. Furthermore, phones can be useful learning tools when teachers use them for specific tasks, such as research, language apps or recording presentations. Teaching students to use technology responsibly is arguably more valuable than simply removing it.
+
+For these reasons, I believe the best solution is a clear rule that phones must be switched off and kept in bags or lockers during lessons, unless a teacher asks students to use them for a particular activity. Students could still use their phones before and after school, and in emergencies.
+
+In conclusion, phones should not be allowed to interrupt lessons, but rather than banning them completely, schools should set firm rules that keep the benefits of technology while protecting students' concentration and wellbeing.`,
+
+  'bw2-screen-children': `Children today spend far more time looking at screens than previous generations did, whether they are watching videos, playing games or using social media. This essay will examine the main causes of this trend and suggest some practical solutions.
+
+One important cause is the design of digital products themselves. Many apps and games are created to be as engaging as possible, using rewards, endless scrolling and automatic video playback to keep users watching. Children, whose self-control is still developing, find it particularly hard to stop. Another cause is the lifestyle of modern families. Parents often work long hours, and giving a child a tablet is an easy way to keep them quiet and occupied. In addition, in many cities there are fewer safe outdoor spaces where children can play freely, so screens become the default form of entertainment.
+
+There are several ways to address this problem. Firstly, parents can set clear limits, for example by agreeing on screen-free times, such as during meals and the hour before bed, and by keeping devices out of children's bedrooms at night. Parents also need to set a good example, since children copy the behaviour of the adults around them. Secondly, schools and local governments can provide attractive alternatives, such as sports clubs, libraries and well-maintained playgrounds. Finally, technology companies could be required to offer stronger parental controls and to avoid features designed to encourage excessive use by children.
+
+In conclusion, children's screen time has increased because of addictive technology, busy family lives and a lack of alternatives. A combination of family rules, better community facilities and responsible product design could help children to develop a healthier balance between screens and other activities.`,
 };
 for (const w of writingBank) if (models[w.id]) w.model = models[w.id];
