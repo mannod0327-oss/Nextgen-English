@@ -91,7 +91,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 78 | **Writing tekshiruvi: so'z boyligi** | Lexical resource'ni ko'rsatish | Leksik xilma-xillik (TTR), akademik so'zlar ulushi; unit test | ✅ |
 | 79 | **Shadowing mashqi** | Ravon nutq: IELTS Part 1 javoblarini takrorlash | 10 ta namunaviy javob, 🔊 → yozib olish → solishtirish; E2E | ✅ |
 | 80 | **Progressni CSV eksport** | O'qituvchiga natijalarni yuborish | Xatolar, testlar, so'zlar holati CSV; unit test | ✅ |
-| 81 | **A1 boshlang'ich +4** | Boshlovchilar uchun kontent kam | 2 ta A1 grammatika + 2 ta A1 o'qish | ⬜ |
+| 81 | **A1 boshlang'ich +4** | Boshlovchilar uchun kontent kam | 2 ta A1 grammatika + 2 ta A1 o'qish | ✅ |
 | 82 | **Mock Test 10** |  | 40+40 original savol | ⬜ |
 
 ## Iteratsiyalar jurnali
@@ -192,3 +192,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **78-iteratsiya** — Writing tekshiruvi: lexicalProfile (mazmunli so'zlar TTR + akademik so'zlar) + unit test (barcha namunalar ≥0.45); hisobotda so'z boyligi va akademik so'zlar (Akademik lug'at + sinonimlar), kam bo'lsa sinonim trenajyoriga havola; E2E; v=93.
 - **79-iteratsiya** — Shadowing: Speech Lab'da 'shadowing' to'plami — 10 ta Part 1 savol + namunaviy javob (🔊, baholash, diktant) va pastda yozuvchi (o'z javobini yozib solishtirish); mikrofon xatosi endi 'ruxsat yo'q' va 'band/topilmadi' ga ajratiladi; E2E (yangi kontekst + ikkala xato); v=94.
 - **80-iteratsiya** — CSV eksport: src/core/csv.js (toCsv RFC 4180 + progressRows: profil, mock tarixi, o'qish/grammatika/drill, o'qish tezligi, kartalar (isMature), ochiq xatolar) + unit test; progressda yuklab olish (UTF-8 BOM, Excel uchun); E2E download; v=95.
+- **81-iteratsiya** — A1 +4: grammatika — buyruq gaplar (Don't, Let's), have got/has got (10 mashq); o'qish — My Cat Momo, A Day at School (5×2 savol); jami 47 mavzu / 212 mashq, 44 matn; A1 ≥9 matn testi; v=96.

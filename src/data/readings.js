@@ -1045,4 +1045,26 @@ How can trust be rebuilt? Researchers who study public communication suggest sev
       { id: 'tx5', type: 'single', prompt: 'Which principle for rebuilding trust is mentioned?', options: ['Never admit uncertainty.', 'Avoid the media.', 'Be open about uncertainty.', 'Make policy decisions alone.'], answer: 2 },
     ],
   },
+  {
+    id: 'my-pet', level: 'A1', title: 'My Cat Momo', uzTitle: 'Mening mushugim Momo',
+    text: `I have got a cat. Her name is Momo. She is two years old. Momo is white and grey, and she has got green eyes. She is very small, but she eats a lot! Every morning I give her food and water. Momo likes sleeping on my bed and playing with a small red ball. She does not like dogs. In the afternoon she sits by the window and looks at the birds. My little brother loves Momo too. He plays with her after school. Momo is the best cat in the world!`,
+    questions: [
+      { id: 'pet1', type: 'single', prompt: 'How old is Momo?', options: ['one', 'two', 'three', 'four'], answer: 1 },
+      { id: 'pet2', type: 'fill', prompt: 'Momo has got ___ eyes.', answer: 'green' },
+      { id: 'pet3', type: 'single', prompt: 'What does Momo like playing with?', options: ['a dog', 'a red ball', 'a bird', 'a book'], answer: 1 },
+      { id: 'pet4', type: 'single', prompt: 'Momo likes dogs.', options: ['True', 'False'], answer: 1 },
+      { id: 'pet5', type: 'fill', prompt: 'In the afternoon she sits by the ___.', answer: 'window' },
+    ],
+  },
+  {
+    id: 'school-day', level: 'A1', title: 'A Day at School', uzTitle: 'Maktabdagi bir kun',
+    text: `My name is Dilshod and I am eleven. I go to School Number 5. My lessons start at eight o'clock. On Mondays I have maths, English, history and sport. My favourite subject is English, because our teacher is very funny and we sing songs. I don't like maths. It is difficult for me. At ten o'clock we have a break. I eat a sandwich and talk with my friends. Lessons finish at one o'clock. After school, I walk home with my friend Aziz. In the evening I do my homework and watch TV.`,
+    questions: [
+      { id: 'scd1', type: 'fill', prompt: 'Dilshod is ___ years old.', answer: ['eleven', '11'] },
+      { id: 'scd2', type: 'single', prompt: 'What time do lessons start?', options: ['at seven', 'at eight', 'at nine', 'at ten'], answer: 1 },
+      { id: 'scd3', type: 'single', prompt: 'What is his favourite subject?', options: ['maths', 'history', 'English', 'sport'], answer: 2 },
+      { id: 'scd4', type: 'single', prompt: 'Why doesn’t he like maths?', options: ['It is boring.', 'It is difficult for him.', 'The teacher is strict.', 'It is too long.'], answer: 1 },
+      { id: 'scd5', type: 'fill', prompt: 'After school he walks home with his friend ___.', answer: 'Aziz' },
+    ],
+  },
 ];

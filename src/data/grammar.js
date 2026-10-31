@@ -588,4 +588,40 @@ export const grammar = [
       { id: 'b2ws5', type: 'single', prompt: 'He wishes he ___ taller.', options: ['is', 'were', 'be', 'has been'], answer: 1, explanation: 'wish + were (barcha shaxslar uchun).' },
     ],
   },
+  {
+    id: 'imperatives', title: "Buyruq gaplar (Open the door!)", level: 'A1',
+    rule: "Buyruq, iltimos yoki ko'rsatma: fe'lning asosiy shakli (ega yo'q): Open the window. Sit down, please. Inkor: Don't + fe'l: Don't run! Muloyim: please qo'shiladi. Taklif: Let's + fe'l: Let's go!",
+    table: [
+      ['tasdiq', 'Close the door. · Listen carefully.'],
+      ['inkor', "Don't touch it! · Don't be late."],
+      ['muloyim', 'Please sit down. · Open your books, please.'],
+      ["taklif (birga)", "Let's play football! · Let's not wait."],
+    ],
+    examples: ['Turn left at the bank.', "Don't forget your keys!", "Let's have lunch."],
+    exercises: [
+      { id: 'a1im1', type: 'single', prompt: '___ the window, please. It is hot.', options: ['Open', 'Opens', 'Opening', 'To open'], answer: 0, explanation: "Buyruq — fe'lning asosiy shakli." },
+      { id: 'a1im2', type: 'single', prompt: "___ run in the classroom!", options: ["Not", "Don't", "Doesn't", "No"], answer: 1, explanation: "Inkor buyruq: Don't + fe'l." },
+      { id: 'a1im3', type: 'single', prompt: "It's a nice day. ___ go to the park!", options: ['Let', "Let's", 'Lets', 'We'], answer: 1, explanation: "Taklif: Let's + fe'l." },
+      { id: 'a1im4', type: 'fill', prompt: '___ (be) quiet, please. The baby is sleeping. (1 so‘z)', answer: 'Be', explanation: 'be → Be quiet.' },
+      { id: 'a1im5', type: 'fill', prompt: "___ forget your homework! (1 so'z: inkor)", answer: ["Don't", 'Do not'], explanation: "Don't + forget." },
+    ],
+  },
+  {
+    id: 'have-got', title: 'have got / has got', level: 'A1',
+    rule: "Egalik (menda … bor) britancha inglizchada ko'pincha have got bilan: I have got (I've got) a brother. He/She/It has got (he's got). Inkor: haven't got / hasn't got. So'roq: Have you got…? — Yes, I have. / No, I haven't. Ma'nosi have bilan bir xil: I have a brother = I've got a brother.",
+    table: [
+      ['I / you / we / they', "I've got a cat. · They haven't got a car."],
+      ['he / she / it', "She's got blue eyes. · He hasn't got a phone."],
+      ["so'roq", 'Have you got a pen? — Yes, I have.'],
+      ["so'roq (he/she)", 'Has she got a sister? — No, she hasn’t.'],
+    ],
+    examples: ["I've got two brothers.", "Has your flat got a balcony?", "We haven't got any milk."],
+    exercises: [
+      { id: 'a1hg1', type: 'single', prompt: 'My sister ___ long hair.', options: ['have got', 'has got', 'is got', 'got has'], answer: 1, explanation: 'she → has got.' },
+      { id: 'a1hg2', type: 'single', prompt: '___ you got a bicycle?', options: ['Do', 'Has', 'Have', 'Are'], answer: 2, explanation: "So'roq: Have you got…?" },
+      { id: 'a1hg3', type: 'single', prompt: "We ___ a car. We go by bus.", options: ["haven't got", "hasn't got", "don't got", "aren't got"], answer: 0, explanation: "we → haven't got." },
+      { id: 'a1hg4', type: 'fill', prompt: 'Has he got a dog? — Yes, he ___ .', answer: 'has', explanation: 'Qisqa javob: Yes, he has.' },
+      { id: 'a1hg5', type: 'fill', prompt: "I ___ got a headache. (1 so'z)", answer: 'have', explanation: 'I have got = I’ve got.' },
+    ],
+  },
 ];
