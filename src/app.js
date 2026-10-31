@@ -813,7 +813,8 @@ const views = {
           ${sp.part2.model ? `<details class="card"><summary><b>📄 Namunaviy javob (Band 7)</b> — avval o'zingiz gapiring!</summary><div class="model">${esc(sp.part2.model)}</div>
             <p><button class="btn" data-say="${esc(sp.part2.model)}">🔊 Tinglash</button> <span class="muted">${sp.part2.model.split(/\s+/).length} so'z ≈ 2 daqiqa</span></p></details>` : ''}</section>
         ${recorderHtml()}
-        <section class="card"><h3>Part 3 · Muhokama</h3>${qs(sp.part3)}</section>
+        <section class="card"><h3>Part 3 · Muhokama</h3><ol>${sp.part3.map((q, i) => `<li>${esc(q)} <button class="link" data-say="${esc(q)}">🔊</button>
+          ${sp.part3Models?.[i] ? `<details class="p3-model"><summary>📄 Namunaviy javob</summary><p lang="en">${esc(sp.part3Models[i])}</p><button class="btn" data-say="${esc(sp.part3Models[i])}">🔊 Tinglash</button></details>` : ''}</li>`).join('')}</ol></section>
         <p><a class="btn" href="#/speech">🎙 Talaffuzni baholash — Nutq laboratoriyasi</a></p>`;
     }
     const done = store.get('readingDone', {});

@@ -43,3 +43,16 @@ test('speaking Part 2 sample answers: ≥10, about two minutes long, no typical 
     assert.deepEqual(r.mistakes, [], s.id);
   }
 });
+
+test('speaking Part 3 sample answers: ≥10 sets, each answer ≥60 words, matches a question, no typical mistakes', () => {
+  const sets = speakingBank.filter((s) => s.part3Models);
+  assert.ok(sets.length >= 10);
+  for (const s of sets) {
+    assert.ok(s.part3Models.length <= s.part3.length, s.id);
+    for (const a of s.part3Models) {
+      const r = checkWriting(a, { minWords: 60 });
+      assert.ok(r.enough, `${s.id}: ${r.words} words`);
+      assert.deepEqual(r.mistakes, [], s.id);
+    }
+  }
+});
