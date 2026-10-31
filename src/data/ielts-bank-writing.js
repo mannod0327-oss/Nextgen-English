@@ -1,5 +1,5 @@
 // IELTS Writing prompt bank (original). Same schema as `writing` in ielts.js; `plan` gives an outline / ideas.
-// Task 1 items carry a data table; 44 tasks also carry a Band 7 `model` (see `models` at the end).
+// Task 1 items carry a data table; 50 tasks also carry a Band 7 `model` (see `models` at the end).
 
 const t1 = (id, prompt, table, plan) => ({ id: `bw1-${id}`, task: 1, minutes: 20, minWords: 150, type: 'Task 1 · Table', prompt: `${prompt} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.`, table, plan });
 // Chart tasks: `chart` is drawn as SVG (core/chart.js chartSvg); `table` is derived from it for the data view and the number checks.
@@ -11,6 +11,8 @@ const t1c = (id, kind, prompt, labels, series, unit, plan) => ({
 // Process diagrams: `steps` are drawn as a numbered flow (no table; no numbers to check).
 const t1p = (id, prompt, steps, plan) => ({ id: `bw1-${id}`, task: 1, minutes: 20, minWords: 150, type: 'Task 1 · Process',
   prompt: `${prompt} Summarise the information by selecting and reporting the main features.`, steps, plan });
+// General Training Task 1: letters (no data); `register` = formal / semi-formal / informal.
+const gt = (id, register, prompt, plan) => ({ id: `gt1-${id}`, task: 1, gt: true, minutes: 20, minWords: 150, type: `GT Task 1 · Letter (${register})`, prompt: `${prompt} Write at least 150 words. You do NOT need to write any addresses.`, plan });
 const t2 = (id, type, prompt, plan) => ({ id: `bw2-${id}`, task: 2, minutes: 40, minWords: 250, type: `Task 2 · ${type}`, prompt, plan });
 
 const OPINION = 'To what extent do you agree or disagree?';
@@ -106,6 +108,19 @@ export const writingBank = [
   t1p('bottle-recycling', 'The diagram shows how plastic bottles are recycled in a city.',
     ['🗑️ Collection — street recycling bins', '🚛 Lorry → sorting centre', '🧮 Sorting — colour · plastic type', '🧼 Washing — labels and dirt removed', '⚙️ Crushing → flakes', '🔥 Melting → pellets', '👕 Manufacturing — clothing, new bottles'],
     ['Overview: a cycle of 7 stages that turns waste into new products.', 'Group: collection & transport → cleaning & processing → manufacturing.', 'Passive and sequencers; avoid copying the labels word for word.']),
+  // ---- General Training Task 1 (letters)
+  gt('noisy-neighbours', 'semi-formal', 'Your neighbours have been making a lot of noise late at night. Write a letter to them. In your letter: explain who you are; describe the problem; suggest what they could do.',
+    ['Dear Mr and Mrs …, / Yours sincerely', 'Polite but clear: I would be grateful if…', 'Paragraphs = the three bullet points']),
+  gt('lost-bag', 'formal', 'You left a bag on a train. Write a letter to the railway company. In your letter: give details of your journey; describe the bag and its contents; say what you would like them to do.',
+    ['Dear Sir or Madam, / Yours faithfully', 'Exact details: date, time, route, seat', 'Request: contact me / send it to…']),
+  gt('friend-visit', 'informal', 'A friend from another country is coming to visit your city. Write a letter to your friend. In your letter: say how you feel about the visit; suggest places to go; give advice about what to bring.',
+    ['Dear Anna, / Best wishes', 'Contractions and friendly tone are fine', 'Two or three concrete suggestions with reasons']),
+  gt('course-complaint', 'formal', 'You recently attended an evening course that was not as described. Write a letter to the course organiser. In your letter: describe the course you attended; explain what the problems were; say what you want them to do.',
+    ['Dear Sir or Madam, / Yours faithfully', 'Contrast: The advert promised… However…', 'Specific request: partial refund / another course']),
+  gt('job-reference', 'semi-formal', 'You want to apply for a part-time job and need a reference from a former teacher. Write a letter to the teacher. In your letter: remind them who you are; describe the job; ask them to write a reference.',
+    ['Dear Ms …, / Yours sincerely', 'Remind: class, year, subject', 'Make the request easy: deadline and address']),
+  gt('thank-host', 'informal', 'You recently stayed with a family while you were studying abroad. Write a letter to the family. In your letter: thank them for their hospitality; say what you enjoyed most; invite them to visit you.',
+    ['Dear …, / Love, / Warm wishes', 'Specific memories, not general thanks', 'Invitation with a time and an activity']),
   // ---- Task 2
   t2('online-learning', 'Opinion', `Online learning will soon replace traditional classroom teaching. ${OPINION}`, ['Agree partly: flexibility, cost, access in rural areas.', 'Disagree: social skills, discipline, practical subjects.', 'Conclusion: blended learning.']),
   t2('homework', 'Opinion', `Homework should be banned in primary schools. ${OPINION}`, ['For: play time, family time, stress.', 'Against: habit of study, practice.', 'Your view: limited, short homework.']),
@@ -569,5 +584,87 @@ At the beginning of the process, used bottles are collected from recycling bins 
 In the next stage, the bottles are washed in order to remove any labels and dirt. The clean plastic is then crushed into small flakes. After that, these flakes are heated until they melt, and the liquid plastic is formed into small pellets.
 
 In the final stage, the pellets are sent to factories, where they are used to produce new items, such as clothing and new bottles. These products can later be thrown away and collected again, so the cycle can begin once more.`,
+
+  'gt1-noisy-neighbours': `Dear Mr and Mrs Rahimov,
+
+My name is Laylo, and I live in flat 12, directly below yours. We have met a few times in the lift, and I have always found you very friendly, so I hope you will not mind me writing to you about a small problem.
+
+For the last two or three weeks, there has been quite a lot of noise coming from your flat late at night, usually between eleven o'clock and one in the morning. It sounds like music and furniture being moved. Unfortunately, I have to get up at six for work, and I am finding it very difficult to sleep. As a result, I have been feeling extremely tired during the day.
+
+I completely understand that everyone needs to relax and have guests sometimes. However, I would be very grateful if you could keep the volume down after eleven on weekdays. Perhaps putting a rug on the floor might also help to reduce the sound of moving chairs.
+
+If you would like to discuss this, please feel free to knock on my door at any time. Thank you very much for your understanding.
+
+Yours sincerely,
+Laylo Ergasheva`,
+
+  'gt1-lost-bag': `Dear Sir or Madam,
+
+I am writing to report that I left a bag on one of your trains yesterday and to ask for your help in finding it.
+
+I travelled on the high-speed train from Tashkent to Samarkand on Tuesday 14 May. The train left Tashkent at 8.00 in the morning and arrived in Samarkand at about 10.10. I was sitting in carriage 4, seat 23, and I placed my bag on the shelf above my seat. Unfortunately, I was in a hurry when I got off and forgot to take it with me.
+
+The bag is a small black backpack with a red stripe on the front pocket. Inside, there is a silver laptop, a blue notebook containing my university lecture notes, and a charger. The notebook has my name written on the first page. Although the laptop is valuable, the notes are even more important to me, as I need them for my exams next month.
+
+I would be extremely grateful if you could check whether the bag has been handed in to your lost property office. If it has, please contact me on 90 123 45 67, and I will collect it, or alternatively you could send it to my address at your earliest convenience.
+
+Thank you in advance for your assistance.
+
+Yours faithfully,
+Jasur Nazarov`,
+
+  'gt1-friend-visit': `Dear Emma,
+
+I was so happy to read your email and find out that you're finally coming to Tashkent next month! I've been waiting for this for years, and I can't wait to show you my city. My family is really excited to meet you too.
+
+There are lots of places I'd like to take you. First of all, we must visit Chorsu Bazaar, which is one of the oldest markets in the city. It's full of colourful spices, dried fruit and fresh bread, and I'm sure you'll love the atmosphere. Then we could ride the metro, because the stations are like underground museums, with beautiful decorations. If you have time, I'd also suggest a day trip to the mountains at Chimgan, where we can go hiking and have a picnic.
+
+As for what to bring, it'll still be quite hot during the day, so pack light clothes, sunglasses and a hat. However, the evenings can be cooler, so bring a jacket as well. If we go to the mountains, you'll need comfortable walking shoes. Don't bring too much money in cash — you can pay by card almost everywhere.
+
+Let me know your flight details as soon as possible, and I'll meet you at the airport.
+
+Lots of love,
+Madina`,
+
+  'gt1-course-complaint': `Dear Sir or Madam,
+
+I am writing to express my dissatisfaction with the evening photography course that I attended at your centre from 3 March to 28 April.
+
+According to your advertisement, the course was suitable for beginners and would include eight practical sessions in which students would take photographs outdoors using professional cameras provided by the centre. In addition, it promised that each class would have a maximum of twelve students.
+
+Unfortunately, the reality was quite different. Firstly, there were more than twenty people in the class, which meant that the teacher had very little time to help individual students. Secondly, only two of the eight sessions were held outdoors, and on both occasions there were not enough cameras for everyone, so many of us simply watched. Finally, the course was cancelled twice without notice, and these lessons were never replaced.
+
+As I paid the full fee of 900,000 sum, I feel that I did not receive the course that was described. I would therefore like you to refund at least half of the fee. Alternatively, I would be willing to accept a free place on your next course, provided that the class size and practical sessions match the advertisement.
+
+I look forward to hearing from you.
+
+Yours faithfully,
+Kamola Usmonova`,
+
+  'gt1-job-reference': `Dear Ms Abdullayeva,
+
+I hope you are well. You may remember me: my name is Otabek Saidov, and I was in your English class at School Number 21 from 2019 to 2022. I was the student who organised the school English club with you in my final year, and I still remember our debates very fondly.
+
+I am writing because I am applying for a part-time job as a receptionist at the Grand Hotel in the city centre. The position involves welcoming guests, answering phone calls and helping visitors with information about the city. Since many of the guests are from abroad, the hotel is looking for someone with good English and strong communication skills. In addition, the job is only three evenings a week, so it fits well with my university timetable.
+
+The hotel has asked me to provide a reference from a teacher who knows me well, and I immediately thought of you. I would be extremely grateful if you could write a short letter describing my English level and my reliability. The deadline for applications is 20 June, and the reference can be sent directly to the hotel manager by email at hr@grandhotel.example.
+
+Thank you very much for considering my request. I really appreciate everything you taught me.
+
+Yours sincerely,
+Otabek Saidov`,
+
+  'gt1-thank-host': `Dear Sarah and Peter,
+
+I've been back home for two weeks now, and I wanted to write to say a huge thank you for everything you did for me during my stay in Manchester. You made me feel like part of the family from the very first day, and I honestly don't think my time abroad would have been so successful without you.
+
+There are so many things I enjoyed. I loved our Sunday dinners, especially the roast chicken, and the long conversations we had afterwards about our two countries. Those evenings did more for my English than any lesson! However, my favourite memory is the weekend trip to the Lake District. Walking in the hills in the rain and then warming up with hot chocolate in that tiny café was wonderful.
+
+Now it's my turn to be the host. I'd love you both to come and visit me in Uzbekistan next spring, when the weather is warm but not too hot. My parents have already said you can stay with us, and I'd like to take you to Samarkand and Bukhara to see the ancient buildings. And, of course, you must try my mother's plov!
+
+Please let me know what you think. Thank you again for your kindness.
+
+Warm wishes,
+Dilshod`,
 };
 for (const w of writingBank) if (models[w.id]) w.model = models[w.id];

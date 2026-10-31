@@ -295,3 +295,13 @@ test('ielts bank: process diagrams have ≥6 steps and a model using the passive
     assert.ok(w.model && /\b(is|are) \w+ed\b/.test(w.model) && /\b(first|then|after that|finally)\b/i.test(w.model), `${w.id}: passive + sequencers`);
   }
 });
+
+test('ielts bank: General Training letters — 6 tasks with three registers, every one with a model letter', () => {
+  const gt = writingBank.filter((w) => w.gt);
+  assert.ok(gt.length >= 6 && gt.every((w) => w.model && w.task === 1 && /Letter \((formal|semi-formal|informal)\)/.test(w.type)));
+  for (const r of ['formal', 'semi-formal', 'informal']) assert.ok(gt.some((w) => w.type.endsWith(`(${r})`)), r);
+  for (const w of gt) {
+    assert.match(w.model, /^Dear /, `${w.id}: opens with Dear`);
+    if (w.type.endsWith('(formal)')) assert.match(w.model, /Yours faithfully/, `${w.id}: Dear Sir or Madam → Yours faithfully`);
+  }
+});

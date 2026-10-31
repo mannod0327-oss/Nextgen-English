@@ -862,7 +862,7 @@ const views = {
       const groups = {
         listening: () => [1, 2, 3, 4].map((n) => [`Part ${n}`, ieltsLists.listening.filter((x) => (x.part ?? 0) === n)]).concat([['Boshqa', ieltsLists.listening.filter((x) => !x.part)]]),
         reading: () => LEVELS.map((l) => [l, ieltsLists.reading.filter((x) => x.level === l)]),
-        writing: () => [1, 2].map((n) => [`Task ${n}`, allWriting.filter((x) => x.task === n)]),
+        writing: () => [['Task 1 (Academic)', allWriting.filter((x) => x.task === 1 && !x.gt)], ['Task 2', allWriting.filter((x) => x.task === 2)], ['General Training · Task 1 (xat)', allWriting.filter((x) => x.gt)]],
         speaking: () => [['Part 1–3', allSpeaking]],
       }[bank]?.() ?? [];
       const item = (x) => (bank === 'writing'
