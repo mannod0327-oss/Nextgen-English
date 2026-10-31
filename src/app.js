@@ -5,7 +5,7 @@ import { gradeExam, scoreQuestion, makeVariant, parseExam, serializeExam, valida
 import { createPlacement, nextQuestion, answerPlacement, placementResult, LEVELS } from './core/placement.js';
 import { renderPrintable, esc } from './core/printable.js';
 import { createStore } from './core/store.js';
-import { dailyPlan, wordOfDay, goalStatus, XP_GOALS, reviewQueue } from './core/plan.js';
+import { dailyPlan, wordOfDay, goalStatus, XP_GOALS, reviewQueue, personalCards, MY_WORDS } from './core/plan.js';
 import { linePoints, lastDays, chartSvg } from './core/chart.js';
 import { buildSearchIndex, search } from './core/search.js';
 import { checkWriting, readingSpeed } from './core/writing-check.js';
@@ -50,6 +50,11 @@ const loadIelts = () => (ieltsPromise ??= Promise.all(['ielts-mock', 'ielts-guid
 // English definitions (Open English WordNet, ~80KB gzip) load only when a view needs them.
 let defsPromise;
 const loadDefs = () => (defsPromise ??= import('./data/definitions.js').then((m) => m.definitions));
+// ⭐ save a word to the personal deck (#/vocab?cat=__mine); handled by the delegated click listener below.
+const saveBtn = (word, { uz = '', def = '', ex = '' } = {}) => {
+  const saved = word.toLowerCase() in store.get('myWords', {});
+  return `<button class="btn star" data-save-word="${esc(word.toLowerCase())}" data-uz="${esc(uz)}" data-def="${esc(def)}" data-ex="${esc(ex)}"${saved ? ' disabled' : ''}>${saved ? "✅ Saqlangan" : "⭐ Mening so'zlarimga"}</button>`;
+};
 const sensesHtml = (hit) => `<ol class="senses">${hit.senses.map(([pos, def, ex]) => `<li><i>${esc(pos)}</i> — ${esc(def)}${ex ? ` <span class="muted">“${esc(ex)}”</span>` : ''}</li>`).join('')}</ol>`;
 
 const guideUnitHref = (n) => `grammar-guide/units/unit-${String(n).padStart(3, '0')}.html`;
@@ -421,6 +426,12 @@ const views = {
         <section class="card"><h3>✍️ Yozish testi</h3><p class="muted">10 savol: o'zbekchadan inglizchaga yozish va eshitib yozish.</p>
           <p><select id="vt-cat" class="select" aria-label="Mavzu"><option value="__all">Barcha mavzular</option>${categories.map((c) => `<option value="${esc(c)}">${esc(c)}</option>`).join('')}</select>
           <button class="btn primary" id="vt-go">Boshlash →</button> <button class="btn" id="vp-go">📄 Chop etish varag'i</button> ${best != null ? `<span class="badge ok">eng yaxshi: ${best}%</span>` : ''}</p></section>
+        ${(() => {
+          const mine = personalCards(store.get('myWords', {}));
+          return `<section class="card"><h3>⭐ ${MY_WORDS} <span class="badge">${mine.length}</span></h3>${mine.length
+            ? `<p class="muted">${esc(mine.slice(-8).map((x) => x.word).join(', '))}</p><a class="btn primary" href="#/vocab?cat=__mine">Kartalarni takrorlash →</a>`
+            : `<p class="muted">O'qish matnida so'zni bosing yoki lug'atda qidiring va ⭐ tugmasi bilan saqlang — shu yerda shaxsiy kartalaringiz bo'ladi.</p>`}</section>`;
+        })()}
         <div class="grid">${['__all', ...categories].map((c) => {
           const words = c === '__all' ? vocabulary : vocabulary.filter((v) => v.category === c);
           const due = words.filter((w) => !cards[w.id] || cards[w.id].due <= Date.now()).length;
@@ -428,7 +439,7 @@ const views = {
             <b>${c === '__all' ? 'Barcha mavzular' : esc(c)}</b><span class="muted">${words.length} so'z · ${due} navbatda</span></a>`;
         }).join('')}</div>`;
     }
-    const words = cat === '__all' ? vocabulary : vocabulary.filter((v) => v.category === cat);
+    const words = cat === '__mine' ? personalCards(store.get('myWords', {})) : cat === '__all' ? vocabulary : vocabulary.filter((v) => v.category === cat);
     const cards = store.get('cards', {});
     const queue = dueCards(words.map((w) => cards[w.id] ?? newCard(w.id))).slice(0, 20);
     let i = 0;
@@ -438,12 +449,12 @@ const views = {
           <a class="btn" href="#/vocab">Mavzular</a> <a class="btn primary" href="#/immersion">Immersiya o'yini</a></section>`;
         return;
       }
-      const w = vocabulary.find((v) => v.id === queue[i].id);
+      const w = words.find((v) => v.id === queue[i].id);
       app.innerHTML = `<div class="muted">${i + 1} / ${queue.length} · ${esc(w.category)}</div>
         <section class="flash" id="flash" tabindex="0" aria-live="polite">
           <div class="pic">${w.emoji}</div><div class="word" lang="en">${esc(w.word)}</div>
-          <div class="back hidden"><div class="ipa">${esc(w.ipa)} · <i>${esc(w.pos)}</i> · ${w.level}</div>
-            <div class="uz">${esc(w.uz)}</div><div class="ex" lang="en">“${esc(w.example)}”</div></div>
+          <div class="back hidden">${w.ipa ? `<div class="ipa">${esc(w.ipa)} · <i>${esc(w.pos)}</i> · ${w.level}</div>` : ''}
+            <div class="uz">${esc(w.uz)}</div>${w.example ? `<div class="ex" lang="en">“${esc(w.example)}”</div>` : ''}</div>
           <button class="btn" id="say">🔊 Tinglash</button></section>
         <div class="grades hidden" id="grades">
           <button class="btn bad" data-g="1">Unutdim</button><button class="btn" data-g="3">Qiyin</button>
@@ -576,7 +587,8 @@ const views = {
         const d = lookupDefinition(await loadDefs(), w);
         gloss.hidden = false;
         gloss.innerHTML = `<b>${esc(w)}</b> <button class="link" data-say="${esc(w)}">🔊</button>${v ? ` — <span class="uz">${esc(v.uz)}</span>` : ''}
-          ${d ? sensesHtml(d) : v ? '' : '<p class="muted">Lug\'atda topilmadi.</p>'}`;
+          ${d ? sensesHtml(d) : v ? '' : '<p class="muted">Lug\'atda topilmadi.</p>'}
+          ${d || v ? saveBtn(v?.word ?? d.word, { uz: v?.uz, def: d?.senses[0][1], ex: v?.example ?? d?.senses[0][2] }) : ''}`;
       };
       $('#hide').onclick = () => { $('#text').hidden = !$('#text').hidden; };
       let t0 = 0;
@@ -1276,7 +1288,7 @@ const views = {
           if (!hit || !box) return;
           const nf = $('#nf');
           box.innerHTML = nf
-            ? `<section class="card entry"><h2>${esc(hit.word)} <button class="link" data-say="${esc(hit.word)}">🔊</button></h2>${hit.word !== q.toLowerCase() ? `<p class="muted">“${esc(q)}” → asosiy shakl: <b>${esc(hit.word)}</b></p>` : ''}<p class="muted">🇬🇧 Inglizcha ta'rif (o'zbekcha tarjimasi hali yo'q)</p>${sensesHtml(hit)}</section>`
+            ? `<section class="card entry"><h2>${esc(hit.word)} <button class="link" data-say="${esc(hit.word)}">🔊</button> ${saveBtn(hit.word, { def: hit.senses[0][1], ex: hit.senses[0][2] })}</h2>${hit.word !== q.toLowerCase() ? `<p class="muted">“${esc(q)}” → asosiy shakl: <b>${esc(hit.word)}</b></p>` : ''}<p class="muted">🇬🇧 Inglizcha ta'rif (o'zbekcha tarjimasi hali yo'q)</p>${sensesHtml(hit)}</section>`
             : `<h3>🇬🇧 Inglizcha ta'rif</h3>${sensesHtml(hit)}`;
           if (nf) nf.hidden = true;
         });
@@ -1290,7 +1302,7 @@ const views = {
         entryHtml = `<section class="card entry"><div class="pic">${e.emoji}</div><h2>${esc(e.word)} <button class="link" data-say="${esc(e.word)}">🔊</button></h2>
           ${r.lemma ? `<p class="muted">“${esc(q)}” → asosiy shakl: <b>${esc(r.lemma)}</b></p>` : ''}
           <p>${esc(e.ipa)} · <i>${esc(e.pos)}</i> · <span class="badge">${e.level}</span> · ${esc(e.category)}</p>
-          <p class="uz">${esc(e.uz)}</p><p>“${esc(e.example)}” <button class="link" data-say="${esc(e.example)}">🔊</button></p><div id="defs"></div></section>`;
+          <p class="uz">${esc(e.uz)}</p><p>“${esc(e.example)}” <button class="link" data-say="${esc(e.example)}">🔊</button></p>${saveBtn(e.word, { uz: e.uz, ex: e.example })}<div id="defs"></div></section>`;
       } else {
         entryHtml = `<div id="defs"></div><section class="card" id="nf"><p>“${esc(q)}” topilmadi.</p>${r.suggestions.length ? `<p>Balki: ${r.suggestions.map((s) => `<a href="#/dictionary?q=${encodeURIComponent(s.word)}">${esc(s.word)}</a>`).join(', ')}?</p>` : ''}</section>`;
       }
@@ -1531,6 +1543,14 @@ function route() {
 
 // Delegated so 🔊 buttons inserted after render (definitions, reading gloss) work too.
 app.addEventListener('click', (e) => { const b = e.target.closest('[data-say]'); if (b) speak(b.dataset.say); });
+app.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-save-word]');
+  if (!b) return;
+  const { saveWord: word, uz, def, ex } = b.dataset;
+  store.set('myWords', { ...store.get('myWords', {}), [word]: { uz, def, ex, added: new Date().toISOString() } });
+  b.disabled = true;
+  b.textContent = '✅ Saqlangan';
+});
 window.addEventListener('hashchange', route);
 // Offline: cache the app on first visit (service worker needs https or localhost).
 // Display preferences: theme (light/dark, default follows the OS) and font scale, saved per device.

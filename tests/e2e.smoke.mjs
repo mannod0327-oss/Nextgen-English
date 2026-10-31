@@ -675,6 +675,22 @@ await step('progress CSV: download contains header and profile rows', async () =
   if (!text.startsWith('\uFEFFsection,item,value,date') || !text.includes('profile,xp,')) throw new Error(text.slice(0, 120));
 });
 
+await step('my words: save from the reading gloss and the dictionary, study them as flashcards', async () => {
+  await page.goto(`${base}/#/`);
+  await page.evaluate(() => localStorage.removeItem('nge:myWords'));
+  await page.goto(`${base}/#/reading?t=chorsu`);
+  await page.click('#text .tw:text-is("market")');
+  await page.click('#gloss [data-save-word]');
+  await page.waitForSelector('#gloss [data-save-word][disabled]');
+  await page.goto(`${base}/#/dictionary?q=merchant`);
+  await page.click('#defs [data-save-word]');
+  await page.goto(`${base}/#/vocab`);
+  if (!(await page.textContent('text=Mening so\'zlarim >> ..')).includes('2')) throw new Error('deck count');
+  await page.click('a[href="#/vocab?cat=__mine"]');
+  await page.waitForSelector('#flash');
+  if (!['market', 'merchant'].includes((await page.textContent('#flash .word')).trim())) throw new Error('my card');
+});
+
 await step('daily goal: ring shows today\'s XP, goal choice persists, week has 7 days', async () => {
   await page.goto(`${base}/#/verbs`);
   await page.goto(`${base}/#/`);
@@ -690,7 +706,7 @@ await step('daily goal: ring shows today\'s XP, goal choice persists, week has 7
   if (!(await page.isVisible('[data-goal="20"][aria-pressed="true"]'))) throw new Error('goal not persisted');
 });
 
-const ROUTES = ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'vocab?cat=Fan va tadqiqot', 'vocab?cat=Koinot va texnologiya', 'vocab?mode=test&cat=Jinoyat va qonun', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'grammar?topic=question-tags', 'grammar?topic=must-have-to', 'grammar?topic=verb-patterns', 'grammar?topic=subjunctive', 'grammar?topic=past-perfect', 'grammar?topic=wish', 'grammar?topic=imperatives', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?w=bw2-zoos', 'ielts?w=bw1-commute', 'ielts?w=bw1-museum-visits', 'ielts?w=bw1-household-waste', 'ielts?w=bw2-ai-jobs', 'ielts?w=bw1-dried-apricots', 'ielts?s=b-tradition', 'ielts?s=b-books', 'ielts?s=b-internet', 'ielts?guide=listening', 'ielts?guide=task2', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=l-at-the-cafe', 'reading?t=placebo', 'reading?t=space-debris', 'reading?t=school-day', 'reading?t=trust-experts', 'reading?t=language-podcast', 'reading?t=debate-tourism', 'reading?t=l-library-intro', 'reading?t=l-interview-nudges', 'mistakes', 'sounds', 'sounds?set=th-s', 'sounds?set=ou-or', 'speech?s=lost', 'speech?s=shadowing', 'vocab?mode=print&cat=Shifokorda', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'drill?t=stress', 'drill?t=task1', 'drill?t=synonyms', 'drill?t=forms', 'drill?t=deps', 'numbers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'ielts?mock=listening-5', 'ielts?mock=reading-5', 'ielts?mock=listening-6', 'ielts?mock=reading-6', 'ielts?mock=listening-7', 'ielts?mock=reading-7', 'ielts?mock=listening-8', 'ielts?mock=reading-8', 'ielts?mock=listening-9', 'ielts?mock=reading-9', 'ielts?mock=listening-10', 'ielts?mock=reading-10', 'search?q=present'];
+const ROUTES = ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'vocab?cat=Fan va tadqiqot', 'vocab?cat=Koinot va texnologiya', 'vocab?cat=__mine', 'vocab?mode=test&cat=Jinoyat va qonun', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'grammar?topic=question-tags', 'grammar?topic=must-have-to', 'grammar?topic=verb-patterns', 'grammar?topic=subjunctive', 'grammar?topic=past-perfect', 'grammar?topic=wish', 'grammar?topic=imperatives', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?w=bw2-zoos', 'ielts?w=bw1-commute', 'ielts?w=bw1-museum-visits', 'ielts?w=bw1-household-waste', 'ielts?w=bw2-ai-jobs', 'ielts?w=bw1-dried-apricots', 'ielts?s=b-tradition', 'ielts?s=b-books', 'ielts?s=b-internet', 'ielts?guide=listening', 'ielts?guide=task2', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=l-at-the-cafe', 'reading?t=placebo', 'reading?t=space-debris', 'reading?t=school-day', 'reading?t=trust-experts', 'reading?t=language-podcast', 'reading?t=debate-tourism', 'reading?t=l-library-intro', 'reading?t=l-interview-nudges', 'mistakes', 'sounds', 'sounds?set=th-s', 'sounds?set=ou-or', 'speech?s=lost', 'speech?s=shadowing', 'vocab?mode=print&cat=Shifokorda', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'drill?t=stress', 'drill?t=task1', 'drill?t=synonyms', 'drill?t=forms', 'drill?t=deps', 'numbers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'ielts?mock=listening-5', 'ielts?mock=reading-5', 'ielts?mock=listening-6', 'ielts?mock=reading-6', 'ielts?mock=listening-7', 'ielts?mock=reading-7', 'ielts?mock=listening-8', 'ielts?mock=reading-8', 'ielts?mock=listening-9', 'ielts?mock=reading-9', 'ielts?mock=listening-10', 'ielts?mock=reading-10', 'search?q=present'];
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });

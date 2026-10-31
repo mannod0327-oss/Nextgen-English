@@ -327,3 +327,11 @@ test('csv export: RFC 4180 quoting and progress rows', async () => {
   assert.ok(rows.every((r) => r.length === 4));
   assert.equal(progressRows({}).length, 6);
 });
+
+test('personalCards: saved words become flashcard items, oldest first, with fallbacks', async () => {
+  const { personalCards, MY_WORDS } = await import('../src/core/plan.js');
+  const cards = personalCards({ zeal: { def: 'great enthusiasm', added: '2026-10-30' }, abate: { uz: 'pasaymoq', ex: 'The storm abated.', added: '2026-10-29' } });
+  assert.deepEqual(cards.map((c) => c.id), ['my:abate', 'my:zeal']);
+  assert.deepEqual([cards[0].uz, cards[0].example, cards[1].uz, cards[1].example, cards[1].category], ['pasaymoq', 'The storm abated.', 'great enthusiasm', '', MY_WORDS]);
+  assert.deepEqual(personalCards({}), []);
+});

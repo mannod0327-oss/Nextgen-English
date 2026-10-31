@@ -71,3 +71,12 @@ export function reviewQueue(mistakes, n = 10) {
     .sort((a, b) => (a.date === b.date ? (a.q.id < b.q.id ? -1 : 1) : a.date < b.date ? -1 : 1))
     .slice(0, n);
 }
+
+export const MY_WORDS = "Mening so'zlarim";
+
+/** Saved words ({ word: { uz, def, ex, added } }) → flashcard items shaped like vocabulary entries, oldest first. */
+export function personalCards(myWords) {
+  return Object.entries(myWords)
+    .sort((a, b) => (a[1].added < b[1].added ? -1 : a[1].added > b[1].added ? 1 : a[0] < b[0] ? -1 : 1))
+    .map(([word, x]) => ({ id: `my:${word}`, word, ipa: '', pos: '', level: '', emoji: '⭐', uz: x.uz || x.def || '', example: x.ex || '', category: MY_WORDS }));
+}
