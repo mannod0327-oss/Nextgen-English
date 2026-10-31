@@ -92,7 +92,27 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 79 | **Shadowing mashqi** | Ravon nutq: IELTS Part 1 javoblarini takrorlash | 10 ta namunaviy javob, 🔊 → yozib olish → solishtirish; E2E | ✅ |
 | 80 | **Progressni CSV eksport** | O'qituvchiga natijalarni yuborish | Xatolar, testlar, so'zlar holati CSV; unit test | ✅ |
 | 81 | **A1 boshlang'ich +4** | Boshlovchilar uchun kontent kam | 2 ta A1 grammatika + 2 ta A1 o'qish | ✅ |
-| 82 | **Mock Test 10** |  | 40+40 original savol | ⬜ |
+| 82 | **Mock Test 10** |  | 40+40 original savol | ✅ |
+| 83 | **Shaxsiy lug'at** | Matndagi notanish so'zni saqlab, keyin takrorlash imkoni yo'q | Glossariy/lug'atdan ⭐ saqlash → `#/vocab?cat=__mine` SRS kartalari; unit test + E2E | ⬜ |
+| 84 | **IELTS General Training xatlari** | Faqat Academic; GT Task 1 (xat) yo'q | 6 ta xat topshirig'i (rasmiy/norasmiy) + 6 Band 7 namuna (≥150), writing-check xatosiz | ⬜ |
+| 85 | **C1 grammatika +3** | C1 qamrov kam (6 mavzu) | it is said that…, emphatic do, ellipsis/substitution — har biri ≥5 mashq | ⬜ |
+| 86 | **A1–A2 tinglash +5** | Boshlovchilar tinglashi kam | 3 × A1, 2 × A2 (har biri 5 savol) | ⬜ |
+| 87 | **Lug'at +60** (iste'mol va xarid, globallashuv, oila va munosabatlar) | IELTS mavzulari | 3 × 20 so'z, definitions qayta qurish | ⬜ |
+| 88 | **Tinglash: bo'sh joyli diktant** | Tinglashni so'zma-so'z tekshirish | Skriptdan avtomatik gap-fill (pure funksiya, unit test), har tinglash sahifasida rejim; E2E | ⬜ |
+| 89 | **IELTS sanasiga reja** | Imtihongacha qancha vaqt va nima qilish kerak | Imtihon sanasi → qolgan kunlar, haftalik reja (pure, unit test), bosh sahifada ko'rinadi | ⬜ |
+| 90 | **Imlo +30 va bog'lovchilar +18** |  | Trenajyorlar 72 / 60 ta | ⬜ |
+| 91 | **A2 o'qish +3** |  | 3 matn × 5 savol | ⬜ |
+| 92 | **Writing Task 2 namunalari +6** |  | 6 ta Band 7 (≥250) | ⬜ |
+| 93 | **Mock Test 11** |  | 40+40 original savol | ⬜ |
+| 94 | **Daraja testidan keyin shaxsiy yo'l** | Natija sahifasi faqat darajani ko'rsatadi | Darajaga mos grammatika, matnlar, lug'at mavzulari va trenajyorlar ro'yxati; E2E | ⬜ |
+| 95 | **Gap urg'usi va intonatsiya** | Nutqning ritmi | Trenajyor: gapda qaysi so'z urg'uli (🔊), 40 ta; E2E | ⬜ |
+| 96 | **Kollokatsiyalar +30** |  | Yangi fe'l/sifat guruhlari, testda ishlaydi | ⬜ |
+| 97 | **Speaking Part 1 namunalari** | Part 1 javob uzunligi noaniq | 10 to'plamda 2–3 gaplik namunalar, 🔊 | ⬜ |
+| 98 | **Mock Test 12** |  | 40+40 original savol | ⬜ |
+| 99 | **B1 grammatika +3** (future continuous, would (o'tmish odati), both/either/neither) |  | har biri ≥5 mashq | ⬜ |
+| 100 | **Bosh sahifa: tez kirish va qidiruv** | Kontent ko'p — topish qiyin | Oxirgi ochilgan 5 sahifa, bosh sahifada qidiruv maydoni; E2E | ⬜ |
+| 101 | **Foydalanuvchi qo'llanmasi** | Yangi foydalanuvchi qayerdan boshlashni bilmaydi | `#/help`: 1-kun, 1-hafta, IELTS yo'li; barcha bo'limlar tavsifi; E2E | ⬜ |
+| 102 | **Mock Test 13** |  | 40+40 original savol | ⬜ |
 
 ## Iteratsiyalar jurnali
 
@@ -193,3 +213,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **79-iteratsiya** — Shadowing: Speech Lab'da 'shadowing' to'plami — 10 ta Part 1 savol + namunaviy javob (🔊, baholash, diktant) va pastda yozuvchi (o'z javobini yozib solishtirish); mikrofon xatosi endi 'ruxsat yo'q' va 'band/topilmadi' ga ajratiladi; E2E (yangi kontekst + ikkala xato); v=94.
 - **80-iteratsiya** — CSV eksport: src/core/csv.js (toCsv RFC 4180 + progressRows: profil, mock tarixi, o'qish/grammatika/drill, o'qish tezligi, kartalar (isMature), ochiq xatolar) + unit test; progressda yuklab olish (UTF-8 BOM, Excel uchun); E2E download; v=95.
 - **81-iteratsiya** — A1 +4: grammatika — buyruq gaplar (Don't, Let's), have got/has got (10 mashq); o'qish — My Cat Momo, A Day at School (5×2 savol); jami 47 mavzu / 212 mashq, 44 matn; A1 ≥9 matn testi; v=96.
+- **82-iteratsiya** — Mock 10: Listening (marafonga ro'yxatdan o'tish, hostel qoidalari, podkast rejasi, bosmaxona ma'ruzasi) + Reading (kigiz — cho'l matosi, uy vazifasi foydasi, antibiotik rezistentligi); 80 savol; Batch 6 (63–82) yakunlandi, Batch 7 (83–102) SPEC'ga yozildi; v=97.

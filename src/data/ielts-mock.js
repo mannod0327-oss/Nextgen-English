@@ -1877,4 +1877,214 @@ Many transport experts therefore favour a combined approach. Free or heavily dis
       },
     ],
   },
+
+  'listening-10': {
+    kind: 'listening', title: 'IELTS Listening — Mock Test 10', minutes: 30,
+    sections: [
+      {
+        title: 'Part 1 · Registering for a city marathon',
+        intro: 'You will hear a man phoning the organisers of a running event. Questions 1–10.',
+        script: `Organiser: City Marathon office, how can I help?
+Runner: Hi, I'd like to register for the race in October, but I'm not sure which distance to choose.
+Organiser: We have three: the full marathon, the half marathon, and a ten-kilometre fun run.
+Runner: I think the half marathon. I've never run more than fifteen kilometres before.
+Organiser: Good choice. The half marathon starts at half past seven in the morning from Independence Park.
+Runner: That's early! How much is the entry fee?
+Organiser: It's forty thousand sum if you register before the end of August. After that it goes up to fifty-five thousand.
+Runner: I'll register now, then. What do I get?
+Organiser: A T-shirt, a medal at the finish, and a timing chip that you attach to your shoe. You collect everything on the day before the race at the Sports Palace.
+Runner: Do I need a medical certificate?
+Organiser: Yes, for the half and full marathons we need a certificate from your doctor, signed within the last three months.
+Runner: OK.
+Organiser: Can I have your details, please? Name?
+Runner: Sherzod Karimov. K-A-R-I-M-O-V.
+Organiser: Age?
+Runner: Twenty-nine.
+Organiser: And would you like to raise money for charity? This year we're supporting a children's hospital.
+Runner: Yes, why not.
+Organiser: Great. There are water stations every five kilometres, and the course closes after three hours, so make sure you can finish in that time.`,
+        questions: [
+          { id: 'n10l1', type: 'single', prompt: '1. Which distance does he choose?', options: ['half marathon', 'full marathon', '10 km fun run', '5 km walk'], answer: 0 },
+          { id: 'n10l2', type: 'fill', prompt: '2. The longest distance he has run before: ___ km', answer: ['15', 'fifteen'] },
+          { id: 'n10l3', type: 'fill', prompt: '3. Start time: half past ___', answer: ['seven', '7'] },
+          { id: 'n10l4', type: 'fill', prompt: '4. The race starts from Independence ___', answer: 'Park' },
+          { id: 'n10l5', type: 'fill', prompt: '5. Early entry fee: ___ thousand sum', answer: ['40', 'forty'] },
+          { id: 'n10l6', type: 'single', prompt: '6. The timing chip is attached to …', options: ['the T-shirt', 'the shoe', 'the wrist', 'the medal'], answer: 1 },
+          { id: 'n10l7', type: 'fill', prompt: '7. Collect the race pack at the Sports ___', answer: 'Palace' },
+          { id: 'n10l8', type: 'fill', prompt: '8. The medical certificate must be signed within the last ___ months.', answer: ['three', '3'] },
+          { id: 'n10l9', type: 'fill', prompt: '9. Surname: ___', answer: 'Karimov' },
+          { id: 'n10l10', type: 'fill', prompt: '10. Water stations: every ___ kilometres', answer: ['five', '5'] },
+        ],
+      },
+      {
+        title: 'Part 2 · Welcome to the hostel',
+        intro: 'You will hear the manager of a hostel talking to new guests. Questions 11–20.',
+        script: `Hello everyone, and welcome to Old Town Hostel. I'm Malika, the manager, and I'll quickly explain how things work here.
+Reception is open twenty-four hours, so if you have any problems, day or night, just come down. Your key card opens both your room and the main entrance, which is locked after midnight.
+Breakfast is included in the price and is served in the courtyard from seven until ten. If it rains, we move it inside to the dining room on the ground floor.
+There's a shared kitchen on the first floor that you're welcome to use. Please label your food with your name and the date before putting it in the fridge, and wash your dishes straight after using them.
+Each dormitory has lockers. You'll need your own padlock, but if you haven't brought one, you can buy one at reception for a small price.
+For your free time, we run a walking tour of the old town every day at four o'clock. It's free, but please sign up by lunchtime, because the group is limited to twelve people. On Friday evenings, we have a cooking class where you can learn to make plov, which costs fifteen dollars.
+Finally, please keep noise to a minimum after eleven, as many guests have early trains. Checkout is at eleven in the morning, but you can leave your luggage at reception free of charge.`,
+        questions: [
+          { id: 'n10l11', type: 'single', prompt: '11. Reception is open …', options: ['from 7 to 10', 'until midnight', '24 hours', 'only in the morning'], answer: 2 },
+          { id: 'n10l12', type: 'single', prompt: '12. The main entrance is locked after …', options: ['10 pm', '11 pm', '1 am', 'midnight'], answer: 3 },
+          { id: 'n10l13', type: 'fill', prompt: '13. If it rains, breakfast is in the dining ___', answer: 'room' },
+          { id: 'n10l14', type: 'fill', prompt: '14. The shared kitchen is on the ___ floor.', answer: 'first' },
+          { id: 'n10l15', type: 'single', prompt: '15. Food in the fridge must be labelled with …', options: ['your name and the date', 'the room number', 'the price', 'nothing'], answer: 0 },
+          { id: 'n10l16', type: 'fill', prompt: '16. For the lockers you need your own ___', answer: 'padlock' },
+          { id: 'n10l17', type: 'fill', prompt: '17. The walking tour starts at ___ o’clock.', answer: ['four', '4'] },
+          { id: 'n10l18', type: 'fill', prompt: '18. The tour group is limited to ___ people.', answer: ['twelve', '12'] },
+          { id: 'n10l19', type: 'single', prompt: '19. The cooking class teaches how to make …', options: ['bread', 'plov', 'soup', 'samsa'], answer: 1 },
+          { id: 'n10l20', type: 'single', prompt: '20. Luggage can be left at reception …', options: ['for a small fee', 'only until noon', 'free of charge', 'for one night'], answer: 2 },
+        ],
+      },
+      {
+        title: 'Part 3 · Planning a podcast episode',
+        intro: 'You will hear two media students, Dilnoza and Sam, planning a podcast with their tutor. Questions 21–30.',
+        script: `Tutor: So, what's the topic for your podcast episode?
+Dilnoza: Street food in Tashkent — how it's changing and why it matters to people.
+Tutor: Nice. How long will the episode be?
+Sam: We were told between twenty and twenty-five minutes, so we're aiming for twenty-two.
+Tutor: Good. Who are you going to interview?
+Dilnoza: A woman who has sold samsa near the bazaar for thirty years, and a young chef who runs a food truck.
+Sam: We wanted a food historian as well, but nobody replied, so we'll use a short extract from a lecture instead — with permission.
+Tutor: Make sure you get that permission in writing. What about the structure?
+Sam: We'll open with sounds recorded at the bazaar, then the two interviews, and finish with our own discussion.
+Tutor: That sounds good, but I'd suggest putting the discussion between the interviews, so listeners hear the contrast more clearly.
+Dilnoza: That makes sense.
+Tutor: What equipment are you using?
+Sam: The university's portable recorder. The main problem is background noise at the bazaar.
+Tutor: Then record the interviews somewhere quieter and only use the bazaar recordings for atmosphere. Also, keep your questions short and open — avoid questions that can be answered with yes or no.
+Dilnoza: When do you need the final version?
+Tutor: Upload it by the third of December, together with a one-page written reflection on what you learned.`,
+        questions: [
+          { id: 'n10l21', type: 'fill', prompt: '21. Topic: street ___ in Tashkent', answer: 'food' },
+          { id: 'n10l22', type: 'fill', prompt: '22. Planned length: ___ minutes', answer: ['22', 'twenty-two'] },
+          { id: 'n10l23', type: 'fill', prompt: '23. The samsa seller has worked near the bazaar for ___ years.', answer: ['thirty', '30'] },
+          { id: 'n10l24', type: 'single', prompt: '24. The second interviewee runs …', options: ['a restaurant', 'a bakery', 'a café', 'a food truck'], answer: 3 },
+          { id: 'n10l25', type: 'single', prompt: '25. Why will they use a lecture extract?', options: ['A historian did not reply.', 'It is cheaper.', 'The tutor asked them to.', 'It is shorter.'], answer: 0 },
+          { id: 'n10l26', type: 'single', prompt: '26. Permission must be obtained …', options: ['by phone', 'in writing', 'from the tutor', 'after uploading'], answer: 1 },
+          { id: 'n10l27', type: 'single', prompt: '27. The tutor suggests putting the discussion …', options: ['at the start', 'at the end', 'between the interviews', 'in a separate episode'], answer: 2 },
+          { id: 'n10l28', type: 'fill', prompt: '28. The main recording problem is background ___', answer: 'noise' },
+          { id: 'n10l29', type: 'single', prompt: '29. Interview questions should be …', options: ['long and detailed', 'yes/no questions', 'written in advance only', 'short and open'], answer: 3 },
+          { id: 'n10l30', type: 'fill', prompt: '30. Submit with a one-page written ___', answer: 'reflection' },
+        ],
+      },
+      {
+        title: 'Part 4 · Lecture: The printing press',
+        intro: 'You will hear part of a history lecture. Questions 31–40.',
+        script: `Today's lecture is about one of the most important inventions in history: the printing press with movable metal type, developed in Germany by Johannes Gutenberg around the middle of the fifteenth century.
+Printing itself was not new. In China and Korea, people had printed texts using carved wooden blocks for centuries, and movable type made of clay and later metal had also been used there. What made Gutenberg's system so successful in Europe was the combination of several elements: metal letters that could be cast quickly in large numbers, a special oil-based ink that stuck to metal, and a press adapted from the machines used to make wine.
+The effect on the cost of books was dramatic. Before printing, a book had to be copied by hand, usually by monks, and a single copy could take months to produce. Within fifty years of Gutenberg's invention, printing workshops had spread to more than two hundred cities, and millions of books had been produced.
+The consequences were far-reaching. Ideas could now spread faster and more accurately than ever before, which helped scientists to share and check each other's results. Books were increasingly printed in local languages rather than Latin, which helped to standardise spelling and grammar. And as books became cheaper, literacy gradually increased among ordinary people.
+Of course, printing could also spread false information and political propaganda — a reminder that every new communication technology, from the press to the internet, brings both opportunities and risks.`,
+        questions: [
+          { id: 'n10l31', type: 'fill', prompt: '31. Gutenberg worked in ___', answer: 'Germany' },
+          { id: 'n10l32', type: 'single', prompt: '32. Before Gutenberg, printing in China and Korea used …', options: ['carved wooden blocks and movable type', 'only metal type', 'no printing at all', 'paper machines'], answer: 0 },
+          { id: 'n10l33', type: 'fill', prompt: '33. Gutenberg used a special oil-based ___', answer: 'ink' },
+          { id: 'n10l34', type: 'fill', prompt: '34. His press was adapted from machines used to make ___', answer: 'wine' },
+          { id: 'n10l35', type: 'single', prompt: '35. Before printing, books were usually copied by …', options: ['students', 'monks', 'merchants', 'kings'], answer: 1 },
+          { id: 'n10l36', type: 'fill', prompt: '36. Within fifty years, printing spread to more than ___ cities.', answer: ['200', 'two hundred'] },
+          { id: 'n10l37', type: 'single', prompt: '37. Printing helped scientists to …', options: ['work alone', 'avoid Latin', 'share and check results', 'build machines'], answer: 2 },
+          { id: 'n10l38', type: 'fill', prompt: '38. Books in local languages helped to standardise spelling and ___', answer: 'grammar' },
+          { id: 'n10l39', type: 'fill', prompt: '39. As books became cheaper, ___ increased.', answer: 'literacy' },
+          { id: 'n10l40', type: 'fill', prompt: '40. Printing could also spread political ___', answer: 'propaganda' },
+        ],
+      },
+    ],
+  },
+
+  'reading-10': {
+    kind: 'reading', title: 'IELTS Academic Reading — Mock Test 10', minutes: 60,
+    sections: [
+      {
+        title: 'Passage 1 · Felt: The Fabric of the Steppe',
+        intro: 'Questions 1–13. You should spend about 20 minutes on this passage.',
+        text: `Felt is probably the oldest textile in the world, older even than woven cloth. Unlike most fabrics, it is not made by spinning and weaving threads. Instead, wool fibres are pressed together with water, heat and movement until they lock tightly into a dense, strong sheet. For the nomadic peoples of the Central Asian steppe, felt was essential: it was used to cover yurts, to make carpets, boots, hats and saddle cloths, and even to wrap newborn babies.
+
+The traditional method requires no machines. First, sheep's wool is washed, dried and beaten with sticks to loosen the fibres. The wool is then spread in even layers on a large reed mat. If a pattern is wanted, pieces of coloured wool are laid on top in the desired design. Hot water is sprinkled over the wool, and the mat is rolled up tightly around a pole. For several hours, the roll is pushed back and forth along the ground, often by a group of women working together, or pulled behind a horse. Finally, the felt is unrolled, pressed again by hand and left to dry in the sun.
+
+Because felt traps air between its fibres, it is an excellent insulator, keeping yurts warm in winter and cool in summer. It is also surprisingly resistant to water and wind. A well-made yurt cover can last for many years.
+
+In Kyrgyzstan, two kinds of traditional felt carpets are especially well known: the "ala-kiyiz", in which the pattern is pressed into the felt, and the "shyrdak", in which pieces of felt in contrasting colours are cut out and sewn together. The making of shyrdak has been recognised by UNESCO as part of the world's intangible cultural heritage in need of urgent protection.
+
+Today, felt is enjoying a revival. Designers use it for fashion, interior decoration and toys, and its natural, biodegradable qualities appeal to customers looking for alternatives to synthetic materials.`,
+        questions: [
+          { id: 'n10r1', type: 'single', prompt: '1. Felt is older than woven cloth.', options: tfng, answer: 0 },
+          { id: 'n10r2', type: 'single', prompt: '2. Felt is made by spinning threads.', options: tfng, answer: 1 },
+          { id: 'n10r3', type: 'single', prompt: '3. Felt was used to wrap newborn babies.', options: tfng, answer: 0 },
+          { id: 'n10r4', type: 'single', prompt: '4. Felt-making requires modern machines.', options: tfng, answer: 1 },
+          { id: 'n10r5', type: 'single', prompt: '5. Men traditionally made felt in Kyrgyzstan.', options: tfng, answer: 2 },
+          { id: 'n10r6', type: 'single', prompt: '6. A yurt cover can last for many years.', options: tfng, answer: 0 },
+          { id: 'n10r7', type: 'single', prompt: '7. Felt is easily damaged by wind.', options: tfng, answer: 1 },
+          { id: 'n10r8', type: 'fill', prompt: '8. The wool is beaten with ___ to loosen the fibres. (ONE WORD)', answer: 'sticks' },
+          { id: 'n10r9', type: 'fill', prompt: '9. Wool is spread on a large ___ mat. (ONE WORD)', answer: 'reed' },
+          { id: 'n10r10', type: 'fill', prompt: '10. The roll is sometimes pulled behind a ___. (ONE WORD)', answer: 'horse' },
+          { id: 'n10r11', type: 'fill', prompt: '11. Felt traps ___ between its fibres. (ONE WORD)', answer: 'air' },
+          { id: 'n10r12', type: 'fill', prompt: '12. In a shyrdak, pieces of felt are cut out and ___ together. (ONE WORD)', answer: 'sewn' },
+          { id: 'n10r13', type: 'fill', prompt: '13. Felt appeals to customers because it is natural and ___. (ONE WORD)', answer: 'biodegradable' },
+        ],
+      },
+      {
+        title: 'Passage 2 · Is Homework Worth It?',
+        intro: 'Questions 14–26. You should spend about 20 minutes on this passage.',
+        text: `A. Few aspects of school life cause as much argument as homework. Parents complain that their children have too much or too little; teachers disagree about its purpose; and children, unsurprisingly, rarely ask for more. Yet the research evidence is more nuanced than either side usually admits.
+
+B. Large reviews of studies have found that the link between homework and achievement depends strongly on age. For secondary school students, moderate amounts of homework are associated with better results, particularly in subjects such as mathematics. For primary school children, however, the relationship is weak, and some studies find almost no academic benefit at all.
+
+C. Quantity matters as much as age. Beyond a certain point, extra homework brings little improvement and may even be harmful. One frequently cited guideline suggests around ten minutes per night for each school year, so that a ten-year-old in the fifth year would do about fifty minutes. Students who regularly spend several hours a night on homework report higher stress, less sleep and fewer opportunities for exercise and family time.
+
+D. The type of task is also important. Homework that asks students to practise something they have already learned, or to prepare for the next lesson, tends to be more useful than long projects that depend heavily on help from parents. Such projects may simply measure how much time and money a family has, rather than what the child knows.
+
+E. Homework also raises questions of fairness. Students from homes with a quiet place to work, internet access and educated parents are better able to complete it, while others may struggle. Some schools have responded by offering supervised homework clubs after lessons.
+
+F. Rather than abolishing homework, many experts recommend making it shorter, more purposeful and more carefully matched to students' age, with clear feedback from teachers so that the work is not wasted.`,
+        questions: [
+          { id: 'n10r14', type: 'single', prompt: '14. Which paragraph discusses the effect of age?', options: ['A', 'B', 'C', 'D'], answer: 1 },
+          { id: 'n10r15', type: 'single', prompt: '15. Which paragraph gives a guideline for how long homework should take?', options: ['B', 'C', 'D', 'E'], answer: 1 },
+          { id: 'n10r16', type: 'single', prompt: '16. Which paragraph mentions after-school homework clubs?', options: ['C', 'D', 'E', 'F'], answer: 2 },
+          { id: 'n10r17', type: 'single', prompt: '17. Which paragraph criticises projects that depend on parents?', options: ['A', 'B', 'D', 'F'], answer: 2 },
+          { id: 'n10r18', type: 'single', prompt: '18. For primary school children, homework …', options: ['has a strong benefit', 'is always harmful', 'is better than lessons', 'has little academic benefit'], answer: 3 },
+          { id: 'n10r19', type: 'single', prompt: '19. According to the guideline, a child in the fifth school year would do about …', options: ['50 minutes', '10 minutes', '30 minutes', '2 hours'], answer: 0 },
+          { id: 'n10r20', type: 'single', prompt: '20. What do many experts recommend?', options: ['abolishing homework', 'shorter, purposeful homework with feedback', 'more projects', 'homework only at weekends'], answer: 1 },
+          { id: 'n10r21', type: 'single', prompt: '21. Moderate homework is linked with better results in secondary school.', options: tfng, answer: 0 },
+          { id: 'n10r22', type: 'single', prompt: '22. More homework always leads to better results.', options: tfng, answer: 1 },
+          { id: 'n10r23', type: 'single', prompt: '23. Girls do more homework than boys.', options: tfng, answer: 2 },
+          { id: 'n10r24', type: 'single', prompt: '24. Some students lack a quiet place to work at home.', options: tfng, answer: 0 },
+          { id: 'n10r25', type: 'fill', prompt: '25. Students with too much homework report higher ___. (ONE WORD)', answer: 'stress' },
+          { id: 'n10r26', type: 'fill', prompt: '26. Teachers should give clear ___ so the work is not wasted. (ONE WORD)', answer: 'feedback' },
+        ],
+      },
+      {
+        title: 'Passage 3 · The Problem of Antibiotic Resistance',
+        intro: 'Questions 27–40. You should spend about 20 minutes on this passage.',
+        text: `When penicillin became widely available in the 1940s, it transformed medicine. Infections that had once been fatal, such as pneumonia or infected wounds, could suddenly be cured within days. Surgery, childbirth and cancer treatment all became much safer. Yet even then, scientists warned that bacteria might learn to survive the new drugs — and that warning has proved correct.
+
+Antibiotic resistance develops through natural selection. In any large population of bacteria, a few individuals may carry random genetic changes that allow them to survive a particular drug. When an antibiotic kills the others, these resistant bacteria multiply and can pass their resistance on, sometimes even to bacteria of different species. The more often antibiotics are used, the more opportunities resistance has to spread.
+
+Human behaviour has accelerated the process. Antibiotics are frequently prescribed for viral infections such as colds and flu, against which they have no effect. Patients often stop taking their medicine as soon as they feel better, rather than completing the course, which can leave the toughest bacteria alive. In many countries, antibiotics can be bought without a prescription. In addition, large quantities are given to farm animals, not only to treat illness but in some places to make them grow faster.
+
+The consequences are already serious. Infections that were once easy to treat now sometimes require more expensive drugs with stronger side effects, and in some cases no effective treatment remains. Health organisations warn that without action, routine operations could once again become dangerous.
+
+At the same time, few new antibiotics have been developed in recent decades, partly because they are less profitable for pharmaceutical companies than medicines that patients take for many years. Possible solutions include financial incentives for research, faster diagnostic tests that allow doctors to identify the exact cause of an infection, stricter controls on use in agriculture, and public campaigns encouraging people to use antibiotics only when necessary.`,
+        questions: [
+          { id: 'n10r27', type: 'single', prompt: '27. What did penicillin change in the 1940s?', options: ['It cured viral infections.', 'It replaced surgery.', 'It made many fatal infections curable.', 'It ended all disease.'], answer: 2 },
+          { id: 'n10r28', type: 'single', prompt: '28. Resistance develops through …', options: ['vaccination', 'clean water', 'surgery', 'natural selection'], answer: 3 },
+          { id: 'n10r29', type: 'single', prompt: '29. Why is stopping the medicine early a problem?', options: ['It can leave the toughest bacteria alive.', 'It costs more.', 'It causes viruses.', 'It is illegal.'], answer: 0 },
+          { id: 'n10r30', type: 'single', prompt: '30. Why have few new antibiotics been developed?', options: ['They are illegal.', 'They are less profitable.', 'Bacteria have disappeared.', 'Scientists are not interested.'], answer: 1 },
+          { id: 'n10r31', type: 'single', prompt: '31. Which solution is mentioned?', options: ['banning all antibiotics', 'using antibiotics for colds', 'faster diagnostic tests', 'more antibiotics for farm animals'], answer: 2 },
+          { id: 'n10r32', type: 'single', prompt: '32. Scientists warned about resistance as early as the 1940s.', options: tfng, answer: 0 },
+          { id: 'n10r33', type: 'single', prompt: '33. Antibiotics are effective against flu.', options: tfng, answer: 1 },
+          { id: 'n10r34', type: 'single', prompt: '34. Resistance can pass between different species of bacteria.', options: tfng, answer: 0 },
+          { id: 'n10r35', type: 'single', prompt: '35. Most antibiotics are now produced in Asia.', options: tfng, answer: 2 },
+          { id: 'n10r36', type: 'single', prompt: '36. In some countries antibiotics can be bought without a prescription.', options: tfng, answer: 0 },
+          { id: 'n10r37', type: 'fill', prompt: '37. Penicillin made surgery, childbirth and ___ treatment safer. (ONE WORD)', answer: 'cancer' },
+          { id: 'n10r38', type: 'fill', prompt: '38. On some farms antibiotics are used to make animals grow ___. (ONE WORD)', answer: 'faster' },
+          { id: 'n10r39', type: 'fill', prompt: '39. Some newer drugs have stronger side ___. (ONE WORD)', answer: 'effects' },
+          { id: 'n10r40', type: 'fill', prompt: '40. Public ___ can encourage careful use of antibiotics. (ONE WORD)', answer: ['campaigns', 'campaign'] },
+        ],
+      },
+    ],
+  },
 };
