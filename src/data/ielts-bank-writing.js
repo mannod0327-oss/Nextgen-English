@@ -1,5 +1,5 @@
 // IELTS Writing prompt bank (original). Same schema as `writing` in ielts.js; `plan` gives an outline / ideas.
-// Task 1 items carry a data table; 36 tasks also carry a Band 7 `model` (see `models` at the end).
+// Task 1 items carry a data table; 42 tasks also carry a Band 7 `model` (see `models` at the end).
 
 const t1 = (id, prompt, table, plan) => ({ id: `bw1-${id}`, task: 1, minutes: 20, minWords: 150, type: 'Task 1 · Table', prompt: `${prompt} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.`, table, plan });
 // Chart tasks: `chart` is drawn as SVG (core/chart.js chartSvg); `table` is derived from it for the data view and the number checks.
@@ -480,5 +480,65 @@ Country C recycled 250 kg of waste per person, the highest amount shown, and sen
 The situation was very different in Countries B and D. In Country B, just 90 kg per person was recycled, compared with 380 kg sent to landfill, more than four times as much. Country D performed even worse, recycling only 60 kg but sending 410 kg to landfill.
 
 It is interesting to note that the total amount of waste per person was fairly similar in all four countries, ranging from 400 kg in Countries A and C to 470 kg in Countries B and D, so the main difference was in how the waste was treated.`,
+
+  'bw2-single-sex': `The question of whether boys and girls should be educated separately or together has been debated for many years. While some people argue that single-sex schools produce better results, others believe that mixed schools prepare young people more effectively for adult life. In my view, mixed schools are generally the better option.
+
+Supporters of single-sex education claim that students concentrate better when they are not distracted by the opposite sex. They also argue that teachers can adapt their methods to the different ways in which boys and girls are said to learn. Furthermore, some research suggests that girls in single-sex schools are more likely to choose subjects such as physics and engineering, because they do not feel pressure to conform to stereotypes.
+
+On the other hand, there are strong arguments in favour of mixed schools. Society is made up of men and women who must study, work and live together, and school is the natural place to learn how to cooperate and communicate respectfully. Students who grow up in mixed classrooms are likely to feel more comfortable in mixed workplaces later. In addition, many education experts argue that differences in results between the two types of school largely disappear when family background and school funding are taken into account.
+
+In my opinion, the social benefits of mixed education outweigh the possible academic advantages of separating boys and girls. Rather than dividing students, schools should focus on challenging stereotypes, for example by encouraging girls into science and boys into languages and the arts.
+
+In conclusion, although single-sex schools may suit some students, I believe that mixed schools better reflect the real world and help young people develop the skills they will need as adults.`,
+
+  'bw2-climate-individual': `Climate change is one of the greatest challenges facing humanity, and there is disagreement about who has the power to tackle it. Some people believe that the actions of individuals make little difference compared with those of governments and large companies, while others argue that ordinary people have an important role to play. I believe that both are necessary, but that governments and businesses carry the greater responsibility.
+
+Those who emphasise the role of governments point out that most greenhouse gas emissions come from energy production, industry and transport systems that individuals do not control. A single person who stops using plastic bags or turns off the lights has a tiny effect compared with a government that closes coal power stations or invests in public transport. Moreover, only governments can introduce laws and taxes that change the behaviour of millions of people and companies at the same time.
+
+However, it would be wrong to say that individuals are powerless. Consumer choices send signals to businesses: the growing demand for electric cars and plant-based food, for example, has encouraged companies to invest in these products. In addition, citizens can influence politicians by voting, joining campaigns and supporting organisations that push for stronger climate policies. Individual habits also spread through communities, as people tend to copy the behaviour of their friends and neighbours.
+
+In my view, the most effective approach combines the two. Governments must set clear rules and invest in clean infrastructure, but these policies are more likely to succeed when they are supported by people who are willing to change their own behaviour.
+
+To sum up, although large-scale action by governments and companies is essential, individuals still matter, both through their daily choices and through the pressure they put on decision-makers.`,
+
+  'bw2-city-country': `In recent decades, more and more people have left rural areas to settle in large cities. While this trend brings clear economic benefits, it also creates serious problems. In my opinion, the advantages of urban migration currently outweigh the disadvantages, but only if cities are well planned.
+
+The main advantage of moving to a city is access to opportunities. Cities offer a far wider range of jobs, and salaries are usually higher than in the countryside. They also provide better universities, hospitals and cultural facilities, which can significantly improve people's quality of life. For young people in particular, a city is often the only place where they can study specialised subjects or start a career in fields such as technology or finance. As a result, migration to cities is closely linked to economic growth and social mobility.
+
+Nevertheless, rapid urbanisation has obvious drawbacks. When too many people arrive too quickly, cities become overcrowded, housing becomes expensive and traffic congestion and air pollution increase. At the same time, villages lose their young and working-age population, which can lead to the closure of schools and shops and leave elderly residents isolated. Traditional skills and ways of life may also disappear.
+
+However, these problems are not inevitable. Governments can invest in affordable housing and public transport so that cities grow in a sustainable way. They can also support rural areas by improving internet access and encouraging businesses to open outside the capital, so that moving to the city becomes a choice rather than a necessity.
+
+In conclusion, I believe that the opportunities offered by cities make urban migration largely positive. However, careful planning is needed to reduce its negative effects on both cities and the countryside.`,
+
+  'bw2-ai-jobs': `Artificial intelligence is developing at remarkable speed, and many people are worried about its impact on employment. Some argue that, like previous technologies, AI will ultimately create more jobs than it destroys. I partly agree with this view, but I believe the transition will be difficult and that the benefits will not be shared equally without careful policy.
+
+There are good reasons for optimism. History shows that new technologies tend to change the nature of work rather than eliminate it. When computers became widespread, many clerical jobs disappeared, but entirely new professions emerged, such as software developers and web designers. Similarly, AI is already creating demand for data scientists, engineers who build and maintain these systems, and specialists who check their output. Moreover, by making businesses more productive, AI may lower prices and increase demand in other sectors, creating further employment.
+
+However, I have two important reservations. Firstly, the new jobs often require advanced skills, while the jobs most at risk, such as routine office work, translation and customer service, are frequently done by people with fewer qualifications. A call-centre worker cannot easily become a machine-learning engineer. Secondly, the change may happen much faster than in the past, giving workers and education systems little time to adapt. This could lead to long periods of unemployment for certain groups and increase inequality.
+
+Therefore, whether AI creates more jobs than it destroys depends largely on how societies respond. Governments should invest in retraining programmes and lifelong learning, and schools should focus on skills that machines find difficult, such as creativity, communication and critical thinking.
+
+In conclusion, AI may well create more jobs overall in the long run, but without strong support for affected workers, many individuals could lose out.`,
+
+  'bw2-retirement': `As life expectancy increases in many countries, some people argue that the retirement age should be raised. I agree with this to a large extent, although I believe that any change should be introduced gradually and should take account of the type of work people do.
+
+The strongest argument for a higher retirement age is financial. When people live longer but stop working at the same age, pension systems must support each retiree for many more years. At the same time, in countries where the birth rate is falling, there are fewer young workers paying taxes to fund these pensions. Raising the retirement age would reduce this pressure and help to keep the system sustainable for future generations. In addition, many people in their sixties are healthy, experienced and willing to continue working, and their skills are valuable to employers.
+
+However, a single retirement age for everyone may be unfair. A university lecturer or an accountant may be able to work comfortably until the age of seventy, but a builder, a nurse or a factory worker who has done physically demanding work for decades may simply not be able to continue. Furthermore, people with lower incomes often have shorter life expectancies, so a higher retirement age would affect them most.
+
+For these reasons, I believe the retirement age should rise in line with life expectancy, but with exceptions for those in physically demanding jobs. Governments could also offer flexible options, such as part-time work for older employees, so that people can reduce their hours gradually rather than stopping work completely.
+
+In conclusion, raising the retirement age is a reasonable response to longer lives, provided that the policy is applied fairly and flexibly.`,
+
+  'bw2-social-media': `Today, social media platforms have become the main means of communication for many young people. While this brings several benefits, I believe that the disadvantages are significant, and that on balance they slightly outweigh the advantages unless young people learn to use these platforms responsibly.
+
+There are clear advantages to communicating through social media. It allows young people to stay in touch with friends and family instantly, regardless of distance, which is particularly valuable for those who study or work abroad. It also gives them the opportunity to join communities based on shared interests, from learning languages to playing music, and to find support that may not be available locally. Moreover, social media can help young people express their opinions and take part in public debates on issues such as the environment.
+
+On the other hand, the drawbacks are serious. Research has linked heavy social media use with anxiety, poor sleep and low self-esteem, partly because users constantly compare themselves with the carefully edited images of others. Online communication can also replace face-to-face interaction, so some young people find it harder to develop social skills such as reading body language. In addition, social media exposes users to cyberbullying and misinformation, and the platforms are designed to keep people scrolling for as long as possible.
+
+In my view, the problem is not social media itself but how much and how it is used. Schools and parents should teach young people to recognise false information, to protect their privacy and to set limits on their screen time.
+
+In conclusion, although social media offers real benefits for communication, its negative effects on mental health and social skills currently outweigh them for many young people.`,
 };
 for (const w of writingBank) if (models[w.id]) w.model = models[w.id];
