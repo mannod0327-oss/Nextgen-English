@@ -128,7 +128,7 @@ await step('writing helper: check button reports words, linkers and Uzbek-speake
   await page.fill('#essay', 'i am agree that a gap year is useful. However, many peoples need more informations. In the other hand, it costs money.');
   await page.click('#wcheck');
   const rep = await page.textContent('#wreport');
-  for (const t of ['so\'z (kamida 250)', 'however', 'informations', 'on the other hand', 'agree — fe\'l']) if (!rep.includes(t)) throw new Error(`report missing "${t}"`);
+  for (const t of ['so\'z (kamida 250)', 'however', 'informations', 'on the other hand', 'agree — fe\'l', 'So\'z boyligi', 'Akademik so\'zlar']) if (!rep.includes(t)) throw new Error(`report missing "${t}"`);
   await page.fill('#essay', '');
 });
 

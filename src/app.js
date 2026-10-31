@@ -248,6 +248,7 @@ function gradeBox(q, box, source) {
 }
 
 let searchIndex; // built on first visit to #/search
+let academicWords; // built on first writing check: IELTS academic vocabulary + academic synonyms
 
 // ---------- views ----------
 const views = {
@@ -764,11 +765,18 @@ const views = {
         ta.oninput = count;
         count();
         $('#wcheck').onclick = () => {
-          const r = checkWriting(ta.value, { minWords: w.minWords });
+          academicWords ??= new Set([
+            ...vocabulary.filter((v) => v.category.startsWith('Akademik')).map((v) => v.word.toLowerCase()),
+            ...drillItems.filter((q) => q.trainer === 'synonyms').map((q) => q.options[q.answer].toLowerCase()),
+          ]);
+          const r = checkWriting(ta.value, { minWords: w.minWords, academic: academicWords });
+          const lx = r.lexical;
           const li = (ok, html) => `<li>${ok ? '✅' : '⚠️'} ${html}</li>`;
           $('#wreport').innerHTML = `<section class="card wreport"><h3>🔍 Matn tahlili</h3><ul class="checks">
             ${li(r.enough, `<b>${r.words}</b> so'z (kamida ${w.minWords})`)}
             ${li(r.linkers.length >= 3, `Bog'lovchi so'zlar: <b>${r.linkers.length}</b>${r.linkers.length ? ` — ${esc(r.linkers.join(', '))}` : ''}${r.linkers.length < 3 ? ' · qo\'shing: however, moreover, as a result, for example…' : ''}`)}
+            ${li(lx.ttr >= 0.45, `So'z boyligi: <b>${lx.unique}</b> xil so'z / ${lx.content} mazmunli so'z (TTR ${lx.ttr})${lx.ttr < 0.45 ? " — bir xil so'zlar ko'p, sinonimlardan foydalaning" : ''}`)}
+            ${li(lx.academic.length >= 3, `Akademik so'zlar: <b>${lx.academic.length}</b>${lx.academic.length ? ` — ${esc(lx.academic.slice(0, 12).join(', '))}` : ''}${lx.academic.length < 3 ? ' · qo\'shing: crucial, significant, demonstrate… (<a href="#/drill?t=synonyms">sinonimlar</a>)' : ''}`)}
             ${li(!r.repeated.length, r.repeated.length ? `Ko'p takrorlangan so'zlar: ${r.repeated.map(([x, n]) => `<b>${esc(x)}</b> ×${n}`).join(', ')} — sinonim ishlating` : "So'zlar xilma-xil")}
             ${li(!r.longSentences.length, `${r.sentences} gap, o'rtacha ${r.avgSentence} so'z${r.longSentences.length ? ` · ${r.longSentences.length} ta juda uzun gap (35+ so'z) — bo'ling` : ''}`)}
             ${li(!r.contractions.length, r.contractions.length ? `Qisqartmalar (akademik uslubda yozilmaydi): ${esc(r.contractions.join(', '))} → do not, cannot…` : 'Qisqartmalar yo\'q (akademik uslub)')}

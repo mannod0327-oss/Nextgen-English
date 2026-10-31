@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { checkWriting, readingSpeed } from '../src/core/writing-check.js';
+import { checkWriting, readingSpeed, lexicalProfile } from '../src/core/writing-check.js';
 import { writing } from '../src/data/ielts.js';
 import { writingBank } from '../src/data/ielts-bank-writing.js';
 import { speakingBank } from '../src/data/ielts-bank-speaking.js';
@@ -64,4 +64,14 @@ test('readingSpeed: words per minute and level', () => {
   assert.equal(readingSpeed(text, 120000).level, "o'rtacha");
   assert.equal(readingSpeed(text, 0).wpm, 0);
   assert.equal(readingSpeed('The 2,700-word test.', 60000).words, 3);
+});
+
+test('lexicalProfile: type–token ratio over content words, academic words found as whole words', () => {
+  const p = lexicalProfile('Good good good food is food, really good. It is crucial.', new Set(['crucial', 'demonstrate', 'is crucial']));
+  assert.deepEqual([p.content, p.unique, p.ttr], [8, 4, 0.5]);
+  assert.deepEqual(p.academic, ['crucial', 'is crucial']);
+  assert.deepEqual(lexicalProfile('').academic, []);
+  assert.equal(lexicalProfile('').ttr, 0);
+  for (const w of writingBank.filter((x) => x.model)) assert.ok(lexicalProfile(w.model).ttr >= 0.45, `${w.id}: model below the TTR warning line`);
+  assert.ok(checkWriting('Crucial data.', { academic: new Set(['crucial']) }).lexical.academic.includes('crucial'));
 });
