@@ -82,7 +82,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 69 | **B2 va C1 o'qish +4** |  | 4 matn × 5 savol, mavzular takrorlanmaydi | ✅ |
 | 70 | **Speaking Part 3 namunalari** | Part 3 ga qanday chuqur javob berish ko'rinmaydi | 10 to'plamda Part 3 namunaviy javoblari (har biri ≥60 so'z), 🔊 | ✅ |
 | 71 | **Writing Task 2 namunalari +6** | 40 tadan 18 tasida namuna | 6 ta yangi Band 7 (≥250 so'z), writing-check xatosiz | ✅ |
-| 72 | **Lug'at +60** (davlat va jamiyat, sog'lom turmush, koinot va texnologiya) | IELTS Task 2 mavzulari | 3 × 20 so'z, definitions qayta qurish | ⬜ |
+| 72 | **Lug'at +60** (davlat va jamiyat, sog'lom turmush, koinot va texnologiya) | IELTS Task 2 mavzulari | 3 × 20 so'z, definitions qayta qurish | ✅ |
 | 73 | **O'qish tezligi (WPM)** | IELTS Reading vaqtga bog'liq | Matnni o'qish vaqti → so'z/daqiqa, progressda tarix; unit test | ⬜ |
 | 74 | **Xatolarni takrorlash navbati** | Xatolar daftari faqat ro'yxat | Kunlik 10 ta xatoni qayta ishlash rejimi (eng eskilari birinchi); unit test + E2E | ⬜ |
 | 75 | **Task 1: jarayon diagrammasi** | Process tasvirlash — passive va ketma-ketlik | 2 topshiriq (bosqichlar sxemasi SVG/HTML) + namunalar | ⬜ |
@@ -183,3 +183,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **69-iteratsiya** — O'qish +4: B2 — ko'ngillilik turizmi, orbitadagi chiqindilar; C1 — tillar nega o'zgaradi, mutaxassislarga ishonch (5×4 savol; tx prefiksi to'qnashuv tufayli); jami 42 matn; v=84.
 - **70-iteratsiya** — Speaking Part 3: 10 to'plamda 20 ta namunaviy javob (≥60 so'z, sabab + misol + muvozanat), savol ostida <details> + 🔊; writing-check bilan test; E2E; v=85.
 - **71-iteratsiya** — Task 2 namunalari +6: aralash/alohida maktablar, iqlim — shaxs va davlat, shaharga ko'chish, AI va ish o'rinlari, pensiya yoshi, ijtimoiy tarmoqlar (269–287 so'z, writing-check xatosiz); jami 42 namuna (24 Task 2); v=86.
+- **72-iteratsiya** — Lug'at +60: "Davlat va jamiyat", "Sog'lom turmush tarzi", "Koinot va texnologiya" — 579 so'z / 42 mavzu; takror (give up) va ta'rifsiz so'zlar almashtirildi; definitions 3523 so'z; v=87.
