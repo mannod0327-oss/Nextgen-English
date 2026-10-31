@@ -8,7 +8,7 @@ import { createStore } from './core/store.js';
 import { dailyPlan, wordOfDay, goalStatus, XP_GOALS } from './core/plan.js';
 import { linePoints, lastDays, chartSvg } from './core/chart.js';
 import { buildSearchIndex, search } from './core/search.js';
-import { checkWriting } from './core/writing-check.js';
+import { checkWriting, readingSpeed } from './core/writing-check.js';
 import { badges } from './core/badges.js';
 import { makeRound, normAnswer, ROUND_KINDS } from './core/numbers.js';
 import { vocabulary, categories } from './data/vocabulary.js';
@@ -575,6 +575,15 @@ const views = {
           ${d ? sensesHtml(d) : v ? '' : '<p class="muted">Lug\'atda topilmadi.</p>'}`;
       };
       $('#hide').onclick = () => { $('#text').hidden = !$('#text').hidden; };
+      let t0 = 0;
+      $('#speed-go')?.addEventListener('click', (e) => {
+        if (!t0) { t0 = performance.now(); e.target.textContent = "⏹ O'qib bo'ldim"; $('#speed-out').textContent = "⏱ Vaqt ketyapti — odatdagidek o'qing."; return; }
+        const r = readingSpeed(t.text, performance.now() - t0);
+        t0 = 0;
+        e.target.textContent = '▶ Qayta o‘lchash';
+        store.set('readingSpeed', [...store.get('readingSpeed', []), { id: t.id, date: today(), wpm: r.wpm }].slice(-30));
+        $('#speed-out').innerHTML = `<b>${r.wpm} so'z/daqiqa</b> (${r.words} so'z) — ${esc(r.level)}`;
+      });
       // IELTS-style highlighter: CSS Custom Highlight API marks ranges without touching the DOM.
       if (globalThis.CSS?.highlights) {
         const marks = new Highlight();
@@ -606,6 +615,7 @@ const views = {
         ${globalThis.CSS?.highlights ? `<button class="btn" id="mark">🖍 Belgilash</button> <button class="btn" id="unmark">Tozalash</button>` : ''}</p>
       <p class="muted">${t.listening ? "🎧 Tinglash mashqi: matn yopiq. Avval 🔊 tinglang (IELTS'da 1 marta!), javob bering — tekshirgandan keyin matn ochiladi." : "💡 Istalgan so'zni bosing — ma'nosi chiqadi."}</p>
       <section class="card reading-text" id="text" lang="en"${t.listening ? ' hidden' : ''}>${t.text.split(/([A-Za-z][A-Za-z'’-]*)/).map((p, n) => (n % 2 ? `<span class="tw">${esc(p)}</span>` : esc(p))).join('')}</section>
+      ${t.listening ? '' : `<p class="speed"><button class="btn" id="speed-go">⏱ O'qish tezligini o'lchash</button> <span id="speed-out" class="muted" aria-live="polite">Boshlang, matnni o'qing, tugagach yana bosing.</span></p>`}
       <aside class="card gloss" id="gloss" hidden></aside>
       <h3>Savollar</h3>${t.questions.map((q, n) => `<section class="card question" data-q="${q.id}">
         <b>${n + 1}. ${esc(q.prompt)}</b>${questionHtml(q, r)}<div class="fb"></div></section>`).join('')}
@@ -1016,6 +1026,14 @@ const views = {
         return `<section class="card"><h3>🏆 Yutuqlar <span class="badge">${list.filter((b) => b.earned).length} / ${list.length}</span></h3>
           <div class="badges">${list.map((b) => `<div class="bdg${b.earned ? ' earned' : ''}" data-badge="${b.id}" title="${esc(b.desc)}"><span class="ico">${b.icon}</span><b>${esc(b.title)}</b>
             <span class="muted">${b.earned ? '✅ olindi' : `${esc(b.desc)} · ${b.value}/${b.goal}`}</span>${b.earned ? '' : `<progress max="${b.goal}" value="${b.value}"></progress>`}</div>`).join('')}</div></section>`;
+      })()}
+      ${(() => {
+        const sp = store.get('readingSpeed', []);
+        if (!sp.length) return '';
+        const avg = Math.round(sp.reduce((a, x) => a + x.wpm, 0) / sp.length);
+        return `<section class="card"><h3>⏱ O'qish tezligi <span class="badge">o'rtacha ${avg} so'z/daq</span></h3>
+          <p class="muted">IELTS Reading: 60 daqiqada ~2700 so'z va 40 savol — taxminan 200+ so'z/daqiqa kerak.</p>
+          <div class="list">${sp.slice(-5).reverse().map((x) => `<a class="row" href="#/reading?t=${x.id}"><span class="badge">${x.wpm}</span><span>${esc(allTexts.find((r) => r.id === x.id)?.title ?? x.id)}</span><span class="muted">${x.date}</span></a>`).join('')}</div></section>`;
       })()}
       <section class="card"><h3>🎓 IELTS sinov testlari</h3>
         ${history.length ? `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Band natijalari grafigi">

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { checkWriting } from '../src/core/writing-check.js';
+import { checkWriting, readingSpeed } from '../src/core/writing-check.js';
 import { writing } from '../src/data/ielts.js';
 import { writingBank } from '../src/data/ielts-bank-writing.js';
 import { speakingBank } from '../src/data/ielts-bank-speaking.js';
@@ -55,4 +55,13 @@ test('speaking Part 3 sample answers: ≥10 sets, each answer ≥60 words, match
       assert.deepEqual(r.mistakes, [], s.id);
     }
   }
+});
+
+test('readingSpeed: words per minute and level', () => {
+  const text = Array.from({ length: 300 }, (_, i) => `word${i}`).join(' ');
+  assert.deepEqual(readingSpeed(text, 60000), { words: 300, wpm: 300, level: 'juda tez — tushunishni tekshiring' });
+  assert.equal(readingSpeed(text, 120000).wpm, 150);
+  assert.equal(readingSpeed(text, 120000).level, "o'rtacha");
+  assert.equal(readingSpeed(text, 0).wpm, 0);
+  assert.equal(readingSpeed('The 2,700-word test.', 60000).words, 3);
 });

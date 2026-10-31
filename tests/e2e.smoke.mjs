@@ -611,6 +611,17 @@ await step('vocab print sheet: theme list as a table, quiz mode blanks Uzbek, pr
   if (!hidden) throw new Error('chrome visible in print');
 });
 
+await step('reading speed: timed read gives words per minute, shown on progress page', async () => {
+  await page.goto(`${base}/#/`);
+  await page.goto(`${base}/#/reading?t=chorsu`);
+  await page.click('#speed-go');
+  await page.waitForTimeout(1200);
+  await page.click('#speed-go');
+  if (!/\d+ so'z\/daqiqa/.test(await page.textContent('#speed-out'))) throw new Error('no wpm');
+  await page.goto(`${base}/#/progress`);
+  await page.waitForSelector('text=O\'qish tezligi');
+});
+
 await step('daily goal: ring shows today\'s XP, goal choice persists, week has 7 days', async () => {
   await page.goto(`${base}/#/verbs`);
   await page.goto(`${base}/#/`);

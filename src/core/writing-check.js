@@ -54,3 +54,11 @@ export function checkWriting(text, { minWords = 0, longSentence = 35 } = {}) {
     contractions: [...new Set((text.match(CONTRACTION) ?? []).map((c) => c.toLowerCase()))],
   };
 }
+
+/** Reading speed for one timed read: words per minute and an Uzbek label. IELTS Academic Reading ≈ 2,700 words in 60 minutes with questions, so ~200+ wpm is the target. */
+export function readingSpeed(text, ms) {
+  const n = words(text).length;
+  const wpm = ms > 0 ? Math.round(n / (ms / 60000)) : 0;
+  const level = wpm < 120 ? 'sekin' : wpm < 200 ? "o'rtacha" : wpm < 300 ? 'IELTS uchun yaxshi' : 'juda tez — tushunishni tekshiring';
+  return { words: n, wpm, level };
+}
