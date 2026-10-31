@@ -112,8 +112,10 @@ function mountRecorder() {
     let stream;
     try {
       stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    } catch {
-      msg.textContent = "❌ Mikrofonga ruxsat berilmadi. Brauzer manzil satridagi 🔒 belgisidan mikrofonga ruxsat bering.";
+    } catch (e) {
+      msg.textContent = e?.name === 'NotAllowedError'
+        ? "❌ Mikrofonga ruxsat berilmadi. Brauzer manzil satridagi 🔒 belgisidan mikrofonga ruxsat bering."
+        : "❌ Mikrofon band yoki topilmadi — boshqa ilova/varaqni yopib, qayta urinib ko'ring.";
       return;
     }
     const chunks = [];
@@ -666,14 +668,17 @@ const views = {
       });
     });
     const best = store.get('speechBest', {});
+    if (sc.shadow) queueMicrotask(() => mountRecorder());
     return `<a href="#/speech">← Vaziyatlar</a><h2>${esc(sc.title)}</h2>
+      ${sc.intro ? `<p class="muted">${esc(sc.intro)}</p>` : ''}
       <label class="dict-toggle"><input type="checkbox" id="dict"> ✍️ Diktant rejimi: matn yashiriladi — tinglang va yozing</label>
-      ${sc.lines.map((l) => `<section class="card line" data-text="${esc(l)}">
+      ${sc.lines.map((l, i) => `<section class="card line" data-text="${esc(l)}">${sc.questions?.[i] ? `<p class="muted" lang="en">❓ ${esc(sc.questions[i])} <button class="link" data-say="${esc(sc.questions[i])}">🔊</button></p>` : ''}
       <p class="say"><span class="t" lang="en">${esc(l)}</span> ${best[l] != null ? `<span class="badge">eng yaxshi: ${best[l]}%</span>` : ''}</p>
       <button class="btn play">🔊 Namuna</button> <button class="btn slow">🐢 Sekin</button> <button class="btn primary rec">🎤 Yozish</button>
       <canvas width="600" height="60" aria-hidden="true"></canvas>
       <input class="typed" aria-label="Aytganingizni yozing" placeholder="…yoki aytganingizni yozing va Enter bosing">
-      <div class="res" aria-live="polite"></div></section>`).join('')}`;
+      <div class="res" aria-live="polite"></div></section>`).join('')}
+      ${sc.shadow ? recorderHtml() : ''}`;
   },
 
   ielts(params) {

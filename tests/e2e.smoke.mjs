@@ -466,9 +466,14 @@ await step('speaking recorder: record with fake mic, recording appears with audi
   await page.click('#rec-stop');
   await page.waitForSelector('#rec-list audio');
   if (!(await page.getAttribute('#rec-list audio', 'src')).startsWith('blob:')) throw new Error('no recording blob');
-  await page.evaluate(() => { navigator.mediaDevices.getUserMedia = () => Promise.reject(new Error('denied')); });
+  const real = await page.evaluateHandle(() => navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices));
+  await page.evaluate(() => { navigator.mediaDevices.getUserMedia = () => Promise.reject(new DOMException('denied', 'NotAllowedError')); });
   await page.click('#rec-start');
   await page.waitForSelector('#rec-msg:has-text("ruxsat berilmadi")');
+  await page.evaluate(() => { navigator.mediaDevices.getUserMedia = () => Promise.reject(new DOMException('busy', 'NotReadableError')); });
+  await page.click('#rec-start');
+  await page.waitForSelector('#rec-msg:has-text("band yoki topilmadi")');
+  await page.evaluate((f) => { navigator.mediaDevices.getUserMedia = f; }, real);
 });
 
 await step('collocations: table and a graded 10-question quiz', async () => {
@@ -645,6 +650,22 @@ await step('mistakes review: 10 oldest first, correct answers leave the notebook
   await page.evaluate((v) => (v ? localStorage.setItem('nge:mistakes', v) : localStorage.removeItem('nge:mistakes')), saved);
 });
 
+await step('shadowing: Part 1 questions with model answers, own answer recorded for comparison', async () => {
+  const ctx = await browser.newContext(); // fresh page: earlier steps may still hold the fake microphone
+  const p = await ctx.newPage();
+  p.on('pageerror', (e) => errors.push(`shadowing pageerror: ${e.message}`));
+  await p.goto(`${base}/#/speech?s=shadowing`);
+  await p.waitForSelector('#rec-start');
+  if ((await p.$$('.line')).length !== 10) throw new Error('10 answers expected');
+  if (!(await p.textContent('.line')).includes('Where are you from?')) throw new Error('question missing');
+  await p.click('#rec-start');
+  await p.waitForSelector('#rec-stop:not([disabled])', { timeout: 10000 });
+  await p.waitForTimeout(500);
+  await p.click('#rec-stop');
+  await p.waitForSelector('#rec-list audio');
+  await ctx.close();
+});
+
 await step('daily goal: ring shows today\'s XP, goal choice persists, week has 7 days', async () => {
   await page.goto(`${base}/#/verbs`);
   await page.goto(`${base}/#/`);
@@ -660,7 +681,7 @@ await step('daily goal: ring shows today\'s XP, goal choice persists, week has 7
   if (!(await page.isVisible('[data-goal="20"][aria-pressed="true"]'))) throw new Error('goal not persisted');
 });
 
-const ROUTES = ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'vocab?cat=Fan va tadqiqot', 'vocab?cat=Koinot va texnologiya', 'vocab?mode=test&cat=Jinoyat va qonun', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'grammar?topic=question-tags', 'grammar?topic=must-have-to', 'grammar?topic=verb-patterns', 'grammar?topic=subjunctive', 'grammar?topic=past-perfect', 'grammar?topic=wish', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?w=bw2-zoos', 'ielts?w=bw1-commute', 'ielts?w=bw1-museum-visits', 'ielts?w=bw1-household-waste', 'ielts?w=bw2-ai-jobs', 'ielts?w=bw1-dried-apricots', 'ielts?s=b-tradition', 'ielts?s=b-books', 'ielts?s=b-internet', 'ielts?guide=listening', 'ielts?guide=task2', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=l-at-the-cafe', 'reading?t=placebo', 'reading?t=space-debris', 'reading?t=trust-experts', 'reading?t=language-podcast', 'reading?t=debate-tourism', 'reading?t=l-library-intro', 'reading?t=l-interview-nudges', 'mistakes', 'sounds', 'sounds?set=th-s', 'sounds?set=ou-or', 'speech?s=lost', 'vocab?mode=print&cat=Shifokorda', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'drill?t=stress', 'drill?t=task1', 'drill?t=synonyms', 'drill?t=forms', 'drill?t=deps', 'numbers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'ielts?mock=listening-5', 'ielts?mock=reading-5', 'ielts?mock=listening-6', 'ielts?mock=reading-6', 'ielts?mock=listening-7', 'ielts?mock=reading-7', 'ielts?mock=listening-8', 'ielts?mock=reading-8', 'ielts?mock=listening-9', 'ielts?mock=reading-9', 'search?q=present'];
+const ROUTES = ['', 'creator', 'vocab', 'vocab?mode=test', 'vocab?cat=Shifokorda', 'vocab?cat=Fan va tadqiqot', 'vocab?cat=Koinot va texnologiya', 'vocab?mode=test&cat=Jinoyat va qonun', 'grammar?topic=conditionals', 'grammar?topic=participle-clauses', 'grammar?topic=possessives', 'grammar?topic=question-tags', 'grammar?topic=must-have-to', 'grammar?topic=verb-patterns', 'grammar?topic=subjunctive', 'grammar?topic=past-perfect', 'grammar?topic=wish', 'exam', 'verbs', 'ielts', 'ielts?w=bw1-energy', 'ielts?w=bw2-uniform', 'ielts?w=bw2-zoos', 'ielts?w=bw1-commute', 'ielts?w=bw1-museum-visits', 'ielts?w=bw1-household-waste', 'ielts?w=bw2-ai-jobs', 'ielts?w=bw1-dried-apricots', 'ielts?s=b-tradition', 'ielts?s=b-books', 'ielts?s=b-internet', 'ielts?guide=listening', 'ielts?guide=task2', 'ielts?mock=reading', 'reading?t=il-1', 'reading?t=chorsu', 'reading?t=l-at-the-cafe', 'reading?t=placebo', 'reading?t=space-debris', 'reading?t=trust-experts', 'reading?t=language-podcast', 'reading?t=debate-tourism', 'reading?t=l-library-intro', 'reading?t=l-interview-nudges', 'mistakes', 'sounds', 'sounds?set=th-s', 'sounds?set=ou-or', 'speech?s=lost', 'speech?s=shadowing', 'vocab?mode=print&cat=Shifokorda', 'progress', 'collocations', 'collocations?mode=test', 'drill', 'drill?t=articles', 'drill?t=spelling', 'drill?t=linkers', 'drill?t=stress', 'drill?t=task1', 'drill?t=synonyms', 'drill?t=forms', 'drill?t=deps', 'numbers', 'articles?set=articles', 'ielts?mock=listening-3', 'ielts?mock=reading-3', 'ielts?mock=listening-4', 'ielts?mock=reading-4', 'ielts?mock=listening-5', 'ielts?mock=reading-5', 'ielts?mock=listening-6', 'ielts?mock=reading-6', 'ielts?mock=listening-7', 'ielts?mock=reading-7', 'ielts?mock=listening-8', 'ielts?mock=reading-8', 'ielts?mock=listening-9', 'ielts?mock=reading-9', 'search?q=present'];
 
 await step('mobile layout has no horizontal scroll', async () => {
   await page.setViewportSize({ width: 375, height: 800 });
