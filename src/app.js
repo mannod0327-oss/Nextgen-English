@@ -343,7 +343,7 @@ const views = {
       <p>${p.level ? `Sizning darajangiz: <b>${p.level}</b>. ` : "Avval darajangizni aniqlang — reja shunga moslashadi. "}
       ${mature} ta so'z uzoq muddatli xotirada.</p>
       <div class="hero-actions">${p.level ? '<a class="btn primary" href="#/path">🧭 Shaxsiy yo\'lim</a>' : '<a class="btn primary" href="#/placement">Daraja testini boshlash →</a>'}
-      <a class="btn" href="grammar-guide/index.html">📚 Grammatika qo'llanmasi (${guideUnits.length} unit)</a></div></section>
+      <a class="btn" href="grammar-guide/index.html">📚 Grammatika qo'llanmasi (${guideUnits.length} unit)</a> <a class="btn" href="#/help">❓ Qanday boshlash</a></div></section>
       <section class="card quick"><form id="home-search" role="search"><input id="hq" class="search" type="search" aria-label="Qidiruv" placeholder="🔎 Qidirish: so'z, grammatika, matn, IELTS…"></form>
         ${store.get('recent', []).length ? `<p class="muted">Oxirgi ochilganlar:</p><div class="chips">${store.get('recent', []).map((x) => `<a class="chip" href="${esc(x.hash)}">${esc(x.title)}</a>`).join('')}</div>` : ''}</section>
       ${planHtml}
@@ -1283,6 +1283,28 @@ const views = {
     });
     return `<h2>🔎 Qidiruv</h2><input id="sq" class="search" type="search" aria-label="Qidiruv" placeholder="So'z, grammatika, matn, IELTS mavzusi… (inglizcha yoki o'zbekcha)" value="${esc(params.get('q') ?? '')}" autocomplete="off">
       <div id="sres" aria-live="polite"></div>`;
+  },
+
+  help() {
+    const step = (n, title, items) => `<section class="card"><h3>${n} ${title}</h3><ol>${items.map(([href, text]) => `<li>${href ? `<a href="${href}">${text}</a>` : text}</li>`).join('')}</ol></section>`;
+    return `<h2>❓ Qanday boshlash kerak</h2>
+      <p class="muted">Nextgen English — internetsiz ham ishlaydigan bepul ilova. Progress faqat shu brauzerda saqlanadi (bosh sahifadagi 💾 zaxira tugmasi bilan boshqa qurilmaga ko'chiring).</p>
+      ${step('1️⃣', '1-kun', [['#/placement', "Daraja testini topshiring (10 daqiqa) — A1…C1"], ['#/path', "🧭 Shaxsiy yo'lingizni oching"], ['#/', "Bosh sahifada 🎯 kunlik XP maqsadini tanlang (20/50/100)"], ['#/vocab', "10 ta so'z kartasini takrorlang"]])}
+      ${step('2️⃣', '1-hafta', [['#/', '📅 Bugungi reja — har kuni 4 ta vazifa (avtomatik belgilanadi)'], ['#/grammar', 'Darajangizdagi 3 ta grammatika mavzusi'], ['#/reading', "O'qish va tinglash: har kuni bitta matn"], ['#/drill', '🎯 Trenajyorlar: artikl, predlog, imlo — 10 tadan savol'], ['#/mistakes', "🧾 Xatolar daftarini takrorlang"]])}
+      ${step('3️⃣', 'IELTS yo\'li', [['#/', "🎓 Bosh sahifada imtihon sanasini kiriting — haftalik reja chiqadi"], ['#/ielts?guide=tfng', '🧭 Savol turlari strategiyasini o\'qing'], ['#/numbers', '🔢 Listening Part 1 uchun raqamlar'], ['#/ielts', "📝 Haftada 1–2 ta to'liq sinov testi (band grafigi progressda)"], ['#/ielts?bank=writing', "✍️ Writing: yozing → 🔍 Tekshirish → namunaviy javob bilan solishtiring"], ['#/ielts?bank=speaking', "🗣 Speaking: cue card taymeri + o'zingizni yozib oling"]])}
+      <section class="card"><h3>💡 Foydali imkoniyatlar</h3><ul>
+        <li>Matndagi istalgan so'zni bosing — tarjima va ta'rif; ⭐ bilan <a href="#/vocab?cat=__mine">o'z lug'atingizga</a> saqlang.</li>
+        <li>🔊 tugmalari — ingliz talaffuzi (🇬🇧/🇺🇸 tanlovi Nutq laboratoriyasida); 🐢 — sekin.</li>
+        <li><a href="#/speech">🎙️ Nutq laboratoriyasi</a> — talaffuzingizni 0–100% baholaydi (Chrome/Edge).</li>
+        <li>Tinglash matnlarida ✍️ <b>bo'sh joyli diktant</b>; o'qishda ⏱ <b>tezlik o'lchash</b>.</li>
+        <li><a href="#/progress">📈 Progress</a> — statistikalar, yutuqlar, CSV eksport (o'qituvchi uchun).</li>
+        <li>🌙 / A− A+ tugmalari — tungi rejim va shrift o'lchami; telefonda brauzer menyusidan "Ilova sifatida o'rnatish".</li>
+        <li><a href="#/search">🔎 Qidiruv</a> — so'z, grammatika, matn va IELTS topshiriqlari bo'yicha.</li></ul></section>
+      <section class="card"><h3>📚 Barcha bo'limlar</h3><div class="grid">${[
+        ['#/vocab', "🖼️ Vizual lug'at"], ['#/grammar', '📐 Grammatika'], ['#/reading', "📰 O'qish va tinglash"], ['#/drill', '🎯 Mashqlar markazi'],
+        ['#/collocations', '🧩 Kollokatsiyalar'], ['#/verbs', "🔁 Noto'g'ri fe'llar"], ['#/sounds', '👂 Qiyin tovushlar'], ['#/speech', '🎙️ Nutq laboratoriyasi'],
+        ['#/ielts', '🎓 IELTS'], ['#/dictionary', "📖 Lug'at"], ['#/exam', '⏱️ Imtihon'], ['#/creator', '🛠️ Test yaratuvchi'],
+      ].map(([h, t]) => `<a class="tile" href="${h}"><b>${t}</b></a>`).join('')}</div></section>`;
   },
 
   path() {
