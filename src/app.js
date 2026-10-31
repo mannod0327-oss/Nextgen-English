@@ -5,7 +5,7 @@ import { gradeExam, scoreQuestion, makeVariant, parseExam, serializeExam, valida
 import { createPlacement, nextQuestion, answerPlacement, placementResult, LEVELS } from './core/placement.js';
 import { renderPrintable, esc } from './core/printable.js';
 import { createStore } from './core/store.js';
-import { dailyPlan, wordOfDay, goalStatus, XP_GOALS, reviewQueue, personalCards, MY_WORDS } from './core/plan.js';
+import { dailyPlan, wordOfDay, goalStatus, XP_GOALS, reviewQueue, personalCards, MY_WORDS, examPlan } from './core/plan.js';
 import { linePoints, lastDays, chartSvg } from './core/chart.js';
 import { buildSearchIndex, search } from './core/search.js';
 import { checkWriting, readingSpeed, makeCloze } from './core/writing-check.js';
@@ -323,6 +323,16 @@ const views = {
           <p class="muted">${gs.streak ? `🔥 ${gs.streak} kun ketma-ket maqsad bajarilgan` : "Maqsadni har kuni bajarib, ketma-ketlik yarating."}</p>
           <p class="goal-pick">${XP_GOALS.map((g) => `<button class="btn${g === xpGoal ? ' primary' : ''}" data-goal="${g}" aria-pressed="${g === xpGoal}">${g} XP</button>`).join(' ')}</p></div></div>
       <div class="week" aria-label="Oxirgi 7 kun">${gs.week.map((d) => `<div class="day${d.met ? ' met' : ''}" title="${d.date}: ${d.xp} XP"><i style="height:${Math.min(100, Math.round((d.xp / xpGoal) * 100))}%"></i><span>${WD[new Date(`${d.date}T00:00:00Z`).getUTCDay()]}</span></div>`).join('')}</div></section>`;
+    const examDate = store.get('examDate', '');
+    const ep = examDate ? examPlan(examDate, today()) : null;
+    queueMicrotask(() => {
+      $('#exam-date').onchange = (e) => { store.set('examDate', e.target.value); route(); };
+    });
+    const examHtml = `<section class="card exam-plan"><h3>🎓 IELTS sanasigacha</h3>
+      <label>Imtihon sanasi: <input type="date" id="exam-date" value="${esc(examDate)}" min="${today()}"></label>
+      ${ep && ep.phase !== 'done' ? `<p class="big-band">${ep.days} kun qoldi <span class="badge">${esc(ep.title)}</span></p>
+        <p class="muted">Bu hafta:</p><div class="list">${ep.week.map((x) => `<a class="row" href="${x.href}"><span class="badge">${x.icon}</span><span>${esc(x.title)}</span></a>`).join('')}</div>`
+        : ep ? '<p class="muted">Sana o‘tgan — yangi sanani kiriting.</p>' : '<p class="muted">IELTS topshirsangiz, sanani kiriting — qolgan kunlar va haftalik reja chiqadi.</p>'}</section>`;
     const planHtml = `<section class="card plan"><h3>📅 Bugungi reja <span class="badge ${planDone === plan.length ? 'ok' : ''}">${planDone}/${plan.length}</span></h3>
       ${p.level ? '' : `<p class="muted">Darajangiz aniqlanmagan — reja A1 uchun. <a href="#/placement">Daraja testini topshiring</a>, reja moslashadi.</p>`}
       <div class="list">${plan.map((t) => `<a class="row${t.done ? ' done' : ''}" href="${t.href}"><span class="badge">${t.done ? '✅' : t.icon}</span><span>${esc(t.title)}</span></a>`).join('')}</div>
@@ -334,6 +344,7 @@ const views = {
       <a class="btn" href="grammar-guide/index.html">📚 Grammatika qo'llanmasi (${guideUnits.length} unit)</a></div></section>
       ${planHtml}
       ${goalHtml}
+      ${examHtml}
       ${wodHtml}
       <div class="grid">${tiles.map(([href, icon, t, d]) => `<a class="tile" href="${href}"><span class="ico">${icon}</span><b>${t}</b><span class="muted">${d}</span></a>`).join('')}</div>
       <section class="card"><h3>💾 Zaxira nusxa</h3>

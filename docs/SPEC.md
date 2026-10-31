@@ -99,7 +99,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 86 | **A1–A2 tinglash +5** | Boshlovchilar tinglashi kam | 3 × A1, 2 × A2 (har biri 5 savol) | ✅ |
 | 87 | **Lug'at +60** (iste'mol va xarid, globallashuv, oila va munosabatlar) | IELTS mavzulari | 3 × 20 so'z, definitions qayta qurish | ✅ |
 | 88 | **Tinglash: bo'sh joyli diktant** | Tinglashni so'zma-so'z tekshirish | Skriptdan avtomatik gap-fill (pure funksiya, unit test), har tinglash sahifasida rejim; E2E | ✅ |
-| 89 | **IELTS sanasiga reja** | Imtihongacha qancha vaqt va nima qilish kerak | Imtihon sanasi → qolgan kunlar, haftalik reja (pure, unit test), bosh sahifada ko'rinadi | ⬜ |
+| 89 | **IELTS sanasiga reja** | Imtihongacha qancha vaqt va nima qilish kerak | Imtihon sanasi → qolgan kunlar, haftalik reja (pure, unit test), bosh sahifada ko'rinadi | ✅ |
 | 90 | **Imlo +30 va bog'lovchilar +18** |  | Trenajyorlar 72 / 60 ta | ⬜ |
 | 91 | **A2 o'qish +3** |  | 3 matn × 5 savol | ⬜ |
 | 92 | **Writing Task 2 namunalari +6** |  | 6 ta Band 7 (≥250) | ⬜ |
@@ -220,3 +220,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **86-iteratsiya** — Tinglash +5: A1 — oilaviy surat, bugungi ob-havo, do'konda; A2 — kinoga borish, radioda yo'qolgan mushuk e'loni (5×5 savol, javob o'rinlari aylantirildi); jami 35 tinglash (A1×7, A2×8); v=101.
 - **87-iteratsiya** — Lug'at +60: "Iste'mol va xarid", "Globallashuv", "Oila va munosabatlar" — 639 so'z / 45 mavzu; 3 takror va 3 ta'rifsiz ibora almashtirildi; definitions 3602; v=102.
 - **88-iteratsiya** — Tinglash diktanti: writing-check.js makeCloze (10 mazmunli so'z, matn bo'ylab tekis, skript tiklanadi) + unit test; #/reading?t=…&mode=cloze — 🔊/🐢, imloga qat'iy tekshiruv, to'g'ri javob ko'rsatiladi, XP; har tinglash sahifasida tugma; E2E; v=103.
+- **89-iteratsiya** — IELTS sanasigacha reja: plan.js examPlan (qolgan kun, hafta, bosqich: >56 asos, 15–56 amaliyot, ≤14 yakuniy, o'tgan) + unit test (chegaralar); bosh sahifada sana tanlash (examDate) va haftalik 4 vazifa havolalari; E2E; v=104.

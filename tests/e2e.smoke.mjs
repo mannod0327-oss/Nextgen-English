@@ -704,6 +704,19 @@ await step('listening cloze: 10 gaps from the script, right/wrong marked with th
   if ((await page.$$('.cloze .fix')).length !== 10) throw new Error('answers not shown');
 });
 
+await step('exam plan: setting an IELTS date shows days left and this week’s targets', async () => {
+  await page.goto(`${base}/#/verbs`);
+  await page.goto(`${base}/#/`);
+  const d = new Date(Date.now() + 30 * 86400000).toISOString().slice(0, 10);
+  await page.fill('#exam-date', d);
+  await page.dispatchEvent('#exam-date', 'change');
+  await page.waitForSelector('.exam-plan .big-band');
+  const t = await page.textContent('.exam-plan');
+  if (!/(29|30) kun qoldi/.test(t) || !t.includes('Amaliyot bosqichi')) throw new Error(t);
+  if ((await page.$$('.exam-plan .row')).length !== 4) throw new Error('targets');
+  await page.evaluate(() => localStorage.removeItem('nge:examDate'));
+});
+
 await step('daily goal: ring shows today\'s XP, goal choice persists, week has 7 days', async () => {
   await page.goto(`${base}/#/verbs`);
   await page.goto(`${base}/#/`);

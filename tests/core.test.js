@@ -335,3 +335,16 @@ test('personalCards: saved words become flashcard items, oldest first, with fall
   assert.deepEqual([cards[0].uz, cards[0].example, cards[1].uz, cards[1].example, cards[1].category], ['pasaymoq', 'The storm abated.', 'great enthusiasm', '', MY_WORDS]);
   assert.deepEqual(personalCards({}), []);
 });
+
+test('examPlan: days left, phase boundaries, weekly targets', async () => {
+  const { examPlan } = await import('../src/core/plan.js');
+  assert.deepEqual([examPlan('2026-12-31', '2026-10-31').days, examPlan('2026-12-31', '2026-10-31').phase], [61, 'foundation']);
+  assert.equal(examPlan('2026-12-26', '2026-10-31').phase, 'practice', '56 days → practice');
+  assert.equal(examPlan('2026-11-14', '2026-10-31').phase, 'final', '14 days → final');
+  assert.equal(examPlan('2026-10-31', '2026-10-31').phase, 'final', 'exam day');
+  assert.equal(examPlan('2026-10-30', '2026-10-31').phase, 'done');
+  assert.equal(examPlan('', '2026-10-31').phase, 'done', 'no date');
+  const p = examPlan('2026-12-01', '2026-10-31');
+  assert.equal(p.weeks, 5);
+  assert.ok(p.week.length === 4 && p.week.every((x) => x.icon && x.title && x.href.startsWith('#/')));
+});

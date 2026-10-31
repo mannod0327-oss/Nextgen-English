@@ -80,3 +80,20 @@ export function personalCards(myWords) {
     .sort((a, b) => (a[1].added < b[1].added ? -1 : a[1].added > b[1].added ? 1 : a[0] < b[0] ? -1 : 1))
     .map(([word, x]) => ({ id: `my:${word}`, word, ipa: '', pos: '', level: '', emoji: '⭐', uz: x.uz || x.def || '', example: x.ex || '', category: MY_WORDS }));
 }
+
+/**
+ * Countdown plan to an IELTS date (both 'YYYY-MM-DD'). Phases: foundation (> 8 weeks), practice (3–8 weeks),
+ * final (≤ 2 weeks), done (date passed). `week` lists this week's targets with links.
+ */
+export function examPlan(examDate, date) {
+  const days = Math.round((Date.parse(`${examDate}T00:00:00Z`) - Date.parse(`${date}T00:00:00Z`)) / 86400000);
+  if (!(days >= 0)) return { days, phase: 'done', title: 'Imtihon sanasi o‘tgan', week: [] };
+  const phase = days > 56 ? 'foundation' : days > 14 ? 'practice' : 'final';
+  const week = {
+    foundation: [['📐', "Grammatika: 3 ta mavzu", '#/grammar'], ['🖼️', "Lug'at: har kuni 10 karta", '#/vocab?cat=__all'], ['📰', "O'qish: 3 ta matn (tezlikni o'lchang)", '#/reading'], ['📝', '1 ta sinov testi (har 2 haftada)', '#/ielts']],
+    practice: [['📝', '2 ta to‘liq sinov testi (Listening + Reading)', '#/ielts'], ['✍️', 'Writing: 1 ta Task 1 + 1 ta Task 2', '#/ielts?bank=writing'], ['🗣', 'Speaking: 3 ta to‘plam, o‘zingizni yozib oling', '#/ielts?bank=speaking'], ['🔁', 'Xatolarni takrorlash', '#/mistakes?mode=review']],
+    final: [['⏱', 'Har kuni 1 ta sinov testi — vaqt bilan', '#/ielts'], ['🔁', 'Barcha xatolarni qayta ishlash', '#/mistakes?mode=review'], ['🧭', 'Savol turlari strategiyasini takrorlang', '#/ielts?guide=tfng'], ['😴', 'Imtihon oldidan yaxshi uxlang — yangi narsa o‘rganmang', '#/']],
+  }[phase].map(([icon, title, href]) => ({ icon, title, href }));
+  const title = { foundation: 'Asos qurish bosqichi', practice: 'Amaliyot bosqichi', final: 'Yakuniy tayyorgarlik' }[phase];
+  return { days, weeks: Math.ceil(days / 7), phase, title, week };
+}
