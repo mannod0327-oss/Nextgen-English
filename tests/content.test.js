@@ -236,7 +236,8 @@ test('collocations: 60+, verb phrases start with their verb, examples use the ph
   }
   assert.ok(collocations.filter((g) => g.kind === 'verb').length >= 4, 'verb quiz needs 4 options');
   assert.ok(collocations.filter((g) => g.kind === 'phrasal').flatMap((g) => g.items).length >= 30, '30+ phrasal verbs');
-  assert.ok(collocations.filter((g) => g.kind === 'idiom').flatMap((g) => g.items).length >= 30, '30+ idioms');
+  assert.ok(collocations.filter((g) => g.kind === 'idiom').flatMap((g) => g.items).length >= 42, '42+ idioms');
+  assert.ok(items.length >= 148, '148+ items');
 });
 
 test('drill centre: every trainer valid, Uzbek explanations; gap trainers have exactly one gap', () => {
