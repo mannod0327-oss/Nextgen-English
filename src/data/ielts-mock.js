@@ -2087,4 +2087,212 @@ At the same time, few new antibiotics have been developed in recent decades, par
       },
     ],
   },
+
+  'listening-11': {
+    kind: 'listening', title: 'IELTS Listening — Mock Test 11', minutes: 30,
+    sections: [
+      {
+        title: 'Part 1 · Ordering furniture',
+        intro: 'You will hear a customer phoning a furniture shop. Questions 1–10.',
+        script: `Assistant: Comfort Home Furniture, good morning.
+Customer: Hello. I saw a sofa on your website and I'd like to order it. It's the Milano model.
+Assistant: Certainly. The Milano comes in three colours: grey, dark blue and green. Which would you like?
+Customer: Dark blue, please.
+Assistant: And would you like the two-seater or the three-seater?
+Customer: The three-seater. How much is it?
+Assistant: It's six million four hundred thousand sum. At the moment there's a fifteen per cent discount on all sofas until the end of the month.
+Customer: Great. When can you deliver it?
+Assistant: The earliest date is next Thursday, the ninth. Deliveries are between nine and one o'clock.
+Customer: That's fine. Is delivery free?
+Assistant: It's free within the city. We also take away your old sofa for an extra hundred thousand.
+Customer: Yes, please — I'd like that. And what about the guarantee?
+Assistant: The frame has a five-year guarantee, and the fabric has two years. Can I take your name and address?
+Customer: It's Nodira Alimova. A-L-I-M-O-V-A. The address is 27 Bogishamol Street, flat 14.
+Assistant: Which floor is that on? Is there a lift?
+Customer: It's the fifth floor, and yes, there's a lift.
+Assistant: Perfect. We'll call you the day before to confirm the time.`,
+        questions: [
+          { id: 'n11l1', type: 'fill', prompt: '1. Model name: ___', answer: 'Milano' },
+          { id: 'n11l2', type: 'single', prompt: '2. Colour chosen:', options: ['dark blue', 'grey', 'green', 'black'], answer: 0 },
+          { id: 'n11l3', type: 'single', prompt: '3. Size:', options: ['two-seater', 'three-seater', 'armchair', 'corner sofa'], answer: 1 },
+          { id: 'n11l4', type: 'fill', prompt: '4. Discount until the end of the month: ___ %', answer: ['15', 'fifteen'] },
+          { id: 'n11l5', type: 'fill', prompt: '5. Delivery date: Thursday the ___', answer: ['ninth', '9th', '9'] },
+          { id: 'n11l6', type: 'single', prompt: '6. Delivery is free …', options: ['everywhere', 'at weekends', 'within the city', 'for orders over 5 million'], answer: 2 },
+          { id: 'n11l7', type: 'fill', prompt: '7. Taking away the old sofa costs an extra ___ thousand sum.', answer: ['100', 'hundred', 'one hundred'] },
+          { id: 'n11l8', type: 'fill', prompt: '8. The frame has a ___-year guarantee.', answer: ['five', '5'] },
+          { id: 'n11l9', type: 'fill', prompt: '9. Surname: ___', answer: 'Alimova' },
+          { id: 'n11l10', type: 'fill', prompt: '10. The flat is on the ___ floor.', answer: ['fifth', '5th'] },
+        ],
+      },
+      {
+        title: 'Part 2 · A community clean-up day',
+        intro: 'You will hear an organiser speaking to volunteers. Questions 11–20.',
+        script: `Good morning, everyone, and thanks for joining our community clean-up day. My name is Bahodir, and I'm one of the organisers.
+Today we're working along the canal between the old bridge and the sports stadium — about three kilometres in total. We'll split into four teams, and each team leader is wearing a yellow vest, so they're easy to find.
+Team one will collect rubbish from the water's edge. Please don't go into the water — the banks can be slippery. Team two will clear the footpath, and team three will paint the benches near the stadium. Team four, which needs people who are good with tools, will repair the fence by the children's playground.
+Everyone will get gloves and bags at the registration table. Please put plastic and glass in the blue bags and everything else in the black ones. If you find anything dangerous, such as needles or broken electrical items, don't touch it — tell your team leader.
+We'll stop for lunch at half past twelve. A local café has kindly donated sandwiches and drinks, and lunch will be served under the big trees next to the bridge.
+We plan to finish at three o'clock. At the end, we'll weigh all the rubbish we've collected, and the results will be posted on the city council's website. Last year we collected over four hundred kilos, so let's try to beat that!`,
+        questions: [
+          { id: 'n11l11', type: 'single', prompt: '11. The clean-up takes place along …', options: ['a river', 'a main road', 'the lake', 'the canal'], answer: 3 },
+          { id: 'n11l12', type: 'fill', prompt: '12. Total distance: about ___ kilometres', answer: ['three', '3'] },
+          { id: 'n11l13', type: 'fill', prompt: '13. Team leaders wear a yellow ___', answer: 'vest' },
+          { id: 'n11l14', type: 'single', prompt: '14. Team three will …', options: ['paint benches', 'collect rubbish', 'clear the path', 'repair a fence'], answer: 0 },
+          { id: 'n11l15', type: 'single', prompt: '15. Team four needs people who are …', options: ['strong swimmers', 'good with tools', 'good at painting', 'first-aid trained'], answer: 1 },
+          { id: 'n11l16', type: 'fill', prompt: '16. Plastic and glass go in the ___ bags.', answer: 'blue' },
+          { id: 'n11l17', type: 'single', prompt: '17. If you find something dangerous, you should …', options: ['put it in a bag', 'take it home', 'tell your team leader', 'call the police'], answer: 2 },
+          { id: 'n11l18', type: 'fill', prompt: '18. Lunch is at half past ___', answer: ['twelve', '12'] },
+          { id: 'n11l19', type: 'single', prompt: '19. Lunch was donated by …', options: ['the council', 'the stadium', 'a supermarket', 'a local café'], answer: 3 },
+          { id: 'n11l20', type: 'fill', prompt: '20. Last year they collected over ___ kilos.', answer: ['400', 'four hundred'] },
+        ],
+      },
+      {
+        title: 'Part 3 · A project on solar panels for schools',
+        intro: 'You will hear two engineering students, Aziz and Katya, discussing their project with their tutor. Questions 21–30.',
+        script: `Tutor: So, your project is about installing solar panels on school roofs. How far have you got?
+Katya: We've chosen a school in Chirchiq as our case study. It has a large flat roof that gets sun all day.
+Aziz: We calculated that panels covering about two-thirds of the roof could produce around forty per cent of the school's electricity.
+Tutor: Why not more?
+Aziz: Mainly because schools use a lot of power in winter mornings, when the panels produce the least.
+Tutor: Good point. What about the cost?
+Katya: The installation would pay for itself in about seven years. We also looked at a government programme that pays thirty per cent of the cost for public buildings.
+Tutor: Did you speak to the school?
+Katya: Yes, the director was very positive. She suggested that students could monitor how much electricity the panels produce as part of their science lessons.
+Tutor: That's a strong educational argument. Any problems?
+Aziz: Dust. In our climate, panels get dusty quickly and lose efficiency, so they'd need cleaning about once a month.
+Tutor: Who would do that?
+Aziz: The school caretaker, with a simple brush system. It doesn't need special training.
+Tutor: Right. For the final report, I'd like you to compare your figures with one other school, ideally an older building with a sloping roof. And please include a map showing which way the roofs face.
+Katya: When's the deadline?
+Tutor: The end of the month. And you'll present it at the department seminar the following week.`,
+        questions: [
+          { id: 'n11l21', type: 'fill', prompt: '21. The case-study school is in ___', answer: 'Chirchiq' },
+          { id: 'n11l22', type: 'single', prompt: '22. The panels could produce around … of the school’s electricity.', options: ['20%', '40%', '60%', 'all'], answer: 1 },
+          { id: 'n11l23', type: 'single', prompt: '23. Why can’t the panels produce more?', options: ['Schools use a lot of power on winter mornings.', 'The roof is too small.', 'The panels are old.', 'It is too cloudy.'], answer: 0 },
+          { id: 'n11l24', type: 'fill', prompt: '24. The installation would pay for itself in about ___ years.', answer: ['seven', '7'] },
+          { id: 'n11l25', type: 'fill', prompt: '25. A government programme pays ___ % of the cost.', answer: ['30', 'thirty'] },
+          { id: 'n11l26', type: 'single', prompt: '26. The director suggested students could …', options: ['clean the panels', 'monitor electricity production in science lessons', 'sell electricity', 'design the panels'], answer: 1 },
+          { id: 'n11l27', type: 'fill', prompt: '27. The main problem is ___', answer: 'dust' },
+          { id: 'n11l28', type: 'single', prompt: '28. How often would the panels need cleaning?', options: ['every day', 'once a week', 'once a month', 'once a year'], answer: 2 },
+          { id: 'n11l29', type: 'single', prompt: '29. The comparison school should ideally have …', options: ['a flat roof', 'no roof panels', 'more students', 'a sloping roof'], answer: 3 },
+          { id: 'n11l30', type: 'fill', prompt: '30. The report must include a ___ showing which way the roofs face.', answer: 'map' },
+        ],
+      },
+      {
+        title: 'Part 4 · Lecture: How bridges stand up',
+        intro: 'You will hear part of an engineering lecture. Questions 31–40.',
+        script: `Today I'm going to introduce the main types of bridge and explain how each one deals with the forces acting on it. Every bridge must carry its own weight, known as the dead load, plus the changing weight of traffic and people, the live load. It must also resist wind and, in some places, earthquakes.
+The simplest design is the beam bridge: a horizontal beam supported at each end. When a load is placed in the middle, the top of the beam is squeezed, which we call compression, while the bottom is stretched, which we call tension. Beam bridges are cheap and quick to build, but they are only practical for short spans, usually less than about eighty metres.
+Arch bridges work differently. The curved shape turns the downward weight into compression that travels along the arch to the supports at each end, known as abutments. Because stone is very strong in compression, people have built arch bridges for thousands of years, and many Roman examples are still standing.
+For the longest spans, engineers use suspension bridges. Here, the road deck hangs from vertical cables attached to two main cables, which pass over tall towers and are anchored firmly into the ground at each end. The main cables are in tension. The longest suspension bridges today have central spans of around two kilometres.
+A more recent design is the cable-stayed bridge, in which cables run directly from the towers to the deck. These are cheaper than suspension bridges for medium spans and have become very popular since the 1970s.
+Finally, wind is a serious challenge. Engineers now test models of new bridges in wind tunnels to make sure they will not shake dangerously in strong winds.`,
+        questions: [
+          { id: 'n11l31', type: 'fill', prompt: '31. The weight of the bridge itself is called the ___ load.', answer: 'dead' },
+          { id: 'n11l32', type: 'fill', prompt: '32. The weight of traffic and people is the ___ load.', answer: 'live' },
+          { id: 'n11l33', type: 'single', prompt: '33. In a loaded beam, the bottom is …', options: ['in tension', 'in compression', 'not affected', 'twisted'], answer: 0 },
+          { id: 'n11l34', type: 'fill', prompt: '34. Beam bridges are practical for spans of less than about ___ metres.', answer: ['80', 'eighty'] },
+          { id: 'n11l35', type: 'fill', prompt: '35. The supports at the ends of an arch are called ___', answer: ['abutments', 'abutment'] },
+          { id: 'n11l36', type: 'single', prompt: '36. Arch bridges have been built of stone because stone is strong in …', options: ['tension', 'compression', 'wind', 'water'], answer: 1 },
+          { id: 'n11l37', type: 'single', prompt: '37. In a suspension bridge, the main cables are anchored …', options: ['to the deck', 'to the river bed', 'into the ground at each end', 'to the arch'], answer: 2 },
+          { id: 'n11l38', type: 'fill', prompt: '38. The longest suspension bridges have central spans of around ___ kilometres.', answer: ['two', '2'] },
+          { id: 'n11l39', type: 'single', prompt: '39. Cable-stayed bridges are cheaper for …', options: ['short spans', 'the longest spans', 'railways only', 'medium spans'], answer: 3 },
+          { id: 'n11l40', type: 'fill', prompt: '40. Models are tested in wind ___', answer: ['tunnels', 'tunnel'] },
+        ],
+      },
+    ],
+  },
+
+  'reading-11': {
+    kind: 'reading', title: 'IELTS Academic Reading — Mock Test 11', minutes: 60,
+    sections: [
+      {
+        title: 'Passage 1 · The Pomegranate',
+        intro: 'Questions 1–13. You should spend about 20 minutes on this passage.',
+        text: `The pomegranate is one of the oldest cultivated fruits. It is thought to have originated in the region stretching from Iran to northern India, and it has been grown in Central Asia for thousands of years. The fruit appears frequently in the art and poetry of the region, where its many seeds have long been a symbol of fertility and abundance.
+
+The pomegranate tree is well suited to dry climates. It tolerates heat, poor soil and drought, although it produces the best fruit when it receives regular water during the growing season. In areas with cold winters, farmers protect the trees by bending the branches down and covering them with soil in late autumn, a traditional technique still used in parts of Uzbekistan and Tajikistan.
+
+Inside the tough skin, the fruit contains hundreds of seeds, each surrounded by juicy red pulp known as an aril. Separating the arils by hand is slow, which is one reason pomegranates are more expensive than many other fruits. In recent years, machines have been developed that break the fruit open in water: the arils sink, while the white membrane floats and can be removed.
+
+Pomegranate juice is rich in antioxidants and vitamin C, and it has become fashionable as a "superfood". However, scientists caution that many health claims are based on laboratory studies rather than large trials in humans. The skin of the fruit has traditionally been used to dye textiles yellow and brown, and also in traditional medicine.
+
+Today, the main producers include Iran, India, Turkey and the United States, and demand has grown strongly in Europe and East Asia. For farmers in Central Asia, the fruit offers a valuable export opportunity, but competition is strong and quality standards for exported fruit are strict.`,
+        questions: [
+          { id: 'n11r1', type: 'single', prompt: '1. The pomegranate probably originated in the region from Iran to northern India.', options: tfng, answer: 0 },
+          { id: 'n11r2', type: 'single', prompt: '2. Pomegranate trees need a lot of rain all year.', options: tfng, answer: 1 },
+          { id: 'n11r3', type: 'single', prompt: '3. Some farmers cover trees with soil to protect them in winter.', options: tfng, answer: 0 },
+          { id: 'n11r4', type: 'single', prompt: '4. Separating arils by hand is quick.', options: tfng, answer: 1 },
+          { id: 'n11r5', type: 'single', prompt: '5. All health claims about pomegranates have been proven in large human trials.', options: tfng, answer: 1 },
+          { id: 'n11r6', type: 'single', prompt: '6. Uzbekistan is the world’s largest producer of pomegranates.', options: tfng, answer: 2 },
+          { id: 'n11r7', type: 'single', prompt: '7. Demand for pomegranates has grown in East Asia.', options: tfng, answer: 0 },
+          { id: 'n11r8', type: 'fill', prompt: '8. The many seeds are a symbol of fertility and ___. (ONE WORD)', answer: 'abundance' },
+          { id: 'n11r9', type: 'fill', prompt: '9. The juicy pulp around each seed is called an ___. (ONE WORD)', answer: 'aril' },
+          { id: 'n11r10', type: 'fill', prompt: '10. In the machines, the white ___ floats. (ONE WORD)', answer: 'membrane' },
+          { id: 'n11r11', type: 'fill', prompt: '11. The juice is rich in antioxidants and vitamin ___. (ONE LETTER)', answer: 'C' },
+          { id: 'n11r12', type: 'fill', prompt: '12. The skin was used to ___ textiles. (ONE WORD)', answer: 'dye' },
+          { id: 'n11r13', type: 'fill', prompt: '13. Quality standards for exported fruit are ___. (ONE WORD)', answer: 'strict' },
+        ],
+      },
+      {
+        title: 'Passage 2 · Where Have All the Insects Gone?',
+        intro: 'Questions 14–26. You should spend about 20 minutes on this passage.',
+        text: `A. Drivers of a certain age often remember long summer journeys after which the car windscreen was covered in dead insects. Today, many say, the windscreen stays almost clean. This informal observation has been supported by scientific studies suggesting that insect populations have fallen sharply in many parts of the world.
+
+B. One of the most widely reported studies came from nature reserves in Germany, where volunteers had collected flying insects in the same traps for nearly thirty years. The total weight of insects caught fell by more than three-quarters over the period. Because the traps were in protected areas, the decline was especially alarming.
+
+C. Scientists point to several causes. The most important is probably the loss of habitat, as wild meadows, hedges and wetlands are replaced by large fields of a single crop or by buildings. Pesticides are another major factor, killing not only pests but also harmless and useful species. Climate change and artificial light at night add further pressure.
+
+D. The consequences could be serious. Insects pollinate around three-quarters of the main food crops, break down dead plants and animals, and are an essential source of food for birds, bats, fish and many other animals. A decline in insects therefore affects whole ecosystems.
+
+E. Not all experts agree on the scale of the problem. Long-term data exist for only a small number of places, mostly in Europe and North America, and some insect groups appear to be stable or even increasing. Critics warn against using dramatic phrases such as "insect apocalypse" before better global data are available.
+
+F. Nevertheless, many of the proposed solutions would bring other benefits too. Planting wildflowers along roads and fields, reducing pesticide use, leaving areas of gardens uncut and switching off unnecessary lights at night are all relatively cheap measures that can help insects to recover.`,
+        questions: [
+          { id: 'n11r14', type: 'single', prompt: '14. Which paragraph describes a long-term study?', options: ['A', 'B', 'C', 'D'], answer: 1 },
+          { id: 'n11r15', type: 'single', prompt: '15. Which paragraph explains the causes of insect decline?', options: ['B', 'C', 'D', 'E'], answer: 1 },
+          { id: 'n11r16', type: 'single', prompt: '16. Which paragraph expresses doubts about the scale of the problem?', options: ['B', 'D', 'E', 'F'], answer: 2 },
+          { id: 'n11r17', type: 'single', prompt: '17. Which paragraph describes the role of insects in ecosystems?', options: ['A', 'C', 'D', 'F'], answer: 2 },
+          { id: 'n11r18', type: 'single', prompt: '18. In the German study, the weight of insects fell by …', options: ['more than three-quarters', 'about a quarter', 'about half', 'almost nothing'], answer: 0 },
+          { id: 'n11r19', type: 'single', prompt: '19. What is probably the most important cause?', options: ['pesticides', 'loss of habitat', 'climate change', 'artificial light'], answer: 1 },
+          { id: 'n11r20', type: 'single', prompt: '20. Why do critics warn against phrases like "insect apocalypse"?', options: ['Insects are increasing everywhere.', 'The phrase is too long.', 'Global data are limited.', 'Scientists disagree about pesticides.'], answer: 2 },
+          { id: 'n11r21', type: 'single', prompt: '21. The German traps were placed in nature reserves.', options: tfng, answer: 0 },
+          { id: 'n11r22', type: 'single', prompt: '22. Pesticides only kill harmful insects.', options: tfng, answer: 1 },
+          { id: 'n11r23', type: 'single', prompt: '23. Butterflies have declined faster than beetles.', options: tfng, answer: 2 },
+          { id: 'n11r24', type: 'single', prompt: '24. Some insect groups appear to be stable or increasing.', options: tfng, answer: 0 },
+          { id: 'n11r25', type: 'fill', prompt: '25. Insects pollinate around three-quarters of the main food ___. (ONE WORD)', answer: 'crops' },
+          { id: 'n11r26', type: 'fill', prompt: '26. Switching off unnecessary ___ at night can help insects. (ONE WORD)', answer: 'lights' },
+        ],
+      },
+      {
+        title: 'Passage 3 · The Sharing Economy',
+        intro: 'Questions 27–40. You should spend about 20 minutes on this passage.',
+        text: `Over the past fifteen years, digital platforms have made it easy for people to share things they own or services they can provide. Through apps, we can rent a stranger's flat for a weekend, get a lift in a private car, borrow a neighbour's drill or hire someone to assemble furniture. Supporters call this the "sharing economy" and argue that it allows resources to be used more efficiently.
+
+The basic idea is simple. Many possessions are used only rarely: the average private car, for example, is parked for more than ninety per cent of the time, and a power drill may be used for only a few minutes in its entire life. By connecting people who have spare capacity with people who need it, platforms can reduce waste and give owners an extra source of income. Trust between strangers is maintained largely through online ratings and reviews.
+
+However, the reality has turned out to be more complicated than the early optimism suggested. Some of the largest platforms are not really about sharing at all, but are commercial businesses in which professional landlords or full-time drivers provide services. In popular tourist cities, critics argue that short-term rental platforms have reduced the number of homes available for local residents and pushed up rents. Concerns have also been raised about the working conditions of drivers and delivery riders, who are usually classified as independent contractors and therefore lack sick pay, holidays and pensions.
+
+Governments have responded in different ways. Some cities limit the number of nights a home can be rented to tourists each year, while others require hosts to register with the authorities. Several countries have introduced rules giving platform workers more rights, although the platforms often argue that this will reduce flexibility and increase prices.
+
+The sharing economy, then, is neither the simple solution its supporters promised nor the pure threat its critics fear. Its effects depend heavily on how platforms are designed and regulated.`,
+        questions: [
+          { id: 'n11r27', type: 'single', prompt: '27. Supporters say the sharing economy …', options: ['creates more cars', 'replaces all shops', 'is only for tourists', 'uses resources more efficiently'], answer: 3 },
+          { id: 'n11r28', type: 'single', prompt: '28. The average private car is parked for …', options: ['more than 90% of the time', 'about half the time', 'only at night', 'less than 10% of the time'], answer: 0 },
+          { id: 'n11r29', type: 'single', prompt: '29. Trust between strangers is mainly maintained through …', options: ['contracts', 'ratings and reviews', 'the police', 'insurance'], answer: 1 },
+          { id: 'n11r30', type: 'single', prompt: '30. What is a criticism of short-term rental platforms?', options: ['They are too cheap.', 'They are illegal everywhere.', 'They reduce homes for local residents.', 'They have no reviews.'], answer: 2 },
+          { id: 'n11r31', type: 'single', prompt: '31. What is the writer’s conclusion?', options: ['The sharing economy is a simple solution.', 'It should be banned.', 'It only helps drivers.', 'Its effects depend on design and regulation.'], answer: 3 },
+          { id: 'n11r32', type: 'single', prompt: '32. A power drill may be used for only a few minutes in its life.', options: tfng, answer: 0 },
+          { id: 'n11r33', type: 'single', prompt: '33. All sharing platforms are run by non-profit organisations.', options: tfng, answer: 1 },
+          { id: 'n11r34', type: 'single', prompt: '34. Platform drivers usually receive sick pay and pensions.', options: tfng, answer: 1 },
+          { id: 'n11r35', type: 'single', prompt: '35. Most platform users are under thirty.', options: tfng, answer: 2 },
+          { id: 'n11r36', type: 'single', prompt: '36. Some cities limit the number of nights a home can be rented to tourists.', options: tfng, answer: 0 },
+          { id: 'n11r37', type: 'fill', prompt: '37. Platform workers are usually classified as independent ___. (ONE WORD)', answer: ['contractors', 'contractor'] },
+          { id: 'n11r38', type: 'fill', prompt: '38. Some cities require hosts to ___ with the authorities. (ONE WORD)', answer: 'register' },
+          { id: 'n11r39', type: 'fill', prompt: '39. Platforms argue new rules will reduce ___. (ONE WORD)', answer: 'flexibility' },
+          { id: 'n11r40', type: 'fill', prompt: '40. Owners can gain an extra source of ___. (ONE WORD)', answer: 'income' },
+        ],
+      },
+    ],
+  },
 };

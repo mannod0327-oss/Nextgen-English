@@ -103,7 +103,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 90 | **Imlo +30 va bog'lovchilar +18** |  | Trenajyorlar 72 / 60 ta | ✅ |
 | 91 | **A2 o'qish +3** |  | 3 matn × 5 savol | ✅ |
 | 92 | **Writing Task 2 namunalari +6** |  | 6 ta Band 7 (≥250) | ✅ |
-| 93 | **Mock Test 11** |  | 40+40 original savol | ⬜ |
+| 93 | **Mock Test 11** |  | 40+40 original savol | ✅ |
 | 94 | **Daraja testidan keyin shaxsiy yo'l** | Natija sahifasi faqat darajani ko'rsatadi | Darajaga mos grammatika, matnlar, lug'at mavzulari va trenajyorlar ro'yxati; E2E | ⬜ |
 | 95 | **Gap urg'usi va intonatsiya** | Nutqning ritmi | Trenajyor: gapda qaysi so'z urg'uli (🔊), 40 ta; E2E | ⬜ |
 | 96 | **Kollokatsiyalar +30** |  | Yangi fe'l/sifat guruhlari, testda ishlaydi | ⬜ |
@@ -224,3 +224,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **90-iteratsiya** — Imlo +30 (committee, embarrass, pronunciation, entrepreneur, queue…; 10 ta takror almashtirildi) → 72; bog'lovchilar +18 (due to, in case, unless, not only… but also, according to…) → 60; v=105.
 - **91-iteratsiya** — A2 o'qish +3: Buxoroga poyezd sayohati, yangi hobbi (fotografiya), kichik o'zgarishlar — katta natija (5×3 savol); jami 47 matn (A2×10); A1/A2 ≥9 testi; v=106.
 - **92-iteratsiya** — Task 2 namunalari +6: parvozlar va iqlim, masofadan ishlash, maosh yoki qoniqish, bepul bog'cha, maktabda telefon, bolalar va ekran (≥269 so'z, writing-check xatosiz); jami 56 namuna (30 Task 2); v=107.
+- **93-iteratsiya** — Mock 11: Listening (mebel buyurtmasi, kanal tozalash kuni, maktab tomlarida quyosh panellari loyihasi, ko'priklar qanday turadi) + Reading (anor, hasharotlar kamayishi, birgalikdagi iqtisodiyot); 80 savol, MCQ aylantirildi; v=108.
