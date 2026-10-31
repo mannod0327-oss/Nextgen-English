@@ -1669,4 +1669,212 @@ Some scientists have suggested that humans might deliberately copy this effect, 
       },
     ],
   },
+
+  'listening-9': {
+    kind: 'listening', title: 'IELTS Listening — Mock Test 9', minutes: 30,
+    sections: [
+      {
+        title: 'Part 1 · Booking a venue for a graduation party',
+        intro: 'You will hear a student phoning a restaurant. Questions 1–10.',
+        script: `Manager: Good afternoon, Garden Terrace Restaurant.
+Student: Hi. I'm organising a graduation party for my class and I'd like to book your terrace.
+Manager: Lovely. What date were you thinking of?
+Student: Saturday the fourteenth of June, in the evening.
+Manager: Let me check... yes, the terrace is free that evening. How many guests will there be?
+Student: About thirty-five.
+Manager: That's fine — the terrace holds up to forty people. We have two set menus. The standard menu is fifteen dollars per person, and the deluxe menu, which includes a dessert buffet, is twenty-two.
+Student: We'll take the standard one, I think. Can we bring our own cake?
+Manager: Yes, but there's a small charge of twenty dollars for serving it.
+Student: OK. And is there any music?
+Manager: We don't provide a band, but you can connect your own playlist to our sound system. Music has to finish by eleven o'clock, because of our neighbours.
+Student: That's fine. What do you need from me to confirm?
+Manager: Your name, a phone number, and a deposit of one hundred dollars by the end of next week.
+Student: My name is Bekzod Tursunov. T-U-R-S-U-N-O-V.
+Manager: And your number?
+Student: Nine-oh-one, two-two-four, six-seven, eight-three.
+Manager: Thank you. And one last thing — parking can be difficult on Saturdays, so I'd recommend your guests come by taxi or metro. The nearest station is Mustaqillik Square.`,
+        questions: [
+          { id: 'n9l1', type: 'fill', prompt: '1. Date: Saturday, ___ June', answer: ['14', '14th', 'fourteenth'] },
+          { id: 'n9l2', type: 'fill', prompt: '2. Number of guests: about ___', answer: ['35', 'thirty-five'] },
+          { id: 'n9l3', type: 'fill', prompt: '3. The terrace holds up to ___ people.', answer: ['40', 'forty'] },
+          { id: 'n9l4', type: 'fill', prompt: '4. Standard menu: $___ per person', answer: ['15', 'fifteen'] },
+          { id: 'n9l5', type: 'single', prompt: '5. The deluxe menu includes …', options: ['a dessert buffet', 'a band', 'free drinks', 'a cake'], answer: 0 },
+          { id: 'n9l6', type: 'fill', prompt: '6. Charge for serving their own cake: $___', answer: ['20', 'twenty'] },
+          { id: 'n9l7', type: 'fill', prompt: '7. Music must finish by ___ o’clock.', answer: ['11', 'eleven'] },
+          { id: 'n9l8', type: 'fill', prompt: '8. Surname: ___', answer: 'Tursunov' },
+          { id: 'n9l9', type: 'fill', prompt: '9. Deposit: $___', answer: ['100', 'one hundred'] },
+          { id: 'n9l10', type: 'single', prompt: '10. Guests are advised to come by …', options: ['car', 'taxi or metro', 'bicycle', 'bus only'], answer: 1 },
+        ],
+      },
+      {
+        title: 'Part 2 · A summer language camp',
+        intro: 'You will hear the director of a summer camp talking to parents. Questions 11–20.',
+        script: `Good evening, parents, and thank you for coming. I'm the director of the Lakeside Summer Language Camp, and I'd like to explain how the three weeks will be organised.
+The camp takes place near Charvak Lake, about two hours from the city by bus. Children aged ten to sixteen are divided into groups according to their level of English, not their age, after a short test on the first morning.
+Each day begins with breakfast at eight. Lessons run from nine until half past twelve, with a short break in the middle. In the afternoon, students choose one activity: drama, sport or a project on the environment. On the last day, every group presents its work to the whole camp.
+We have fourteen teachers, and most of them are native speakers or have international teaching qualifications. Each teacher works with no more than ten students.
+Now, some practical information. Students sleep in wooden cabins, with six beds in each. Mobile phones are collected at nine in the evening and returned after breakfast, so please don't worry if your child doesn't answer late at night. A nurse is available at the camp twenty-four hours a day.
+Please make sure your child brings a sun hat, a water bottle and comfortable shoes for hiking. There's no need to bring towels — we provide them.
+Finally, the visiting day for parents is the second Sunday, from ten until four. There's a concert in the afternoon, and we'd love you to stay for it.`,
+        questions: [
+          { id: 'n9l11', type: 'fill', prompt: '11. The camp lasts ___ weeks.', answer: ['three', '3'] },
+          { id: 'n9l12', type: 'single', prompt: '12. Children are put into groups according to …', options: ['their age', 'their school', 'their level of English', 'their interests'], answer: 2 },
+          { id: 'n9l13', type: 'fill', prompt: '13. Lessons finish at half past ___', answer: ['twelve', '12'] },
+          { id: 'n9l14', type: 'single', prompt: '14. Which afternoon activity is NOT offered?', options: ['drama', 'sport', 'an environment project', 'cooking'], answer: 3 },
+          { id: 'n9l15', type: 'fill', prompt: '15. Each teacher has no more than ___ students.', answer: ['ten', '10'] },
+          { id: 'n9l16', type: 'fill', prompt: '16. Each cabin has ___ beds.', answer: ['six', '6'] },
+          { id: 'n9l17', type: 'single', prompt: '17. Mobile phones are …', options: ['collected in the evening', 'not allowed at all', 'kept by parents', 'used only in lessons'], answer: 0 },
+          { id: 'n9l18', type: 'fill', prompt: '18. A ___ is available 24 hours a day.', answer: 'nurse' },
+          { id: 'n9l19', type: 'single', prompt: '19. Students do NOT need to bring …', options: ['a sun hat', 'towels', 'a water bottle', 'hiking shoes'], answer: 1 },
+          { id: 'n9l20', type: 'fill', prompt: '20. On visiting day there is a ___ in the afternoon.', answer: 'concert' },
+        ],
+      },
+      {
+        title: 'Part 3 · Analysing a survey on social media habits',
+        intro: 'You will hear two students, Zarina and Tom, discussing survey results with their tutor. Questions 21–30.',
+        script: `Tutor: So, how did the survey go?
+Zarina: Really well. We got responses from two hundred and forty students, which is more than we expected.
+Tom: Mainly because we shared it through the student union newsletter rather than just posting it on social media.
+Tutor: Good. What were the main findings?
+Zarina: On average, students spend about three and a half hours a day on social media. The most popular platform for sharing photos was used by nearly everyone, but for news, most students said they used video platforms.
+Tom: What surprised me was that over sixty per cent said they'd tried to reduce their use in the last year.
+Tutor: Interesting. Did they say why?
+Zarina: The most common reason was that it affected their sleep. Concentration problems came second.
+Tutor: And were they successful?
+Tom: Not very. Only about a quarter said they'd managed to cut down for more than a month. The ones who succeeded mostly used app timers or turned off notifications.
+Tutor: Are there any weaknesses in your method?
+Zarina: Well, all the data is self-reported, so people may have underestimated their time. Next time we'd like to ask volunteers to share the screen-time data from their phones.
+Tutor: That would be much more reliable. Make sure you discuss that limitation in your report. And I'd like to see a bar chart comparing first-year and final-year students.
+Tom: We'll do that. The deadline is the twentieth, isn't it?
+Tutor: That's right.`,
+        questions: [
+          { id: 'n9l21', type: 'fill', prompt: '21. Number of responses: ___', answer: ['240', 'two hundred and forty'] },
+          { id: 'n9l22', type: 'single', prompt: '22. Why did they get so many responses?', options: ['They offered prizes.', 'The tutor helped.', 'They used the student union newsletter.', 'It was compulsory.'], answer: 2 },
+          { id: 'n9l23', type: 'fill', prompt: '23. Average daily time on social media: about three and a half ___', answer: 'hours' },
+          { id: 'n9l24', type: 'single', prompt: '24. For news, most students use …', options: ['newspapers', 'radio', 'photo apps', 'video platforms'], answer: 3 },
+          { id: 'n9l25', type: 'fill', prompt: '25. Over ___ per cent tried to reduce their use.', answer: ['60', 'sixty'] },
+          { id: 'n9l26', type: 'single', prompt: '26. The most common reason for cutting down was …', options: ['sleep', 'cost', 'exams', 'privacy'], answer: 0 },
+          { id: 'n9l27', type: 'single', prompt: '27. How many succeeded for more than a month?', options: ['about half', 'about a quarter', 'almost all', 'nobody'], answer: 1 },
+          { id: 'n9l28', type: 'single', prompt: '28. Successful students mostly …', options: ['deleted their accounts', 'bought new phones', 'used app timers or turned off notifications', 'studied in the library'], answer: 2 },
+          { id: 'n9l29', type: 'fill', prompt: '29. A weakness: all the data is self-___', answer: 'reported' },
+          { id: 'n9l30', type: 'fill', prompt: '30. The tutor wants a ___ chart comparing first-year and final-year students.', answer: 'bar' },
+        ],
+      },
+      {
+        title: 'Part 4 · Lecture: Coral reefs',
+        intro: 'You will hear part of a marine biology lecture. Questions 31–40.',
+        script: `Today we're looking at coral reefs, which are sometimes called the rainforests of the sea. Although they cover less than one per cent of the ocean floor, they are home to around a quarter of all marine species.
+It's a common mistake to think of coral as a plant or a rock. In fact, each coral is a colony of tiny animals called polyps. Over thousands of years, these polyps build hard skeletons of calcium carbonate, and these slowly form the structure of the reef.
+Most reef-building corals live in a close partnership with microscopic algae, which live inside their tissues. The algae use sunlight to produce food, and they give the coral most of its energy as well as its bright colours. In return, the coral provides the algae with shelter. This is why most reefs are found in shallow, clear water, where sunlight can reach them.
+The greatest threat to reefs today is rising sea temperatures. When water becomes too warm for several weeks, the coral expels the algae. Without them, the coral turns white — a process known as bleaching. Bleached coral is not dead, but if temperatures remain high, it will starve.
+Other threats include pollution from farms, which encourages seaweed to grow over the coral, overfishing, and the increasing acidity of the oceans, which makes it harder for polyps to build their skeletons.
+Reefs are not only important for wildlife. They protect coastlines from storms by reducing the power of waves, and they support fishing and tourism for hundreds of millions of people. Scientists are now experimenting with growing coral in underwater nurseries and replanting it on damaged reefs, although this works only on a small scale.`,
+        questions: [
+          { id: 'n9l31', type: 'fill', prompt: '31. Reefs are sometimes called the ___ of the sea.', answer: ['rainforests', 'rainforest'] },
+          { id: 'n9l32', type: 'single', prompt: '32. Coral reefs are home to around … of marine species.', options: ['one per cent', 'a tenth', 'half', 'a quarter'], answer: 3 },
+          { id: 'n9l33', type: 'fill', prompt: '33. Each coral is a colony of tiny animals called ___', answer: ['polyps', 'polyp'] },
+          { id: 'n9l34', type: 'fill', prompt: '34. Their skeletons are made of calcium ___', answer: 'carbonate' },
+          { id: 'n9l35', type: 'single', prompt: '35. The algae give the coral …', options: ['energy and colour', 'shelter', 'its skeleton', 'protection from fish'], answer: 0 },
+          { id: 'n9l36', type: 'single', prompt: '36. Most reefs are in shallow water because …', options: ['it is warmer', 'sunlight can reach them', 'there are fewer fish', 'waves are smaller'], answer: 1 },
+          { id: 'n9l37', type: 'fill', prompt: '37. When coral expels the algae and turns white, it is called ___', answer: 'bleaching' },
+          { id: 'n9l38', type: 'single', prompt: '38. Pollution from farms encourages … to grow over the coral.', options: ['algae inside the coral', 'new polyps', 'seaweed', 'sponges'], answer: 2 },
+          { id: 'n9l39', type: 'fill', prompt: '39. Reefs protect coastlines from ___', answer: ['storms', 'storm'] },
+          { id: 'n9l40', type: 'fill', prompt: '40. Coral is grown in underwater ___ and replanted.', answer: ['nurseries', 'nursery'] },
+        ],
+      },
+    ],
+  },
+
+  'reading-9': {
+    kind: 'reading', title: 'IELTS Academic Reading — Mock Test 9', minutes: 60,
+    sections: [
+      {
+        title: 'Passage 1 · Knots and Colours: Carpet Weaving',
+        intro: 'Questions 1–13. You should spend about 20 minutes on this passage.',
+        text: `Hand-woven carpets have been made in Central Asia for many centuries, and for nomadic peoples they were far more than decoration. A carpet could serve as a floor covering, a wall hanging that kept a tent warm, a door, a saddle bag or even a cradle. Because carpets could be rolled up and carried, they were ideal for families who moved with their animals between summer and winter pastures.
+
+A traditional carpet is made on a loom, a frame on which long threads called the warp are stretched tightly. The weaver ties short pieces of wool around pairs of warp threads, cutting each knot by hand, and after every row presses the knots down firmly. Between the rows of knots, horizontal threads known as the weft are passed through to hold everything together. The number of knots per square centimetre is one measure of quality: a fine carpet may contain hundreds of thousands of knots per square metre, and a large one can take a skilled weaver many months to complete.
+
+Wool was traditionally coloured with natural dyes. Red, the most characteristic colour of the region, came from the roots of the madder plant, while blue was produced from indigo. Walnut shells and pomegranate skins gave shades of brown and yellow. Natural dyes fade gently over time, which many collectors consider part of an old carpet's beauty.
+
+Each group developed its own designs. Many carpets feature a repeated central motif, often called a "gul", surrounded by a series of borders. Experts can sometimes identify the tribe or region where a carpet was made simply from the shape of its gul and the colours used.
+
+In the twentieth century, factory production and synthetic dyes made carpets cheaper and more widely available, and many traditional skills declined. In recent decades, however, workshops have been set up to revive hand weaving with natural dyes, often employing women from rural areas.`,
+        questions: [
+          { id: 'n9r1', type: 'single', prompt: '1. Nomadic families used carpets for several purposes.', options: tfng, answer: 0 },
+          { id: 'n9r2', type: 'single', prompt: '2. Carpets were too heavy to move between pastures.', options: tfng, answer: 1 },
+          { id: 'n9r3', type: 'single', prompt: '3. Each knot is cut by hand.', options: tfng, answer: 0 },
+          { id: 'n9r4', type: 'single', prompt: '4. Silk carpets are more valuable than wool carpets.', options: tfng, answer: 2 },
+          { id: 'n9r5', type: 'single', prompt: '5. Natural dyes never change colour.', options: tfng, answer: 1 },
+          { id: 'n9r6', type: 'single', prompt: '6. Experts can sometimes identify a carpet’s origin from its design.', options: tfng, answer: 0 },
+          { id: 'n9r7', type: 'single', prompt: '7. Hand weaving disappeared completely in the twentieth century.', options: tfng, answer: 1 },
+          { id: 'n9r8', type: 'fill', prompt: '8. Carpets are made on a frame called a ___. (ONE WORD)', answer: 'loom' },
+          { id: 'n9r9', type: 'fill', prompt: '9. The long threads stretched on the frame are called the ___. (ONE WORD)', answer: 'warp' },
+          { id: 'n9r10', type: 'fill', prompt: '10. The horizontal threads are known as the ___. (ONE WORD)', answer: 'weft' },
+          { id: 'n9r11', type: 'fill', prompt: '11. Red dye came from the roots of the ___ plant. (ONE WORD)', answer: 'madder' },
+          { id: 'n9r12', type: 'fill', prompt: '12. Blue was produced from ___. (ONE WORD)', answer: 'indigo' },
+          { id: 'n9r13', type: 'fill', prompt: '13. A repeated central motif is often called a "___". (ONE WORD)', answer: 'gul' },
+        ],
+      },
+      {
+        title: 'Passage 2 · Why Do We Dream?',
+        intro: 'Questions 14–26. You should spend about 20 minutes on this passage.',
+        text: `A. Every night, most people spend around two hours dreaming, yet scientists still disagree about why we dream at all. Dreams occur in all stages of sleep, but the most vivid and story-like ones happen during rapid eye movement (REM) sleep, when the brain is almost as active as when we are awake.
+
+B. For much of the twentieth century, the dominant explanation came from psychoanalysis, which saw dreams as disguised expressions of hidden wishes and fears. This theory was influential in art and literature, but most modern researchers consider it impossible to test scientifically.
+
+C. A very different view emerged in the 1970s. According to the activation-synthesis theory, dreams are a side effect of random signals sent from the brainstem during REM sleep. The thinking parts of the brain try to make sense of these signals by weaving them into a story, which explains why dreams are often strange and illogical.
+
+D. More recent research has focused on memory. Experiments show that people who sleep after learning a new task perform better the next day than those who stay awake, and that elements of the task sometimes appear in their dreams. This has led some scientists to suggest that dreaming is linked to the process by which the brain sorts and strengthens new memories.
+
+E. Another theory proposes that dreams help us to process emotions. Because levels of stress chemicals in the brain are low during REM sleep, dreaming may allow us to revisit upsetting experiences in a safer state, gradually reducing their emotional impact. Supporters point out that people with certain sleep disorders that reduce REM sleep often have difficulty controlling their emotions.
+
+F. A further suggestion is that dreams act as a kind of rehearsal, allowing us to practise responses to threats. This would explain why so many dreams involve being chased or facing danger. Most researchers now believe that dreaming may serve several of these functions at once.`,
+        questions: [
+          { id: 'n9r14', type: 'single', prompt: '14. Which paragraph describes a theory that cannot be tested scientifically?', options: ['A', 'B', 'C', 'D'], answer: 1 },
+          { id: 'n9r15', type: 'single', prompt: '15. Which paragraph links dreaming to memory?', options: ['B', 'C', 'D', 'E'], answer: 2 },
+          { id: 'n9r16', type: 'single', prompt: '16. Which paragraph explains why dreams are often illogical?', options: ['A', 'C', 'E', 'F'], answer: 1 },
+          { id: 'n9r17', type: 'single', prompt: '17. Which paragraph suggests dreams help us practise reacting to danger?', options: ['C', 'D', 'E', 'F'], answer: 3 },
+          { id: 'n9r18', type: 'single', prompt: '18. The most vivid dreams happen …', options: ['just before waking', 'in deep sleep only', 'after midnight', 'during REM sleep'], answer: 3 },
+          { id: 'n9r19', type: 'single', prompt: '19. According to activation-synthesis theory, dreams begin with …', options: ['random signals from the brainstem', 'hidden wishes', 'new memories', 'stress chemicals'], answer: 0 },
+          { id: 'n9r20', type: 'single', prompt: '20. People who sleep after learning a task …', options: ['forget it', 'perform better the next day', 'dream less', 'feel more stressed'], answer: 1 },
+          { id: 'n9r21', type: 'single', prompt: '21. Most people spend around two hours dreaming each night.', options: tfng, answer: 0 },
+          { id: 'n9r22', type: 'single', prompt: '22. Dreams only occur during REM sleep.', options: tfng, answer: 1 },
+          { id: 'n9r23', type: 'single', prompt: '23. Children dream more than adults.', options: tfng, answer: 2 },
+          { id: 'n9r24', type: 'single', prompt: '24. Stress chemicals are low during REM sleep.', options: tfng, answer: 0 },
+          { id: 'n9r25', type: 'fill', prompt: '25. The brain during REM sleep is almost as ___ as when awake. (ONE WORD)', answer: 'active' },
+          { id: 'n9r26', type: 'fill', prompt: '26. Many dreams involve being ___. (ONE WORD)', answer: 'chased' },
+        ],
+      },
+      {
+        title: 'Passage 3 · Should Public Transport Be Free?',
+        intro: 'Questions 27–40. You should spend about 20 minutes on this passage.',
+        text: `In recent years, a number of cities around the world have abolished fares on their buses and trams, and in a few cases an entire country has made public transport free. Supporters present the idea as a simple way to reduce traffic, cut pollution and help low-income residents. The results so far, however, suggest that the picture is more complicated.
+
+The most consistent finding is that free transport increases the number of passengers, sometimes dramatically. Yet studies of several cities have found that many of the new passengers are not former drivers. Instead, they are people who previously walked or cycled, or who simply make additional trips. As a result, the reduction in car traffic has often been smaller than expected, and in some places almost no change was measured.
+
+The social benefits are clearer. For households with low incomes, transport costs can represent a significant share of the monthly budget, and free travel makes it easier to reach jobs, schools and medical services. Some cities also report savings from no longer needing ticket machines and inspectors, although these rarely cover more than a fraction of the lost fare income.
+
+The main concern is funding. Fares typically pay for a substantial part of running costs, so removing them requires money from taxes. Critics argue that this money might be better spent on improving the service itself: more frequent buses, new routes and modern vehicles. Research on travel behaviour suggests that speed, reliability and comfort influence people's decision to leave their cars at home far more than the price of a ticket.
+
+Many transport experts therefore favour a combined approach. Free or heavily discounted travel can be targeted at those who need it most, such as students, pensioners and the unemployed, while investment focuses on making public transport fast and convenient. At the same time, measures that make driving less attractive, such as congestion charges or fewer parking spaces in city centres, appear to be essential if the aim is to reduce car use.`,
+        questions: [
+          { id: 'n9r27', type: 'single', prompt: '27. What is the most consistent result of free public transport?', options: ['fewer cars', 'lower taxes', 'more passengers', 'cleaner air'], answer: 2 },
+          { id: 'n9r28', type: 'single', prompt: '28. Many new passengers previously …', options: ['drove cars', 'used taxis', 'worked from home', 'walked, cycled or travelled less'], answer: 3 },
+          { id: 'n9r29', type: 'single', prompt: '29. Savings from removing ticket machines …', options: ['rarely cover more than a fraction of lost fares', 'cover all lost income', 'are larger than fares', 'are not mentioned'], answer: 0 },
+          { id: 'n9r30', type: 'single', prompt: '30. According to research, what matters most to drivers?', options: ['the ticket price', 'speed, reliability and comfort', 'the colour of buses', 'advertising'], answer: 1 },
+          { id: 'n9r31', type: 'single', prompt: '31. What approach do many experts favour?', options: ['free transport for everyone', 'higher fares', 'targeted discounts plus investment and limits on driving', 'banning cars completely'], answer: 2 },
+          { id: 'n9r32', type: 'single', prompt: '32. Some entire countries have made public transport free.', options: tfng, answer: 0 },
+          { id: 'n9r33', type: 'single', prompt: '33. Car traffic always fell sharply after fares were abolished.', options: tfng, answer: 1 },
+          { id: 'n9r34', type: 'single', prompt: '34. Free transport helps low-income households reach services.', options: tfng, answer: 0 },
+          { id: 'n9r35', type: 'single', prompt: '35. Most passengers prefer trams to buses.', options: tfng, answer: 2 },
+          { id: 'n9r36', type: 'single', prompt: '36. Removing fares requires money from taxes.', options: tfng, answer: 0 },
+          { id: 'n9r37', type: 'fill', prompt: '37. Free travel could be targeted at students, the unemployed and ___. (ONE WORD)', answer: 'pensioners' },
+          { id: 'n9r38', type: 'fill', prompt: '38. Congestion ___ make driving less attractive. (ONE WORD)', answer: ['charges', 'charge'] },
+          { id: 'n9r39', type: 'fill', prompt: '39. Cities save money by not needing ticket machines and ___. (ONE WORD)', answer: ['inspectors', 'inspector'] },
+          { id: 'n9r40', type: 'fill', prompt: '40. Critics say money should improve the service, for example with more ___ buses. (ONE WORD)', answer: 'frequent' },
+        ],
+      },
+    ],
+  },
 };

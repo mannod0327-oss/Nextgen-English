@@ -87,7 +87,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 74 | **Xatolarni takrorlash navbati** | Xatolar daftari faqat ro'yxat | Kunlik 10 ta xatoni qayta ishlash rejimi (eng eskilari birinchi); unit test + E2E | ✅ |
 | 75 | **Task 1: jarayon diagrammasi** | Process tasvirlash — passive va ketma-ketlik | 2 topshiriq (bosqichlar sxemasi SVG/HTML) + namunalar | ✅ |
 | 76 | **Idiomalar va kollokatsiyalar +30** |  | 30 ta yangi element, test rejimida ishlaydi | ✅ |
-| 77 | **Mock Test 9** |  | 40+40 original savol | ⬜ |
+| 77 | **Mock Test 9** |  | 40+40 original savol | ✅ |
 | 78 | **Writing tekshiruvi: so'z boyligi** | Lexical resource'ni ko'rsatish | Leksik xilma-xillik (TTR), akademik so'zlar ulushi; unit test | ⬜ |
 | 79 | **Shadowing mashqi** | Ravon nutq: IELTS Part 1 javoblarini takrorlash | 10 ta namunaviy javob, 🔊 → yozib olish → solishtirish; E2E | ⬜ |
 | 80 | **Progressni CSV eksport** | O'qituvchiga natijalarni yuborish | Xatolar, testlar, so'zlar holati CSV; unit test | ⬜ |
@@ -188,3 +188,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **74-iteratsiya** — Xatolarni takrorlash: plan.js reviewQueue (eng eski 10, barqaror tartib) + unit test; #/mistakes?mode=review — to'g'ri javob o'chiradi (+2 XP), yana xato sanani yangilab oxiriga suradi; daftarda 10 dan ko'p bo'lsa tugma; E2E (12 ta sun'iy xato); v=89.
 - **75-iteratsiya** — Task 1 jarayon diagrammasi: t1p yordamchisi, 2 topshiriq (quritilgan o'rik ishlab chiqarish, plastik butilka qayta ishlash) — qisqa yorliqli raqamlangan oqim (CSS, mobilga mos), Band 7 namunalar (passive + ketma-ketlik so'zlari testlanadi); jami 44 namuna; v=90.
 - **76-iteratsiya** — Kollokatsiya +30: break (6), set (6), Task 2 sifat+ot (6: vital role, growing concern…), idiomalar 2 (12: make ends meet, the tip of the iceberg…) — jami 148; takror (keep an eye on) almashtirildi; test 148+/42+ idioma; v=91.
+- **77-iteratsiya** — Mock 9: Listening (bitiruv kechasi bron, yozgi til lageri, ijtimoiy tarmoq so'rovnomasi tahlili, marjon riflari ma'ruzasi) + Reading (gilam to'qish, nega tush ko'ramiz, bepul jamoat transporti); 80 savol, MCQ aylantirildi; E2E xatolar navbati poygasi tuzatildi; v=92.
