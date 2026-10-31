@@ -1122,4 +1122,37 @@ How can trust be rebuilt? Researchers who study public communication suggest sev
       { id: 'llc5', type: 'single', prompt: 'Why might he be hiding?', options: ['He is hungry.', 'He is afraid of dogs.', 'He is ill.', 'It is raining.'], answer: 1 },
     ],
   },
+  {
+    id: 'train-trip', level: 'A2', title: 'A Train Trip to Bukhara', uzTitle: 'Buxoroga poyezd sayohati',
+    text: `Last summer, my friend Lola and I went to Bukhara by train. We bought our tickets online two weeks before the trip, because tickets sell out quickly in summer. The fast train left Tashkent at seven o'clock in the morning, so we had to get up very early. The journey took about four hours. The seats were comfortable, and there was a small café on the train where we had tea and sandwiches. We looked out of the window and saw cotton fields, small villages and, later, the desert. In Bukhara, it was very hot — almost forty degrees! We stayed in a small family guesthouse in the old town. The owner gave us a map and told us the best time to visit the old buildings: early in the morning or in the evening. We stayed for three days, and on the last day we bought some beautiful plates as presents for our families.`,
+    questions: [
+      { id: 'tt1', type: 'single', prompt: 'Why did they buy tickets early?', options: ['Tickets sell out quickly in summer.', 'They were cheaper.', 'The station was closed.', 'Their parents told them to.'], answer: 0 },
+      { id: 'tt2', type: 'fill', prompt: 'The journey took about ___ hours.', answer: ['four', '4'] },
+      { id: 'tt3', type: 'single', prompt: 'What did they see last from the window?', options: ['cotton fields', 'villages', 'mountains', 'the desert'], answer: 3 },
+      { id: 'tt4', type: 'single', prompt: 'When is the best time to visit the old buildings?', options: ['at midday', 'at night', 'early morning or evening', 'in the afternoon'], answer: 2 },
+      { id: 'tt5', type: 'fill', prompt: 'They bought some beautiful ___ as presents.', answer: 'plates' },
+    ],
+  },
+  {
+    id: 'new-hobby', level: 'A2', title: 'My New Hobby', uzTitle: 'Mening yangi hobbim',
+    text: `Six months ago, I started a new hobby: photography. At first, I only used the camera on my phone, but on my birthday my parents gave me a real camera. Now I take photos almost every weekend. I like taking pictures of old streets, markets and people's faces. My favourite time for photos is the "golden hour", just after sunrise or before sunset, when the light is soft and warm. Every Saturday I go to a free photography club at the youth centre. There are about fifteen members, and our teacher is a professional photographer. Each week she gives us a topic, for example "colours" or "water", and on Friday we show our best photo to the group. Last month, one of my photos won a small prize in a city competition. Photography has changed the way I look at my city. I notice beautiful things that I didn't see before.`,
+    questions: [
+      { id: 'nh1', type: 'single', prompt: 'How long ago did the writer start photography?', options: ['one month', 'six months', 'one year', 'two years'], answer: 1 },
+      { id: 'nh2', type: 'single', prompt: 'Who gave the writer a camera?', options: ['the parents', 'a friend', 'the teacher', 'the club'], answer: 0 },
+      { id: 'nh3', type: 'fill', prompt: 'The writer’s favourite time for photos is the "golden ___".', answer: 'hour' },
+      { id: 'nh4', type: 'fill', prompt: 'The photography club has about ___ members.', answer: ['fifteen', '15'] },
+      { id: 'nh5', type: 'single', prompt: 'What happened last month?', options: ['The writer joined the club.', 'The writer lost the camera.', 'The club closed.', 'A photo won a small prize.'], answer: 3 },
+    ],
+  },
+  {
+    id: 'healthy-habits', level: 'A2', title: 'Small Changes, Big Results', uzTitle: 'Kichik o‘zgarishlar — katta natija',
+    text: `Last year, Farrukh felt tired all the time. He worked at a computer for nine hours a day, drank a lot of sweet tea and went to bed after midnight. His doctor told him to make some small changes. First, he started walking to work instead of taking the bus. It takes him twenty-five minutes, and he listens to English podcasts on the way. Second, he stopped putting sugar in his tea. "It was difficult for two weeks," he says, "but now I don't miss it." Third, he put his phone in the kitchen at night, so he doesn't look at it in bed. Now he goes to sleep at about eleven. After three months, Farrukh feels much better. He has more energy, and he has lost five kilos. "I didn't change everything at once," he explains. "I changed one thing at a time. That's the secret."`,
+    questions: [
+      { id: 'hh1', type: 'single', prompt: 'Why did Farrukh go to the doctor?', options: ['He had a cold.', 'He hurt his leg.', 'He felt tired all the time.', 'He wanted to lose weight.'], answer: 2 },
+      { id: 'hh2', type: 'fill', prompt: 'Walking to work takes him ___ minutes.', answer: ['twenty-five', '25'] },
+      { id: 'hh3', type: 'single', prompt: 'What does he do while walking?', options: ['He calls friends.', 'He listens to English podcasts.', 'He reads the news.', 'He listens to music.'], answer: 1 },
+      { id: 'hh4', type: 'single', prompt: 'Where does he put his phone at night?', options: ['in the kitchen', 'next to his bed', 'in his bag', 'at work'], answer: 0 },
+      { id: 'hh5', type: 'fill', prompt: 'He has lost ___ kilos.', answer: ['five', '5'] },
+    ],
+  },
 ];
