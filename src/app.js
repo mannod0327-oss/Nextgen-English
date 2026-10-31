@@ -880,10 +880,11 @@ const views = {
           });
         };
       });
-      const qs = (list) => `<ol>${list.map((q) => `<li>${esc(q)} <button class="link" data-say="${esc(q)}">🔊</button></li>`).join('')}</ol>`;
       return `<a href="#/ielts">← IELTS</a><h2>Speaking: ${esc(sp.topic)}</h2>
         <p class="muted">Savolni 🔊 tinglang va ovoz chiqarib javob bering. Part 1 — 2–3 gap, Part 3 — sabab va misol bilan kengroq.</p>
-        <section class="card"><h3>Part 1 · 4–5 daqiqa</h3>${qs(sp.part1)}</section>
+        <section class="card"><h3>Part 1 · 4–5 daqiqa</h3><ol>${sp.part1.map((q, i) => `<li>${esc(q)} <button class="link" data-say="${esc(q)}">🔊</button>
+          ${sp.part1Models?.[i] ? `<details class="p1-model"><summary>💬 Namuna (2–3 gap)</summary><p lang="en">${esc(sp.part1Models[i])}</p><button class="btn" data-say="${esc(sp.part1Models[i])}">🔊 Tinglash</button></details>` : ''}</li>`).join('')}</ol>
+          ${sp.part1Models ? '<p class="muted">Part 1 javobi: javob + sabab + kichik misol (2–3 gap, ~20 soniya). Bir so‘zli “Yes/No” yetarli emas.</p>' : ''}</section>
         <section class="card cue"><h3>Part 2 · Cue card</h3><p><b>${esc(sp.part2.card)}</b></p><p>You should say:</p>
           <ul>${sp.part2.points.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>
           <p><button class="btn primary" id="cue-start">⏱ 1 daqiqa tayyorlanish + 2 daqiqa gapirish</button> <span id="cue-phase"></span> <b id="cue-timer"></b></p>

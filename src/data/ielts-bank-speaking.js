@@ -386,3 +386,68 @@ const part3Models = {
   ],
 };
 for (const s of speakingBank) if (part3Models[s.id]) s.part3Models = part3Models[s.id];
+
+// Part 1 sample answers: 2–3 sentences each — answer, reason, small example (aligned with part1).
+const part1Models = {
+  'b-family': [
+    "It's quite a big family, actually. I have two brothers and a sister, and we live with my grandparents, so the house is never quiet.",
+    "Probably my older sister. We're only two years apart, so we share a lot of interests, and I usually ask her for advice first.",
+    "Very often, because most of them live nearby. We get together almost every weekend, and for holidays like Navruz the whole family meets.",
+    "Mostly we eat together and chat. On Fridays we often cook plov, and in summer we sometimes go to the mountains for a picnic.",
+  ],
+  'b-friends': [
+    "Mainly through university and my sports club. I find it's easier to make friends when you're doing an activity together.",
+    "I'd say a few close ones. I prefer friends I can really trust, rather than lots of people I only know a little.",
+    "We usually go to a café or play football in the park. Sometimes we just stay at someone's house and watch a film.",
+    "Yes, with a few of them. We have a group chat, and we try to meet at least once a year, usually in the summer.",
+  ],
+  'b-food': [
+    "My favourite dish is definitely manti. I love it because my grandmother makes it with pumpkin, and it reminds me of home.",
+    "Yes, I can cook a few simple things, like eggs, soups and pasta. I'm trying to learn more traditional dishes from my mother.",
+    "I prefer eating at home, because it's healthier and cheaper. But eating out with friends is nice for special occasions.",
+    "Yes, quite a lot. As a child I ate a lot of sweets, but now I try to eat more vegetables and drink less sugary tea.",
+  ],
+  'b-music': [
+    "I like all kinds of music, but I mostly listen to pop and some Uzbek folk songs. It depends on my mood, really.",
+    "Not really. I had a few guitar lessons at school, but I gave up. I'd like to try again one day.",
+    "Mainly when I'm travelling, for example on the metro. I also listen while I'm studying, as long as the songs don't have words.",
+    "Yes, definitely. When I was a teenager I only listened to loud rock music, but now I enjoy calmer songs.",
+  ],
+  'b-sport': [
+    "Yes, I play football with my friends twice a week. In the summer I also go swimming, because it's too hot to run around.",
+    "Football is by far the most popular. Wrestling and boxing are also big, partly because our athletes do so well internationally.",
+    "Yes, we had PE lessons twice a week. I enjoyed them, especially when we played volleyball.",
+    "I prefer playing, because it keeps me fit and I enjoy being part of a team. Watching is fun, but only for big matches.",
+  ],
+  'b-books': [
+    "Yes, I do, although I don't have as much time as I'd like. I usually read for half an hour before bed.",
+    "Mostly novels and books about history. Recently I've also started reading simple English books to improve my vocabulary.",
+    "I prefer paper books, because I find it easier to concentrate. But e-books are very convenient when I'm travelling.",
+    "Yes, my mother read fairy tales to me almost every night. I think that's why I still enjoy reading now.",
+  ],
+  'b-films': [
+    "Probably once or twice a week. I usually watch at the weekend, when I have more free time.",
+    "I prefer the cinema for big action films, because the screen and sound are much better. For other films, home is more comfortable.",
+    "I like documentaries, especially about nature and history. I sometimes watch cooking programmes too, because they give me ideas.",
+    "Yes, I try to. I usually watch with English subtitles, which really helps my listening.",
+  ],
+  'b-shopping': [
+    "Not really, to be honest. I only go shopping when I need something, and I like to finish quickly.",
+    "For electronics I prefer online shopping, because it's cheaper and there's more choice. But for clothes I like shops, so I can try things on.",
+    "Usually in a shopping centre near my home. Sometimes I go to the bazaar instead, because prices there are lower.",
+    "Yes, always, especially for expensive things. I check a few websites and read reviews before I decide.",
+  ],
+  'b-weather': [
+    "We have very hot summers and quite cold winters. In summer it can be over forty degrees, so most people stay inside at midday.",
+    "I like spring best, because it's warm but not too hot. Everything is green, and the parks are full of flowers.",
+    "Yes, quite often. If it's very hot, I go out in the evening instead, and when it snows I usually stay at home.",
+    "Yes, I check it on my phone every morning. It's especially useful in spring, because the weather can change very quickly.",
+  ],
+  'b-transport': [
+    "Mostly by metro, because it's fast and cheap. For short distances I sometimes walk or take a taxi.",
+    "Not yet, but I'm planning to take driving lessons next year. It would be really useful for my future job.",
+    "It's quite good in the centre, especially the metro. But in the suburbs buses can be crowded and not very frequent.",
+    "For long distances I prefer the train, because it's comfortable and you can see the countryside. Planes are faster, but I don't enjoy airports.",
+  ],
+};
+for (const s of speakingBank) if (part1Models[s.id]) s.part1Models = part1Models[s.id];

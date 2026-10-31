@@ -88,3 +88,16 @@ test('makeCloze: n gaps of content words, spread through the text, text preserve
   assert.ok(pos[3] - pos[0] > segs.length / 3, 'gaps spread out');
   assert.equal(makeCloze('a b c', 5).filter((s) => s.gap !== undefined).length, 0);
 });
+
+test('speaking Part 1 sample answers: ≥10 sets, one per question, 2–3 sentences (15–45 words), no typical mistakes', () => {
+  const sets = speakingBank.filter((s) => s.part1Models);
+  assert.ok(sets.length >= 10);
+  for (const s of sets) {
+    assert.equal(s.part1Models.length, s.part1.length, s.id);
+    for (const a of s.part1Models) {
+      const r = checkWriting(a);
+      assert.ok(r.words >= 15 && r.words <= 45 && r.sentences >= 2 && r.sentences <= 3, `${s.id}: ${r.words} words / ${r.sentences} sentences — ${a}`);
+      assert.deepEqual(r.mistakes, [], s.id);
+    }
+  }
+});

@@ -230,6 +230,7 @@ await step('ielts speaking: Part 3 sample answers open under the questions', asy
   if ((await page.$$('.p3-model')).length < 2) throw new Error('part 3 models missing');
   await page.click('.p3-model summary');
   if (!(await page.isVisible('.p3-model p'))) throw new Error('model not shown');
+  if ((await page.$$('.p1-model')).length !== 4) throw new Error('part 1 models missing');
 });
 
 await step('ielts mock 4: listed on hub, reading-4 scores answers', async () => {
