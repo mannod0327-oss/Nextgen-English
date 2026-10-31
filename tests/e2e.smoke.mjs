@@ -1,7 +1,7 @@
 // Browser smoke test: drives every view and fails on any page/console error.
 // Usage: npm start (in another shell) && npm run test:e2e   — needs Playwright + Chromium.
 import { createRequire } from 'node:module';
-import { mkdirSync } from 'node:fs';
+import { mkdirSync, readFileSync } from 'node:fs';
 
 const require = createRequire(import.meta.url);
 const { drillItems } = await import('../src/data/drills.js');
@@ -664,6 +664,15 @@ await step('shadowing: Part 1 questions with model answers, own answer recorded 
   await p.click('#rec-stop');
   await p.waitForSelector('#rec-list audio');
   await ctx.close();
+});
+
+await step('progress CSV: download contains header and profile rows', async () => {
+  await page.goto(`${base}/#/`);
+  await page.goto(`${base}/#/progress`);
+  const [dl] = await Promise.all([page.waitForEvent('download'), page.click('#csv-export')]);
+  if (!/^nextgen-english-progress-\d{4}-\d{2}-\d{2}\.csv$/.test(dl.suggestedFilename())) throw new Error(dl.suggestedFilename());
+  const text = readFileSync(await dl.path(), 'utf8');
+  if (!text.startsWith('\uFEFFsection,item,value,date') || !text.includes('profile,xp,')) throw new Error(text.slice(0, 120));
 });
 
 await step('daily goal: ring shows today\'s XP, goal choice persists, week has 7 days', async () => {

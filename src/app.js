@@ -10,6 +10,7 @@ import { linePoints, lastDays, chartSvg } from './core/chart.js';
 import { buildSearchIndex, search } from './core/search.js';
 import { checkWriting, readingSpeed } from './core/writing-check.js';
 import { badges } from './core/badges.js';
+import { toCsv, progressRows } from './core/csv.js';
 import { makeRound, normAnswer, ROUND_KINDS } from './core/numbers.js';
 import { vocabulary, categories } from './data/vocabulary.js';
 import { grammar } from './data/grammar.js';
@@ -1023,7 +1024,17 @@ const views = {
       // Dots as well as the line: a single attempt is a zero-length polyline and would be invisible.
       return pts.length ? `<polyline fill="none" stroke="${color}" stroke-width="2.5" points="${line}"/>${line.split(' ').map((xy, i) => `<circle cx="${xy.split(',')[0]}" cy="${xy.split(',')[1]}" r="3.5" fill="${color}"><title>${pts[i]}</title></circle>`).join('')}` : '';
     };
+    queueMicrotask(() => {
+      $('#csv-export').onclick = () => {
+        const keys = ['profile', 'mistakes', 'ieltsMockHistory', 'readingDone', 'grammarDone', 'drillBest', 'readingSpeed', 'cards'];
+        const csv = toCsv(progressRows(Object.fromEntries(keys.map((k) => [k, store.get(k, undefined)]).filter(([, v]) => v !== undefined))));
+        const url = URL.createObjectURL(new Blob(['\uFEFF', csv], { type: 'text/csv;charset=utf-8' }));
+        Object.assign(document.createElement('a'), { href: url, download: `nextgen-english-progress-${today()}.csv` }).click();
+        URL.revokeObjectURL(url);
+      };
+    });
     return `<h2>📈 Mening progressim</h2>
+      <p><button class="btn" id="csv-export">⬇ CSV (o'qituvchiga yuborish uchun)</button></p>
       <div class="stats-grid">
         ${stat('🎯', 'daraja', p.level ?? '—', p.level ? '' : '<a href="#/placement">testni topshiring</a>')}
         ${stat('⭐', 'XP', p.xp)}

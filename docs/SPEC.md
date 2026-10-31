@@ -90,7 +90,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 77 | **Mock Test 9** |  | 40+40 original savol | ✅ |
 | 78 | **Writing tekshiruvi: so'z boyligi** | Lexical resource'ni ko'rsatish | Leksik xilma-xillik (TTR), akademik so'zlar ulushi; unit test | ✅ |
 | 79 | **Shadowing mashqi** | Ravon nutq: IELTS Part 1 javoblarini takrorlash | 10 ta namunaviy javob, 🔊 → yozib olish → solishtirish; E2E | ✅ |
-| 80 | **Progressni CSV eksport** | O'qituvchiga natijalarni yuborish | Xatolar, testlar, so'zlar holati CSV; unit test | ⬜ |
+| 80 | **Progressni CSV eksport** | O'qituvchiga natijalarni yuborish | Xatolar, testlar, so'zlar holati CSV; unit test | ✅ |
 | 81 | **A1 boshlang'ich +4** | Boshlovchilar uchun kontent kam | 2 ta A1 grammatika + 2 ta A1 o'qish | ⬜ |
 | 82 | **Mock Test 10** |  | 40+40 original savol | ⬜ |
 
@@ -191,3 +191,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **77-iteratsiya** — Mock 9: Listening (bitiruv kechasi bron, yozgi til lageri, ijtimoiy tarmoq so'rovnomasi tahlili, marjon riflari ma'ruzasi) + Reading (gilam to'qish, nega tush ko'ramiz, bepul jamoat transporti); 80 savol, MCQ aylantirildi; E2E xatolar navbati poygasi tuzatildi; v=92.
 - **78-iteratsiya** — Writing tekshiruvi: lexicalProfile (mazmunli so'zlar TTR + akademik so'zlar) + unit test (barcha namunalar ≥0.45); hisobotda so'z boyligi va akademik so'zlar (Akademik lug'at + sinonimlar), kam bo'lsa sinonim trenajyoriga havola; E2E; v=93.
 - **79-iteratsiya** — Shadowing: Speech Lab'da 'shadowing' to'plami — 10 ta Part 1 savol + namunaviy javob (🔊, baholash, diktant) va pastda yozuvchi (o'z javobini yozib solishtirish); mikrofon xatosi endi 'ruxsat yo'q' va 'band/topilmadi' ga ajratiladi; E2E (yangi kontekst + ikkala xato); v=94.
+- **80-iteratsiya** — CSV eksport: src/core/csv.js (toCsv RFC 4180 + progressRows: profil, mock tarixi, o'qish/grammatika/drill, o'qish tezligi, kartalar (isMature), ochiq xatolar) + unit test; progressda yuklab olish (UTF-8 BOM, Excel uchun); E2E download; v=95.

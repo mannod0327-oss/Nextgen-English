@@ -310,3 +310,20 @@ test('reviewQueue: oldest mistakes first, stable order, at most n', () => {
   assert.equal(reviewQueue(book).length, 4);
   assert.deepEqual(reviewQueue({}), []);
 });
+
+test('csv export: RFC 4180 quoting and progress rows', async () => {
+  const { toCsv, progressRows } = await import('../src/core/csv.js');
+  assert.equal(toCsv([['a', 'b,c'], ['say "hi"', null], ['line\nbreak', 3]]), 'a,"b,c"\r\n"say ""hi""",\r\n"line\nbreak",3');
+  const rows = progressRows({
+    profile: { level: 'B1', xp: 120, days: ['2026-10-29', '2026-10-30'] },
+    ieltsMockHistory: [{ key: 'reading-2', raw: 30, band: 7, date: '2026-10-30' }],
+    readingDone: { chorsu: 80 }, grammarDone: { passive: 100 }, drillBest: 70,
+    cards: { a: { interval: 30 }, b: { interval: 2 } },
+    mistakes: { q1: { q: { id: 'q1', prompt: 'Pick one' }, source: 'Grammar', given: 'x', date: '2026-10-28' } },
+  });
+  assert.deepEqual(rows[0], ['section', 'item', 'value', 'date']);
+  for (const r of [['profile', 'level', 'B1', ''], ['profile', 'active days', 2, ''], ['ielts mock', 'reading-2', '30/40 → band 7', '2026-10-30'], ['drill', 'articles', '70%', ''],
+    ['vocabulary', 'cards mature (21+ days)', 1, ''], ['open mistake', 'Grammar: Pick one', 'x', '2026-10-28']]) assert.ok(rows.some((x) => JSON.stringify(x) === JSON.stringify(r)), JSON.stringify(r));
+  assert.ok(rows.every((r) => r.length === 4));
+  assert.equal(progressRows({}).length, 6);
+});
