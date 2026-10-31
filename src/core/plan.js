@@ -97,3 +97,24 @@ export function examPlan(examDate, date) {
   const title = { foundation: 'Asos qurish bosqichi', practice: 'Amaliyot bosqichi', final: 'Yakuniy tayyorgarlik' }[phase];
   return { days, weeks: Math.ceil(days / 7), phase, title, week };
 }
+
+/**
+ * Personal path after the placement test: grammar topics, texts and vocabulary themes at the learner's level
+ * (falling back to the nearest lower level), plus the level below for revision. Pure; the app renders it.
+ */
+export function learningPath(level, { grammar, texts, vocabulary }) {
+  const lvl = LEVELS.includes(level) ? level : 'A1';
+  const below = LEVELS[Math.max(0, LEVELS.indexOf(lvl) - 1)];
+  const themeLevel = {};
+  for (const v of vocabulary) (themeLevel[v.category] ??= []).push(LEVELS.indexOf(v.level));
+  const median = (a) => a.slice().sort((x, y) => x - y)[Math.floor(a.length / 2)];
+  const themes = Object.entries(themeLevel).filter(([, ls]) => LEVELS[median(ls)] === lvl).map(([c]) => c);
+  return {
+    level: lvl,
+    grammar: atLevel(grammar, lvl).slice(0, 6),
+    review: below !== lvl ? grammar.filter((g) => g.level === below).slice(0, 3) : [],
+    reading: atLevel(texts.filter((t) => !t.listening), lvl).slice(0, 4),
+    listening: atLevel(texts.filter((t) => t.listening), lvl).slice(0, 3),
+    themes: themes.slice(0, 6),
+  };
+}

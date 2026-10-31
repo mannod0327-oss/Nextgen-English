@@ -5,7 +5,7 @@ import { gradeExam, scoreQuestion, makeVariant, parseExam, serializeExam, valida
 import { createPlacement, nextQuestion, answerPlacement, placementResult, LEVELS } from './core/placement.js';
 import { renderPrintable, esc } from './core/printable.js';
 import { createStore } from './core/store.js';
-import { dailyPlan, wordOfDay, goalStatus, XP_GOALS, reviewQueue, personalCards, MY_WORDS, examPlan } from './core/plan.js';
+import { dailyPlan, wordOfDay, goalStatus, XP_GOALS, reviewQueue, personalCards, MY_WORDS, examPlan, learningPath } from './core/plan.js';
 import { linePoints, lastDays, chartSvg } from './core/chart.js';
 import { buildSearchIndex, search } from './core/search.js';
 import { checkWriting, readingSpeed, makeCloze } from './core/writing-check.js';
@@ -23,18 +23,19 @@ import { guideSections, guideUnits } from './data/grammar-guide.js';
 import { writing, writingCriteria, speaking, officialResources, toBand } from './data/ielts.js';
 import { irregularVerbs } from './data/irregular-verbs.js';
 import { minimalPairs } from './data/minimal-pairs.js';
-import { collocations } from './data/collocations.js';
-import { trainers, drillSets, drillItems } from './data/drills.js';
 
 // IELTS practice bank: hand-made tasks + bank items. Bank texts open in the reading view but are listed only in #/ielts.
 // The mocks, banks and guides (~390 KB) are not on the first-render path: loadIelts() imports them for the views in
 // IELTS_VIEWS (route() waits for it) and is also started when the browser is idle, so the service worker caches them.
 let allTexts = readings, allWriting = writing, allSpeaking = speaking, mockTests = {}, guides = [], ieltsLists;
+let trainers = [], drillSets = [], drillItems = [], collocations = []; // drill centre + collocations: also lazy
 let ieltsPromise;
-const IELTS_VIEWS = new Set(['ielts', 'reading', 'progress', 'search']);
-const loadIelts = () => (ieltsPromise ??= Promise.all(['ielts-mock', 'ielts-guides', 'ielts-bank-speaking', 'ielts-bank-writing', 'ielts-bank-reading', 'ielts-bank-listening']
+const IELTS_VIEWS = new Set(['ielts', 'reading', 'progress', 'search', 'drill', 'articles', 'collocations', 'path']);
+const loadIelts = () => (ieltsPromise ??= Promise.all(['ielts-mock', 'ielts-guides', 'ielts-bank-speaking', 'ielts-bank-writing', 'ielts-bank-reading', 'ielts-bank-listening', 'drills', 'collocations']
   .map((f) => import(`./data/${f}.js`)))
-  .then(([m, g, { speakingBank }, { writingBank }, { readingBank }, { listeningBank }]) => {
+  .then(([m, g, { speakingBank }, { writingBank }, { readingBank }, { listeningBank }, d, c]) => {
+    ({ trainers, drillSets, drillItems } = d);
+    ({ collocations } = c);
     ({ mockTests } = m);
     ({ guides } = g);
     allTexts = [...readings, ...readingBank, ...listeningBank];
@@ -292,8 +293,8 @@ const views = {
       ['#/reading', '📰', "O'qish va tinglash", `${readings.length} ta matn va tinglash (A1–C1), savollar bilan`],
       ['#/verbs', '🔁', "Noto'g'ri fe'llar", `${irregularVerbs.length} ta fe'l: jadval, tinglash va V2/V3 testi`],
       ['#/sounds', '👂', 'Qiyin tovushlar', `${minimalPairs.length} juft tovush (w/v, θ/s, iː/ɪ…): eshiting va farqlang`],
-      ['#/drill', '🎯', 'Mashqlar markazi', `${drillItems.length} ta mashq: ${trainers.map((t) => t.title.toLowerCase()).join(', ')}`],
-      ['#/collocations', '🧩', 'Kollokatsiyalar', `${collocations.reduce((n, g) => n + g.items.length, 0)} ta ibora: make/do/take, sifat+ot, idiomalar`],
+      ['#/drill', '🎯', 'Mashqlar markazi', "Artikl, imlo, bog'lovchilar, urg'u, Task 1 tili, sinonimlar, so'z yasalishi, predloglar"],
+      ['#/collocations', '🧩', 'Kollokatsiyalar', 'make/do/take, sifat+ot, frazali fe’llar, idiomalar — test bilan'],
       ['#/ielts', '🎓', 'IELTS tayyorlov', `Listening, Reading, ${writing.length} ta Writing, ${speaking.length} ta Speaking, ball hisoblagich`],
       ['#/speech', '🎙️', 'Nutq laboratoriyasi', "Real vaziyatlar, talaffuzni 0–100% baholash"],
       ['#/dictionary', '📖', "Lug'at", "Prefiks qidiruv, so'z shakllarini taniydi"],
@@ -340,7 +341,7 @@ const views = {
     return `<section class="hero"><h1>Ingliz tilini tizimli o'rganing</h1>
       <p>${p.level ? `Sizning darajangiz: <b>${p.level}</b>. ` : "Avval darajangizni aniqlang — reja shunga moslashadi. "}
       ${mature} ta so'z uzoq muddatli xotirada.</p>
-      <div class="hero-actions">${p.level ? '' : '<a class="btn primary" href="#/placement">Daraja testini boshlash →</a>'}
+      <div class="hero-actions">${p.level ? '<a class="btn primary" href="#/path">🧭 Shaxsiy yo\'lim</a>' : '<a class="btn primary" href="#/placement">Daraja testini boshlash →</a>'}
       <a class="btn" href="grammar-guide/index.html">📚 Grammatika qo'llanmasi (${guideUnits.length} unit)</a></div></section>
       ${planHtml}
       ${goalHtml}
@@ -366,7 +367,7 @@ const views = {
         app.innerHTML = `<section class="card center"><h2>Natija</h2><div class="big">${level}</div>
           <p>${right} / ${state.history.length} to'g'ri javob.</p>
           <p class="muted">Tavsiya: grammatika bo'limida <b>${level}</b> mavzularidan boshlang.</p>
-          <a class="btn primary" href="#/grammar">Grammatikaga o'tish</a> <a class="btn" href="#/">Bosh sahifa</a></section>`;
+          <a class="btn primary" href="#/path">🧭 Shaxsiy yo'lim</a> <a class="btn" href="#/grammar">Grammatikaga o'tish</a> <a class="btn" href="#/">Bosh sahifa</a></section>`;
         return;
       }
       app.innerHTML = `<section class="card question"><div class="muted">Savol ${state.history.length + 1} / ${state.maxQuestions}</div>
@@ -1278,6 +1279,25 @@ const views = {
     });
     return `<h2>🔎 Qidiruv</h2><input id="sq" class="search" type="search" aria-label="Qidiruv" placeholder="So'z, grammatika, matn, IELTS mavzusi… (inglizcha yoki o'zbekcha)" value="${esc(params.get('q') ?? '')}" autocomplete="off">
       <div id="sres" aria-live="polite"></div>`;
+  },
+
+  path() {
+    const p = profile();
+    if (!p.level) return `<h2>🧭 Shaxsiy yo'l</h2><section class="card center"><p>Avval darajangizni aniqlang — yo'l shunga qarab tuziladi.</p><a class="btn primary" href="#/placement">Daraja testi →</a></section>`;
+    const lp = learningPath(p.level, { grammar, texts: readings, vocabulary });
+    const done = store.get('grammarDone', {});
+    const rd = store.get('readingDone', {});
+    const row = (href, badge, title, sub, mark) => `<a class="row" href="${href}"><span class="badge">${badge}</span><span><b>${esc(title)}</b>${sub ? `<br><span class="muted">${esc(sub)}</span>` : ''}</span><span class="muted">${mark ?? ''}</span></a>`;
+    const sec = (h, items) => (items.length ? `<section class="card"><h3>${h}</h3><div class="list">${items.join('')}</div></section>` : '');
+    return `<h2>🧭 Shaxsiy yo'lim <span class="badge">${lp.level}</span></h2>
+      <p class="muted">Daraja testi natijasiga ko'ra tavsiyalar. Tartib bilan bajaring — ✅ belgilari avtomatik qo'yiladi.</p>
+      ${sec('1. 📐 Grammatika', lp.grammar.map((g) => row(`#/grammar?topic=${g.id}`, g.level, g.title, '', done[g.id] != null ? `✅ ${done[g.id]}%` : '')))}
+      ${sec("2. 🖼️ Lug'at mavzulari", lp.themes.map((c) => row(`#/vocab?cat=${encodeURIComponent(c)}`, '🗂', c, `${vocabulary.filter((v) => v.category === c).length} so'z`)))}
+      ${sec("3. 📰 O'qish", lp.reading.map((t) => row(`#/reading?t=${t.id}`, t.level, t.title, t.uzTitle, rd[t.id] != null ? `✅ ${rd[t.id]}%` : '')))}
+      ${sec('4. 🎧 Tinglash', lp.listening.map((t) => row(`#/reading?t=${t.id}`, t.level, t.title, t.uzTitle, rd[t.id] != null ? `✅ ${rd[t.id]}%` : '')))}
+      ${sec('5. 🎯 Trenajyorlar', trainers.map((t) => row(`#/drill?t=${t.id}`, t.icon, t.title, t.desc, drillBest()[t.id] != null ? `${drillBest()[t.id]}%` : '')))}
+      ${sec('🔁 Takrorlash (oldingi daraja)', lp.review.map((g) => row(`#/grammar?topic=${g.id}`, g.level, g.title, '', done[g.id] != null ? `✅ ${done[g.id]}%` : '')))}
+      <p><a class="btn" href="#/placement">Daraja testini qayta topshirish</a></p>`;
   },
 
   mistakes(params) {

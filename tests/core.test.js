@@ -287,7 +287,7 @@ test('first render loads no IELTS mocks/banks/guides and stays under 600 KB of J
   const { staticGraph } = await import('../scripts/initial-bytes.mjs');
   const g = staticGraph(new URL('../src/app.js', import.meta.url).pathname);
   const files = [...g.keys()].map((f) => f.replace(/.*\/src\//, ''));
-  for (const lazy of ['ielts-mock', 'ielts-guides', 'ielts-bank-', 'definitions']) assert.ok(!files.some((f) => f.includes(lazy)), `${lazy} is on the first-render path`);
+  for (const lazy of ['ielts-mock', 'ielts-guides', 'ielts-bank-', 'definitions', 'drills', 'collocations']) assert.ok(!files.some((f) => f.includes(lazy)), `${lazy} is on the first-render path`);
   const kb = [...g.values()].reduce((a, b) => a + b, 0) / 1024;
   assert.ok(kb < 600, `${kb.toFixed(0)} KB`);
 });
@@ -347,4 +347,17 @@ test('examPlan: days left, phase boundaries, weekly targets', async () => {
   const p = examPlan('2026-12-01', '2026-10-31');
   assert.equal(p.weeks, 5);
   assert.ok(p.week.length === 4 && p.week.every((x) => x.icon && x.title && x.href.startsWith('#/')));
+});
+
+test('learningPath: level-matched grammar, texts and themes; revision from the level below', async () => {
+  const { learningPath } = await import('../src/core/plan.js');
+  const grammar = [{ id: 'g1', level: 'A1' }, { id: 'g2', level: 'A2' }, { id: 'g3', level: 'B1' }, { id: 'g4', level: 'B1' }];
+  const texts = [{ id: 'r1', level: 'B1' }, { id: 'l1', level: 'B1', listening: true }, { id: 'r2', level: 'A2' }];
+  const vocabulary = [{ category: 'X', level: 'B1' }, { category: 'X', level: 'B1' }, { category: 'X', level: 'A1' }, { category: 'Y', level: 'A1' }];
+  const p = learningPath('B1', { grammar, texts, vocabulary });
+  assert.deepEqual([p.level, p.grammar.map((g) => g.id), p.review.map((g) => g.id), p.reading.map((t) => t.id), p.listening.map((t) => t.id), p.themes], ['B1', ['g3', 'g4'], ['g2'], ['r1'], ['l1'], ['X']]);
+  const c1 = learningPath('C1', { grammar, texts, vocabulary });
+  assert.deepEqual(c1.grammar.map((g) => g.id), ['g3', 'g4'], 'falls back to the nearest lower level');
+  assert.equal(learningPath(undefined, { grammar, texts, vocabulary }).level, 'A1');
+  assert.deepEqual(learningPath('A1', { grammar, texts, vocabulary }).review, []);
 });
