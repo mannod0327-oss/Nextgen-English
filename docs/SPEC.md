@@ -112,7 +112,27 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 99 | **B1 grammatika +3** (future continuous, would (o'tmish odati), both/either/neither) |  | har biri ≥5 mashq | ✅ |
 | 100 | **Bosh sahifa: tez kirish va qidiruv** | Kontent ko'p — topish qiyin | Oxirgi ochilgan 5 sahifa, bosh sahifada qidiruv maydoni; E2E | ✅ |
 | 101 | **Foydalanuvchi qo'llanmasi** | Yangi foydalanuvchi qayerdan boshlashni bilmaydi | `#/help`: 1-kun, 1-hafta, IELTS yo'li; barcha bo'limlar tavsifi; E2E | ✅ |
-| 102 | **Mock Test 13** |  | 40+40 original savol | ⬜ |
+| 102 | **Mock Test 13** |  | 40+40 original savol | ✅ |
+| 103 | **Mock Test 14** |  | 40+40 original savol | ⬜ |
+| 104 | **A2 grammatika +3** (be going to vs will, ravish (quickly/well), should/shouldn't) | A2 mavzular kam | har biri ≥5 mashq | ⬜ |
+| 105 | **B2 grammatika +3** (passive + modal, -ed/-ing sifatlar, future in the past) |  | har biri ≥5 mashq | ⬜ |
+| 106 | **Lug'at +60** (ish va martaba, energiya, hayvonot va bioxilma-xillik) | IELTS mavzulari | 3 × 20 so'z, definitions | ⬜ |
+| 107 | **B1 tinglash +3** |  | 3 × 5 savol | ⬜ |
+| 108 | **B1 o'qish +3** |  | 3 × 5 savol | ⬜ |
+| 109 | **Task 1 namunalari +6** (qolgan jadvallar) |  | raqam tekshiruvidan o'tadi | ⬜ |
+| 110 | **Speaking Part 2 namunalari +10** |  | ≥200 so'z, xatosiz | ⬜ |
+| 111 | **Daraja testi +20 savol** | 60 savol — takrorlanish | 80 savol, har darajada ≥15; unit test | ⬜ |
+| 112 | **Minimal juftlar +3** (ʃ/tʃ, æ/ʌ, i:/aɪ) |  | 16 to'plam | ⬜ |
+| 113 | **Grammatika aralash testi** | Mavzular alohida — umumiy tekshiruv yo'q | Darajaga mos 15 tasodifiy savol barcha mavzulardan (pure tanlov, unit test), E2E | ⬜ |
+| 114 | **Nutq laboratoriyasi +6 vaziyat** |  | 30 vaziyat | ⬜ |
+| 115 | **Grammatika mavzusini chop etish** | Qog'ozda mashq qilish | Qoida + jadval + mashqlar print ko'rinishi; E2E print media | ⬜ |
+| 116 | **Writing Task 2 namunalari +6** |  | ≥250 so'z | ⬜ |
+| 117 | **Testni havola orqali ulashish** | O'qituvchi yaratgan testni o'quvchiga yuborish qiyin | Test yaratuvchida URL (#/exam?share=…) — kodlash/dekodlash unit test, E2E | ⬜ |
+| 118 | **Haftalik hisobot** | Progress faqat umumiy | Oxirgi 7 kun: XP, faol kunlar, testlar, yangi so'zlar (pure, unit test) progressda | ⬜ |
+| 119 | **GT xatlari +4** |  | 4 ta yangi topshiriq + namuna | ⬜ |
+| 120 | **Idiomalar +20** |  | 62+ idioma | ⬜ |
+| 121 | **Mock Test 15** |  | 40+40 original savol | ⬜ |
+| 122 | **Yakuniy tekshiruv va hujjatlar** | 100 iteratsiyadan keyin umumiy holat | To'liq regressiya, README/CHANGELOG yangilash, yakuniy hisobot | ⬜ |
 
 ## Iteratsiyalar jurnali
 
@@ -233,3 +253,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **99-iteratsiya** — B1 grammatika +3: Future Continuous, would/used to (o'tmish odatlari; holat — faqat used to), both/either/neither (+ juft bog'lovchilar) — 15 mashq; jami 53 mavzu / 242 mashq; v=115.
 - **100-iteratsiya** — Tez kirish: plan.js pushRecent (yangisi birinchi, takrorsiz, 5 ta, bosh sahifa yozilmaydi) + unit test; route() sahifa sarlavhasini (h2) yozib boradi; bosh sahifada qidiruv maydoni va oxirgi sahifalar chiplari; E2E; v=116.
 - **101-iteratsiya** — Qo'llanma: #/help — 1-kun (daraja testi, shaxsiy yo'l, XP maqsadi), 1-hafta, IELTS yo'li, foydali imkoniyatlar, barcha bo'limlar; bosh sahifadan havola; E2E har bir ichki havola mavjud ko'rinishga olib borishini tekshiradi; v=117.
+- **102-iteratsiya** — Mock 13: Listening (ijara kvartirasida nosozlik, shahar avtobus sayohati, o'simlik o'sishi tajribasi, soyabon tarixi ma'ruzasi) + Reading (paxta tarixi, keksalar parvarishida robotlar, video o'yinlar aqlni oshiradimi); 80 savol; Batch 7 (83–102) yakunlandi, Batch 8 (103–122) SPEC'ga yozildi; v=118.

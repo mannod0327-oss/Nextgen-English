@@ -2503,4 +2503,208 @@ Some technology companies now claim that artificial intelligence can detect lies
       },
     ],
   },
+
+  'listening-13': {
+    kind: 'listening', title: 'IELTS Listening — Mock Test 13', minutes: 30,
+    sections: [
+      {
+        title: 'Part 1 · Reporting a problem in a rented flat',
+        intro: 'You will hear a tenant phoning a property management company. Questions 1–10.',
+        script: `Agent: City Homes, maintenance department. How can I help?
+Tenant: Hello. I'm renting one of your flats, and there's a problem with the heating.
+Agent: I'm sorry to hear that. Can I have the address?
+Tenant: It's 45 Navoi Avenue, flat 31.
+Agent: Thank you. And your name?
+Tenant: Gulnoza Saidova. S-A-I-D-O-V-A.
+Agent: What exactly is the problem?
+Tenant: The radiator in the bedroom has been cold for three days. The ones in the living room and kitchen are working.
+Agent: Have you checked that the valve is open?
+Tenant: Yes, I have. I also noticed a small leak under the radiator — there's water on the floor.
+Agent: OK, that sounds like a job for our plumber. He can come on Friday morning, between eight and twelve. Will someone be at home?
+Tenant: I'll be at work, but my neighbour has a key. She lives in flat 32.
+Agent: That's fine, but we need her phone number.
+Tenant: It's ninety-three, seven-four-one, eighteen, fifty.
+Agent: Thank you. In the meantime, please put a towel under the radiator and don't try to repair it yourself. There's no charge for this repair — it's included in your contract.
+Tenant: Great. One more thing — the light in the entrance hall isn't working either.
+Agent: I'll add that to the report. The electrician will check it on the same visit.`,
+        questions: [
+          { id: 'n13l1', type: 'fill', prompt: '1. Problem with the ___', answer: 'heating' },
+          { id: 'n13l2', type: 'fill', prompt: '2. Address: 45 Navoi Avenue, flat ___', answer: ['31', 'thirty-one'] },
+          { id: 'n13l3', type: 'fill', prompt: '3. Surname: ___', answer: 'Saidova' },
+          { id: 'n13l4', type: 'single', prompt: '4. Which radiator is cold?', options: ['bedroom', 'living room', 'kitchen', 'bathroom'], answer: 0 },
+          { id: 'n13l5', type: 'fill', prompt: '5. It has been cold for ___ days.', answer: ['three', '3'] },
+          { id: 'n13l6', type: 'fill', prompt: '6. There is a small ___ under the radiator.', answer: 'leak' },
+          { id: 'n13l7', type: 'fill', prompt: '7. The plumber will come on ___ morning.', answer: 'Friday' },
+          { id: 'n13l8', type: 'single', prompt: '8. Who will let the plumber in?', options: ['the tenant', 'the neighbour', 'the landlord', 'the agent'], answer: 1 },
+          { id: 'n13l9', type: 'single', prompt: '9. How much will the repair cost?', options: ['half the price', 'one month’s rent', 'nothing', 'it depends'], answer: 2 },
+          { id: 'n13l10', type: 'fill', prompt: '10. The light in the entrance ___ is not working.', answer: 'hall' },
+        ],
+      },
+      {
+        title: 'Part 2 · A half-day city bus tour',
+        intro: 'You will hear a radio presenter describing a bus tour. Questions 11–20.',
+        script: `If you've got visitors this weekend, why not take them on the new open-top bus tour of the city? Tours run every day from April to October, departing every forty-five minutes from nine in the morning, and the whole route takes about three and a half hours if you stay on the bus.
+The tour starts at Independence Square. From there it goes past the TV tower, which at three hundred and seventy-five metres is one of the tallest structures in the region, and then on to the Chorsu Bazaar, where many passengers get off to explore. You can rejoin the bus at any stop with the same ticket, which is valid for twenty-four hours.
+Other highlights include the Minor Mosque, with its white marble walls, and the Japanese Garden, which is particularly beautiful in spring. The final stop is the Tashkent City Park, where there are plenty of cafés.
+Commentary is available through headphones in eight languages, including English, Russian and Chinese. Tickets cost one hundred and twenty thousand sum for adults, and children under twelve travel at half price. Children under five go free.
+You can buy tickets online, at the hotel reception desks of partner hotels, or directly from the driver, although paying online gives you a ten per cent discount. On hot afternoons, don't forget a hat — the top deck has no roof!`,
+        questions: [
+          { id: 'n13l11', type: 'single', prompt: '11. Tours run …', options: ['all year', 'only at weekends', 'in summer only', 'from April to October'], answer: 3 },
+          { id: 'n13l12', type: 'fill', prompt: '12. Buses depart every ___ minutes.', answer: ['forty-five', '45'] },
+          { id: 'n13l13', type: 'fill', prompt: '13. The tour starts at Independence ___', answer: 'Square' },
+          { id: 'n13l14', type: 'fill', prompt: '14. The TV tower is ___ metres tall.', answer: ['375', 'three hundred and seventy-five'] },
+          { id: 'n13l15', type: 'single', prompt: '15. The ticket is valid for …', options: ['24 hours', 'one ride', '12 hours', 'two days'], answer: 0 },
+          { id: 'n13l16', type: 'fill', prompt: '16. The Japanese Garden is particularly beautiful in ___', answer: 'spring' },
+          { id: 'n13l17', type: 'fill', prompt: '17. Commentary is available in ___ languages.', answer: ['eight', '8'] },
+          { id: 'n13l18', type: 'single', prompt: '18. Children under twelve pay …', options: ['nothing', 'half price', 'full price', '10% less'], answer: 1 },
+          { id: 'n13l19', type: 'single', prompt: '19. Where can you get a discount?', options: ['from the driver', 'at hotels', 'online', 'at the TV tower'], answer: 2 },
+          { id: 'n13l20', type: 'fill', prompt: '20. On hot afternoons, bring a ___', answer: 'hat' },
+        ],
+      },
+      {
+        title: 'Part 3 · An experiment on plant growth',
+        intro: 'You will hear two biology students, Nilufar and Ben, discussing an experiment with their tutor. Questions 21–30.',
+        script: `Tutor: So, tell me about your experiment.
+Ben: We wanted to see whether the colour of light affects how fast bean plants grow. We grew thirty plants in three groups — under red, blue and white light.
+Tutor: How long did it run?
+Nilufar: Four weeks. We measured the height of each plant every two days.
+Tutor: And the results?
+Nilufar: The plants under blue light were the shortest, but they had the thickest stems and the darkest leaves. The ones under red light grew tallest, but they were quite thin and weak.
+Ben: The white light group was in the middle for height, but looked the healthiest overall.
+Tutor: Interesting. Did you control the other variables?
+Ben: We tried to. All the plants had the same soil and the same amount of water, and we kept them at the same temperature.
+Nilufar: The one problem was that the red lamp was slightly brighter than the others. We only noticed that in the second week.
+Tutor: That's an important limitation. You must mention it in your report, and ideally repeat the experiment with lamps of equal brightness.
+Ben: We were thinking of measuring the weight of the plants as well, not just the height.
+Tutor: Good idea — height alone doesn't show how healthy a plant is. Dry weight would be even better, although you'd have to destroy the plants to measure it.
+Nilufar: When do we need to hand in the report?
+Tutor: In two weeks. And please present your data in a line graph showing the average height of each group over time.`,
+        questions: [
+          { id: 'n13l21', type: 'fill', prompt: '21. They grew ___ plants.', answer: ['thirty', '30'] },
+          { id: 'n13l22', type: 'fill', prompt: '22. The experiment ran for ___ weeks.', answer: ['four', '4'] },
+          { id: 'n13l23', type: 'single', prompt: '23. Plants under blue light were …', options: ['the tallest', 'thin and weak', 'dead', 'the shortest with thick stems'], answer: 3 },
+          { id: 'n13l24', type: 'single', prompt: '24. Plants under red light were …', options: ['tallest but thin', 'shortest', 'the healthiest', 'the same as white'], answer: 0 },
+          { id: 'n13l25', type: 'single', prompt: '25. Which group looked healthiest overall?', options: ['red', 'white', 'blue', 'none'], answer: 1 },
+          { id: 'n13l26', type: 'single', prompt: '26. Which variable was NOT the same for all plants?', options: ['soil', 'water', 'brightness of the lamps', 'temperature'], answer: 2 },
+          { id: 'n13l27', type: 'fill', prompt: '27. The red lamp was slightly ___ than the others.', answer: 'brighter' },
+          { id: 'n13l28', type: 'fill', prompt: '28. They also want to measure the ___ of the plants.', answer: 'weight' },
+          { id: 'n13l29', type: 'single', prompt: '29. Measuring dry weight requires …', options: ['more light', 'a new lamp', 'more water', 'destroying the plants'], answer: 3 },
+          { id: 'n13l30', type: 'fill', prompt: '30. Data should be shown in a ___ graph.', answer: 'line' },
+        ],
+      },
+      {
+        title: 'Part 4 · Lecture: The umbrella',
+        intro: 'You will hear part of a lecture on the history of everyday objects. Questions 31–40.',
+        script: `Today I'd like to look at an object we rarely think about: the umbrella. It's worth remembering that the umbrella was first used not for rain but for protection from the sun. The word itself comes from the Latin "umbra", meaning shade. In ancient Egypt, China and Persia, sunshades were often a sign of high status, carried by servants above the heads of kings and important officials.
+In China, people are believed to have waterproofed paper umbrellas with wax and oil, making them useful in the rain. In Europe, however, umbrellas were mainly used by women for many centuries, and a man carrying one in the rain was often laughed at. This changed in the eighteenth century, partly thanks to a London traveller named Jonas Hanway, who carried an umbrella in public for about thirty years until it became acceptable for men.
+Early European umbrellas were heavy, with frames made of wood or whalebone. A major improvement came in 1852, when the steel-ribbed design was introduced, making umbrellas much lighter and stronger. The folding pocket umbrella, which can be carried in a bag, became popular in the twentieth century.
+Today, billions of umbrellas are sold every year, but they are also a significant source of waste, because cheap umbrellas break easily and are difficult to recycle, since they combine metal, plastic and fabric. Some designers are now experimenting with umbrellas made from a single recyclable material, and several cities have introduced umbrella-sharing schemes at metro stations.`,
+        questions: [
+          { id: 'n13l31', type: 'single', prompt: '31. Umbrellas were first used for protection from …', options: ['the sun', 'rain', 'wind', 'snow'], answer: 0 },
+          { id: 'n13l32', type: 'fill', prompt: '32. "Umbra" in Latin means ___', answer: 'shade' },
+          { id: 'n13l33', type: 'single', prompt: '33. In ancient times, sunshades were a sign of …', options: ['poverty', 'high status', 'bad weather', 'religion'], answer: 1 },
+          { id: 'n13l34', type: 'fill', prompt: '34. In China, paper umbrellas were waterproofed with wax and ___', answer: 'oil' },
+          { id: 'n13l35', type: 'single', prompt: '35. In Europe, umbrellas were mainly used by …', options: ['soldiers', 'children', 'women', 'kings'], answer: 2 },
+          { id: 'n13l36', type: 'fill', prompt: '36. Jonas Hanway carried an umbrella for about ___ years.', answer: ['thirty', '30'] },
+          { id: 'n13l37', type: 'fill', prompt: '37. Early frames were made of wood or ___', answer: 'whalebone' },
+          { id: 'n13l38', type: 'fill', prompt: '38. The steel-ribbed design was introduced in ___', answer: '1852' },
+          { id: 'n13l39', type: 'single', prompt: '39. Why are cheap umbrellas hard to recycle?', options: ['They are too big.', 'They are made of paper.', 'Nobody collects them.', 'They combine metal, plastic and fabric.'], answer: 3 },
+          { id: 'n13l40', type: 'fill', prompt: '40. Some cities have umbrella-sharing schemes at ___ stations.', answer: 'metro' },
+        ],
+      },
+    ],
+  },
+
+  'reading-13': {
+    kind: 'reading', title: 'IELTS Academic Reading — Mock Test 13', minutes: 60,
+    sections: [
+      {
+        title: 'Passage 1 · The Story of Cotton',
+        intro: 'Questions 1–13. You should spend about 20 minutes on this passage.',
+        text: `Cotton is the world's most widely used natural fibre. The soft fibres grow around the seeds of the cotton plant, inside a protective capsule called a boll. When the boll ripens, it splits open to reveal a white, fluffy mass, which is then picked and processed into thread and cloth.
+
+People have grown cotton for thousands of years in several parts of the world, including South Asia, Africa and the Americas, apparently independently of one another. In Central Asia, cotton was cultivated in the oases along the great rivers long before the modern era, and cotton cloth was traded along the Silk Road.
+
+The crop requires a long, warm growing season, plenty of sunshine and a large amount of water. In dry regions, this water must be supplied by irrigation, which has made cotton a controversial crop. In the twentieth century, a huge expansion of irrigated cotton farming in Central Asia drew so much water from the region's rivers that the Aral Sea, once one of the largest lakes in the world, shrank dramatically.
+
+Processing cotton also involves several stages. After picking, the fibres must be separated from the seeds, a process called ginning. The invention of the mechanical cotton gin in the late eighteenth century greatly increased the speed of this work. The fibres are then cleaned, combed and spun into yarn, which is woven or knitted into fabric.
+
+Today, many producers are trying to make cotton more sustainable. Drip irrigation can reduce water use considerably, and some farmers are switching to organic methods that avoid synthetic pesticides. Recycled cotton, made from old clothes and factory waste, is also becoming more common, although recycled fibres are shorter and usually need to be mixed with new cotton to make strong thread.`,
+        questions: [
+          { id: 'n13r1', type: 'single', prompt: '1. Cotton is the most widely used natural fibre.', options: tfng, answer: 0 },
+          { id: 'n13r2', type: 'single', prompt: '2. Cotton was first grown only in South Asia and spread from there.', options: tfng, answer: 1 },
+          { id: 'n13r3', type: 'single', prompt: '3. Cotton cloth was traded along the Silk Road.', options: tfng, answer: 0 },
+          { id: 'n13r4', type: 'single', prompt: '4. Cotton needs little water.', options: tfng, answer: 1 },
+          { id: 'n13r5', type: 'single', prompt: '5. The Aral Sea has now fully recovered.', options: tfng, answer: 2 },
+          { id: 'n13r6', type: 'single', prompt: '6. Recycled cotton fibres are longer than new ones.', options: tfng, answer: 1 },
+          { id: 'n13r7', type: 'single', prompt: '7. Drip irrigation can reduce water use.', options: tfng, answer: 0 },
+          { id: 'n13r8', type: 'fill', prompt: '8. The fibres grow inside a capsule called a ___. (ONE WORD)', answer: 'boll' },
+          { id: 'n13r9', type: 'fill', prompt: '9. In dry regions, water is supplied by ___. (ONE WORD)', answer: 'irrigation' },
+          { id: 'n13r10', type: 'fill', prompt: '10. Separating fibres from seeds is called ___. (ONE WORD)', answer: 'ginning' },
+          { id: 'n13r11', type: 'fill', prompt: '11. The cotton gin was invented in the late ___ century. (ONE WORD)', answer: 'eighteenth' },
+          { id: 'n13r12', type: 'fill', prompt: '12. Fibres are spun into ___. (ONE WORD)', answer: 'yarn' },
+          { id: 'n13r13', type: 'fill', prompt: '13. Organic methods avoid synthetic ___. (ONE WORD)', answer: 'pesticides' },
+        ],
+      },
+      {
+        title: 'Passage 2 · Robots in Elderly Care',
+        intro: 'Questions 14–26. You should spend about 20 minutes on this passage.',
+        text: `A. In many countries, populations are ageing rapidly. As people live longer and birth rates fall, the number of older adults who need care is rising, while the number of younger workers available to provide it is shrinking. Some governments and companies see robots as part of the solution.
+
+B. The robots currently being tested take many forms. Some are designed for physical tasks, such as helping carers lift patients out of bed, which can reduce back injuries among staff. Others are "social robots" — often small and friendly-looking — that can hold simple conversations, remind people to take their medicine or lead group exercises. Robotic pets, which respond to touch and sound, have been used with people with dementia.
+
+C. Early results are mixed. Studies of robotic pets suggest they can reduce anxiety and agitation in some patients with dementia. Lifting robots have been welcomed by some staff, but others find them slow and complicated to use. In several trials, expensive robots ended up unused in cupboards because carers did not have time to learn how to operate them.
+
+D. There are also ethical concerns. Critics worry that robots could be used as a cheap replacement for human contact, increasing loneliness rather than reducing it. Others raise questions about privacy, since many devices collect data through cameras and microphones, and about whether it is acceptable to give a person with dementia a robot animal that they may believe is real.
+
+E. Most researchers argue that robots should support carers rather than replace them. By taking over repetitive or physically demanding tasks, robots could give human carers more time for the conversation and personal attention that technology cannot provide.
+
+F. For this to happen, experts say, older people and carers must be involved in designing the technology from the beginning, and robots must be tested in real care homes rather than only in laboratories.`,
+        questions: [
+          { id: 'n13r14', type: 'single', prompt: '14. Which paragraph describes different types of care robots?', options: ['A', 'B', 'C', 'D'], answer: 1 },
+          { id: 'n13r15', type: 'single', prompt: '15. Which paragraph mentions robots that were not used?', options: ['B', 'C', 'D', 'E'], answer: 1 },
+          { id: 'n13r16', type: 'single', prompt: '16. Which paragraph raises privacy concerns?', options: ['B', 'C', 'D', 'F'], answer: 2 },
+          { id: 'n13r17', type: 'single', prompt: '17. Which paragraph explains why demand for care is rising?', options: ['A', 'C', 'E', 'F'], answer: 0 },
+          { id: 'n13r18', type: 'single', prompt: '18. Lifting robots can reduce …', options: ['back injuries among staff', 'loneliness', 'medicine costs', 'dementia'], answer: 0 },
+          { id: 'n13r19', type: 'single', prompt: '19. Robotic pets may reduce … in some patients with dementia.', options: ['memory', 'anxiety and agitation', 'sleep', 'appetite'], answer: 1 },
+          { id: 'n13r20', type: 'single', prompt: '20. What do most researchers recommend?', options: ['replacing carers with robots', 'banning care robots', 'robots supporting carers', 'using robots only at night'], answer: 2 },
+          { id: 'n13r21', type: 'single', prompt: '21. The number of younger workers available for care is falling.', options: tfng, answer: 0 },
+          { id: 'n13r22', type: 'single', prompt: '22. All staff found lifting robots easy to use.', options: tfng, answer: 1 },
+          { id: 'n13r23', type: 'single', prompt: '23. Japan uses more care robots than any other country.', options: tfng, answer: 2 },
+          { id: 'n13r24', type: 'single', prompt: '24. Many care devices collect data through cameras and microphones.', options: tfng, answer: 0 },
+          { id: 'n13r25', type: 'fill', prompt: '25. Social robots can remind people to take their ___. (ONE WORD)', answer: 'medicine' },
+          { id: 'n13r26', type: 'fill', prompt: '26. Robots should be tested in real care homes, not only in ___. (ONE WORD)', answer: ['laboratories', 'laboratory'] },
+        ],
+      },
+      {
+        title: 'Passage 3 · Do Video Games Make Us Smarter?',
+        intro: 'Questions 27–40. You should spend about 20 minutes on this passage.',
+        text: `Video games have often been blamed for a range of problems, from poor school results to aggressive behaviour. In recent years, however, researchers have also begun to investigate whether certain types of games might improve mental abilities. The results have been surprising, though they are frequently exaggerated in the media.
+
+The strongest evidence concerns fast-paced action games, in which players must track many moving objects and react quickly. Several studies have found that regular players of such games perform better than non-players on tests of visual attention, such as noticing a target among distracting objects or switching quickly between tasks. In some experiments, non-players who were trained on action games for a few weeks also showed improvements, which suggests that the games themselves may cause the change rather than people with good attention simply choosing to play them.
+
+Claims about "brain-training" games are more doubtful. These games, often marketed to older adults, promise to improve memory and general intelligence through short daily exercises. While players usually get better at the specific games, there is little reliable evidence that these improvements transfer to everyday tasks or to general intelligence. In some countries, companies have been fined for making misleading claims.
+
+Researchers also point out that the effects depend heavily on the amount and type of play. Moderate gaming may have some benefits, but excessive gaming can reduce time for sleep, exercise and homework, which may outweigh any cognitive gains. A small proportion of players develop serious problems controlling how much they play.
+
+Overall, the research suggests that games are neither the threat sometimes portrayed nor a miracle tool for intelligence. Like many activities, their effects depend on what is played, how much and by whom.`,
+        questions: [
+          { id: 'n13r27', type: 'single', prompt: '27. Which games show the strongest evidence of benefits?', options: ['puzzle games', 'brain-training games', 'sports games', 'fast-paced action games'], answer: 3 },
+          { id: 'n13r28', type: 'single', prompt: '28. Action-game players perform better on tests of …', options: ['visual attention', 'vocabulary', 'mathematics', 'long-term memory'], answer: 0 },
+          { id: 'n13r29', type: 'single', prompt: '29. Why are the training experiments important?', options: ['They were cheap.', 'They suggest games may cause the improvement.', 'They used older adults.', 'They lasted many years.'], answer: 1 },
+          { id: 'n13r30', type: 'single', prompt: '30. What is true of brain-training games?', options: ['They clearly raise intelligence.', 'They are banned.', 'Players improve at the games, but transfer is doubtful.', 'They only work for children.'], answer: 2 },
+          { id: 'n13r31', type: 'single', prompt: '31. What is the writer’s overall conclusion?', options: ['Games are dangerous.', 'Games are a miracle tool.', 'Games have no effect.', 'Effects depend on what, how much and who plays.'], answer: 3 },
+          { id: 'n13r32', type: 'single', prompt: '32. Media reports often exaggerate the benefits of games.', options: tfng, answer: 0 },
+          { id: 'n13r33', type: 'single', prompt: '33. Brain-training games are mainly marketed to teenagers.', options: tfng, answer: 1 },
+          { id: 'n13r34', type: 'single', prompt: '34. Some companies have been fined for misleading claims.', options: tfng, answer: 0 },
+          { id: 'n13r35', type: 'single', prompt: '35. Girls benefit more from action games than boys.', options: tfng, answer: 2 },
+          { id: 'n13r36', type: 'single', prompt: '36. Excessive gaming can reduce time for sleep.', options: tfng, answer: 0 },
+          { id: 'n13r37', type: 'fill', prompt: '37. Games have been blamed for aggressive ___. (ONE WORD)', answer: 'behaviour' },
+          { id: 'n13r38', type: 'fill', prompt: '38. Non-players were trained on action games for a few ___. (ONE WORD)', answer: 'weeks' },
+          { id: 'n13r39', type: 'fill', prompt: '39. Improvements may not ___ to everyday tasks. (ONE WORD)', answer: 'transfer' },
+          { id: 'n13r40', type: 'fill', prompt: '40. A small proportion of players have problems ___ how much they play. (ONE WORD)', answer: 'controlling' },
+        ],
+      },
+    ],
+  },
 };
