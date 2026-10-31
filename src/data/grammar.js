@@ -791,4 +791,58 @@ export const grammar = [
       { id: 'a2sh5', type: 'single', prompt: 'Which advice is correct for "I\'m always tired"?', options: ['You should to sleep more.', 'You should sleep more.', 'You should sleeping more.', 'You should slept more.'], answer: 1 },
     ],
   },
+  {
+    id: 'passive-modals', title: 'Majhul nisbat + modal (must be done)', level: 'B2',
+    rule: "Modal fe'l + be + V3: The rules must be followed. Taklif va tavsiyalarda (IELTS Writing Task 2!) juda foydali: More money should be invested in public transport. O'tmish uchun: modal + have been + V3: The work should have been finished yesterday. Inkor: cannot be ignored, shouldn't be allowed.",
+    table: [
+      ['hozir / kelajak', 'The problem can be solved. · Tickets must be booked online.'],
+      ['tavsiya (Task 2)', 'Stricter laws should be introduced.'],
+      ['inkor', "This issue cannot be ignored. · Phones shouldn't be used in class."],
+      ["o'tmish", 'The report should have been sent last week.'],
+    ],
+    examples: ['Plastic bags should be banned.', 'The results will be announced tomorrow.', 'The accident could have been avoided.'],
+    exercises: [
+      { id: 'b2pm1', type: 'single', prompt: 'More trees ___ in our cities.', options: ['should plant', 'should be planted', 'should planted', 'should be plant'], answer: 1, explanation: 'Modal + be + V3.' },
+      { id: 'b2pm2', type: 'single', prompt: 'This problem ___ ignored any longer.', options: ['cannot be', 'cannot', 'can be not', "isn't can"], answer: 0 },
+      { id: 'b2pm3', type: 'fill', prompt: 'The homework must ___ handed in by Friday. (1 so‘z)', answer: 'be', explanation: 'must be + V3.' },
+      { id: 'b2pm4', type: 'single', prompt: 'The accident ___ if the driver had been more careful.', options: ['could be avoided', 'could have been avoided', 'could avoid', 'can be avoided'], answer: 1, explanation: "O'tmish → could have been + V3." },
+      { id: 'b2pm5', type: 'single', prompt: 'The new rules ___ next month.', options: ['will introduce', 'will be introduced', 'will introduced', 'are introduce'], answer: 1 },
+    ],
+  },
+  {
+    id: 'ed-ing-adjectives', title: '-ed va -ing sifatlar (bored / boring)', level: 'B2',
+    rule: "-ing sifat — narsa yoki odam qanday TA'SIR qiladi: The film was boring (zerikarli). -ed sifat — odam nimani HIS QILADI: I was bored (zerikdim). Juftlar: interesting/interested, exciting/excited, tiring/tired, confusing/confused, surprising/surprised, embarrassing/embarrassed. Xato: I am boring = 'men zerikarli odamman'!",
+    table: [
+      ['-ing (sabab)', 'The lecture was confusing.'],
+      ['-ed (his)', 'The students were confused.'],
+      ['odam + -ing', 'He is an interesting person (boshqalarga qiziqarli).'],
+      ['tipik xato', "I'm boring ✗ → I'm bored ✓"],
+    ],
+    examples: ['The journey was tiring, so we were tired.', 'I was surprised by the surprising results.', 'Are you interested in history?'],
+    exercises: [
+      { id: 'b2ei1', type: 'single', prompt: 'The match was really ___ — we screamed the whole time!', options: ['excited', 'exciting', 'excite', 'excitement'], answer: 1 },
+      { id: 'b2ei2', type: 'single', prompt: "I'm ___ in learning Japanese.", options: ['interesting', 'interested', 'interest', 'interestingly'], answer: 1 },
+      { id: 'b2ei3', type: 'single', prompt: 'After the long walk, we felt ___ .', options: ['tiring', 'tired', 'tire', 'tiredness'], answer: 1 },
+      { id: 'b2ei4', type: 'fill', prompt: "The instructions were very ___ (confuse) — nobody understood them. (1 so'z)", answer: 'confusing', explanation: 'Ko‘rsatmalar ta’siri → -ing.' },
+      { id: 'b2ei5', type: 'single', prompt: 'She was ___ when she fell in front of everyone.', options: ['embarrassing', 'embarrassed', 'embarrass', 'embarrassment'], answer: 1 },
+    ],
+  },
+  {
+    id: 'future-in-past', title: "O'tmishdagi kelajak (was going to, would)", level: 'B2',
+    rule: "O'tmishdagi nuqtadan qaraganda kelajak: was/were going to (reja — ko'pincha amalga oshmagan): I was going to call you, but I forgot. would (o'tmishdagi bashorat yoki o'zlashtirma gapda will): I knew she would win. He said he would help. was about to (endi qilmoqchi edi): I was about to leave when the phone rang.",
+    table: [
+      ['amalga oshmagan reja', 'We were going to travel, but the flight was cancelled.'],
+      ["o'tmishdagi bashorat", 'Nobody thought the company would succeed.'],
+      ["o'zlashtirma gap", 'She promised she would come. (“I will come”)'],
+      ['was about to', 'I was about to go to bed when you called.'],
+    ],
+    examples: ['I was going to study, but I fell asleep.', 'They said the train would be late.', 'We were about to start when the lights went out.'],
+    exercises: [
+      { id: 'b2fp1', type: 'single', prompt: 'I ___ call you, but my phone died.', options: ['was going to', 'am going to', 'will', 'have gone to'], answer: 0, explanation: 'Amalga oshmagan reja → was going to.' },
+      { id: 'b2fp2', type: 'single', prompt: 'He promised he ___ me with my homework.', options: ['will help', 'would help', 'helps', 'is helping'], answer: 1, explanation: 'O‘zlashtirma gap: will → would.' },
+      { id: 'b2fp3', type: 'single', prompt: 'I was ___ to leave when it started raining.', options: ['about', 'going', 'would', 'will'], answer: 0, explanation: 'was about to — endi qilmoqchi edi.' },
+      { id: 'b2fp4', type: 'fill', prompt: 'Nobody believed the plan ___ work, but it did. (1 so‘z)', answer: 'would', explanation: "O'tmishdagi bashorat → would." },
+      { id: 'b2fp5', type: 'single', prompt: 'We ___ to Bukhara last weekend, but the car broke down.', options: ['were going to go', 'will go', 'are going', 'would have'], answer: 0 },
+    ],
+  },
 ];
