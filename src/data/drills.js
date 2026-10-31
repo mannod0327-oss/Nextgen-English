@@ -10,6 +10,7 @@ import { task1Sets } from './task1.js';
 import { synonymSets } from './synonyms.js';
 import { formSets } from './forms.js';
 import { depSets } from './deps.js';
+import { sentenceStressSets } from './sentence-stress.js';
 
 export const trainers = [
   { id: 'articles', icon: '🅰️', title: 'Artikl va predloglar', desc: 'a / an / the va in / on / at',
@@ -36,6 +37,9 @@ export const trainers = [
   { id: 'deps', icon: '🧷', title: "Predlogli fe'l va sifatlar", desc: 'depend on, interested in, good at, lead to…',
     intro: "O'zbek tilida -ga, -dan, -da qo'shimchalari bor; inglizchada esa har fe'l/sifatning o'z predlogi bor va uni birga yodlash kerak: depend ON, interested IN.",
     sets: depSets },
+  { id: 'sstress', icon: '📢', title: "Gap urg'usi", desc: '— A red car? — No, a BLUE car.',
+    intro: "Inglizchada gapdagi YANGI yoki QARAMA-QARSHI ma'lumot kuchli aytiladi. Savolga qarab, javobdagi qaysi so'zni urg'u bilan aytishni tanlang — Speaking'dagi intonatsiya va Listening'dagi tuzatishlarni (No, FIFTY) eshitish uchun.",
+    sets: sentenceStressSets },
 ];
 
 export const drillSets = trainers.flatMap((t) => t.sets.map((s) => ({ ...s, trainer: t.id })));

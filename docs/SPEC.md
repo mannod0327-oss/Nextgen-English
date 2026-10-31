@@ -105,7 +105,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 92 | **Writing Task 2 namunalari +6** |  | 6 ta Band 7 (≥250) | ✅ |
 | 93 | **Mock Test 11** |  | 40+40 original savol | ✅ |
 | 94 | **Daraja testidan keyin shaxsiy yo'l** | Natija sahifasi faqat darajani ko'rsatadi | Darajaga mos grammatika, matnlar, lug'at mavzulari va trenajyorlar ro'yxati; E2E | ✅ |
-| 95 | **Gap urg'usi va intonatsiya** | Nutqning ritmi | Trenajyor: gapda qaysi so'z urg'uli (🔊), 40 ta; E2E | ⬜ |
+| 95 | **Gap urg'usi va intonatsiya** | Nutqning ritmi | Trenajyor: gapda qaysi so'z urg'uli (🔊), 40 ta; E2E | ✅ |
 | 96 | **Kollokatsiyalar +30** |  | Yangi fe'l/sifat guruhlari, testda ishlaydi | ⬜ |
 | 97 | **Speaking Part 1 namunalari** | Part 1 javob uzunligi noaniq | 10 to'plamda 2–3 gaplik namunalar, 🔊 | ⬜ |
 | 98 | **Mock Test 12** |  | 40+40 original savol | ⬜ |
@@ -226,3 +226,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **92-iteratsiya** — Task 2 namunalari +6: parvozlar va iqlim, masofadan ishlash, maosh yoki qoniqish, bepul bog'cha, maktabda telefon, bolalar va ekran (≥269 so'z, writing-check xatosiz); jami 56 namuna (30 Task 2); v=107.
 - **93-iteratsiya** — Mock 11: Listening (mebel buyurtmasi, kanal tozalash kuni, maktab tomlarida quyosh panellari loyihasi, ko'priklar qanday turadi) + Reading (anor, hasharotlar kamayishi, birgalikdagi iqtisodiyot); 80 savol, MCQ aylantirildi; v=108.
 - **94-iteratsiya** — Shaxsiy yo'l: plan.js learningPath (daraja bo'yicha grammatika, matnlar, lug'at mavzulari — mediana; pastroq darajadan takrorlash) + unit test; #/path natija sahifasi va bosh sahifadan, ✅ belgilar; E2E. Boshlang'ich JS 602 → 530 KB: drills va collocations ham dangasa yuklanadi (budget testi qizardi — chegara oshirilmadi, tuzatildi); v=110.
+- **95-iteratsiya** — Gap urg'usi trenajyori: src/data/sentence-stress.js — 40 ta savol-javob, javobdagi yangi/qarama-qarshi so'zni tanlash (variantlar — javob so'zlari tartibda), 4 qoida, o'zbekcha izoh; drill markazida 9 trenajyor; v=111.
