@@ -2707,4 +2707,214 @@ Overall, the research suggests that games are neither the threat sometimes portr
       },
     ],
   },
+
+  'listening-14': {
+    kind: 'listening', title: 'IELTS Listening — Mock Test 14', minutes: 30,
+    sections: [
+      {
+        title: 'Part 1 · Renting a car',
+        intro: 'You will hear a customer phoning a car rental company. Questions 1–10.',
+        script: `Agent: Good morning, Silk Road Car Rental.
+Customer: Hi, I'd like to rent a car for next weekend.
+Agent: Certainly. Where would you like to pick it up?
+Customer: At the airport, if possible. My flight lands on Friday at about six in the evening.
+Agent: No problem. And when will you return it?
+Customer: On Monday morning, before ten.
+Agent: That's three days. What size of car do you need?
+Customer: Something small but comfortable. There are only two of us.
+Agent: Then I'd recommend our economy model. It's thirty-five dollars a day, including basic insurance.
+Customer: Is it automatic?
+Agent: Yes. A manual one is five dollars cheaper per day, if you prefer.
+Customer: No, automatic is fine. Is there a limit on how far I can drive?
+Agent: You can drive up to three hundred kilometres a day. After that it's ten cents per kilometre.
+Customer: OK. What documents do I need?
+Agent: Your passport, a driving licence you've held for at least two years, and a credit card for the deposit of two hundred dollars.
+Customer: Fine. Can I add a child seat?
+Agent: Yes, that's four dollars a day. Can I have your surname?
+Customer: It's Hakimov. H-A-K-I-M-O-V.
+Agent: And please return the car with a full tank, otherwise there's a refuelling charge.`,
+        questions: [
+          { id: 'n14l1', type: 'fill', prompt: '1. Pick-up place: the ___', answer: 'airport' },
+          { id: 'n14l2', type: 'single', prompt: '2. The flight lands on …', options: ['Friday', 'Thursday', 'Saturday', 'Monday'], answer: 0 },
+          { id: 'n14l3', type: 'fill', prompt: '3. Rental period: ___ days', answer: ['three', '3'] },
+          { id: 'n14l4', type: 'fill', prompt: '4. Price: $___ a day', answer: ['35', 'thirty-five'] },
+          { id: 'n14l5', type: 'single', prompt: '5. The customer chooses …', options: ['a manual car', 'an automatic car', 'a large car', 'a van'], answer: 1 },
+          { id: 'n14l6', type: 'fill', prompt: '6. Daily distance limit: ___ km', answer: ['300', 'three hundred'] },
+          { id: 'n14l7', type: 'fill', prompt: '7. The licence must be held for at least ___ years.', answer: ['two', '2'] },
+          { id: 'n14l8', type: 'fill', prompt: '8. Deposit: $___', answer: ['200', 'two hundred'] },
+          { id: 'n14l9', type: 'fill', prompt: '9. Surname: ___', answer: 'Hakimov' },
+          { id: 'n14l10', type: 'single', prompt: '10. The car must be returned with …', options: ['a clean interior', 'the child seat removed', 'a full tank', 'the keys at reception'], answer: 2 },
+        ],
+      },
+      {
+        title: 'Part 2 · The new tram line',
+        intro: 'You will hear a city official describing a new tram line. Questions 11–20.',
+        script: `Good evening. I'm here to tell you about the new tram line, which opens on the first of September.
+The line runs for twelve kilometres, from the railway station in the south to the university campus in the north, and it has fifteen stops. Trams will run every six minutes during rush hours and every ten minutes at other times, from half past five in the morning until midnight.
+The trams are fully accessible. They have low floors, so passengers with wheelchairs or pushchairs can board easily, and there are screens and announcements in Uzbek, Russian and English.
+Fares are the same as on the metro: you can pay with a transport card or by tapping a bank card at the door. A single journey costs two thousand sum, and you can change to the metro or buses within forty minutes without paying again.
+To encourage people to try the tram, travel will be free for the whole of the first week.
+Along the route, the old road has been narrowed to one lane in each direction, and the space has been used for new trees and a protected cycle lane. There will also be a bike parking area at six of the stops.
+We know that the construction caused a lot of disruption for local shops, so the city is running a campaign to support businesses along the route, including a street festival on the opening weekend.`,
+        questions: [
+          { id: 'n14l11', type: 'fill', prompt: '11. Opening date: the first of ___', answer: 'September' },
+          { id: 'n14l12', type: 'fill', prompt: '12. Length of the line: ___ km', answer: ['twelve', '12'] },
+          { id: 'n14l13', type: 'fill', prompt: '13. Number of stops: ___', answer: ['fifteen', '15'] },
+          { id: 'n14l14', type: 'fill', prompt: '14. Rush-hour frequency: every ___ minutes', answer: ['six', '6'] },
+          { id: 'n14l15', type: 'single', prompt: '15. Low floors make the trams easy to board for …', options: ['cyclists', 'tourists', 'children', 'wheelchair and pushchair users'], answer: 3 },
+          { id: 'n14l16', type: 'fill', prompt: '16. A single journey costs ___ thousand sum.', answer: ['two', '2'] },
+          { id: 'n14l17', type: 'fill', prompt: '17. Free changes are possible within ___ minutes.', answer: ['forty', '40'] },
+          { id: 'n14l18', type: 'single', prompt: '18. Travel will be free …', options: ['for the first week', 'for students', 'at weekends', 'after midnight'], answer: 0 },
+          { id: 'n14l19', type: 'single', prompt: '19. The space from the narrowed road was used for …', options: ['car parks', 'trees and a cycle lane', 'new shops', 'bus stops'], answer: 1 },
+          { id: 'n14l20', type: 'fill', prompt: '20. On the opening weekend there will be a street ___', answer: 'festival' },
+        ],
+      },
+      {
+        title: 'Part 3 · Designing a vocabulary app',
+        intro: 'You will hear two computer science students, Asal and Mike, discussing their app with their tutor. Questions 21–30.',
+        script: `Tutor: So, your project is a vocabulary app for language learners. Who's the target user?
+Asal: Secondary school students preparing for English exams. We interviewed twenty of them before we started.
+Tutor: What did they tell you?
+Mike: Most of them already use flashcards, but they find them boring. They wanted something more like a game, and they wanted to practise on the bus, so short sessions are important.
+Tutor: How have you responded to that?
+Asal: Each session lasts about five minutes. Users earn points and can compete with friends in weekly leagues.
+Tutor: How do you decide which words to show?
+Mike: We use spaced repetition: words the user gets wrong appear again sooner, and words they know well appear less often.
+Tutor: Good. What did your first test show?
+Asal: We tested it with a class for two weeks. Students used it more than we expected — on average twelve minutes a day. But some of them were just guessing quickly to earn points.
+Tutor: That's a common problem with game design. How will you fix it?
+Mike: We'll give fewer points for very fast answers, and we'll add a short sentence for each word, so students have to think about the meaning.
+Tutor: Sensible. What about the teachers?
+Asal: Several asked for a dashboard where they can see their students' progress, so we're adding that next.
+Tutor: Make sure you think about privacy — students should know what data teachers can see. Your final presentation is on the fifteenth, and I'd like a short demo video too.`,
+        questions: [
+          { id: 'n14l21', type: 'single', prompt: '21. The app is aimed at …', options: ['university students', 'teachers', 'secondary school students', 'adults at work'], answer: 2 },
+          { id: 'n14l22', type: 'fill', prompt: '22. They interviewed ___ students.', answer: ['twenty', '20'] },
+          { id: 'n14l23', type: 'single', prompt: '23. Students find flashcards …', options: ['too difficult', 'expensive', 'useful for speaking', 'boring'], answer: 3 },
+          { id: 'n14l24', type: 'fill', prompt: '24. Each session lasts about ___ minutes.', answer: ['five', '5'] },
+          { id: 'n14l25', type: 'single', prompt: '25. In spaced repetition, wrong words appear …', options: ['sooner', 'less often', 'never again', 'at the end'], answer: 0 },
+          { id: 'n14l26', type: 'fill', prompt: '26. Average daily use in the test: ___ minutes', answer: ['twelve', '12'] },
+          { id: 'n14l27', type: 'single', prompt: '27. What problem did they notice?', options: ['The app crashed.', 'Some students guessed quickly to earn points.', 'Students did not use it.', 'Teachers disliked it.'], answer: 1 },
+          { id: 'n14l28', type: 'single', prompt: '28. How will they fix it?', options: ['remove points', 'make sessions longer', 'give fewer points for very fast answers', 'add more leagues'], answer: 2 },
+          { id: 'n14l29', type: 'fill', prompt: '29. Teachers asked for a ___ to see progress.', answer: 'dashboard' },
+          { id: 'n14l30', type: 'fill', prompt: '30. The tutor also wants a short demo ___', answer: 'video' },
+        ],
+      },
+      {
+        title: 'Part 4 · Lecture: How desert plants survive',
+        intro: 'You will hear part of a botany lecture. Questions 31–40.',
+        script: `Deserts are among the harshest environments on Earth, with very little rain, intense sunlight and huge differences in temperature between day and night. Yet many plants not only survive there but thrive. Today I want to look at the three main strategies they use.
+The first strategy is to store water. Succulent plants, such as cacti, have thick stems or leaves that hold large amounts of water, sometimes enough to last for months. Their surface is often covered with a waxy layer that reduces water loss, and many have spines instead of leaves, which provide shade and protect them from animals.
+The second strategy is to find water. Some desert shrubs have extremely long roots that reach deep underground water. The roots of some species have been found more than thirty metres below the surface. Other plants spread their roots widely just below the surface, so they can quickly absorb water after even a light shower.
+The third strategy is to avoid drought altogether. Many desert flowers are annuals that spend most of their lives as seeds in the soil. After heavy rain, they germinate, grow, flower and produce new seeds within a few weeks, before the ground dries out again. These events can turn a desert briefly into a carpet of colour.
+Many desert plants also have a special way of taking in carbon dioxide. Instead of opening the small pores in their leaves during the hot day, they open them at night, when it is cooler, which greatly reduces the amount of water they lose.
+Understanding these adaptations is becoming increasingly important, as scientists try to develop crops that can grow with less water in a warming climate.`,
+        questions: [
+          { id: 'n14l31', type: 'single', prompt: '31. The lecture describes … main strategies.', options: ['two', 'three', 'four', 'five'], answer: 1 },
+          { id: 'n14l32', type: 'fill', prompt: '32. Succulents store water in thick stems or ___', answer: 'leaves' },
+          { id: 'n14l33', type: 'fill', prompt: '33. A ___ layer reduces water loss.', answer: 'waxy' },
+          { id: 'n14l34', type: 'single', prompt: '34. Spines provide shade and protection from …', options: ['wind', 'insects only', 'cold', 'animals'], answer: 3 },
+          { id: 'n14l35', type: 'fill', prompt: '35. Some roots reach more than ___ metres deep.', answer: ['thirty', '30'] },
+          { id: 'n14l36', type: 'single', prompt: '36. Shallow, wide roots help plants to …', options: ['absorb water quickly after light rain', 'store salt', 'avoid animals', 'grow taller'], answer: 0 },
+          { id: 'n14l37', type: 'fill', prompt: '37. Many desert flowers spend most of their lives as ___', answer: ['seeds', 'seed'] },
+          { id: 'n14l38', type: 'single', prompt: '38. After heavy rain, annuals complete their life cycle within …', options: ['a few days', 'a few weeks', 'a year', 'several years'], answer: 1 },
+          { id: 'n14l39', type: 'fill', prompt: '39. Some plants open their pores at ___', answer: 'night' },
+          { id: 'n14l40', type: 'fill', prompt: '40. Scientists want crops that grow with less ___', answer: 'water' },
+        ],
+      },
+    ],
+  },
+
+  'reading-14': {
+    kind: 'reading', title: 'IELTS Academic Reading — Mock Test 14', minutes: 60,
+    sections: [
+      {
+        title: 'Passage 1 · The Camel',
+        intro: 'Questions 1–13. You should spend about 20 minutes on this passage.',
+        text: `For thousands of years, camels made life and trade possible in the deserts of Asia and Africa. The two-humped Bactrian camel, native to Central Asia, carried goods along the Silk Road, while the one-humped dromedary served traders across Arabia and North Africa.
+
+Contrary to popular belief, a camel's hump does not contain water. It is a store of fat, which the animal can use as a source of energy when food is scarce. When a camel goes without food for a long time, the hump shrinks and may even fall to one side.
+
+Camels are nevertheless remarkably good at managing water. They can go for more than a week without drinking in hot weather, and when water is available, a thirsty camel can drink over a hundred litres in about ten minutes. Their kidneys produce very concentrated urine, and their body temperature can rise by several degrees during the day before they start to sweat, which saves water.
+
+Their bodies are also adapted to sand and extreme temperatures. Long eyelashes and nostrils that can close protect them from sandstorms, and wide, padded feet stop them from sinking into soft sand. Bactrian camels grow a thick coat for the bitterly cold Central Asian winter and shed it in spring.
+
+Today, the number of wild Bactrian camels is very small, and the species is classified as critically endangered. Domestic camels, however, remain important in many regions, providing milk, meat, wool and transport. Camel milk, which is lower in fat than cow's milk and rich in vitamin C, is increasingly sold in shops and cafés far from the desert.`,
+        questions: [
+          { id: 'n14r1', type: 'single', prompt: '1. Bactrian camels have two humps.', options: tfng, answer: 0 },
+          { id: 'n14r2', type: 'single', prompt: '2. A camel’s hump contains water.', options: tfng, answer: 1 },
+          { id: 'n14r3', type: 'single', prompt: '3. The hump can shrink when food is scarce.', options: tfng, answer: 0 },
+          { id: 'n14r4', type: 'single', prompt: '4. Camels can live for fifty years.', options: tfng, answer: 2 },
+          { id: 'n14r5', type: 'single', prompt: '5. Camels start sweating as soon as the temperature rises.', options: tfng, answer: 1 },
+          { id: 'n14r6', type: 'single', prompt: '6. Wild Bactrian camels are critically endangered.', options: tfng, answer: 0 },
+          { id: 'n14r7', type: 'single', prompt: '7. Camel milk contains more fat than cow’s milk.', options: tfng, answer: 1 },
+          { id: 'n14r8', type: 'fill', prompt: '8. The one-humped camel is called the ___. (ONE WORD)', answer: 'dromedary' },
+          { id: 'n14r9', type: 'fill', prompt: '9. The hump is a store of ___. (ONE WORD)', answer: 'fat' },
+          { id: 'n14r10', type: 'fill', prompt: '10. A thirsty camel can drink over a hundred ___ in ten minutes. (ONE WORD)', answer: 'litres' },
+          { id: 'n14r11', type: 'fill', prompt: '11. Long ___ protect camels from sandstorms. (ONE WORD)', answer: 'eyelashes' },
+          { id: 'n14r12', type: 'fill', prompt: '12. Wide, padded ___ stop them sinking into sand. (ONE WORD)', answer: 'feet' },
+          { id: 'n14r13', type: 'fill', prompt: '13. Camel milk is rich in vitamin ___. (ONE LETTER)', answer: 'C' },
+        ],
+      },
+      {
+        title: 'Passage 2 · Changing the Clocks',
+        intro: 'Questions 14–26. You should spend about 20 minutes on this passage.',
+        text: `A. Twice a year, in many countries, people move their clocks forward one hour in spring and back again in autumn. The practice, known as daylight saving time, was introduced widely during the First World War to save fuel by making better use of evening daylight. More than a century later, however, its benefits are increasingly questioned.
+
+B. The original argument was about energy. With lighter evenings, people would need less artificial light. Modern studies, though, suggest that any savings today are very small. Lighting is now a much smaller share of energy use, and in hot countries lighter evenings may even increase the use of air conditioning.
+
+C. Supporters point to other advantages. Lighter evenings encourage people to spend more time outdoors, exercising or shopping, which can benefit both health and the economy. Some research has also linked lighter evenings with fewer road accidents involving pedestrians.
+
+D. Critics focus on the effects of the change itself. Losing an hour of sleep in spring disrupts the body clock, and studies have found small increases in heart attacks and traffic accidents in the days after the clocks go forward. Sleep scientists argue that permanent standard time, with lighter mornings, matches the body's natural rhythm better.
+
+E. Several countries, including some in Central Asia, have stopped changing their clocks, and in Europe there has been a long debate about ending the practice. The difficulty is agreeing which time to keep permanently: summer time, with lighter evenings, or standard time, with lighter mornings.
+
+F. Because neighbouring countries trade and travel across borders, many governments prefer to coordinate their decisions, so that a single change does not create confusion in timetables, broadcasting and business.`,
+        questions: [
+          { id: 'n14r14', type: 'single', prompt: '14. Which paragraph explains the original reason for changing clocks?', options: ['A', 'B', 'C', 'D'], answer: 0 },
+          { id: 'n14r15', type: 'single', prompt: '15. Which paragraph describes health risks of the change?', options: ['B', 'C', 'D', 'E'], answer: 2 },
+          { id: 'n14r16', type: 'single', prompt: '16. Which paragraph mentions the need to coordinate between countries?', options: ['C', 'D', 'E', 'F'], answer: 3 },
+          { id: 'n14r17', type: 'single', prompt: '17. Which paragraph lists benefits of lighter evenings?', options: ['A', 'B', 'C', 'E'], answer: 2 },
+          { id: 'n14r18', type: 'single', prompt: '18. Daylight saving was introduced widely during …', options: ['the 1800s', 'the 1970s', 'the First World War', 'the Second World War'], answer: 2 },
+          { id: 'n14r19', type: 'single', prompt: '19. Why may energy savings be small today?', options: ['Clocks are digital.', 'People sleep more.', 'Days are shorter.', 'Lighting is a smaller share of energy use.'], answer: 3 },
+          { id: 'n14r20', type: 'single', prompt: '20. What do sleep scientists prefer?', options: ['permanent standard time', 'permanent summer time', 'changing clocks four times a year', 'no clocks'], answer: 0 },
+          { id: 'n14r21', type: 'single', prompt: '21. In hot countries lighter evenings may increase air-conditioning use.', options: tfng, answer: 0 },
+          { id: 'n14r22', type: 'single', prompt: '22. Heart attacks decrease after the clocks go forward.', options: tfng, answer: 1 },
+          { id: 'n14r23', type: 'single', prompt: '23. Most people prefer lighter mornings.', options: tfng, answer: 2 },
+          { id: 'n14r24', type: 'single', prompt: '24. Some Central Asian countries have stopped changing their clocks.', options: tfng, answer: 0 },
+          { id: 'n14r25', type: 'fill', prompt: '25. Lighter evenings are linked with fewer accidents involving ___. (ONE WORD)', answer: 'pedestrians' },
+          { id: 'n14r26', type: 'fill', prompt: '26. Uncoordinated changes cause confusion in timetables, business and ___. (ONE WORD)', answer: 'broadcasting' },
+        ],
+      },
+      {
+        title: 'Passage 3 · What Really Motivates Us?',
+        intro: 'Questions 27–40. You should spend about 20 minutes on this passage.',
+        text: `For much of the twentieth century, employers and teachers relied on a simple model of motivation: reward the behaviour you want and punish the behaviour you don't. Bonuses, grades and prizes were assumed to make people work harder. Psychological research since the 1970s has shown that the picture is considerably more complex.
+
+Psychologists distinguish between extrinsic motivation, which comes from external rewards such as money or praise, and intrinsic motivation, which comes from the activity itself — curiosity, enjoyment or a sense of purpose. Extrinsic rewards work well for simple, routine tasks. However, a number of experiments have found that offering rewards for activities people already enjoy can sometimes reduce their interest. In one classic study, children who were promised a certificate for drawing later chose to draw less in their free time than children who had not been promised anything.
+
+According to self-determination theory, one of the most influential frameworks in this field, people are most motivated when three basic needs are met: autonomy, the feeling of having choice and control; competence, the sense of becoming more skilled; and relatedness, feeling connected to other people. Workplaces and classrooms that support these needs tend to produce greater persistence, creativity and wellbeing.
+
+This does not mean that rewards are useless. Fair pay remains essential, and recognition can be powerful when it is unexpected or when it gives useful information about performance rather than simply trying to control behaviour. Problems arise mainly when rewards are made conditional on completing interesting tasks, or when people feel that they are being manipulated.
+
+For learners, the implications are practical. Setting personal goals, tracking progress and choosing topics that are genuinely interesting may sustain effort far longer than external pressure alone.`,
+        questions: [
+          { id: 'n14r27', type: 'single', prompt: '27. The traditional model of motivation relied on …', options: ['curiosity', 'rewards and punishments', 'self-determination', 'friendship'], answer: 1 },
+          { id: 'n14r28', type: 'single', prompt: '28. Extrinsic rewards work well for …', options: ['creative work', 'children only', 'simple, routine tasks', 'all tasks'], answer: 2 },
+          { id: 'n14r29', type: 'single', prompt: '29. In the classic study, children promised a certificate …', options: ['drew more later', 'stopped going to school', 'won prizes', 'drew less in their free time'], answer: 3 },
+          { id: 'n14r30', type: 'single', prompt: '30. When can recognition be powerful?', options: ['when it is unexpected or informative', 'when it is expected', 'when it is large', 'when it is public'], answer: 0 },
+          { id: 'n14r31', type: 'single', prompt: '31. What is the writer’s advice for learners?', options: ['rely on external pressure', 'set goals, track progress, choose interesting topics', 'avoid rewards completely', 'study alone'], answer: 1 },
+          { id: 'n14r32', type: 'single', prompt: '32. Research since the 1970s has shown motivation is more complex.', options: tfng, answer: 0 },
+          { id: 'n14r33', type: 'single', prompt: '33. Rewards always increase interest in enjoyable activities.', options: tfng, answer: 1 },
+          { id: 'n14r34', type: 'single', prompt: '34. Self-determination theory was developed in Japan.', options: tfng, answer: 2 },
+          { id: 'n14r35', type: 'single', prompt: '35. Fair pay remains essential.', options: tfng, answer: 0 },
+          { id: 'n14r36', type: 'single', prompt: '36. Feeling manipulated can reduce the effect of rewards.', options: tfng, answer: 0 },
+          { id: 'n14r37', type: 'fill', prompt: '37. Motivation from the activity itself is called ___ motivation. (ONE WORD)', answer: 'intrinsic' },
+          { id: 'n14r38', type: 'fill', prompt: '38. The feeling of having choice and control is ___. (ONE WORD)', answer: 'autonomy' },
+          { id: 'n14r39', type: 'fill', prompt: '39. Feeling connected to other people is called ___. (ONE WORD)', answer: 'relatedness' },
+          { id: 'n14r40', type: 'fill', prompt: '40. Supportive workplaces produce greater persistence, creativity and ___. (ONE WORD)', answer: 'wellbeing' },
+        ],
+      },
+    ],
+  },
 };

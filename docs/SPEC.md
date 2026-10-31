@@ -113,7 +113,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 100 | **Bosh sahifa: tez kirish va qidiruv** | Kontent ko'p — topish qiyin | Oxirgi ochilgan 5 sahifa, bosh sahifada qidiruv maydoni; E2E | ✅ |
 | 101 | **Foydalanuvchi qo'llanmasi** | Yangi foydalanuvchi qayerdan boshlashni bilmaydi | `#/help`: 1-kun, 1-hafta, IELTS yo'li; barcha bo'limlar tavsifi; E2E | ✅ |
 | 102 | **Mock Test 13** |  | 40+40 original savol | ✅ |
-| 103 | **Mock Test 14** |  | 40+40 original savol | ⬜ |
+| 103 | **Mock Test 14** |  | 40+40 original savol | ✅ |
 | 104 | **A2 grammatika +3** (be going to vs will, ravish (quickly/well), should/shouldn't) | A2 mavzular kam | har biri ≥5 mashq | ⬜ |
 | 105 | **B2 grammatika +3** (passive + modal, -ed/-ing sifatlar, future in the past) |  | har biri ≥5 mashq | ⬜ |
 | 106 | **Lug'at +60** (ish va martaba, energiya, hayvonot va bioxilma-xillik) | IELTS mavzulari | 3 × 20 so'z, definitions | ⬜ |
@@ -254,3 +254,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **100-iteratsiya** — Tez kirish: plan.js pushRecent (yangisi birinchi, takrorsiz, 5 ta, bosh sahifa yozilmaydi) + unit test; route() sahifa sarlavhasini (h2) yozib boradi; bosh sahifada qidiruv maydoni va oxirgi sahifalar chiplari; E2E; v=116.
 - **101-iteratsiya** — Qo'llanma: #/help — 1-kun (daraja testi, shaxsiy yo'l, XP maqsadi), 1-hafta, IELTS yo'li, foydali imkoniyatlar, barcha bo'limlar; bosh sahifadan havola; E2E har bir ichki havola mavjud ko'rinishga olib borishini tekshiradi; v=117.
 - **102-iteratsiya** — Mock 13: Listening (ijara kvartirasida nosozlik, shahar avtobus sayohati, o'simlik o'sishi tajribasi, soyabon tarixi ma'ruzasi) + Reading (paxta tarixi, keksalar parvarishida robotlar, video o'yinlar aqlni oshiradimi); 80 savol; Batch 7 (83–102) yakunlandi, Batch 8 (103–122) SPEC'ga yozildi; v=118.
+- **103-iteratsiya** — Mock 14: Listening (avtomobil ijarasi, yangi tramvay liniyasi, lug'at ilovasini loyihalash, cho'l o'simliklari ma'ruzasi) + Reading (tuya, soatlarni almashtirish, bizni nima motivatsiya qiladi); 80 savol; v=119.
