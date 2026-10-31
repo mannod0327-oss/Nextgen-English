@@ -85,7 +85,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 72 | **Lug'at +60** (davlat va jamiyat, sog'lom turmush, koinot va texnologiya) | IELTS Task 2 mavzulari | 3 × 20 so'z, definitions qayta qurish | ✅ |
 | 73 | **O'qish tezligi (WPM)** | IELTS Reading vaqtga bog'liq | Matnni o'qish vaqti → so'z/daqiqa, progressda tarix; unit test | ✅ |
 | 74 | **Xatolarni takrorlash navbati** | Xatolar daftari faqat ro'yxat | Kunlik 10 ta xatoni qayta ishlash rejimi (eng eskilari birinchi); unit test + E2E | ✅ |
-| 75 | **Task 1: jarayon diagrammasi** | Process tasvirlash — passive va ketma-ketlik | 2 topshiriq (bosqichlar sxemasi SVG/HTML) + namunalar | ⬜ |
+| 75 | **Task 1: jarayon diagrammasi** | Process tasvirlash — passive va ketma-ketlik | 2 topshiriq (bosqichlar sxemasi SVG/HTML) + namunalar | ✅ |
 | 76 | **Idiomalar va kollokatsiyalar +30** |  | 30 ta yangi element, test rejimida ishlaydi | ⬜ |
 | 77 | **Mock Test 9** |  | 40+40 original savol | ⬜ |
 | 78 | **Writing tekshiruvi: so'z boyligi** | Lexical resource'ni ko'rsatish | Leksik xilma-xillik (TTR), akademik so'zlar ulushi; unit test | ⬜ |
@@ -186,3 +186,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **72-iteratsiya** — Lug'at +60: "Davlat va jamiyat", "Sog'lom turmush tarzi", "Koinot va texnologiya" — 579 so'z / 42 mavzu; takror (give up) va ta'rifsiz so'zlar almashtirildi; definitions 3523 so'z; v=87.
 - **73-iteratsiya** — O'qish tezligi: writing-check.js readingSpeed (so'z/daqiqa + daraja) + unit test; o'qish sahifasida ⏱ boshlash/tugatish, natija readingSpeed (oxirgi 30) da; progressda o'rtacha va oxirgi 5; E2E; v=88.
 - **74-iteratsiya** — Xatolarni takrorlash: plan.js reviewQueue (eng eski 10, barqaror tartib) + unit test; #/mistakes?mode=review — to'g'ri javob o'chiradi (+2 XP), yana xato sanani yangilab oxiriga suradi; daftarda 10 dan ko'p bo'lsa tugma; E2E (12 ta sun'iy xato); v=89.
+- **75-iteratsiya** — Task 1 jarayon diagrammasi: t1p yordamchisi, 2 topshiriq (quritilgan o'rik ishlab chiqarish, plastik butilka qayta ishlash) — qisqa yorliqli raqamlangan oqim (CSS, mobilga mos), Band 7 namunalar (passive + ketma-ketlik so'zlari testlanadi); jami 44 namuna; v=90.

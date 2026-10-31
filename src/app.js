@@ -781,6 +781,7 @@ const views = {
       return `<a href="#/ielts">← IELTS</a><h2>Writing ${w.type ? esc(w.type) : `Task ${w.task}`} <span class="badge">${w.minutes} daqiqa · ${w.minWords}+ so'z</span></h2>
         <section class="card"><p><b>${esc(w.prompt)}</b></p>
         ${w.chart ? `<figure class="card t1-fig">${chartSvg(w.chart)}</figure>` : ''}
+        ${w.steps ? `<ol class="card process" aria-label="Jarayon bosqichlari">${w.steps.map((x) => `<li lang="en">${esc(x)}</li>`).join('')}</ol>` : ''}
         ${w.table ? `${w.chart ? '<details><summary>📋 Ma\'lumotlar jadvali</summary>' : ''}<table class="tbl">${w.table.map((row, i) => `<tr>${row.map((c) => (i ? `<td>${esc(c)}</td>` : `<th>${esc(c)}</th>`)).join('')}</tr>`).join('')}</table>${w.chart ? '</details>' : ''}` : ''}
         ${w.steps ? `<ol class="steps">${w.steps.map((x) => `<li>${esc(x)}</li>`).join('')}</ol>` : ''}</section>
         <p><button class="btn" id="timer-start">⏱ Taymerni boshlash</button> <b id="timer">${mmss(w.minutes * 60)}</b> <span id="wc" class="badge"></span></p>

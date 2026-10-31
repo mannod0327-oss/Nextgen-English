@@ -1,5 +1,5 @@
 // IELTS Writing prompt bank (original). Same schema as `writing` in ielts.js; `plan` gives an outline / ideas.
-// Task 1 items carry a data table; 42 tasks also carry a Band 7 `model` (see `models` at the end).
+// Task 1 items carry a data table; 44 tasks also carry a Band 7 `model` (see `models` at the end).
 
 const t1 = (id, prompt, table, plan) => ({ id: `bw1-${id}`, task: 1, minutes: 20, minWords: 150, type: 'Task 1 · Table', prompt: `${prompt} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.`, table, plan });
 // Chart tasks: `chart` is drawn as SVG (core/chart.js chartSvg); `table` is derived from it for the data view and the number checks.
@@ -8,6 +8,9 @@ const t1c = (id, kind, prompt, labels, series, unit, plan) => ({
   type: `Task 1 · ${kind === 'bar' ? 'Bar chart' : 'Line graph'}`,
   chart: { type: kind, labels, series: series.map(([name, ...values]) => ({ name, values })), unit },
 });
+// Process diagrams: `steps` are drawn as a numbered flow (no table; no numbers to check).
+const t1p = (id, prompt, steps, plan) => ({ id: `bw1-${id}`, task: 1, minutes: 20, minWords: 150, type: 'Task 1 · Process',
+  prompt: `${prompt} Summarise the information by selecting and reporting the main features.`, steps, plan });
 const t2 = (id, type, prompt, plan) => ({ id: `bw2-${id}`, task: 2, minutes: 40, minWords: 250, type: `Task 2 · ${type}`, prompt, plan });
 
 const OPINION = 'To what extent do you agree or disagree?';
@@ -97,6 +100,12 @@ export const writingBank = [
   t1c('household-waste', 'bar', 'The chart shows the amount of household waste per person (kg per year) that was recycled or sent to landfill in four countries.',
     ['Country A', 'Country B', 'Country C', 'Country D'], [['Recycled', 180, 90, 250, 60], ['Landfill', 220, 380, 150, 410]], 'kg',
     ['Overview: only C recycled more than it sent to landfill.', 'D: highest landfill, lowest recycling.', 'Total waste per person similar (400–470 kg).']),
+  t1p('dried-apricots', 'The diagram shows how dried apricots are produced.',
+    ['🌳 Harvesting — by hand, early summer', '🚿 Washing', '🔪 Cutting in half · stone removal', '☀️ Sun-drying on wooden trays (6–8 days)', '🔍 Sorting — size and quality', '📦 Packing · cool storage', '🚚 Transport — local markets / export'],
+    ['Overview: 7 stages, from harvesting to export; drying is the longest stage.', 'Turn the labels into passive sentences: are picked, is washed, are laid…', 'Sequencers: first, then, after that, once…, finally.']),
+  t1p('bottle-recycling', 'The diagram shows how plastic bottles are recycled in a city.',
+    ['🗑️ Collection — street recycling bins', '🚛 Lorry → sorting centre', '🧮 Sorting — colour · plastic type', '🧼 Washing — labels and dirt removed', '⚙️ Crushing → flakes', '🔥 Melting → pellets', '👕 Manufacturing — clothing, new bottles'],
+    ['Overview: a cycle of 7 stages that turns waste into new products.', 'Group: collection & transport → cleaning & processing → manufacturing.', 'Passive and sequencers; avoid copying the labels word for word.']),
   // ---- Task 2
   t2('online-learning', 'Opinion', `Online learning will soon replace traditional classroom teaching. ${OPINION}`, ['Agree partly: flexibility, cost, access in rural areas.', 'Disagree: social skills, discipline, practical subjects.', 'Conclusion: blended learning.']),
   t2('homework', 'Opinion', `Homework should be banned in primary schools. ${OPINION}`, ['For: play time, family time, stress.', 'Against: habit of study, practice.', 'Your view: limited, short homework.']),
@@ -540,5 +549,25 @@ On the other hand, the drawbacks are serious. Research has linked heavy social m
 In my view, the problem is not social media itself but how much and how it is used. Schools and parents should teach young people to recognise false information, to protect their privacy and to set limits on their screen time.
 
 In conclusion, although social media offers real benefits for communication, its negative effects on mental health and social skills currently outweigh them for many young people.`,
+
+  'bw1-dried-apricots': `The diagram illustrates the stages involved in producing dried apricots, from harvesting the fruit to selling it in markets.
+
+Overall, the process consists of seven main steps and can be divided into three phases: preparing the fresh fruit, drying it, and then sorting and distributing the final product. The drying stage is clearly the longest part of the process.
+
+First of all, ripe apricots are picked by hand in early summer. They are then washed in clean water to remove dust and insects. After that, each apricot is cut in half and its stone is taken out, which allows the fruit to dry more quickly and evenly.
+
+Once the fruit has been prepared, the halves are spread out on wooden trays and left to dry in the sun. This stage takes between six and eight days, depending on the weather.
+
+When the apricots are dry, they are sorted according to their size and quality. Next, the fruit is packed into boxes and kept in a cool place so that it does not spoil. Finally, the boxes are transported to markets within the country or exported abroad.`,
+
+  'bw1-bottle-recycling': `The diagram shows how used plastic bottles are recycled in a city and turned into new products.
+
+Overall, the process is a cycle that consists of seven stages, beginning with the collection of waste bottles and ending with the manufacture of new goods. These stages can be grouped into collection and transport, cleaning and processing, and finally manufacturing.
+
+At the beginning of the process, used bottles are collected from recycling bins in the streets. They are then loaded onto lorries and taken to a sorting centre, where they are separated according to their colour and the type of plastic they are made from.
+
+In the next stage, the bottles are washed in order to remove any labels and dirt. The clean plastic is then crushed into small flakes. After that, these flakes are heated until they melt, and the liquid plastic is formed into small pellets.
+
+In the final stage, the pellets are sent to factories, where they are used to produce new items, such as clothing and new bottles. These products can later be thrown away and collected again, so the cycle can begin once more.`,
 };
 for (const w of writingBank) if (models[w.id]) w.model = models[w.id];

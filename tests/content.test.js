@@ -261,7 +261,7 @@ test('drill centre: every trainer valid, Uzbek explanations; gap trainers have e
 
 test('ielts bank: every number in a Task 1 model comes from its table (or a difference, sum or rounded % change of two values)', () => {
   const nums = (s) => (s.match(/\d[\d,]*(?:\.\d+)?/g) ?? []).map((x) => Number(x.replace(/,/g, '')));
-  for (const w of writingBank.filter((x) => x.task === 1 && x.model)) {
+  for (const w of writingBank.filter((x) => x.task === 1 && x.model && x.table)) {
     const raw = [...nums(w.prompt), ...w.table.flat().flatMap(nums)];
     const vals = [...raw, ...raw.map((v) => v / 1000), ...raw.map((v) => v * 1000)]; // thousands ↔ millions
     const ok = new Set(vals);
@@ -280,5 +280,14 @@ test('ielts guides: ≥6 question-type strategies, each a valid mini exam; fill 
     assert.deepEqual(validateExam(asExam(g.title, g.questions)), [], g.id);
     const src = (g.text ?? g.script ?? '').toLowerCase();
     if (src) for (const q of g.questions.filter((x) => x.type === 'fill')) assert.ok(q.answer.some((a) => src.includes(a.toLowerCase())) || q.id === 'gd-ls3', q.id);
+  }
+});
+
+test('ielts bank: process diagrams have ≥6 steps and a model using the passive and sequencers', () => {
+  const procs = writingBank.filter((w) => w.steps);
+  assert.ok(procs.length >= 2);
+  for (const w of procs) {
+    assert.ok(w.steps.length >= 6 && w.type === 'Task 1 · Process', w.id);
+    assert.ok(w.model && /\b(is|are) \w+ed\b/.test(w.model) && /\b(first|then|after that|finally)\b/i.test(w.model), `${w.id}: passive + sequencers`);
   }
 });

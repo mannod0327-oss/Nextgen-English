@@ -187,3 +187,8 @@ select.select { max-width: 100%; padding: .5rem .6rem; border-radius: 10px; bord
 .t1-chart .s2 { fill: #2f9e44; stroke: #2f9e44; } .t1-chart .s3 { fill: #ae3ec9; stroke: #ae3ec9; }
 .t1-chart rect.s0, .t1-chart rect.s1, .t1-chart rect.s2, .t1-chart rect.s3 { stroke: none; }
 .t1-chart .line { fill: none; stroke-width: 2; }
+/* IELTS Task 1 process diagrams */
+.process { list-style: none; counter-reset: step; padding: .75rem; display: grid; gap: 1.6rem; }
+.process li { counter-increment: step; position: relative; border: 2px solid var(--accent); border-radius: 10px; padding: .5rem .75rem .5rem 2.4rem; }
+.process li::before { content: counter(step); position: absolute; left: .6rem; top: 50%; transform: translateY(-50%); width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-size: .8rem; font-weight: 700; }
+.process li:not(:last-child)::after { content: "↓"; position: absolute; left: 50%; bottom: -1.5rem; transform: translateX(-50%); color: var(--muted); font-size: 1.2rem; }
