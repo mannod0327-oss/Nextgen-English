@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { checkWriting, readingSpeed, lexicalProfile } from '../src/core/writing-check.js';
+import { checkWriting, readingSpeed, lexicalProfile, makeCloze } from '../src/core/writing-check.js';
 import { writing } from '../src/data/ielts.js';
 import { writingBank } from '../src/data/ielts-bank-writing.js';
 import { speakingBank } from '../src/data/ielts-bank-speaking.js';
@@ -74,4 +74,17 @@ test('lexicalProfile: type–token ratio over content words, academic words foun
   assert.equal(lexicalProfile('').ttr, 0);
   for (const w of writingBank.filter((x) => x.model)) assert.ok(lexicalProfile(w.model).ttr >= 0.45, `${w.id}: model below the TTR warning line`);
   assert.ok(checkWriting('Crucial data.', { academic: new Set(['crucial']) }).lexical.academic.includes('crucial'));
+});
+
+test('makeCloze: n gaps of content words, spread through the text, text preserved', () => {
+  const text = 'Welcome to the museum. Tickets cost twenty dollars, and children under twelve travel free. Please collect your headphones at reception before the guided tour begins.';
+  const segs = makeCloze(text, 4, () => 0.5);
+  const gaps = segs.filter((s) => s.gap !== undefined);
+  assert.equal(gaps.length, 4);
+  assert.deepEqual(gaps.map((s) => s.gap), [0, 1, 2, 3]);
+  assert.ok(gaps.every((s) => s.answer.length >= 5 && /^[A-Za-z]+$/.test(s.answer)));
+  assert.equal(segs.map((s) => s.text ?? s.answer).join(''), text, 'joining gives back the script');
+  const pos = gaps.map((g) => segs.indexOf(g));
+  assert.ok(pos[3] - pos[0] > segs.length / 3, 'gaps spread out');
+  assert.equal(makeCloze('a b c', 5).filter((s) => s.gap !== undefined).length, 0);
 });

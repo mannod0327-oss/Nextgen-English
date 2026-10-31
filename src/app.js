@@ -8,7 +8,7 @@ import { createStore } from './core/store.js';
 import { dailyPlan, wordOfDay, goalStatus, XP_GOALS, reviewQueue, personalCards, MY_WORDS } from './core/plan.js';
 import { linePoints, lastDays, chartSvg } from './core/chart.js';
 import { buildSearchIndex, search } from './core/search.js';
-import { checkWriting, readingSpeed } from './core/writing-check.js';
+import { checkWriting, readingSpeed, makeCloze } from './core/writing-check.js';
 import { badges } from './core/badges.js';
 import { toCsv, progressRows } from './core/csv.js';
 import { makeRound, normAnswer, ROUND_KINDS } from './core/numbers.js';
@@ -574,6 +574,35 @@ const views = {
           <span class="badge ${x.level === profile().level ? 'hl' : ''}">${x.level}</span><span><b>${x.listening ? '🎧 ' : ''}${esc(x.title)}</b><br><span class="muted">${esc(x.uzTitle)}</span></span>
           <span class="muted">${done[x.id] != null ? `${done[x.id]}%` : ''}</span></a>`).join('')}</div>`;
     }
+    if (t.listening && params.get('mode') === 'cloze') {
+      const spokenText = t.text.replace(/\b[A-Z][a-z]+: /g, '');
+      const segs = makeCloze(t.text, 10, rand());
+      const gaps = segs.filter((x) => x.gap !== undefined);
+      queueMicrotask(() => {
+        $('#cz-play').onclick = () => speak(spokenText, 0.85);
+        $('#cz-slow').onclick = () => speak(spokenText, 0.65);
+        $('#cz-check').onclick = () => {
+          let right = 0;
+          gaps.forEach((x) => {
+            const el = app.querySelector(`[data-gap="${x.gap}"]`);
+            const ok = el.value.trim().toLowerCase() === x.answer.toLowerCase();
+            right += ok;
+            el.classList.toggle('ok', ok);
+            el.classList.toggle('bad', !ok);
+            if (!ok) el.insertAdjacentHTML('afterend', ` <b class="fix">${esc(x.answer)}</b>`);
+          });
+          $('#cz-check').disabled = true;
+          $('#cz-result').textContent = `Natija: ${right} / ${gaps.length}`;
+          addXp(right);
+        };
+      });
+      return `<a href="#/reading?t=${t.id}">← ${esc(t.title)}</a><h2>✍️ Bo'sh joyli diktant <span class="badge">${t.level}</span></h2>
+        <p class="muted">Tinglang va bo'sh joylarga eshitgan so'zingizni yozing (imlo muhim — IELTS'dagidek). Har safar boshqa so'zlar yashiriladi.</p>
+        <p><button class="btn" id="cz-play">🔊 Tinglash</button> <button class="btn" id="cz-slow">🐢 Sekin</button></p>
+        <section class="card reading-text cloze" lang="en">${segs.map((x) => (x.gap === undefined ? esc(x.text)
+          : `<input class="gap" data-gap="${x.gap}" aria-label="Bo'sh joy ${x.gap + 1}" size="${Math.max(4, x.answer.length)}" autocomplete="off" spellcheck="false">`)).join('')}</section>
+        <p><button class="btn primary" id="cz-check">Tekshirish</button> <b id="cz-result" aria-live="polite"></b></p>`;
+    }
     const r = rand();
     queueMicrotask(() => {
       const spoken = t.text.replace(/^[A-Z][a-z]+: /gm, '');
@@ -629,6 +658,7 @@ const views = {
       <p><button class="btn" id="listen">🔊 Tinglash</button> <button class="btn" id="listen-slow">🐢 Sekin</button>
         <button class="btn" id="hide">🙈 Matnni yashirish / ko'rsatish</button>
         ${globalThis.CSS?.highlights ? `<button class="btn" id="mark">🖍 Belgilash</button> <button class="btn" id="unmark">Tozalash</button>` : ''}</p>
+      ${t.listening ? `<p><a class="btn" href="#/reading?t=${t.id}&mode=cloze">✍️ Bo'sh joyli diktant</a></p>` : ''}
       <p class="muted">${t.listening ? "🎧 Tinglash mashqi: matn yopiq. Avval 🔊 tinglang (IELTS'da 1 marta!), javob bering — tekshirgandan keyin matn ochiladi." : "💡 Istalgan so'zni bosing — ma'nosi chiqadi."}</p>
       <section class="card reading-text" id="text" lang="en"${t.listening ? ' hidden' : ''}>${t.text.split(/([A-Za-z][A-Za-z'’-]*)/).map((p, n) => (n % 2 ? `<span class="tw">${esc(p)}</span>` : esc(p))).join('')}</section>
       ${t.listening ? '' : `<p class="speed"><button class="btn" id="speed-go">⏱ O'qish tezligini o'lchash</button> <span id="speed-out" class="muted" aria-live="polite">Boshlang, matnni o'qing, tugagach yana bosing.</span></p>`}

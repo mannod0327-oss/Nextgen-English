@@ -192,3 +192,8 @@ select.select { max-width: 100%; padding: .5rem .6rem; border-radius: 10px; bord
 .process li { counter-increment: step; position: relative; border: 2px solid var(--accent); border-radius: 10px; padding: .5rem .75rem .5rem 2.4rem; }
 .process li::before { content: counter(step); position: absolute; left: .6rem; top: 50%; transform: translateY(-50%); width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-size: .8rem; font-weight: 700; }
 .process li:not(:last-child)::after { content: "↓"; position: absolute; left: 50%; bottom: -1.5rem; transform: translateX(-50%); color: var(--muted); font-size: 1.2rem; }
+/* listening gap-fill (#/reading?t=…&mode=cloze) */
+.cloze { line-height: 2.2; }
+.cloze .gap { font: inherit; padding: 0 .25rem; border: 0; border-bottom: 2px solid var(--accent); background: transparent; color: var(--text); max-width: 100%; }
+.cloze .gap.ok { border-color: var(--ok); } .cloze .gap.bad { border-color: var(--bad); }
+.cloze .fix { color: var(--ok); }

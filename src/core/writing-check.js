@@ -77,3 +77,20 @@ export function readingSpeed(text, ms) {
   const level = wpm < 120 ? 'sekin' : wpm < 200 ? "o'rtacha" : wpm < 300 ? 'IELTS uchun yaxshi' : 'juda tez — tushunishni tekshiring';
   return { words: n, wpm, level };
 }
+
+/**
+ * Listening gap-fill: blanks n content words (5+ letters, not stop words), spread evenly through the text.
+ * Returns segments [{ text } | { gap: index, answer }]; `r` (0–1 random) picks the word inside each slice.
+ */
+export function makeCloze(text, n = 10, r = Math.random) {
+  const parts = text.split(/([A-Za-z][A-Za-z'’-]*)/);
+  const candidates = parts.map((p, i) => (i % 2 && p.length >= 5 && !STOP.has(p.toLowerCase()) && !/['’-]/.test(p) ? i : -1)).filter((i) => i >= 0);
+  const k = Math.min(n, candidates.length);
+  const chosen = new Set();
+  for (let s = 0; s < k; s++) {
+    const slice = candidates.slice(Math.floor((s * candidates.length) / k), Math.floor(((s + 1) * candidates.length) / k));
+    chosen.add(slice[Math.floor(r() * slice.length)]);
+  }
+  let g = 0;
+  return parts.map((p, i) => (chosen.has(i) ? { gap: g++, answer: p } : { text: p })).filter((x) => x.gap !== undefined || x.text);
+}

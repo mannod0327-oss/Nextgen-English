@@ -98,7 +98,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 85 | **C1 grammatika +3** | C1 qamrov kam (6 mavzu) | it is said that…, emphatic do, ellipsis/substitution — har biri ≥5 mashq | ✅ |
 | 86 | **A1–A2 tinglash +5** | Boshlovchilar tinglashi kam | 3 × A1, 2 × A2 (har biri 5 savol) | ✅ |
 | 87 | **Lug'at +60** (iste'mol va xarid, globallashuv, oila va munosabatlar) | IELTS mavzulari | 3 × 20 so'z, definitions qayta qurish | ✅ |
-| 88 | **Tinglash: bo'sh joyli diktant** | Tinglashni so'zma-so'z tekshirish | Skriptdan avtomatik gap-fill (pure funksiya, unit test), har tinglash sahifasida rejim; E2E | ⬜ |
+| 88 | **Tinglash: bo'sh joyli diktant** | Tinglashni so'zma-so'z tekshirish | Skriptdan avtomatik gap-fill (pure funksiya, unit test), har tinglash sahifasida rejim; E2E | ✅ |
 | 89 | **IELTS sanasiga reja** | Imtihongacha qancha vaqt va nima qilish kerak | Imtihon sanasi → qolgan kunlar, haftalik reja (pure, unit test), bosh sahifada ko'rinadi | ⬜ |
 | 90 | **Imlo +30 va bog'lovchilar +18** |  | Trenajyorlar 72 / 60 ta | ⬜ |
 | 91 | **A2 o'qish +3** |  | 3 matn × 5 savol | ⬜ |
@@ -219,3 +219,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **85-iteratsiya** — C1 grammatika +3: It is said that… / is believed to have…, ta'kidlovchi do/does/did, ellipsis va substitution (so/not/one/do so/neither) — 15 mashq; jami 50 mavzu / 227 mashq (C1×9); v=100.
 - **86-iteratsiya** — Tinglash +5: A1 — oilaviy surat, bugungi ob-havo, do'konda; A2 — kinoga borish, radioda yo'qolgan mushuk e'loni (5×5 savol, javob o'rinlari aylantirildi); jami 35 tinglash (A1×7, A2×8); v=101.
 - **87-iteratsiya** — Lug'at +60: "Iste'mol va xarid", "Globallashuv", "Oila va munosabatlar" — 639 so'z / 45 mavzu; 3 takror va 3 ta'rifsiz ibora almashtirildi; definitions 3602; v=102.
+- **88-iteratsiya** — Tinglash diktanti: writing-check.js makeCloze (10 mazmunli so'z, matn bo'ylab tekis, skript tiklanadi) + unit test; #/reading?t=…&mode=cloze — 🔊/🐢, imloga qat'iy tekshiruv, to'g'ri javob ko'rsatiladi, XP; har tinglash sahifasida tugma; E2E; v=103.
