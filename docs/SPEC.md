@@ -95,7 +95,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 82 | **Mock Test 10** |  | 40+40 original savol | ✅ |
 | 83 | **Shaxsiy lug'at** | Matndagi notanish so'zni saqlab, keyin takrorlash imkoni yo'q | Glossariy/lug'atdan ⭐ saqlash → `#/vocab?cat=__mine` SRS kartalari; unit test + E2E | ✅ |
 | 84 | **IELTS General Training xatlari** | Faqat Academic; GT Task 1 (xat) yo'q | 6 ta xat topshirig'i (rasmiy/norasmiy) + 6 Band 7 namuna (≥150), writing-check xatosiz | ✅ |
-| 85 | **C1 grammatika +3** | C1 qamrov kam (6 mavzu) | it is said that…, emphatic do, ellipsis/substitution — har biri ≥5 mashq | ⬜ |
+| 85 | **C1 grammatika +3** | C1 qamrov kam (6 mavzu) | it is said that…, emphatic do, ellipsis/substitution — har biri ≥5 mashq | ✅ |
 | 86 | **A1–A2 tinglash +5** | Boshlovchilar tinglashi kam | 3 × A1, 2 × A2 (har biri 5 savol) | ⬜ |
 | 87 | **Lug'at +60** (iste'mol va xarid, globallashuv, oila va munosabatlar) | IELTS mavzulari | 3 × 20 so'z, definitions qayta qurish | ⬜ |
 | 88 | **Tinglash: bo'sh joyli diktant** | Tinglashni so'zma-so'z tekshirish | Skriptdan avtomatik gap-fill (pure funksiya, unit test), har tinglash sahifasida rejim; E2E | ⬜ |
@@ -216,3 +216,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **82-iteratsiya** — Mock 10: Listening (marafonga ro'yxatdan o'tish, hostel qoidalari, podkast rejasi, bosmaxona ma'ruzasi) + Reading (kigiz — cho'l matosi, uy vazifasi foydasi, antibiotik rezistentligi); 80 savol; Batch 6 (63–82) yakunlandi, Batch 7 (83–102) SPEC'ga yozildi; v=97.
 - **83-iteratsiya** — Shaxsiy lug'at: o'qish glossariysi va lug'at yozuvlarida ⭐ saqlash (myWords: uz/ta'rif/misol), plan.js personalCards + unit test; #/vocab?cat=__mine — SM-2 kartalari, hubda ro'yxat; E2E (gloss + lug'at → kartalar); v=98.
 - **84-iteratsiya** — GT xatlari: gt yordamchisi, 6 topshiriq (shovqinli qo'shni, yo'qolgan sumka, do'st tashrifi, kurs shikoyati, tavsiyanoma, mezbonga rahmat) — rasmiy/yarim rasmiy/norasmiy, har biriga Band 7 namuna (195–220 so'z); bankda alohida guruh; test (Dear…, Yours faithfully); v=99.
+- **85-iteratsiya** — C1 grammatika +3: It is said that… / is believed to have…, ta'kidlovchi do/does/did, ellipsis va substitution (so/not/one/do so/neither) — 15 mashq; jami 50 mavzu / 227 mashq (C1×9); v=100.
