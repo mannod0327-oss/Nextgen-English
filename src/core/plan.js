@@ -61,3 +61,13 @@ export function goalStatus(xpDays, goal, date) {
   return { today: todayXp, pct: Math.min(100, Math.round((todayXp / goal) * 100)), met: todayXp >= goal, week, streak };
 }
 
+
+/**
+ * Daily mistakes review: the n oldest open mistakes first (a mistake answered wrongly again gets today's
+ * date and moves to the back; a correct answer removes it), ties broken by id so the order is stable.
+ */
+export function reviewQueue(mistakes, n = 10) {
+  return Object.values(mistakes)
+    .sort((a, b) => (a.date === b.date ? (a.q.id < b.q.id ? -1 : 1) : a.date < b.date ? -1 : 1))
+    .slice(0, n);
+}

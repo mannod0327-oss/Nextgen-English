@@ -622,6 +622,29 @@ await step('reading speed: timed read gives words per minute, shown on progress 
   await page.waitForSelector('text=O\'qish tezligi');
 });
 
+await step('mistakes review: 10 oldest first, correct answers leave the notebook', async () => {
+  await page.goto(`${base}/#/`);
+  const saved = await page.evaluate(() => localStorage.getItem('nge:mistakes'));
+  await page.evaluate(() => {
+    const m = {};
+    for (let i = 1; i <= 12; i++) {
+      const id = `zz${i}`;
+      m[id] = { q: { id, type: 'single', prompt: `Q${i}`, options: ['right', 'wrong'], answer: 0 }, source: 'test', href: '#/', given: 'wrong', date: `2026-01-${String(i).padStart(2, '0')}` };
+    }
+    localStorage.setItem('nge:mistakes', JSON.stringify(m));
+  });
+  await page.goto(`${base}/#/mistakes`);
+  await page.click('a[href="#/mistakes?mode=review"]');
+  await page.waitForSelector('[data-q="zz1"]');
+  const ids = await page.$$eval('.question', (els) => els.map((e) => e.dataset.q));
+  if (ids.length !== 10 || ids[0] !== 'zz1' || ids.includes('zz12')) throw new Error(`queue ${ids}`);
+  for (const id of ids) await page.check(`[data-q="${id}"] input[value="0"]`);
+  await page.click('#retry');
+  const left = await page.evaluate(() => Object.keys(JSON.parse(localStorage.getItem('nge:mistakes'))));
+  if (left.join() !== 'zz11,zz12') throw new Error(`left ${left}`);
+  await page.evaluate((v) => (v ? localStorage.setItem('nge:mistakes', v) : localStorage.removeItem('nge:mistakes')), saved);
+});
+
 await step('daily goal: ring shows today\'s XP, goal choice persists, week has 7 days', async () => {
   await page.goto(`${base}/#/verbs`);
   await page.goto(`${base}/#/`);

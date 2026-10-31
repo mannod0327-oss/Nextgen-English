@@ -7,7 +7,7 @@ import { validateExam, scoreQuestion, gradeExam, makeVariant, parseExam, seriali
 import { createPlacement, nextQuestion, answerPlacement, placementResult } from '../src/core/placement.js';
 import { renderPrintable, answerKey } from '../src/core/printable.js';
 import { createStore } from '../src/core/store.js';
-import { dailyPlan, wordOfDay, goalStatus } from '../src/core/plan.js';
+import { dailyPlan, wordOfDay, goalStatus, reviewQueue } from '../src/core/plan.js';
 import { linePoints, lastDays, niceMax, chartSvg } from '../src/core/chart.js';
 import { buildSearchIndex, search, norm } from '../src/core/search.js';
 import { sampleExam } from '../src/data/sample-exam.js';
@@ -301,4 +301,12 @@ test('niceMax and chartSvg: nice axis, one mark per value, legend, escaped label
   const line = chartSvg({ type: 'line', labels: ['A', 'B', 'C'], series: [{ name: 'X', values: [1, 2, 3] }] });
   assert.equal((line.match(/<polyline/g) ?? []).length, 1);
   assert.equal((line.match(/<circle/g) ?? []).length, 3);
+});
+
+test('reviewQueue: oldest mistakes first, stable order, at most n', () => {
+  const m = (id, date) => [id, { q: { id }, date }];
+  const book = Object.fromEntries([m('c', '2026-10-20'), m('a', '2026-10-25'), m('b', '2026-10-20'), m('d', '2026-10-29')]);
+  assert.deepEqual(reviewQueue(book, 3).map((x) => x.q.id), ['b', 'c', 'a']);
+  assert.equal(reviewQueue(book).length, 4);
+  assert.deepEqual(reviewQueue({}), []);
 });

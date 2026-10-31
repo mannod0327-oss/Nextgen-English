@@ -5,7 +5,7 @@ import { gradeExam, scoreQuestion, makeVariant, parseExam, serializeExam, valida
 import { createPlacement, nextQuestion, answerPlacement, placementResult, LEVELS } from './core/placement.js';
 import { renderPrintable, esc } from './core/printable.js';
 import { createStore } from './core/store.js';
-import { dailyPlan, wordOfDay, goalStatus, XP_GOALS } from './core/plan.js';
+import { dailyPlan, wordOfDay, goalStatus, XP_GOALS, reviewQueue } from './core/plan.js';
 import { linePoints, lastDays, chartSvg } from './core/chart.js';
 import { buildSearchIndex, search } from './core/search.js';
 import { checkWriting, readingSpeed } from './core/writing-check.js';
@@ -1202,8 +1202,10 @@ const views = {
       <div id="sres" aria-live="polite"></div>`;
   },
 
-  mistakes() {
-    const list = Object.values(store.get('mistakes', {})).sort((a, b) => (a.date < b.date ? 1 : -1));
+  mistakes(params) {
+    const all = store.get('mistakes', {});
+    const review = params.get('mode') === 'review';
+    const list = review ? reviewQueue(all, 10) : Object.values(all).sort((a, b) => (a.date < b.date ? 1 : -1));
     if (!list.length) {
       return `<h2>🧾 Xatolar daftari</h2><section class="card center"><p>Hozircha xato yo'q 🎉</p>
         <p class="muted">Grammatika, O'qish va IELTS sinov testlaridagi noto'g'ri javoblar shu yerga avtomatik yig'iladi.</p>
@@ -1215,12 +1217,15 @@ const views = {
         let fixed = 0;
         list.forEach((m) => { fixed += gradeBox(m.q, app.querySelector(`[data-q="${m.q.id}"]`), m.source) === 1 ? 1 : 0; });
         $('#retry-result').textContent = `${fixed} / ${list.length} tuzatildi — to'g'ri javoblar daftardan o'chirildi.`;
+        if (review) { logActivity('mistakes-review'); addXp(fixed * 2); $('#retry').disabled = true; }
         renderHeader();
       };
       $('#clear-mistakes').onclick = () => { store.set('mistakes', {}); route(); };
     });
-    return `<h2>🧾 Xatolar daftari <span class="badge">${list.length}</span></h2>
-      <p class="muted">Har bir savolga qaytadan javob bering. To'g'ri javob berilgan savol daftardan o'chadi.</p>
+    const total = Object.keys(all).length;
+    return `${review ? '<p><a href="#/mistakes">← Butun daftar</a></p>' : ''}<h2>🧾 ${review ? 'Bugungi takrorlash' : 'Xatolar daftari'} <span class="badge">${list.length}${review ? ` / ${total}` : ''}</span></h2>
+      <p class="muted">${review ? "Eng eski 10 ta xato. To'g'ri javob — daftardan o'chadi (+2 XP), yana xato — oxiriga suriladi va keyinroq qaytadi." : "Har bir savolga qaytadan javob bering. To'g'ri javob berilgan savol daftardan o'chadi."}</p>
+      ${!review && total > 10 ? `<p><a class="btn primary" href="#/mistakes?mode=review">🔁 Bugungi 10 ta takrorlash</a></p>` : ''}
       ${list.map((m) => `<section class="card question" data-q="${esc(m.q.id)}">
         <p class="muted">${esc(m.source)} · ${m.date} · oldingi javobingiz: <s>${esc(m.given)}</s> · <a href="${esc(m.href)}">manbaga o'tish</a></p>
         <b>${esc(m.q.prompt)}</b>${questionHtml(m.q, r)}<div class="fb"></div></section>`).join('')}
