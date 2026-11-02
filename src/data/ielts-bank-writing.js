@@ -1,5 +1,5 @@
 // IELTS Writing prompt bank (original). Same schema as `writing` in ielts.js; `plan` gives an outline / ideas.
-// Task 1 items carry a data table; 68 tasks also carry a Band 7 `model` (see `models` at the end).
+// Task 1 items carry a data table; 72 tasks also carry a Band 7 `model` (see `models` at the end).
 
 const t1 = (id, prompt, table, plan) => ({ id: `bw1-${id}`, task: 1, minutes: 20, minWords: 150, type: 'Task 1 · Table', prompt: `${prompt} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.`, table, plan });
 // Chart tasks: `chart` is drawn as SVG (core/chart.js chartSvg); `table` is derived from it for the data view and the number checks.
@@ -121,6 +121,14 @@ export const writingBank = [
     ['Dear Ms …, / Yours sincerely', 'Remind: class, year, subject', 'Make the request easy: deadline and address']),
   gt('thank-host', 'informal', 'You recently stayed with a family while you were studying abroad. Write a letter to the family. In your letter: thank them for their hospitality; say what you enjoyed most; invite them to visit you.',
     ['Dear …, / Love, / Warm wishes', 'Specific memories, not general thanks', 'Invitation with a time and an activity']),
+  gt('late-delivery', 'formal', 'You ordered an item online, but it arrived late and damaged. Write a letter to the company. In your letter: describe what you ordered; explain what happened; say what you want the company to do.',
+    ['Dear Sir or Madam, / Yours faithfully', 'Order number, dates, exact damage', 'Clear request: replacement or refund + deadline']),
+  gt('library-hours', 'formal', 'Your local library has reduced its opening hours. Write a letter to the library manager. In your letter: explain how you use the library; describe how the change affects you; suggest a solution.',
+    ['Dear Sir or Madam, / Yours faithfully', 'Personal example of use', 'Practical, polite suggestion']),
+  gt('invite-wedding', 'informal', 'You are getting married and want to invite an old friend who lives abroad. Write a letter to your friend. In your letter: give details of the wedding; explain why you want them to come; offer help with the trip.',
+    ['Dear …, / Love, / See you soon', 'Date, place, what happens', 'Help: accommodation, airport pick-up']),
+  gt('manager-time-off', 'semi-formal', 'You need to take some time off work. Write a letter to your manager. In your letter: explain why you need time off; say how long you will be away; suggest how your work can be covered.',
+    ['Dear Mr/Ms …, / Yours sincerely', 'Reason and exact dates', 'Plan for colleagues; contact details']),
   // ---- Task 2
   t2('online-learning', 'Opinion', `Online learning will soon replace traditional classroom teaching. ${OPINION}`, ['Agree partly: flexibility, cost, access in rural areas.', 'Disagree: social skills, discipline, practical subjects.', 'Conclusion: blended learning.']),
   t2('homework', 'Opinion', `Homework should be banned in primary schools. ${OPINION}`, ['For: play time, family time, stress.', 'Against: habit of study, practice.', 'Your view: limited, short homework.']),
@@ -842,5 +850,63 @@ However, it is also true that cities need to develop. Growing populations requir
 In my opinion, the best approach is to protect buildings of genuine historical or cultural importance while allowing careful development around them. Old buildings can often be renovated and given new uses, for example as hotels, libraries or cafés, which keeps them alive while meeting modern needs. Clear rules can ensure that new buildings near historic areas respect their height and style.
 
 In conclusion, although development is necessary, valuable historic buildings should be protected, as their loss would be permanent and would make cities poorer both culturally and economically.`,
+
+  'gt1-late-delivery': `Dear Sir or Madam,
+
+I am writing to complain about an order that I placed on your website and to request that you resolve the problem as soon as possible.
+
+On 3 October, I ordered a white ceramic table lamp, model TL-200, for 450,000 sum, order number 58217. According to your website, delivery would take three to five working days, and I paid an extra fee for express delivery. However, the lamp did not arrive until 17 October, two weeks later than promised. Furthermore, when I opened the box, I discovered that the base of the lamp was cracked and the lampshade was badly bent. It seems that the item had not been packed properly, as there was very little protective material inside the box.
+
+I have attached photographs of the damaged lamp and the packaging to this letter.
+
+I would therefore like you to send me a replacement lamp within the next seven days and to refund the express delivery charge, since the service I paid for was not provided. Alternatively, if a replacement is not available, I would expect a full refund. Please let me know how you would like me to return the damaged item.
+
+I look forward to your prompt reply.
+
+Yours faithfully,
+Aziza Rahimova`,
+
+  'gt1-library-hours': `Dear Sir or Madam,
+
+I am writing about the recent change to the opening hours of the Central District Library, which has affected me and, I believe, many other regular users.
+
+I have been a member of the library for over five years. As a working adult studying for a professional qualification in accounting, I use the library mainly in the evenings, after work, when I need a quiet place to study and access to the reference books that I cannot afford to buy. I also borrow novels for my children every week.
+
+Since the library now closes at five o'clock instead of eight, I am no longer able to visit on weekdays, because I finish work at six. As a result, I have had to study at home, where it is much more difficult to concentrate, and my exam is in two months.
+
+I understand that the library may need to reduce costs. However, I would like to suggest that, instead of closing early every day, the library could stay open until eight on two or three evenings a week and open later in the morning on those days. In addition, volunteers from the local community might be willing to help in the evenings.
+
+Thank you for considering my suggestion.
+
+Yours faithfully,
+Bekzod Ergashev`,
+
+  'gt1-invite-wedding': `Dear Sarah,
+
+I hope you're well and that life in Canada is treating you kindly! I've got some exciting news: Timur and I are getting married, and I'd absolutely love you to be there.
+
+The wedding will take place on Saturday 14 June in Samarkand. In the morning there will be a small traditional ceremony at my parents' house, and in the evening we're having a big celebration at a restaurant near the Registan, with music, dancing and, of course, plenty of plov. You can expect about three hundred guests, which is quite normal for an Uzbek wedding!
+
+It would mean so much to me if you could come. You were my closest friend at university, and you supported me through so many difficult moments, especially during our final exams. I can't imagine celebrating the most important day of my life without you.
+
+I know it's a long journey. However, I'd like to help as much as I can. You're very welcome to stay with my family for as long as you like, and my brother will pick you up from the airport in Tashkent and bring you to Samarkand by train. If you have time, we could also travel to Bukhara together after the wedding.
+
+Please let me know as soon as you can. I really hope you can make it!
+
+Lots of love,
+Nilufar`,
+
+  'gt1-manager-time-off': `Dear Mr Karimov,
+
+I am writing to request two weeks of unpaid leave from work next month.
+
+Unfortunately, my mother is going to have an operation on her knee on 10 March, and the doctor has told us that she will need someone to look after her for at least ten days afterwards. My brother lives abroad and my father passed away several years ago, so I am the only member of the family who can take care of her during her recovery.
+
+I would therefore like to be away from 9 March to 22 March, returning to the office on Monday 23 March. I realise that this is a busy time of year for our department, and I have thought carefully about how my work can be covered. Before I leave, I will complete the monthly sales report, which is usually due on the fifteenth. My colleague Dilnoza has kindly agreed to deal with my clients while I am away, and I will prepare detailed notes for her on all current projects. In addition, I will be available by phone and email for any urgent questions.
+
+I would be very grateful if you could approve this request. Please let me know if you would like to discuss it in person.
+
+Yours sincerely,
+Shahlo Usmonova`,
 };
 for (const w of writingBank) if (models[w.id]) w.model = models[w.id];

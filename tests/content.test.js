@@ -299,7 +299,7 @@ test('ielts bank: process diagrams have ≥6 steps and a model using the passive
 
 test('ielts bank: General Training letters — 6 tasks with three registers, every one with a model letter', () => {
   const gt = writingBank.filter((w) => w.gt);
-  assert.ok(gt.length >= 6 && gt.every((w) => w.model && w.task === 1 && /Letter \((formal|semi-formal|informal)\)/.test(w.type)));
+  assert.ok(gt.length >= 10 && gt.every((w) => w.model && w.task === 1 && /Letter \((formal|semi-formal|informal)\)/.test(w.type)));
   for (const r of ['formal', 'semi-formal', 'informal']) assert.ok(gt.some((w) => w.type.endsWith(`(${r})`)), r);
   for (const w of gt) {
     assert.match(w.model, /^Dear /, `${w.id}: opens with Dear`);
