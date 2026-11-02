@@ -2917,4 +2917,210 @@ For learners, the implications are practical. Setting personal goals, tracking p
       },
     ],
   },
+
+  'listening-15': {
+    kind: 'listening', title: 'IELTS Listening — Mock Test 15', minutes: 30,
+    sections: [
+      {
+        title: 'Part 1 · Booking a pottery class',
+        intro: 'You will hear a woman phoning a craft centre. Questions 1–10.',
+        script: `Assistant: Clay and Colour Craft Centre, good afternoon.
+Caller: Hello. I'm interested in your pottery classes for beginners.
+Assistant: Great. Our beginners' course runs for six weeks, every Thursday evening from seven to nine.
+Caller: When does the next course start?
+Assistant: On the twelfth of February. There are only four places left.
+Caller: How much does it cost?
+Assistant: Three hundred and fifty thousand sum for the whole course. That includes all the clay, the glazes and firing your pieces in the kiln.
+Caller: Do I need to bring anything?
+Assistant: Just an apron or old clothes, because it gets messy. And please keep your nails short — it makes working with clay much easier.
+Caller: OK. How many people are in a class?
+Assistant: The maximum is eight, so the teacher can help everyone. In the first lesson you'll learn to make a simple bowl by hand, and from the third week you'll use the potter's wheel.
+Caller: Sounds fun. Can I take my pieces home?
+Assistant: Yes, but they need about ten days to dry and be fired, so you'll collect them after the course finishes.
+Caller: Fine. I'd like to book a place.
+Assistant: Can I have your name?
+Caller: Malohat Tursunova. T-U-R-S-U-N-O-V-A.
+Assistant: And a phone number?
+Caller: Ninety-seven, four-oh-two, thirty-three, eighteen.
+Assistant: Thank you. You can pay by bank transfer, or in cash on the first evening.`,
+        questions: [
+          { id: 'n15l1', type: 'fill', prompt: '1. Course length: ___ weeks', answer: ['six', '6'] },
+          { id: 'n15l2', type: 'fill', prompt: '2. Day: ___ evenings', answer: 'Thursday' },
+          { id: 'n15l3', type: 'fill', prompt: '3. Start date: the ___ of February', answer: ['twelfth', '12th', '12'] },
+          { id: 'n15l4', type: 'fill', prompt: '4. Places left: ___', answer: ['four', '4'] },
+          { id: 'n15l5', type: 'single', prompt: '5. The price includes …', options: ['clay, glazes and firing', 'an apron', 'a potter’s wheel to take home', 'dinner'], answer: 0 },
+          { id: 'n15l6', type: 'fill', prompt: '6. Bring an ___ or old clothes.', answer: 'apron' },
+          { id: 'n15l7', type: 'fill', prompt: '7. Maximum class size: ___', answer: ['eight', '8'] },
+          { id: 'n15l8', type: 'single', prompt: '8. Students start using the wheel in week …', options: ['one', 'two', 'three', 'six'], answer: 2 },
+          { id: 'n15l9', type: 'fill', prompt: '9. Pieces need about ___ days to dry and be fired.', answer: ['ten', '10'] },
+          { id: 'n15l10', type: 'fill', prompt: '10. Surname: ___', answer: 'Tursunova' },
+        ],
+      },
+      {
+        title: 'Part 2 · Visiting the mountain visitor centre',
+        intro: 'You will hear a ranger welcoming a group to a mountain visitor centre. Questions 11–20.',
+        script: `Hello everyone, and welcome to the Ugam Mountains Visitor Centre. I'm Rustam, one of the park rangers.
+Let me start with a quick orientation. The building you're in has three areas. On your left is the exhibition hall, which explains how the mountains were formed and shows the animals that live here, including the snow leopard, although you're very unlikely to see one — they're extremely shy. On your right is the café, and upstairs there's a viewing terrace with telescopes.
+We have three marked walking trails. The blue trail is a short, flat circuit of two kilometres, suitable for families with young children and pushchairs. The red trail is six kilometres and climbs to a waterfall; allow about three hours. The black trail is only for experienced walkers — it's steep, and you must register at reception before you start.
+A few safety rules. Please stay on the marked paths, carry enough water, and don't feed any animals. The weather can change very quickly up here, so even in summer bring a warm layer and a waterproof jacket. Mobile signal is poor on the black trail, so tell someone your route.
+At three o'clock today, there's a free guided walk focusing on medicinal plants, which leaves from the main entrance. And if you'd like a souvenir, the gift shop sells local honey and handmade felt toys, and all profits support conservation work in the park.`,
+        questions: [
+          { id: 'n15l11', type: 'single', prompt: '11. The exhibition hall is …', options: ['on the right', 'on the left', 'upstairs', 'outside'], answer: 1 },
+          { id: 'n15l12', type: 'fill', prompt: '12. Visitors are unlikely to see a snow ___', answer: 'leopard' },
+          { id: 'n15l13', type: 'fill', prompt: '13. The viewing terrace has ___', answer: ['telescopes', 'telescope'] },
+          { id: 'n15l14', type: 'single', prompt: '14. Which trail is suitable for pushchairs?', options: ['red', 'black', 'blue', 'none'], answer: 2 },
+          { id: 'n15l15', type: 'fill', prompt: '15. The red trail climbs to a ___', answer: 'waterfall' },
+          { id: 'n15l16', type: 'single', prompt: '16. Before walking the black trail, you must …', options: ['buy a ticket', 'hire a guide', 'phone the ranger', 'register at reception'], answer: 3 },
+          { id: 'n15l17', type: 'single', prompt: '17. Even in summer, visitors should bring …', options: ['a warm layer and a waterproof', 'a map', 'food for animals', 'a tent'], answer: 0 },
+          { id: 'n15l18', type: 'fill', prompt: '18. The guided walk starts at ___ o’clock.', answer: ['three', '3'] },
+          { id: 'n15l19', type: 'fill', prompt: '19. The walk focuses on medicinal ___', answer: ['plants', 'plant'] },
+          { id: 'n15l20', type: 'single', prompt: '20. Gift shop profits support …', options: ['the café', 'conservation work', 'local schools', 'the rangers’ salaries'], answer: 1 },
+        ],
+      },
+      {
+        title: 'Part 3 · A presentation on crafts and tourism',
+        intro: 'You will hear two tourism students, Mohira and Jack, discussing a presentation with their tutor. Questions 21–30.',
+        script: `Tutor: So, your presentation is about traditional crafts and tourism. What's your main argument?
+Mohira: That tourism can help crafts survive, but only if craftspeople get a fair share of the money.
+Tutor: How did you research it?
+Jack: We visited workshops in Rishtan and Margilan and interviewed twelve craftspeople — potters, silk weavers and woodcarvers.
+Tutor: What did they say?
+Mohira: Most said tourism had increased their sales, especially since visa rules became simpler. But many complained that tour guides take them to particular shops in exchange for a commission, so the artisans earn less.
+Jack: Another problem is cheap factory-made copies sold as "handmade" in tourist markets.
+Tutor: What solutions are you proposing?
+Mohira: First, a certification label that guarantees an item is genuinely handmade. Second, workshops that let tourists try making something themselves — several artisans said these classes earn more than selling objects.
+Tutor: That's interesting. Did you find any figures?
+Jack: One workshop said classes now provide about forty per cent of its income.
+Tutor: Use that as a case study. How will you structure the talk?
+Mohira: Background, then the interviews, then the problems, and finally our recommendations.
+Tutor: Fine, but keep the background short — two minutes at most. And include a short video clip from one of the workshops; it'll make the presentation much more engaging. You're presenting on the twenty-fifth.`,
+        questions: [
+          { id: 'n15l21', type: 'single', prompt: '21. Their main argument is that tourism helps crafts if …', options: ['prices rise', 'factories are built', 'craftspeople get a fair share', 'guides are trained'], answer: 2 },
+          { id: 'n15l22', type: 'fill', prompt: '22. They interviewed ___ craftspeople.', answer: ['twelve', '12'] },
+          { id: 'n15l23', type: 'single', prompt: '23. Why have sales increased recently?', options: ['cheaper flights', 'online shops', 'new museums', 'simpler visa rules'], answer: 3 },
+          { id: 'n15l24', type: 'fill', prompt: '24. Guides take tourists to certain shops for a ___', answer: 'commission' },
+          { id: 'n15l25', type: 'single', prompt: '25. Another problem is …', options: ['factory-made copies sold as handmade', 'too few tourists', 'high taxes', 'poor roads'], answer: 0 },
+          { id: 'n15l26', type: 'fill', prompt: '26. They propose a ___ label for handmade items.', answer: 'certification' },
+          { id: 'n15l27', type: 'single', prompt: '27. What earns some artisans more than selling objects?', options: ['exporting', 'classes for tourists', 'online videos', 'festivals'], answer: 1 },
+          { id: 'n15l28', type: 'fill', prompt: '28. Classes provide about ___ % of one workshop’s income.', answer: ['forty', '40'] },
+          { id: 'n15l29', type: 'fill', prompt: '29. The background should last ___ minutes at most.', answer: ['two', '2'] },
+          { id: 'n15l30', type: 'fill', prompt: '30. They should include a short video ___', answer: 'clip' },
+        ],
+      },
+      {
+        title: 'Part 4 · Lecture: How animals sleep',
+        intro: 'You will hear part of a biology lecture. Questions 31–40.',
+        script: `Sleep is found in almost every animal that has been studied, from mammals and birds to fish and even insects such as fruit flies. Yet the way animals sleep varies enormously, and these differences help us understand what sleep is for.
+Let's start with the amount. Large plant-eating animals, such as elephants and giraffes, sleep surprisingly little — often only two to four hours a day — partly because they need to spend so much time eating, and partly because sleeping makes them vulnerable to predators. Bats, on the other hand, may sleep for up to twenty hours a day.
+Some animals have developed remarkable ways of sleeping safely. Dolphins and some birds can sleep with one half of the brain at a time, while the other half stays awake. This allows dolphins to keep swimming and come to the surface to breathe, and it allows birds to watch for danger with one eye open. Recent research suggests that some birds can even sleep during long migratory flights, in very short periods of a few seconds.
+Why is sleep so universal, given the risks? One leading theory is that sleep allows the brain to process and store memories. Another is that it helps clear waste products that build up in the brain during waking hours. A third suggests that sleep saves energy. These explanations are not mutually exclusive, and sleep probably serves several purposes at once.
+Studying animal sleep also has practical value. Research on fruit flies, for example, has helped scientists identify genes that control sleep in humans, which may eventually lead to better treatments for sleep disorders.`,
+        questions: [
+          { id: 'n15l31', type: 'fill', prompt: '31. Even insects such as fruit ___ sleep.', answer: ['flies', 'fly'] },
+          { id: 'n15l32', type: 'single', prompt: '32. Elephants and giraffes sleep about …', options: ['2–4 hours a day', '8 hours a day', '12 hours a day', '20 hours a day'], answer: 0 },
+          { id: 'n15l33', type: 'single', prompt: '33. One reason large plant-eaters sleep little is that …', options: ['they are cold', 'they live in water', 'they need time to eat', 'they migrate'], answer: 2 },
+          { id: 'n15l34', type: 'fill', prompt: '34. ___ may sleep for up to twenty hours a day.', answer: ['Bats', 'bat', 'bats'] },
+          { id: 'n15l35', type: 'single', prompt: '35. Dolphins can sleep with …', options: ['both eyes closed', 'their heads above water', 'other dolphins guarding', 'one half of the brain at a time'], answer: 3 },
+          { id: 'n15l36', type: 'single', prompt: '36. Some birds may sleep during migration in periods of …', options: ['a few seconds', 'an hour', 'several hours', 'a whole night'], answer: 0 },
+          { id: 'n15l37', type: 'fill', prompt: '37. One theory: sleep helps the brain store ___', answer: ['memories', 'memory'] },
+          { id: 'n15l38', type: 'fill', prompt: '38. Another theory: sleep clears ___ products from the brain.', answer: 'waste' },
+          { id: 'n15l39', type: 'fill', prompt: '39. A third theory: sleep saves ___', answer: 'energy' },
+          { id: 'n15l40', type: 'fill', prompt: '40. Fruit fly research helped identify ___ that control sleep.', answer: ['genes', 'gene'] },
+        ],
+      },
+    ],
+  },
+
+  'reading-15': {
+    kind: 'reading', title: 'IELTS Academic Reading — Mock Test 15', minutes: 60,
+    sections: [
+      {
+        title: 'Passage 1 · The Blue Ceramics of Rishtan',
+        intro: 'Questions 1–13. You should spend about 20 minutes on this passage.',
+        text: `The small town of Rishtan in the Fergana Valley has been famous for its pottery for centuries. Its success is based on a natural advantage: the local soil contains a fine red clay that does not need to be mixed with other materials, and the region also has the minerals needed to make the characteristic glazes.
+
+Rishtan ceramics are recognisable by their deep blue and turquoise colours, known locally as "ishkor" glaze. Traditionally, this glaze was made from the ash of desert plants mixed with crushed quartz and natural colouring minerals. The plant ash acts as a flux, helping the glaze melt at a lower temperature and form a glassy surface. The recipes were closely guarded secrets, passed down within families from father to son.
+
+Making a single plate involves many stages. The clay is first cleaned and kneaded, then shaped on a potter's wheel. After drying in the shade for several days, the piece is covered with a white base layer. The craftsman then paints the design by hand, usually with patterns of flowers, pomegranates, birds or geometric shapes, before applying the glaze. Finally, the piece is fired in a kiln for many hours. A single mistake at any stage can ruin the work.
+
+In the twentieth century, many workshops were combined into a large factory, and some traditional techniques were almost lost. Since the 1990s, however, family workshops have revived the old methods. Several master potters now teach apprentices and welcome tourists who want to watch them at work or try the wheel themselves.
+
+Today, Rishtan ceramics are sold across Uzbekistan and exported abroad. Some potters have also begun to experiment with new designs, combining traditional patterns with modern shapes for international buyers, although others insist that only the classic style should carry the Rishtan name.`,
+        questions: [
+          { id: 'n15r1', type: 'single', prompt: '1. Rishtan clay must be mixed with other materials before use.', options: tfng, answer: 1 },
+          { id: 'n15r2', type: 'single', prompt: '2. Ishkor glaze is typically blue and turquoise.', options: tfng, answer: 0 },
+          { id: 'n15r3', type: 'single', prompt: '3. Glaze recipes were shared openly between workshops.', options: tfng, answer: 1 },
+          { id: 'n15r4', type: 'single', prompt: '4. Pieces dry in direct sunlight.', options: tfng, answer: 1 },
+          { id: 'n15r5', type: 'single', prompt: '5. Rishtan has more potters than any other town in Central Asia.', options: tfng, answer: 2 },
+          { id: 'n15r6', type: 'single', prompt: '6. Family workshops have revived old methods since the 1990s.', options: tfng, answer: 0 },
+          { id: 'n15r7', type: 'single', prompt: '7. All potters agree on using modern shapes.', options: tfng, answer: 1 },
+          { id: 'n15r8', type: 'fill', prompt: '8. Rishtan is in the ___ Valley. (ONE WORD)', answer: 'Fergana' },
+          { id: 'n15r9', type: 'fill', prompt: '9. The glaze was made from the ___ of desert plants. (ONE WORD)', answer: 'ash' },
+          { id: 'n15r10', type: 'fill', prompt: '10. The plant ash acts as a ___. (ONE WORD)', answer: 'flux' },
+          { id: 'n15r11', type: 'fill', prompt: '11. Clay is cleaned and ___ before shaping. (ONE WORD)', answer: 'kneaded' },
+          { id: 'n15r12', type: 'fill', prompt: '12. Pieces are fired in a ___. (ONE WORD)', answer: 'kiln' },
+          { id: 'n15r13', type: 'fill', prompt: '13. Master potters now teach ___. (ONE WORD)', answer: ['apprentices', 'apprentice'] },
+        ],
+      },
+      {
+        title: 'Passage 2 · Car-Free City Centres',
+        intro: 'Questions 14–26. You should spend about 20 minutes on this passage.',
+        text: `A. Across the world, a growing number of cities are closing parts of their centres to private cars. Some have banned cars from a few historic streets, while others have created large pedestrian zones where only buses, bicycles, delivery vehicles and emergency services are allowed.
+
+B. The benefits most often cited are environmental. Without heavy traffic, air pollution and noise fall significantly, and some cities have reported improvements in air quality within months. Fewer cars also mean fewer road accidents, particularly those involving pedestrians and cyclists.
+
+C. Supporters also point to economic advantages. Although shopkeepers often fear that removing cars will drive customers away, studies in several cities have found the opposite: people who walk or cycle tend to visit shops more often and spend more money overall, even if they buy less on each visit. Pedestrian streets with cafés and benches can become popular places to meet.
+
+D. However, the changes are not without problems. People with disabilities and elderly residents may find it harder to reach the centre if public transport is inadequate. Traffic can also be pushed onto surrounding streets, increasing congestion and pollution there. And businesses that depend on deliveries need clear rules about when vehicles may enter.
+
+E. Experience suggests that success depends on careful planning. Cities that have introduced car-free zones gradually, starting with trials on weekends or in summer, have often found public opposition decreases once residents experience the changes. Good public transport, safe cycle lanes and parking at the edge of the centre are also essential.
+
+F. Ultimately, car-free centres are part of a wider debate about the purpose of city streets: whether they exist mainly to move vehicles quickly or to provide space where people can live, work and spend time.`,
+        questions: [
+          { id: 'n15r14', type: 'single', prompt: '14. Which paragraph discusses effects on shops?', options: ['B', 'C', 'D', 'E'], answer: 1 },
+          { id: 'n15r15', type: 'single', prompt: '15. Which paragraph describes problems caused by car-free zones?', options: ['B', 'C', 'D', 'F'], answer: 2 },
+          { id: 'n15r16', type: 'single', prompt: '16. Which paragraph recommends introducing changes gradually?', options: ['A', 'C', 'E', 'F'], answer: 2 },
+          { id: 'n15r17', type: 'single', prompt: '17. Which paragraph describes the different types of car-free area?', options: ['A', 'B', 'D', 'E'], answer: 0 },
+          { id: 'n15r18', type: 'single', prompt: '18. Studies found that pedestrians and cyclists …', options: ['spend less overall', 'visit shops more often and spend more overall', 'avoid the centre', 'only visit cafés'], answer: 1 },
+          { id: 'n15r19', type: 'single', prompt: '19. A risk of car-free zones is that traffic …', options: ['disappears', 'becomes faster', 'moves to surrounding streets', 'increases in the centre'], answer: 2 },
+          { id: 'n15r20', type: 'single', prompt: '20. What often happens to public opposition after trials?', options: ['it increases', 'it stays the same', 'it turns into protests', 'it decreases'], answer: 3 },
+          { id: 'n15r21', type: 'single', prompt: '21. Emergency vehicles are usually allowed in pedestrian zones.', options: tfng, answer: 0 },
+          { id: 'n15r22', type: 'single', prompt: '22. Air quality improved only after many years.', options: tfng, answer: 1 },
+          { id: 'n15r23', type: 'single', prompt: '23. Most shopkeepers now support car-free zones.', options: tfng, answer: 2 },
+          { id: 'n15r24', type: 'single', prompt: '24. Parking at the edge of the centre is considered essential.', options: tfng, answer: 0 },
+          { id: 'n15r25', type: 'fill', prompt: '25. Fewer cars mean fewer road ___. (ONE WORD)', answer: ['accidents', 'accident'] },
+          { id: 'n15r26', type: 'fill', prompt: '26. Businesses depending on ___ need clear rules. (ONE WORD)', answer: 'deliveries' },
+        ],
+      },
+      {
+        title: 'Passage 3 · The Memory Palace',
+        intro: 'Questions 27–40. You should spend about 20 minutes on this passage.',
+        text: `Long before notebooks and smartphones, people relied on their memories to store large amounts of information. Ancient Greek and Roman orators, who often had to speak for hours without notes, used a technique known as the "method of loci", from the Latin word for "places". Today it is often called the memory palace.
+
+The method is simple to describe. The learner imagines a familiar place, such as their home or the route to school, and mentally places the items to be remembered at specific locations along the way — perhaps a word on the front door, the next on the kitchen table, and so on. To recall the information, they simply take an imaginary walk through the place and "see" each item where they left it. The more unusual and vivid the images, the easier they are to remember.
+
+Psychologists have long known that the technique works. Our brains are particularly good at remembering spatial information, perhaps because finding our way around was essential for survival. Linking abstract information, such as a list of words, to locations takes advantage of this ability.
+
+Modern research has added interesting details. Brain-imaging studies of memory champions — people who compete to memorise long sequences of numbers or playing cards — found that their brains were not structurally different from those of ordinary people. Instead, they used the method of loci and activated areas of the brain associated with spatial navigation. In one study, ordinary volunteers who practised the technique for six weeks greatly improved their ability to remember lists of words, and the improvement was still visible four months later.
+
+The method does have limitations. It works best for lists and sequences rather than for understanding complex ideas, and building good memory palaces takes time and practice. For students, it is therefore most useful as a tool for remembering vocabulary, key dates or the structure of an essay, rather than a replacement for real understanding.`,
+        questions: [
+          { id: 'n15r27', type: 'single', prompt: '27. Ancient orators used the method because they …', options: ['spoke for hours without notes', 'could not write', 'were memory champions', 'studied psychology'], answer: 0 },
+          { id: 'n15r28', type: 'single', prompt: '28. To recall items, the learner …', options: ['repeats them aloud', 'takes an imaginary walk', 'writes them down', 'draws a map'], answer: 1 },
+          { id: 'n15r29', type: 'single', prompt: '29. Why does the technique work?', options: ['It uses numbers.', 'It is very fast.', 'The brain is good at remembering spatial information.', 'It needs no practice.'], answer: 2 },
+          { id: 'n15r30', type: 'single', prompt: '30. Memory champions’ brains were found to be …', options: ['larger', 'damaged', 'more active everywhere', 'structurally similar to ordinary brains'], answer: 3 },
+          { id: 'n15r31', type: 'single', prompt: '31. For students, the method is most useful for …', options: ['remembering vocabulary, dates and essay structure', 'understanding complex ideas', 'replacing study', 'mathematics only'], answer: 0 },
+          { id: 'n15r32', type: 'single', prompt: '32. "Loci" comes from the Latin word for places.', options: tfng, answer: 0 },
+          { id: 'n15r33', type: 'single', prompt: '33. Ordinary, boring images are easiest to remember.', options: tfng, answer: 1 },
+          { id: 'n15r34', type: 'single', prompt: '34. The volunteers practised the technique for six weeks.', options: tfng, answer: 0 },
+          { id: 'n15r35', type: 'single', prompt: '35. Memory champions usually start training as children.', options: tfng, answer: 2 },
+          { id: 'n15r36', type: 'single', prompt: '36. The improvement disappeared after a month.', options: tfng, answer: 1 },
+          { id: 'n15r37', type: 'fill', prompt: '37. The technique is often called the memory ___. (ONE WORD)', answer: 'palace' },
+          { id: 'n15r38', type: 'fill', prompt: '38. The more unusual and ___ the images, the better. (ONE WORD)', answer: 'vivid' },
+          { id: 'n15r39', type: 'fill', prompt: '39. Champions activated areas linked with spatial ___. (ONE WORD)', answer: 'navigation' },
+          { id: 'n15r40', type: 'fill', prompt: '40. Improvement was still visible four ___ later. (ONE WORD)', answer: 'months' },
+        ],
+      },
+    ],
+  },
 };
