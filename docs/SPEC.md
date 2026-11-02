@@ -132,7 +132,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 119 | **GT xatlari +4** |  | 4 ta yangi topshiriq + namuna | ✅ |
 | 120 | **Idiomalar +20** |  | 62+ idioma | ✅ |
 | 121 | **Mock Test 15** |  | 40+40 original savol | ✅ |
-| 122 | **Yakuniy tekshiruv va hujjatlar** | 100 iteratsiyadan keyin umumiy holat | To'liq regressiya, README/CHANGELOG yangilash, yakuniy hisobot | ⬜ |
+| 122 | **Yakuniy tekshiruv va hujjatlar** | 100 iteratsiyadan keyin umumiy holat | To'liq regressiya, README/CHANGELOG yangilash, yakuniy hisobot | ✅ |
 
 ## Iteratsiyalar jurnali
 
@@ -273,3 +273,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **119-iteratsiya** — GT xatlari +4: kechikkan/shikastlangan buyurtma, kutubxona ish vaqti, to'yga taklif, rahbardan ta'til so'rash — har biriga Band 7 namuna; jami 10 GT xati, 72 writing namunasi; v=134.
 - **120-iteratsiya** — Idiomalar +20 (in a nutshell, out of the blue, through thick and thin, up in the air…) — jami 62 idioma, 198 ibora; v=135.
 - **121-iteratsiya** — Mock 15: pottery class, Ugam visitor centre, crafts & tourism, animal sleep; Rishtan ceramics, car-free centres, memory palace; 21 MCQ rotated; v=136.
+- **122-iteratsiya** — Yakuniy: 69 unit/kontent testi + to'liq E2E (mobil, a11y, offline) o'tdi; birinchi render <600 KB; CHANGELOG.md (iteratsiyalar 23–122) va README kontent hajmi yangilandi; v=136.
