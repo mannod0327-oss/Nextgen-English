@@ -594,13 +594,15 @@ const views = {
         $('#result').textContent = `Natija: ${pct}%`;
       };
     });
-    return `<a href="#/grammar">← Mavzular</a><h2>${esc(topic.title)} <span class="badge">${topic.level}</span></h2>
+    queueMicrotask(() => { $('#g-print').onclick = () => print(); });
+    return `<p class="no-print"><a href="#/grammar">← Mavzular</a> · <button class="btn" id="g-print">🖨 Chop etish (mashq varag'i)</button></p><h2>${esc(topic.title)} <span class="badge">${topic.level}</span></h2>
       <section class="card"><p>${esc(topic.rule)}</p>
       <table class="tbl">${topic.table.map((row) => `<tr>${row.map((c) => `<td>${esc(c)}</td>`).join('')}</tr>`).join('')}</table>
       <ul>${topic.examples.map((x) => `<li>${esc(x)} <button class="link" data-say="${esc(x)}">🔊</button></li>`).join('')}</ul></section>
       <h3>Mashqlar</h3>${topic.exercises.map((q, n) => `<section class="card question" data-q="${q.id}">
         <b>${n + 1}. ${esc(q.prompt)}</b>${questionHtml(q, r)}<div class="fb"></div></section>`).join('')}
-      <button class="btn primary" id="check">Tekshirish</button> <b id="result"></b>`;
+      <button class="btn primary no-print" id="check">Tekshirish</button> <b id="result"></b>
+      <p class="print-only muted">Nextgen English · ${esc(topic.title)} · ${today()} · Ism: ____________________</p>`;
   },
 
   reading(params) {

@@ -769,6 +769,17 @@ await step('grammar mixed test: 15 questions from several topics, wrong topics l
   if (!(await page.textContent('#mix-result')).includes('Takrorlang')) throw new Error('no review links for empty answers');
 });
 
+await step('grammar print: worksheet hides buttons and navigation, shows rule, table and exercises', async () => {
+  await page.goto(`${base}/#/verbs`);
+  await page.goto(`${base}/#/grammar?topic=wish`);
+  await page.waitForSelector('#g-print');
+  await page.emulateMedia({ media: 'print' });
+  const ok = await page.evaluate(() => [...document.querySelectorAll('.top, .nav, #check, #g-print, button[data-say]')].every((e) => getComputedStyle(e).display === 'none')
+    && getComputedStyle(document.querySelector('.print-only')).display === 'block' && document.querySelectorAll('.question').length >= 5 && !!document.querySelector('.tbl'));
+  await page.emulateMedia({ media: 'screen' });
+  if (!ok) throw new Error('print layout');
+});
+
 await step('daily goal: ring shows today\'s XP, goal choice persists, week has 7 days', async () => {
   await page.goto(`${base}/#/verbs`);
   await page.goto(`${base}/#/`);
