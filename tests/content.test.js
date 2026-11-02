@@ -61,7 +61,8 @@ test('grammar: advanced topics (used to … participle clauses) are complete; C1
 
 test('placement: valid questions with coverage at every level', () => {
   assert.deepEqual(validateExam(asExam('placement', placementQuestions)), []);
-  for (const lvl of LEVELS) assert.ok(placementQuestions.filter((q) => q.level === lvl).length >= 10, lvl);
+  for (const lvl of LEVELS) assert.ok(placementQuestions.filter((q) => q.level === lvl).length >= 15, lvl);
+  assert.ok(placementQuestions.length >= 80);
   assert.equal(new Set(placementQuestions.map((q) => q.id)).size, placementQuestions.length);
 });
 
