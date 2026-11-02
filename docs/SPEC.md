@@ -126,7 +126,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 113 | **Grammatika aralash testi** | Mavzular alohida — umumiy tekshiruv yo'q | Darajaga mos 15 tasodifiy savol barcha mavzulardan (pure tanlov, unit test), E2E | ✅ |
 | 114 | **Nutq laboratoriyasi +6 vaziyat** |  | 30 vaziyat | ✅ |
 | 115 | **Grammatika mavzusini chop etish** | Qog'ozda mashq qilish | Qoida + jadval + mashqlar print ko'rinishi; E2E print media | ✅ |
-| 116 | **Writing Task 2 namunalari +6** |  | ≥250 so'z | ⬜ |
+| 116 | **Writing Task 2 namunalari +6** |  | ≥250 so'z | ✅ |
 | 117 | **Testni havola orqali ulashish** | O'qituvchi yaratgan testni o'quvchiga yuborish qiyin | Test yaratuvchida URL (#/exam?share=…) — kodlash/dekodlash unit test, E2E | ⬜ |
 | 118 | **Haftalik hisobot** | Progress faqat umumiy | Oxirgi 7 kun: XP, faol kunlar, testlar, yangi so'zlar (pure, unit test) progressda | ⬜ |
 | 119 | **GT xatlari +4** |  | 4 ta yangi topshiriq + namuna | ⬜ |
@@ -267,3 +267,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **113-iteratsiya** — Grammatika aralash testi: plan.js mixedGrammar (daraja va pastroq, aralashtirilgan mavzular bo'yicha navbatma-navbat, seed bilan barqaror) + unit test; #/grammar?mode=mix — 15 savol, xatolar daftariga, xato mavzularga havola, eng yaxshi natija; E2E; v=128.
 - **114-iteratsiya** — Nutq laboratoriyasi +6: stomatolog, kutubxona, kinoteatr, avtomobil ijarasi, taklif qilish, ishdagi birinchi kun (24 ibora) — jami 30 to'plam (shadowing bilan); v=129.
 - **115-iteratsiya** — Grammatika mavzusini chop etish: 🖨 tugma, print CSS (tugmalar, 🔊, navigatsiya, javob izohlari yashirinadi; kartalar sahifada bo'linmaydi; pastda sana va 'Ism: ____'); E2E print media; v=130.
+- **116-iteratsiya** — Task 2 namunalari +6: shaxsiy ma'lumotlar va maxfiylik, gazetalar kelajagi, reklama, jinoyat va jazo, o'smirlar jinoyati, tarixiy binolar (writing-check xatosiz); jami 68 namuna (36 Task 2); v=131.

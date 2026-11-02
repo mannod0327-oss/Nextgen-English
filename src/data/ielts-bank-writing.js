@@ -1,5 +1,5 @@
 // IELTS Writing prompt bank (original). Same schema as `writing` in ielts.js; `plan` gives an outline / ideas.
-// Task 1 items carry a data table; 62 tasks also carry a Band 7 `model` (see `models` at the end).
+// Task 1 items carry a data table; 68 tasks also carry a Band 7 `model` (see `models` at the end).
 
 const t1 = (id, prompt, table, plan) => ({ id: `bw1-${id}`, task: 1, minutes: 20, minWords: 150, type: 'Task 1 · Table', prompt: `${prompt} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.`, table, plan });
 // Chart tasks: `chart` is drawn as SVG (core/chart.js chartSvg); `table` is derived from it for the data view and the number checks.
@@ -784,5 +784,63 @@ Among people aged 18 to 29, 58% of men did regular exercise, compared with 49% o
 This pattern continued in the older groups. For people aged 45 to 59, the figure was 38% for women and 33% for men. The lowest levels of exercise were among people over 60, where 30% of women but only 22% of men exercised regularly.
 
 In other words, the percentage of men who exercised fell steadily from 58% to 22% across the age groups, a decline of 36 percentage points, while the fall for women was much smaller, from 49% to 30%.`,
+
+  'bw2-privacy': `Online services now collect enormous amounts of personal information, from the websites we visit to the places we go. Some people accept this as the price of more convenient and personalised services, while others believe privacy should be protected whatever the cost. In my view, data collection can be acceptable, but only under strict conditions.
+
+Those who support data collection argue that it brings real benefits. Navigation apps use location data from millions of phones to show traffic jams in real time, and online shops recommend products based on previous purchases, saving customers time. In healthcare, anonymous data from large numbers of patients can help researchers identify diseases earlier and develop better treatments. From this perspective, refusing to share any data would mean giving up many useful services.
+
+On the other hand, critics point out that personal data can easily be misused. Information collected for one purpose may be sold to advertisers or used to influence people's opinions, and large data leaks have exposed the passwords and bank details of millions of users. Furthermore, many people do not understand what they are agreeing to, because privacy policies are long and difficult to read. Once data has been shared, it is almost impossible to take it back.
+
+In my opinion, the solution is not to choose between services and privacy, but to set clear rules. Companies should collect only the data they genuinely need, explain in simple language how it will be used, and allow users to refuse without losing basic services. Governments should also punish companies that fail to protect the information they store.
+
+In conclusion, collecting personal data can improve services, but it is only acceptable when people have real control over their information and strong laws protect them from misuse.`,
+
+  'bw2-news-online': `With the rapid growth of news websites and social media, sales of printed newspapers have fallen in many countries. Some people therefore predict that newspapers will soon disappear completely. While I agree that printed newspapers will continue to decline, I do not believe they will vanish altogether, and the organisations behind them are likely to survive in a different form.
+
+There are strong reasons why printed newspapers are losing readers. Online news is usually free, it is updated every minute, and it can be read anywhere on a phone. Young people in particular rarely buy a paper, preferring to follow events through apps and social media. In addition, printing and distributing newspapers is expensive and has an environmental cost, so many publishers have already reduced the number of printed copies or stopped printing on certain days.
+
+However, it would be wrong to conclude that newspapers have no future. Many older readers still enjoy reading a printed paper, and some people find it easier to concentrate on a long article on paper than on a screen full of notifications. More importantly, a newspaper is not just paper: it is an organisation of journalists who investigate stories and check facts. Many respected newspapers now earn most of their income from online subscriptions, and their reputation for reliable reporting has become more valuable at a time when false information spreads quickly online.
+
+Therefore, I believe that printed newspapers will become a smaller, more specialised product, perhaps published weekly rather than daily, while the newspapers themselves continue to exist mainly as digital news services.
+
+In conclusion, the printed newspaper may largely disappear, but professional newspapers, as sources of trustworthy journalism, are likely to adapt and survive online.`,
+
+  'bw2-advertising': `Advertising is everywhere in modern life, on television, in the streets and especially online. Some people argue that it persuades us to buy things we do not really need. I largely agree with this view, although I believe advertising also has some positive functions.
+
+There is no doubt that advertising is designed to create desire. Advertisers rarely focus only on the practical features of a product; instead, they link it with happiness, success or popularity. As a result, people may feel that a new phone or a fashionable pair of shoes will make their lives better, even when their old ones work perfectly well. Online advertising is even more powerful, because companies can use personal data to show each user exactly the products they are most likely to buy, often at moments when they are tired or bored. This can encourage impulse buying and lead some people, especially young people, into debt.
+
+Nevertheless, advertising is not entirely negative. It informs consumers about new products and services, special offers and price differences, which can help them make better choices. It also allows small businesses to reach customers and compete with larger companies. Furthermore, public information campaigns, for example about road safety or healthy eating, use the same techniques to encourage positive behaviour.
+
+In my view, the problem lies less in advertising itself than in how it is regulated and how aware consumers are of its techniques. Advertisements aimed at children should be strictly limited, and schools should teach young people to recognise persuasive methods so that they can think critically before buying.
+
+In conclusion, although advertising does often encourage people to buy things they do not need, it can also provide useful information, and its negative effects can be reduced through regulation and education.`,
+
+  'bw2-crime-punishment': `How to reduce crime is a question that every society faces. Some people believe that longer prison sentences are the most effective solution, while others argue that there are better approaches. In my opinion, although prison is necessary for serious crimes, other measures are generally more effective in reducing crime overall.
+
+Supporters of longer sentences make several points. They argue that the threat of a long prison term discourages people from committing crimes in the first place. In addition, keeping dangerous criminals in prison protects the public, at least while they are inside. Many victims also feel that long sentences are a fair punishment and show that society takes crime seriously.
+
+However, there is considerable evidence that longer sentences do not reduce crime as much as people expect. Many crimes are committed on impulse or under the influence of alcohol or drugs, so offenders rarely think about the length of the punishment. Moreover, prisons can act as "schools of crime", where young offenders learn from more experienced criminals, and people who leave prison often find it difficult to get a job, which increases the likelihood that they will reoffend. Long sentences are also extremely expensive for taxpayers.
+
+For these reasons, I believe that a combination of other measures would be more effective. Education and job training in prison can help offenders build a new life after their release. Programmes that treat drug and alcohol addiction tackle the root causes of many crimes, and community sentences may be more suitable for minor offences. Finally, investing in better street lighting, youth centres and visible policing can prevent crimes before they happen.
+
+In conclusion, while prison remains essential for dangerous offenders, the most effective way to reduce crime is to combine fair punishment with prevention and rehabilitation.`,
+
+  'bw2-youth-crime': `In a number of areas, crimes committed by teenagers, such as theft, vandalism and fighting, appear to be increasing. This essay will examine the main causes of this trend and suggest some possible solutions.
+
+One important cause is a lack of positive activities and opportunities. In some neighbourhoods, there are few sports facilities, clubs or youth centres, so teenagers have little to do after school and may spend their time on the streets, where they can be drawn into trouble. Unemployment among young people also plays a role, because those who see no future in education or work may feel they have little to lose. Another cause is the influence of family and friends. Teenagers whose parents are absent or unable to supervise them are more vulnerable, and young people often commit crimes in groups because of pressure from friends who want to appear tough. Social media can make this worse when young people film and share their behaviour to gain attention.
+
+There are several ways to address the problem. Firstly, local authorities should invest in youth centres, sports clubs and arts programmes, giving teenagers safe places to spend their time and helping them to develop skills and confidence. Secondly, schools can identify students at risk at an early stage and provide mentoring and support for their families. Thirdly, for young people who have already committed minor offences, programmes in which they repair the damage they caused or meet their victims can be more effective than punishment alone, because they help offenders understand the consequences of their actions.
+
+In conclusion, youth crime is often caused by boredom, a lack of opportunities and negative influences. By providing positive activities, early support and rehabilitation, communities can help teenagers make better choices.`,
+
+  'bw2-history-buildings': `As cities grow, there is often a conflict between protecting old buildings and making space for new housing, offices and roads. Some people believe historic buildings should be preserved even if this slows development. I agree with this view to a large extent, although I think that not every old building can or should be saved.
+
+The main argument for protecting old buildings is that they are part of a city's identity and history. Places such as the ancient centres of Samarkand and Bukhara attract visitors from all over the world because their historic architecture has been preserved. Once such buildings are destroyed, they can never be replaced, and future generations lose a direct connection with their past. Historic districts also tend to create attractive, walkable streets that residents value, and tourism linked to heritage can bring significant economic benefits.
+
+However, it is also true that cities need to develop. Growing populations require modern housing, schools and transport, and some old buildings are in poor condition, unsafe or of little historical value. If every old structure were protected, it might become impossible to provide enough affordable homes, and city centres could become museums rather than living places.
+
+In my opinion, the best approach is to protect buildings of genuine historical or cultural importance while allowing careful development around them. Old buildings can often be renovated and given new uses, for example as hotels, libraries or cafés, which keeps them alive while meeting modern needs. Clear rules can ensure that new buildings near historic areas respect their height and style.
+
+In conclusion, although development is necessary, valuable historic buildings should be protected, as their loss would be permanent and would make cities poorer both culturally and economically.`,
 };
 for (const w of writingBank) if (models[w.id]) w.model = models[w.id];
