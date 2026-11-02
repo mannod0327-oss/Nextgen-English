@@ -122,7 +122,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 109 | **Task 1 namunalari +6** (qolgan jadvallar) |  | raqam tekshiruvidan o'tadi | ✅ |
 | 110 | **Speaking Part 2 namunalari +10** |  | ≥200 so'z, xatosiz | ✅ |
 | 111 | **Daraja testi +20 savol** | 60 savol — takrorlanish | 80 savol, har darajada ≥15; unit test | ✅ |
-| 112 | **Minimal juftlar +3** (ʃ/tʃ, æ/ʌ, i:/aɪ) |  | 16 to'plam | ⬜ |
+| 112 | **Minimal juftlar +3** (ʃ/tʃ, æ/ʌ, i:/aɪ) |  | 16 to'plam | ✅ |
 | 113 | **Grammatika aralash testi** | Mavzular alohida — umumiy tekshiruv yo'q | Darajaga mos 15 tasodifiy savol barcha mavzulardan (pure tanlov, unit test), E2E | ⬜ |
 | 114 | **Nutq laboratoriyasi +6 vaziyat** |  | 30 vaziyat | ⬜ |
 | 115 | **Grammatika mavzusini chop etish** | Qog'ozda mashq qilish | Qoida + jadval + mashqlar print ko'rinishi; E2E print media | ⬜ |
@@ -263,3 +263,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **109-iteratsiya** — Task 1 namunalari +6: qayta ishlash, o'qish formatlari, avtomobillar soni, universitet fanlari, uyqu, jismoniy mashqlar (raqamlar jadval testidan o'tdi) — jami 62 namuna; v=125.
 - **110-iteratsiya** — Speaking Part 2 +10: qimmat xarid, ob-havo rejani buzgan kun, yordamchi qo'shni, amaliy san'at muzeyi, nikoh surati, sevimli kurtka, eng band hafta, hayratlantirgan yangilik, chet tilida muvaffaqiyat, kelajakdagi fan (≥200 so'z, xatosiz); jami 30 namuna; v=126.
 - **111-iteratsiya** — Daraja testi +20: har darajaga 4 tadan (A1 by bus, A2 any/must, B1 passive/reported question, B2 past perfect/wish/be used to, C1 inversion/subjunctive) — jami 80, har darajada 16; test ≥15 / ≥80.
+- **112-iteratsiya** — Qiyin tovushlar +3: /ʃ/–/tʃ/ (ship–chip), /æ/–/ʌ/ (cat–cut), /ɪ/–/e/ (bit–bet) — 16 to'plam; v=127.

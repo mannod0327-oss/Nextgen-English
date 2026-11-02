@@ -28,4 +28,10 @@ export const minimalPairs = [
     pairs: [['coat', 'caught'], ['boat', 'bought'], ['low', 'law'], ['so', 'saw'], ['woke', 'walk'], ['hole', 'hall']] },
   { id: 'er-ar', sounds: '/ɜː/ – /ɑː/', tip: "/ɜː/ — og'iz yarim ochiq, til o'rtada, lablar yoyilgan (heard); /ɑː/ — og'iz keng ochiq, til pastda (hard). Britaniya talaffuzida ikkalasida ham \"r\" aytilmaydi.",
     pairs: [['heard', 'hard'], ['firm', 'farm'], ['hurt', 'heart'], ['fur', 'far'], ['stir', 'star'], ['burn', 'barn']] },
+  { id: 'sh-ch', sounds: '/ʃ/ – /tʃ/', tip: "/ʃ/ — uzluksiz \"sh\" (shoe); /tʃ/ — avval til tepaga tegib, keyin portlab \"ch\" (chew). O'zbekchadagi sh va ch ga yaqin — farqni so'z oxirida ham saqlang.",
+    pairs: [['share', 'chair'], ['wash', 'watch'], ['ship', 'chip'], ['sheep', 'cheap'], ['shoes', 'choose'], ['cash', 'catch']] },
+  { id: 'ae-uh', sounds: '/æ/ – /ʌ/', tip: "/æ/ — og'iz keng, lablar yon tomonga cho'zilgan (cat); /ʌ/ — qisqa, bo'sh \"a\", og'iz o'rtacha ochiq (cut). O'zbekcha \"a\" ikkalasining o'rtasida!",
+    pairs: [['cat', 'cut'], ['bag', 'bug'], ['hat', 'hut'], ['ran', 'run'], ['match', 'much'], ['cap', 'cup']] },
+  { id: 'i-e', sounds: '/ɪ/ – /e/', tip: "/ɪ/ — qisqa, til yuqoriroq (bit); /e/ — og'iz biroz ko'proq ochiq (bet). Tez gapda chalkashadi: pin / pen.",
+    pairs: [['bit', 'bet'], ['pin', 'pen'], ['sit', 'set'], ['did', 'dead'], ['lift', 'left'], ['will', 'well']] },
 ];
