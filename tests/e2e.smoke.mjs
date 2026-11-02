@@ -592,6 +592,22 @@ await step('creator: add question, validate, simulate', async () => {
   await page.waitForSelector('text=Mening testim');
 });
 
+await step('share link: creator makes a URL that opens the same test in a fresh browser; broken link is reported', async () => {
+  await page.goto(`${base}/#/creator`);
+  await page.click('#share');
+  const url = await page.inputValue('#share-url');
+  if (!url.includes('#/exam?share=')) throw new Error(url);
+  const ctx = await browser.newContext();
+  const p = await ctx.newPage();
+  await p.goto(url);
+  await p.waitForSelector('text=havola orqali ochildi');
+  if (!(await p.textContent('#app')).includes('Mening testim')) throw new Error('shared test not loaded');
+  await p.goto(`${base}/#/exam?share=broken`);
+  await p.goto(`${base}/#/exam?share=xyz!`);
+  await p.waitForSelector('text=Havola buzilgan');
+  await ctx.close();
+});
+
 await step('progress: achievements section shows earned badges from earlier steps', async () => {
   await page.goto(`${base}/#/`);
   await page.goto(`${base}/#/progress`);

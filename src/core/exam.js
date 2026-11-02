@@ -136,3 +136,17 @@ export function parseExam(text) {
 export function serializeExam(exam) {
   return JSON.stringify({ ...exam, format: FORMAT, version: VERSION }, null, 2);
 }
+
+/** Exam → URL-safe base64 (UTF-8) for share links: #/exam?share=… */
+export function encodeShare(exam) {
+  const bytes = new TextEncoder().encode(JSON.stringify({ ...exam, format: FORMAT, version: VERSION }));
+  let bin = '';
+  for (const b of bytes) bin += String.fromCharCode(b);
+  return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+/** Share string → validated exam; throws (like parseExam) on a broken or invalid link. */
+export function decodeShare(s) {
+  const bin = atob(s.replace(/-/g, '+').replace(/_/g, '/'));
+  return parseExam(new TextDecoder().decode(Uint8Array.from(bin, (c) => c.charCodeAt(0))));
+}

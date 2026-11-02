@@ -385,3 +385,14 @@ test('mixedGrammar: n questions, level and below only, spread across topics, det
   assert.equal(mixedGrammar(g, 'C1', 50, mulberry32(2)).length, 20, 'capped by available questions');
   assert.equal(new Set(mixedGrammar(g, 'C1', 4, mulberry32(3)).map((q) => q.topic)).size, 4, 'four topics, one each');
 });
+
+test('share links: exam round-trips through URL-safe base64 (Uzbek text too); broken links throw', async () => {
+  const { encodeShare, decodeShare } = await import('../src/core/exam.js');
+  const exam = { format: 'nge-exam', version: 1, title: "O'zbekcha test — ‘g‘’", passPercent: 70, timeLimitMin: 5,
+    questions: [{ id: 'q1', type: 'single', prompt: 'She ___ tea?', options: ['like', 'likes'], answer: 1 }] };
+  const s = encodeShare(exam);
+  assert.match(s, /^[A-Za-z0-9_-]+$/);
+  assert.deepEqual(decodeShare(s), { ...exam });
+  assert.throws(() => decodeShare(encodeShare({ title: 'x', questions: [] })));
+  assert.throws(() => decodeShare('not-a-valid-link'));
+});

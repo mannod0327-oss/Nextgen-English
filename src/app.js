@@ -1,7 +1,7 @@
 import { newCard, review, dueCards, isMature } from './core/srs.js';
 import { buildIndex, prefixSearch, lookup, lookupDefinition } from './core/dictionary.js';
 import { scorePronunciation } from './core/pronunciation.js';
-import { gradeExam, scoreQuestion, makeVariant, parseExam, serializeExam, validateExam, shuffle, mulberry32 } from './core/exam.js';
+import { gradeExam, scoreQuestion, makeVariant, parseExam, serializeExam, validateExam, shuffle, mulberry32, encodeShare, decodeShare } from './core/exam.js';
 import { createPlacement, nextQuestion, answerPlacement, placementResult, LEVELS } from './core/placement.js';
 import { renderPrintable, esc } from './core/printable.js';
 import { createStore } from './core/store.js';
@@ -1424,7 +1424,14 @@ const views = {
       <p class="muted">Inglizcha ta'riflar: <a href="https://github.com/globalwordnet/english-wordnet">Open English WordNet</a> (CC BY 4.0) — <a href="https://github.com/mannod0327-oss/Nextgen-English/blob/main/DATA-LICENSES.md">litsenziya</a>.</p>`;
   },
 
-  exam() {
+  exam(params) {
+    let shareMsg = '';
+    if (params.get('share')) {
+      try {
+        store.set('currentExam', decodeShare(params.get('share')));
+        shareMsg = '<p class="card ok">🔗 Test havola orqali ochildi — “Boshlash” tugmasini bosing.</p>';
+      } catch { shareMsg = '<p class="card bad">❌ Havola buzilgan yoki noto‘g‘ri — o‘qituvchidan qayta yuborishni so‘rang.</p>'; }
+    }
     const exam = store.get('currentExam', sampleExam);
     queueMicrotask(() => {
       $('#start').onclick = () => runExam($('#shuffle').checked ? makeVariant(exam, Date.now() & 0xffff) : exam);
@@ -1441,7 +1448,7 @@ const views = {
       };
     });
     const history = store.get('examHistory', []).slice(-5).reverse();
-    return `<h2>⏱️ Imtihon simulyatori</h2>
+    return `<h2>⏱️ Imtihon simulyatori</h2>${shareMsg}
       <h3>Tayyor testlar</h3><div class="list" id="picker">${exams.map((x, i) => `<button class="row pick${x.title === exam.title ? ' cur' : ''}" data-exam="${i}">
         <span class="badge">${esc(x.level ?? 'A2–B1')}</span><b>${esc(x.title)}</b>
         <span class="muted">${x.questions.length} savol · ${x.timeLimitMin} daq</span></button>`).join('')}</div>
@@ -1524,6 +1531,14 @@ const views = {
         w.document.close();
         w.print();
       };
+      $('#share').onclick = async () => {
+        if (validateExam(draft()).length) return;
+        const url = `${location.origin}${location.pathname}#/exam?share=${encodeShare(draft())}`;
+        $('#share-url').hidden = false;
+        $('#share-url').value = url;
+        $('#share-url').select();
+        try { await navigator.clipboard.writeText(url); $('#valid').textContent = '✅ Havola nusxalandi — o‘quvchilarga yuboring.'; } catch { $('#valid').textContent = 'Havolani nusxalang va yuboring.'; }
+      };
       $('#simulate').onclick = () => {
         if (validateExam(draft()).length) return;
         store.set('currentExam', draft());
@@ -1540,7 +1555,8 @@ const views = {
       <label>Izoh (ixtiyoriy) <input id="expl"></label>
       <button class="btn primary" id="add">+ Qo'shish</button></section>
       <section class="card"><h3>Savollar</h3><div id="qs" class="list"></div><div id="valid"></div>
-      <p><button class="btn" id="simulate">▶️ Simulyatorda sinash</button> <button class="btn" id="download">💾 Yuklab olish</button></p>
+      <p><button class="btn" id="simulate">▶️ Simulyatorda sinash</button> <button class="btn" id="download">💾 Yuklab olish</button> <button class="btn" id="share">🔗 Havola orqali ulashish</button></p>
+      <input id="share-url" class="search" readonly hidden aria-label="Test havolasi">
       <p><label>Variantlar soni <input id="variants" type="number" min="1" max="5" value="2" style="width:4rem"></label>
       <button class="btn" id="print">🖨️ Chop etish (javob kaliti bilan)</button></p>
       <details><summary>JSON (tahrirlash mumkin)</summary><textarea id="json" rows="14" spellcheck="false" aria-label="Test JSON"></textarea></details></section></div>`;
