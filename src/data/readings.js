@@ -1188,4 +1188,37 @@ How can trust be rebuilt? Researchers who study public communication suggest sev
       { id: 'lbs5', type: 'single', prompt: 'What happens if you leave a bike outside a station?', options: ['nothing', 'you lose your pass', 'you get a fine', 'the bike is free'], answer: 2 },
     ],
   },
+  {
+    id: 'volunteering-young', level: 'B1', title: 'Why Young People Volunteer', uzTitle: "Nega yoshlar ko'ngilli bo'lishadi",
+    text: `More and more young people in Uzbekistan are spending their free time as volunteers. Some help at animal shelters, others teach children to read, and many join clean-up days in parks and along rivers. But why do they do it, when they are not paid? According to a survey of university students, the most common reason is simply that it feels good to help others. Many also said that volunteering helped them make new friends, because they met people with similar interests. A third reason was practical: experience as a volunteer looks good on a CV, and some employers say they prefer candidates who have done voluntary work, because it shows responsibility and teamwork. However, students also mentioned some difficulties. The biggest problem was time, especially during exams. Others said they did not know where to find good volunteering opportunities. To solve this, several cities have created websites where organisations can post requests for volunteers, so that young people can choose activities that match their interests and timetables.`,
+    questions: [
+      { id: 'vy1', type: 'single', prompt: 'What is the most common reason for volunteering?', options: ['to earn money', 'it feels good to help others', 'parents insist', 'to travel'], answer: 1 },
+      { id: 'vy2', type: 'single', prompt: 'Why do some employers like volunteers?', options: ['It shows responsibility and teamwork.', 'They work for free.', 'They have more qualifications.', 'They are younger.'], answer: 0 },
+      { id: 'vy3', type: 'fill', prompt: 'The biggest difficulty for students was ___.', answer: 'time' },
+      { id: 'vy4', type: 'single', prompt: 'Some students did not know …', options: ['how to write a CV', 'any other volunteers', 'how to use the internet', 'where to find opportunities'], answer: 3 },
+      { id: 'vy5', type: 'fill', prompt: 'Cities have created ___ where organisations post requests.', answer: ['websites', 'website'] },
+    ],
+  },
+  {
+    id: 'plastic-free-month', level: 'B1', title: 'My Plastic-Free Month', uzTitle: "Plastiksiz o'tgan bir oyim",
+    text: `Last March, I decided to try living for a month without buying any new plastic. I thought it would be easy, but on the first day I realised how much plastic I used without noticing. My shampoo, my toothbrush, the bread from the supermarket and even the tea bags were all wrapped in plastic. So I made a plan. I started taking cloth bags and glass jars to the bazaar, where I could buy rice, beans, nuts and dried fruit without any packaging. The sellers were surprised at first, but soon they got used to it, and one of them even gave me a discount. I bought a bamboo toothbrush and a bar of soap instead of bottled shower gel. The hardest part was snacks: almost all crisps and biscuits come in plastic, so I started baking my own, which was actually fun. At the end of the month, my rubbish bin was almost empty. I didn't manage to be completely plastic-free, but I learned that small changes can make a big difference.`,
+    questions: [
+      { id: 'pf1', type: 'single', prompt: 'What did the writer realise on the first day?', options: ['It was easy.', 'Plastic is cheap.', 'She used a lot of plastic without noticing.', 'Shops sell no plastic.'], answer: 2 },
+      { id: 'pf2', type: 'fill', prompt: 'She took cloth bags and glass ___ to the bazaar.', answer: ['jars', 'jar'] },
+      { id: 'pf3', type: 'single', prompt: 'How did one seller react?', options: ['He refused to serve her.', 'He gave her a discount.', 'He laughed at her.', 'He sold her plastic bags.'], answer: 1 },
+      { id: 'pf4', type: 'single', prompt: 'What was the hardest part?', options: ['snacks', 'shampoo', 'bread', 'tea'], answer: 0 },
+      { id: 'pf5', type: 'single', prompt: 'What did she learn?', options: ['Plastic-free living is impossible.', 'Baking is boring.', 'Bazaars are expensive.', 'Small changes can make a big difference.'], answer: 3 },
+    ],
+  },
+  {
+    id: 'phone-free-school', level: 'B1', title: 'A School Without Phones', uzTitle: 'Telefonsiz maktab',
+    text: `At the start of this school year, a secondary school in Tashkent introduced a new rule: students must leave their phones in a locked box at the entrance when they arrive and collect them at the end of the day. Many students were unhappy at first. "I thought I couldn't live without my phone," says fifteen-year-old Madina. "In the first week, I kept reaching for my pocket." But after two months, both students and teachers have noticed changes. Teachers say that students pay more attention in lessons and that there are fewer arguments caused by messages and photos on social media. During breaks, students now talk to each other, play table tennis or read in the library. The school's results in the first test of the year were slightly better than last year's, although the head teacher admits it is too early to say whether the rule is the reason. Some parents were worried that they could not contact their children, so the school now lets students use the office phone in an emergency.`,
+    questions: [
+      { id: 'pfs1', type: 'fill', prompt: 'Students leave their phones in a locked ___ at the entrance.', answer: 'box' },
+      { id: 'pfs2', type: 'single', prompt: 'How did Madina feel in the first week?', options: ['relieved', 'happy', 'she missed her phone', 'bored at home'], answer: 2 },
+      { id: 'pfs3', type: 'single', prompt: 'What do teachers say has changed?', options: ['Students are late more often.', 'Students pay more attention.', 'Lessons are shorter.', 'Students study online.'], answer: 1 },
+      { id: 'pfs4', type: 'single', prompt: 'What does the head teacher say about the test results?', options: ['It is too early to say if the rule is the reason.', 'They prove the rule works.', 'They were worse.', 'They were not published.'], answer: 0 },
+      { id: 'pfs5', type: 'fill', prompt: 'In an emergency, students can use the office ___.', answer: 'phone' },
+    ],
+  },
 ];

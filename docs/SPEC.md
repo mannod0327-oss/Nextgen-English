@@ -118,7 +118,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 105 | **B2 grammatika +3** (passive + modal, -ed/-ing sifatlar, future in the past) |  | har biri ≥5 mashq | ✅ |
 | 106 | **Lug'at +60** (ish va martaba, energiya, hayvonot va bioxilma-xillik) | IELTS mavzulari | 3 × 20 so'z, definitions | ✅ |
 | 107 | **B1 tinglash +3** |  | 3 × 5 savol | ✅ |
-| 108 | **B1 o'qish +3** |  | 3 × 5 savol | ⬜ |
+| 108 | **B1 o'qish +3** |  | 3 × 5 savol | ✅ |
 | 109 | **Task 1 namunalari +6** (qolgan jadvallar) |  | raqam tekshiruvidan o'tadi | ⬜ |
 | 110 | **Speaking Part 2 namunalari +10** |  | ≥200 so'z, xatosiz | ⬜ |
 | 111 | **Daraja testi +20 savol** | 60 savol — takrorlanish | 80 savol, har darajada ≥15; unit test | ⬜ |
@@ -259,3 +259,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **105-iteratsiya** — B2 grammatika +3: majhul nisbat + modal (should be introduced, could have been avoided), -ed/-ing sifatlar (bored/boring), o'tmishdagi kelajak (was going to, would, was about to) — 15 mashq; jami 59 mavzu / 272 mashq; v=121.
 - **106-iteratsiya** — Lug'at +60: "Ish va martaba", "Energiya", "Hayvonot va bioxilma-xillik" — 699 so'z / 48 mavzu; takror va ta'rifsiz so'zlar almashtirildi; definitions 3675; v=122.
 - **107-iteratsiya** — Tinglash +3 (B1): mehmonxonaga joylashish, radioda ingliz tili maslahatlari, shahar velosiped ijarasi (5×3 savol, aylantirilgan); jami 38 tinglash (B1×10); v=123.
+- **108-iteratsiya** — B1 o'qish +3: nega yoshlar ko'ngilli bo'ladi, plastiksiz bir oy, telefonsiz maktab (5×3 savol); jami 50 matn (B1×11); v=124.
