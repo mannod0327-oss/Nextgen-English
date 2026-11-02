@@ -683,6 +683,14 @@ await step('shadowing: Part 1 questions with model answers, own answer recorded 
   await ctx.close();
 });
 
+await step('weekly report: last-7-days card on progress shows XP and active days', async () => {
+  await page.goto(`${base}/#/verbs`);
+  await page.goto(`${base}/#/progress`);
+  await page.waitForSelector('.weekly .stat');
+  const t = await page.textContent('.weekly');
+  if (!/\d+\/7/.test(t) || !t.includes('XP')) throw new Error(t);
+});
+
 await step('progress CSV: download contains header and profile rows', async () => {
   await page.goto(`${base}/#/`);
   await page.goto(`${base}/#/progress`);

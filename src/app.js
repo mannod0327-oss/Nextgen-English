@@ -5,7 +5,7 @@ import { gradeExam, scoreQuestion, makeVariant, parseExam, serializeExam, valida
 import { createPlacement, nextQuestion, answerPlacement, placementResult, LEVELS } from './core/placement.js';
 import { renderPrintable, esc } from './core/printable.js';
 import { createStore } from './core/store.js';
-import { dailyPlan, wordOfDay, goalStatus, XP_GOALS, reviewQueue, personalCards, MY_WORDS, examPlan, learningPath, pushRecent, mixedGrammar } from './core/plan.js';
+import { dailyPlan, wordOfDay, goalStatus, XP_GOALS, reviewQueue, personalCards, MY_WORDS, examPlan, learningPath, pushRecent, mixedGrammar, weeklyReport } from './core/plan.js';
 import { linePoints, lastDays, chartSvg } from './core/chart.js';
 import { buildSearchIndex, search } from './core/search.js';
 import { checkWriting, readingSpeed, makeCloze } from './core/writing-check.js';
@@ -1118,6 +1118,12 @@ const views = {
     });
     return `<h2>📈 Mening progressim</h2>
       <p><button class="btn" id="csv-export">⬇ CSV (o'qituvchiga yuborish uchun)</button></p>
+      ${(() => {
+        const w = weeklyReport({ xpDays: store.get('xpDays', {}), activity: store.get('activity', {}), mocks: store.get('ieltsMockHistory', []) }, today());
+        const st = (icon, label, v) => `<p class="stat"><b>${v}</b><span class="muted">${icon} ${label}</span></p>`;
+        return `<section class="card weekly"><h3>🗓 Oxirgi 7 kun${w.change != null ? ` <span class="badge ${w.change >= 0 ? 'ok' : ''}">${w.change >= 0 ? '▲' : '▼'} ${Math.abs(w.change)}% XP</span>` : ''}</h3>
+          <div class="stats-grid">${st('⭐', 'XP', w.xp)}${st('📅', 'faol kun', `${w.activeDays}/7`)}${st('🖼️', 'karta takrorlandi', w.cards)}${st('📐', 'grammatika mavzusi', w.grammar)}${st('📰', 'matn', w.reading)}${st('📝', 'sinov testi', w.mocks)}${w.bestBand != null ? st('🎓', 'eng yaxshi band', w.bestBand) : ''}</div></section>`;
+      })()}
       <div class="stats-grid">
         ${stat('🎯', 'daraja', p.level ?? '—', p.level ? '' : '<a href="#/placement">testni topshiring</a>')}
         ${stat('⭐', 'XP', p.xp)}

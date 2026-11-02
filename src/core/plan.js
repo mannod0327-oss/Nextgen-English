@@ -137,3 +137,27 @@ export function mixedGrammar(grammar, level, n = 15, r = Math.random) {
   while (out.length < n && pools.some((p) => p.length)) for (const p of pools) if (p.length && out.length < n) out.push(p.shift());
   return out;
 }
+
+/**
+ * Last-7-days summary for the progress page, from xpDays {date: xp}, activity {date: [entries]}
+ * (entries like 'vocab', 'grammar:<id>', 'reading:<id>') and ieltsMockHistory [{date, band}].
+ */
+export function weeklyReport({ xpDays = {}, activity = {}, mocks = [] }, date) {
+  const days = lastDays(date, 7);
+  const prev = lastDays(lastDays(date, 8)[0], 7);
+  const xp = days.reduce((n, d) => n + (xpDays[d] ?? 0), 0);
+  const prevXp = prev.reduce((n, d) => n + (xpDays[d] ?? 0), 0);
+  const entries = days.flatMap((d) => activity[d] ?? []);
+  const uniq = (prefix) => new Set(entries.filter((e) => e.startsWith(prefix)).map((e) => e.slice(prefix.length))).size;
+  const weekMocks = mocks.filter((m) => days.includes(m.date));
+  return {
+    xp,
+    change: prevXp ? Math.round(((xp - prevXp) / prevXp) * 100) : null,
+    activeDays: days.filter((d) => (xpDays[d] ?? 0) > 0 || (activity[d] ?? []).length).length,
+    cards: entries.filter((e) => e === 'vocab').length,
+    grammar: uniq('grammar:'),
+    reading: uniq('reading:'),
+    mocks: weekMocks.length,
+    bestBand: weekMocks.length ? Math.max(...weekMocks.map((m) => m.band)) : null,
+  };
+}

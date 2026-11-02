@@ -396,3 +396,15 @@ test('share links: exam round-trips through URL-safe base64 (Uzbek text too); br
   assert.throws(() => decodeShare(encodeShare({ title: 'x', questions: [] })));
   assert.throws(() => decodeShare('not-a-valid-link'));
 });
+
+test('weeklyReport: 7-day totals, change vs previous week, unique topics and texts, mocks', async () => {
+  const { weeklyReport } = await import('../src/core/plan.js');
+  const r = weeklyReport({
+    xpDays: { '2026-10-20': 50, '2026-10-26': 30, '2026-10-30': 40, '2026-11-01': 50 },
+    activity: { '2026-10-30': ['vocab', 'vocab', 'grammar:wish', 'reading:chorsu'], '2026-11-01': ['grammar:wish', 'grammar:passive', 'vocab'], '2026-10-28': ['reading:chorsu'] },
+    mocks: [{ date: '2026-10-31', band: 6.5 }, { date: '2026-11-01', band: 7 }, { date: '2026-10-10', band: 8 }],
+  }, '2026-11-01');
+  assert.deepEqual([r.xp, r.activeDays, r.cards, r.grammar, r.reading, r.mocks, r.bestBand], [120, 4, 3, 2, 1, 2, 7]);
+  assert.equal(r.change, 140, '120 vs 50 the week before');
+  assert.equal(weeklyReport({}, '2026-11-01').change, null);
+});
