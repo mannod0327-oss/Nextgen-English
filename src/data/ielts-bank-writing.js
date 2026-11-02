@@ -1,5 +1,5 @@
 // IELTS Writing prompt bank (original). Same schema as `writing` in ielts.js; `plan` gives an outline / ideas.
-// Task 1 items carry a data table; 56 tasks also carry a Band 7 `model` (see `models` at the end).
+// Task 1 items carry a data table; 62 tasks also carry a Band 7 `model` (see `models` at the end).
 
 const t1 = (id, prompt, table, plan) => ({ id: `bw1-${id}`, task: 1, minutes: 20, minWords: 150, type: 'Task 1 · Table', prompt: `${prompt} Summarise the information by selecting and reporting the main features, and make comparisons where relevant.`, table, plan });
 // Chart tasks: `chart` is drawn as SVG (core/chart.js chartSvg); `table` is derived from it for the data view and the number checks.
@@ -724,5 +724,65 @@ One important cause is the design of digital products themselves. Many apps and 
 There are several ways to address this problem. Firstly, parents can set clear limits, for example by agreeing on screen-free times, such as during meals and the hour before bed, and by keeping devices out of children's bedrooms at night. Parents also need to set a good example, since children copy the behaviour of the adults around them. Secondly, schools and local governments can provide attractive alternatives, such as sports clubs, libraries and well-maintained playgrounds. Finally, technology companies could be required to offer stronger parental controls and to avoid features designed to encourage excessive use by children.
 
 In conclusion, children's screen time has increased because of addictive technology, busy family lives and a lack of alternatives. A combination of family rules, better community facilities and responsible product design could help children to develop a healthier balance between screens and other activities.`,
+
+  'bw1-recycling': `The table compares the proportion of household waste that was recycled in five countries, labelled V to Z, in 2012 and 2022.
+
+Overall, recycling rates rose in four of the five countries over the decade, with the most dramatic improvement in Country W. Country Z had the highest rate in both years, while Country V was the only one where recycling declined.
+
+In 2012, Country Z already recycled half of its household waste, and Country X recycled 35%. The figures for the remaining countries were much lower: 22% in Country V, 18% in Country W and only 8% in Country Y.
+
+Ten years later, Country W had made remarkable progress. Its recycling rate more than doubled, rising by 24 percentage points to 42%, although it still remained slightly behind Country X, whose rate increased more modestly to 48%. Country Z continued to lead, with a small increase to 55%. Country Y also improved, but only from 8% to 12%, and it remained the country with the lowest rate.
+
+By contrast, the proportion of waste recycled in Country V fell slightly, from 22% to 20%, which made it the only country to move in the opposite direction.`,
+
+  'bw1-reading-habits': `The table shows the percentage of adults who read books for pleasure in different formats in 2015 and 2025, as well as the proportion who did not read at all.
+
+Overall, printed books remained the most popular format, but their share fell considerably, while digital formats, especially audiobooks, became much more common. The percentage of adults who did not read for pleasure changed very little.
+
+In 2015, more than half of adults, 58%, read printed books. E-books were read by 14% of adults, and audiobooks by only 5%. Meanwhile, 30% of adults said that they did not read books for pleasure.
+
+By 2025, the proportion reading printed books had dropped by 17 percentage points to 41%. In contrast, e-books grew in popularity, rising from 14% to 22%. The most striking change, however, was in audiobooks, whose share almost quadrupled, reaching 19%, so that they were nearly as popular as e-books by the end of the period.
+
+The figure for adults who did not read increased slightly, from 30% to 33%. This suggests that the growth of digital formats mainly changed how people read rather than how many people read.`,
+
+  'bw1-car-ownership': `The table illustrates how many cars there were for every 1,000 people in four countries, P, Q, R and S, in 2000 and 2020.
+
+Overall, car ownership increased in three of the four countries, most dramatically in Countries P and R, while it fell in Country S. Country Q had the highest level of car ownership in both years.
+
+In 2000, Country Q had by far the most cars, with 450 per 1,000 people, followed by Country S with 300. Car ownership was much lower in Country P, at 120, and especially in Country R, where there were only 60 cars per 1,000 people.
+
+Over the next twenty years, Country P saw the largest absolute increase, with the figure rising by 190 to 310 cars per 1,000 people. In Country R, the number more than tripled, reaching 190. By contrast, Country Q, which already had a high level of ownership, saw only a small rise of 20 cars, to 470.
+
+Country S was the only country where car ownership declined. The number of cars per 1,000 people fell from 300 to 250, so by 2020 it had dropped below Country P.`,
+
+  'bw1-university-subjects': `The table shows how many first-year university students, in thousands, chose five different subjects in 2014 and in 2024.
+
+Overall, three subjects became more popular over the decade, with IT showing by far the biggest growth, while economics and languages attracted fewer students. Engineering replaced economics as the most popular choice.
+
+In 2014, economics was the most popular subject, with 22,000 first-year students, followed by engineering with 18,000 and languages with 14,000. Fewer students chose medicine, at 9,000, and IT was the least popular subject, with only 6,000 students.
+
+By 2024, the picture had changed considerably. The number of IT students rose by 15,000 to 21,000, which means it more than tripled. Engineering also grew, reaching 24,000 and becoming the most popular subject, and medicine increased from 9,000 to 12,000.
+
+In contrast, the number of students choosing economics fell sharply, by 7,000, to 15,000. Languages saw only a slight decrease, from 14,000 to 13,000. As a result, IT moved from the least popular subject to the second most popular in just ten years.`,
+
+  'bw1-sleep': `The table compares the average number of hours that four age groups slept each night in 2005 and 2025.
+
+Overall, every age group slept less in 2025 than in 2005, and in both years the amount of sleep decreased with age. The biggest fall was among teenagers, while the elderly saw almost no change.
+
+In 2005, children aged six to twelve slept for 9.8 hours a night on average, the highest figure in the table. Teenagers slept for 8.6 hours, adults for 7.4 hours, and elderly people for 7.0 hours.
+
+Twenty years later, all of these figures had declined. The most significant drop was among teenagers, whose average sleep fell by 1.4 hours to 7.2 hours, which was only slightly more than adults. Children's sleep also decreased noticeably, by 0.7 hours to 9.1 hours, although they still slept the most.
+
+The changes for older groups were smaller. Adults slept for 6.9 hours in 2025, half an hour less than in 2005, while the figure for the elderly fell only from 7.0 to 6.8 hours. As a result, by 2025 the difference between teenagers and adults had become very small.`,
+
+  'bw1-gym': `The table shows the percentage of men and women in four age groups who did regular exercise in 2025.
+
+Overall, the proportion of people who exercised regularly declined with age for both genders. Young men were the most active group, but from the age of thirty onwards, women were more likely than men to exercise regularly.
+
+Among people aged 18 to 29, 58% of men did regular exercise, compared with 49% of women, which was the largest gender gap in the table. In the 30 to 44 age group, however, the situation was reversed: 44% of women exercised regularly, slightly more than the 41% of men.
+
+This pattern continued in the older groups. For people aged 45 to 59, the figure was 38% for women and 33% for men. The lowest levels of exercise were among people over 60, where 30% of women but only 22% of men exercised regularly.
+
+In other words, the percentage of men who exercised fell steadily from 58% to 22% across the age groups, a decline of 36 percentage points, while the fall for women was much smaller, from 49% to 30%.`,
 };
 for (const w of writingBank) if (models[w.id]) w.model = models[w.id];
