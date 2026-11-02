@@ -124,3 +124,16 @@ export function pushRecent(list, entry, n = 5) {
   if (!entry.hash || entry.hash === '#/' || !entry.title) return list;
   return [entry, ...list.filter((x) => x.hash !== entry.hash)].slice(0, n);
 }
+
+/**
+ * Mixed grammar test: n exercises from topics at the learner's level and below, at most one per topic
+ * per round (round-robin over shuffled topics) so the test covers as many topics as possible.
+ */
+export function mixedGrammar(grammar, level, n = 15, r = Math.random) {
+  const max = LEVELS.indexOf(LEVELS.includes(level) ? level : 'A1');
+  const shuffle = (a) => { const b = a.slice(); for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [b[i], b[j]] = [b[j], b[i]]; } return b; };
+  const pools = shuffle(grammar.filter((t) => LEVELS.indexOf(t.level) <= max)).map((t) => shuffle(t.exercises).map((q) => ({ ...q, topic: t.id, topicTitle: t.title })));
+  const out = [];
+  while (out.length < n && pools.some((p) => p.length)) for (const p of pools) if (p.length && out.length < n) out.push(p.shift());
+  return out;
+}

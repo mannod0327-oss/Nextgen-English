@@ -372,3 +372,16 @@ test('pushRecent: newest first, no duplicates, capped, ignores home', async () =
   for (const h of ['#/1', '#/2', '#/3', '#/4']) l = pushRecent(l, { hash: h, title: h });
   assert.equal(l.length, 5);
 });
+
+test('mixedGrammar: n questions, level and below only, spread across topics, deterministic with a seed', async () => {
+  const { mixedGrammar } = await import('../src/core/plan.js');
+  const t = (id, level, k) => ({ id, level, title: id, exercises: Array.from({ length: k }, (_, i) => ({ id: `${id}${i}` })) });
+  const g = [t('a', 'A1', 5), t('b', 'A2', 5), t('c', 'B1', 5), t('d', 'B2', 5)];
+  const qs = mixedGrammar(g, 'A2', 6, mulberry32(1));
+  assert.equal(qs.length, 6);
+  assert.ok(qs.every((q) => ['a', 'b'].includes(q.topic)), 'no topics above A2');
+  assert.deepEqual(qs.filter((q) => q.topic === 'a').length, 3, 'round-robin balance');
+  assert.deepEqual(mixedGrammar(g, 'A2', 6, mulberry32(1)).map((q) => q.id), qs.map((q) => q.id));
+  assert.equal(mixedGrammar(g, 'C1', 50, mulberry32(2)).length, 20, 'capped by available questions');
+  assert.equal(new Set(mixedGrammar(g, 'C1', 4, mulberry32(3)).map((q) => q.topic)).size, 4, 'four topics, one each');
+});

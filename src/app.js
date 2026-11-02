@@ -5,7 +5,7 @@ import { gradeExam, scoreQuestion, makeVariant, parseExam, serializeExam, valida
 import { createPlacement, nextQuestion, answerPlacement, placementResult, LEVELS } from './core/placement.js';
 import { renderPrintable, esc } from './core/printable.js';
 import { createStore } from './core/store.js';
-import { dailyPlan, wordOfDay, goalStatus, XP_GOALS, reviewQueue, personalCards, MY_WORDS, examPlan, learningPath, pushRecent } from './core/plan.js';
+import { dailyPlan, wordOfDay, goalStatus, XP_GOALS, reviewQueue, personalCards, MY_WORDS, examPlan, learningPath, pushRecent, mixedGrammar } from './core/plan.js';
 import { linePoints, lastDays, chartSvg } from './core/chart.js';
 import { buildSearchIndex, search } from './core/search.js';
 import { checkWriting, readingSpeed, makeCloze } from './core/writing-check.js';
@@ -537,6 +537,28 @@ const views = {
   },
 
   grammar(params) {
+    if (params.get('mode') === 'mix') {
+      const lvl = profile().level || 'B1';
+      const r = rand();
+      const qs = mixedGrammar(grammar, lvl, 15, r);
+      queueMicrotask(() => {
+        $('#mix-check').onclick = () => {
+          let total = 0;
+          const wrong = new Set();
+          qs.forEach((q) => { const sc = gradeBox(q, app.querySelector(`[data-q="${q.id}"]`), `Grammatika: ${q.topicTitle}`); total += sc; if (sc < 1) wrong.add(q.topic); });
+          const pct = Math.round((total / qs.length) * 100);
+          store.set('grammarMixBest', Math.max(store.get('grammarMixBest', 0), pct));
+          logActivity('grammar-mix');
+          addXp(Math.round(total * 2));
+          $('#mix-check').disabled = true;
+          $('#mix-result').innerHTML = `Natija: <b>${pct}%</b>${wrong.size ? ` · Takrorlang: ${[...wrong].map((t) => `<a href="#/grammar?topic=${t}">${esc(grammar.find((g) => g.id === t).title)}</a>`).join(', ')}` : ' · 🎉 Hammasi to‘g‘ri!'}`;
+        };
+      });
+      return `<a href="#/grammar">← Grammatika</a><h2>🧪 Aralash test <span class="badge">${lvl} va pastroq</span></h2>
+        <p class="muted">${qs.length} ta savol turli mavzulardan. Xato qilingan mavzular oxirida havola bilan ko'rsatiladi.</p>
+        ${qs.map((q, n) => `<section class="card question" data-q="${q.id}"><p class="muted">${esc(q.topicTitle)}</p><b>${n + 1}. ${esc(q.prompt)}</b>${questionHtml(q, r)}<div class="fb"></div></section>`).join('')}
+        <p><button class="btn primary" id="mix-check">Tekshirish</button> <span id="mix-result" aria-live="polite"></span></p>`;
+    }
     const id = params.get('topic');
     const topic = grammar.find((t) => t.id === id);
     if (!topic) {
@@ -544,6 +566,7 @@ const views = {
       const lvl = profile().level;
       const byLevel = [...grammar].sort((a, b) => LEVELS.indexOf(a.level) - LEVELS.indexOf(b.level));
       return `<h2>📐 Grammatika</h2>
+        <p><a class="btn primary" href="#/grammar?mode=mix">🧪 Aralash test (15 savol, ${esc(lvl || 'B1')} va pastroq)</a>${store.get('grammarMixBest', null) != null ? ` <span class="badge ok">eng yaxshi: ${store.get('grammarMixBest')}%</span>` : ''}</p>
         <section class="card guide-intro" id="guide"><h3>📚 Grammatika qo'llanmasi: ${guideUnits.length} unit</h3>
         <p class="muted">English Grammar in Use tartibida. Har bir unitda o'zbekcha tushuntirish, rangli jadvallar, ko'p uchraydigan xatolar va javobi tekshiriladigan mashqlar bor. Bo'limni bosing, so'ng unitni tanlang.</p>
         <a class="btn primary" href="grammar-guide/index.html">Qo'llanmani ochish →</a></section>
