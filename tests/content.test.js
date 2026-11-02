@@ -116,7 +116,7 @@ test('readings: valid questions, unique ids, every CEFR band A1–C1 covered, li
 test('scenarios: each has lines, ids unique', () => {
   for (const s of scenarios) assert.ok(s.lines.length >= 2, s.id);
   assert.equal(new Set(scenarios.map((s) => s.id)).size, scenarios.length);
-  assert.ok(scenarios.length >= 23);
+  assert.ok(scenarios.length >= 30);
   const sh = scenarios.filter((s) => s.shadow);
   assert.ok(sh.length && sh.every((s) => s.lines.length >= 10 && s.questions.length === s.lines.length && s.intro), 'shadowing: 10 answers, one question each');
 });
