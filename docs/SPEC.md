@@ -130,7 +130,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 117 | **Testni havola orqali ulashish** | O'qituvchi yaratgan testni o'quvchiga yuborish qiyin | Test yaratuvchida URL (#/exam?share=…) — kodlash/dekodlash unit test, E2E | ✅ |
 | 118 | **Haftalik hisobot** | Progress faqat umumiy | Oxirgi 7 kun: XP, faol kunlar, testlar, yangi so'zlar (pure, unit test) progressda | ✅ |
 | 119 | **GT xatlari +4** |  | 4 ta yangi topshiriq + namuna | ✅ |
-| 120 | **Idiomalar +20** |  | 62+ idioma | ⬜ |
+| 120 | **Idiomalar +20** |  | 62+ idioma | ✅ |
 | 121 | **Mock Test 15** |  | 40+40 original savol | ⬜ |
 | 122 | **Yakuniy tekshiruv va hujjatlar** | 100 iteratsiyadan keyin umumiy holat | To'liq regressiya, README/CHANGELOG yangilash, yakuniy hisobot | ⬜ |
 
@@ -271,3 +271,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **117-iteratsiya** — Testni havola orqali ulashish: exam.js encodeShare/decodeShare (UTF-8, URL-safe base64, validatsiya) + unit test; test yaratuvchida 🔗 tugma (nusxalash), #/exam?share=… testni yuklaydi, buzilgan havola — xabar; E2E (yangi brauzer konteksti); v=132.
 - **118-iteratsiya** — Haftalik hisobot: plan.js weeklyReport (7 kunlik XP va oldingi haftaga % o'zgarish, faol kunlar, kartalar, noyob grammatika mavzulari va matnlar, sinov testlari, eng yaxshi band) + unit test; progressda karta; E2E; v=133.
 - **119-iteratsiya** — GT xatlari +4: kechikkan/shikastlangan buyurtma, kutubxona ish vaqti, to'yga taklif, rahbardan ta'til so'rash — har biriga Band 7 namuna; jami 10 GT xati, 72 writing namunasi; v=134.
+- **120-iteratsiya** — Idiomalar +20 (in a nutshell, out of the blue, through thick and thin, up in the air…) — jami 62 idioma, 198 ibora; v=135.
