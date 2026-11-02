@@ -117,7 +117,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 104 | **A2 grammatika +3** (be going to vs will, ravish (quickly/well), should/shouldn't) | A2 mavzular kam | har biri ≥5 mashq | ✅ |
 | 105 | **B2 grammatika +3** (passive + modal, -ed/-ing sifatlar, future in the past) |  | har biri ≥5 mashq | ✅ |
 | 106 | **Lug'at +60** (ish va martaba, energiya, hayvonot va bioxilma-xillik) | IELTS mavzulari | 3 × 20 so'z, definitions | ✅ |
-| 107 | **B1 tinglash +3** |  | 3 × 5 savol | ⬜ |
+| 107 | **B1 tinglash +3** |  | 3 × 5 savol | ✅ |
 | 108 | **B1 o'qish +3** |  | 3 × 5 savol | ⬜ |
 | 109 | **Task 1 namunalari +6** (qolgan jadvallar) |  | raqam tekshiruvidan o'tadi | ⬜ |
 | 110 | **Speaking Part 2 namunalari +10** |  | ≥200 so'z, xatosiz | ⬜ |
@@ -258,3 +258,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **104-iteratsiya** — A2 grammatika +3: be going to yoki will, holat ravishlari (-ly, well, hard/hardly, look + sifat), should/shouldn't — 15 mashq; jami 56 mavzu / 257 mashq; v=120.
 - **105-iteratsiya** — B2 grammatika +3: majhul nisbat + modal (should be introduced, could have been avoided), -ed/-ing sifatlar (bored/boring), o'tmishdagi kelajak (was going to, would, was about to) — 15 mashq; jami 59 mavzu / 272 mashq; v=121.
 - **106-iteratsiya** — Lug'at +60: "Ish va martaba", "Energiya", "Hayvonot va bioxilma-xillik" — 699 so'z / 48 mavzu; takror va ta'rifsiz so'zlar almashtirildi; definitions 3675; v=122.
+- **107-iteratsiya** — Tinglash +3 (B1): mehmonxonaga joylashish, radioda ingliz tili maslahatlari, shahar velosiped ijarasi (5×3 savol, aylantirilgan); jami 38 tinglash (B1×10); v=123.

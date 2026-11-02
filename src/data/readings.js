@@ -1155,4 +1155,37 @@ How can trust be rebuilt? Researchers who study public communication suggest sev
       { id: 'hh5', type: 'fill', prompt: 'He has lost ___ kilos.', answer: ['five', '5'] },
     ],
   },
+  {
+    id: 'l-hotel-checkin', level: 'B1', listening: true, title: 'Checking In at a Hotel', uzTitle: 'Tinglash: mehmonxonaga joylashish',
+    text: `Receptionist: Good evening, welcome to the Registan Plaza. How can I help you? Guest: Hi, I have a reservation for three nights. The name is Brown. Receptionist: Yes, Mr Brown, a double room with breakfast. Could I see your passport, please? Guest: Here you are. Receptionist: Thank you. Your room is 512, on the fifth floor. The lifts are just behind you. Breakfast is served in the restaurant on the ground floor from seven until ten thirty. Guest: Great. Is there Wi-Fi in the room? Receptionist: Yes, it's free. The password is on the card with your key. Guest: And is there a gym? Receptionist: There's a small gym on the second floor, open from six in the morning until eleven at night. The swimming pool is closed this week for cleaning, I'm afraid. Guest: That's a pity. One more thing — could I have a taxi to the airport on Friday at five in the morning? Receptionist: Of course. I'll book it for you, and we can prepare a breakfast box because the restaurant won't be open yet.`,
+    questions: [
+      { id: 'lhc1', type: 'fill', prompt: 'The guest is staying for ___ nights.', answer: ['three', '3'] },
+      { id: 'lhc2', type: 'fill', prompt: 'Room number: ___', answer: '512' },
+      { id: 'lhc3', type: 'single', prompt: 'When does breakfast finish?', options: ['at ten', 'at eleven', 'at ten thirty', 'at nine'], answer: 2 },
+      { id: 'lhc4', type: 'single', prompt: 'Why can’t the guest use the pool?', options: ['It is too cold.', 'It is closed for cleaning.', 'It is only for children.', 'It costs extra.'], answer: 1 },
+      { id: 'lhc5', type: 'single', prompt: 'What will the hotel prepare for Friday?', options: ['a breakfast box', 'a late checkout', 'a free dinner', 'a city map'], answer: 0 },
+    ],
+  },
+  {
+    id: 'l-radio-advice', level: 'B1', listening: true, title: 'Radio: Tips for Learning English', uzTitle: 'Tinglash: radioda ingliz tilini o‘rganish maslahatlari',
+    text: `Welcome back to Study Smart. Today, three tips from our listeners about learning English. First, Nodir from Andijan says the most important thing is to study a little every day rather than a lot once a week. He spends twenty minutes every morning learning new words with flashcards on his phone while he's on the bus. Second, Shahlo from Termez recommends watching TV series in English. At first she used subtitles in Uzbek, then English subtitles, and now, after a year, she often watches without any subtitles at all. Her advice is to choose a series you really enjoy, so you don't give up. Finally, Rustam from Nukus says speaking is the hardest part, because many learners are afraid of making mistakes. He joined an online conversation club that meets twice a week, and he says his confidence has improved a lot. Remember: mistakes are a normal part of learning. Next week we'll talk about how to prepare for exams without stress.`,
+    questions: [
+      { id: 'lra1', type: 'single', prompt: 'What is Nodir’s main advice?', options: ['study a lot once a week', 'study only at weekends', 'study with a teacher', 'study a little every day'], answer: 3 },
+      { id: 'lra2', type: 'fill', prompt: 'Nodir studies for ___ minutes every morning.', answer: ['twenty', '20'] },
+      { id: 'lra3', type: 'single', prompt: 'What does Shahlo watch now?', options: ['series with Uzbek subtitles', 'series with English subtitles', 'series often without subtitles', 'only news'], answer: 2 },
+      { id: 'lra4', type: 'single', prompt: 'Why should you choose a series you enjoy?', options: ['because it is cheaper', 'so you don’t give up', 'to learn slang', 'to practise writing'], answer: 1 },
+      { id: 'lra5', type: 'fill', prompt: 'Rustam’s online club meets ___ a week.', answer: 'twice' },
+    ],
+  },
+  {
+    id: 'l-bike-share', level: 'B1', listening: true, title: 'How to Use the City Bike Scheme', uzTitle: 'Tinglash: shahar velosiped ijarasi',
+    text: `Hello and thanks for choosing CityBike. Here's how the scheme works. First, download the CityBike app and register with your phone number. You'll need to add a bank card, but you won't pay anything until you take a bike. To unlock a bike, scan the code on the handlebars with the app. The first thirty minutes of each ride cost five thousand sum, and after that it's two thousand sum for every extra fifteen minutes. If you use the bikes often, the monthly pass is better value: it costs sixty thousand sum and includes unlimited rides of up to forty-five minutes. When you finish, return the bike to any CityBike station and push it firmly into the stand until you hear a beep. If you leave a bike outside a station, there's a fine of fifty thousand sum. Please check the brakes and tyres before you start, and remember that helmets are strongly recommended. If a bike is damaged, report it in the app and you won't be charged for that ride.`,
+    questions: [
+      { id: 'lbs1', type: 'single', prompt: 'When do you pay for the first time?', options: ['when you take a bike', 'when you register', 'at the end of the month', 'never'], answer: 0 },
+      { id: 'lbs2', type: 'fill', prompt: 'To unlock a bike, scan the code on the ___.', answer: 'handlebars' },
+      { id: 'lbs3', type: 'fill', prompt: 'The first thirty minutes cost ___ thousand sum.', answer: ['five', '5'] },
+      { id: 'lbs4', type: 'single', prompt: 'The monthly pass includes rides of up to …', options: ['30 minutes', '60 minutes', 'unlimited time', '45 minutes'], answer: 3 },
+      { id: 'lbs5', type: 'single', prompt: 'What happens if you leave a bike outside a station?', options: ['nothing', 'you lose your pass', 'you get a fine', 'the bike is free'], answer: 2 },
+    ],
+  },
 ];
