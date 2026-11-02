@@ -341,6 +341,86 @@ I went there two years ago in early autumn with a group of students from my univ
 We did all sorts of things while we were there. During the day we swam in the lake, which was still warm, and we went for a short camel ride across the dunes, which was a completely new experience for most of us. In the evenings, the people who ran the camp cooked dinner over an open fire, and afterwards someone played a traditional instrument while we sat and talked.
 
 There are several reasons why I liked this place so much. The first is the contrast between the desert and the water, which made the landscape feel almost unreal. The second is the silence. Living in a big city, I'd forgotten what real quiet sounds like. But the best moment was at night, when we lay on the sand and looked at the sky. There was no light pollution at all, so we could see thousands of stars and even the Milky Way, and I remember feeling very small but also very peaceful.`,
+
+  'b-shopping': `The most expensive thing I've ever bought with my own money is a laptop, which I got about a year ago, just before my second year at university.
+
+I bought it from a large electronics shop in the centre of Tashkent rather than online. I'd done a lot of research on the internet first, comparing prices and reading reviews, but I wanted to see the different models in person and check how the keyboards felt, because I type a lot for my assignments.
+
+I chose this particular model for a few reasons. It's quite light, so I can carry it to university every day without my back hurting, and the battery lasts for about ten hours, which means I don't have to look for a socket in the library. It was also on sale that week, with a discount of around fifteen per cent, which helped me make up my mind.
+
+As for whether it was worth the money, I'd definitely say yes. It wasn't cheap — I'd saved for almost eight months from my part-time job — but I use it every single day for studying, online lessons and even for editing photos, which is my hobby. It's still fast and reliable, and I think it'll last me until I graduate. Looking back, I'm actually proud that I paid for it myself.`,
+
+  'b-weather': `I'd like to talk about a day last spring when the weather completely changed my plans. It was in April, during the Navruz holidays, and a group of my friends and I had planned a hiking trip to the mountains near Chimgan.
+
+We'd organised everything a week in advance. We were going to take a minibus early in the morning, walk up to a waterfall, have a picnic with plov that one of my friends was going to cook, and then come back in the evening. We'd even bought new walking shoes for the trip.
+
+Unfortunately, the night before, the forecast suddenly changed. When we woke up, it was pouring with rain in the city, and the news said there was heavy snow and a risk of landslides in the mountains. The temperature had dropped by about fifteen degrees overnight, which is quite unusual for April.
+
+So instead, we decided to have our picnic indoors. We all went to my friend's flat, cooked the plov together, played board games and watched an old comedy film. To be honest, I was really disappointed at first, but in the end it turned out to be one of the most enjoyable days of the holiday. It taught me that the people you're with are more important than the place, and we finally went to the waterfall two weeks later when the weather was perfect.`,
+
+  'b-neighbours': `The person I'd like to describe is an elderly man who lives on the ground floor of my building. Everyone calls him Uncle Karim, and he's been living there for more than thirty years, so he knows absolutely everyone in the neighbourhood.
+
+He's retired now — he used to be an engineer — but he's busier than most young people. He looks after the small garden in front of our building, planting flowers every spring, and he repairs things for neighbours for free: broken chairs, bicycles, even washing machines. He also organises the cleaning day in our courtyard twice a year.
+
+I've known him since I was a small child. When I was learning to ride a bike, he was the one who fixed my chain whenever it came off, and later he helped me with my maths homework, because my parents both worked late.
+
+The reason he's so helpful is not just that he has practical skills, but that he genuinely cares about people. If someone is ill, he'll go to the pharmacy for them, and he always notices when an older neighbour hasn't been seen for a few days and checks that they're all right. In a big city, where many people don't even know their neighbours' names, I think people like him are what make a building feel like a real community.`,
+
+  'b-art': `The museum I'd like to describe is the State Museum of Applied Arts in Tashkent, which I visited about six months ago. It's located in a beautiful old house that originally belonged to a diplomat, and the building itself is almost as interesting as the collection.
+
+Inside, I saw a wonderful collection of traditional crafts from different regions of Uzbekistan: embroidered suzani, carved wooden doors, ceramics from Rishtan, jewellery and musical instruments. What impressed me most were the ceilings and walls, which are decorated with incredibly detailed hand-painted patterns and carved plaster.
+
+I went there with my cousin, who was visiting from abroad and wanted to learn more about Uzbek culture. We spent about two hours there, and luckily there was an English-speaking guide, so I was able to understand a lot more than I would have on my own.
+
+I learned a great deal from the visit. For example, I discovered that each region has its own style of embroidery and pottery, and that many of the patterns have symbolic meanings, such as pomegranates representing fertility. I also realised how much skill and patience these crafts require — some pieces took months to make. It made me feel proud of my country's heritage, and it made me want to support local craftspeople by buying handmade things rather than cheap factory copies.`,
+
+  'b-photos': `The photograph I'd like to describe is an old black-and-white picture of my grandparents on their wedding day. It hangs on the wall in our living room, and I've looked at it almost every day of my life.
+
+The photo shows my grandparents standing in front of a small house in their village, surrounded by relatives. My grandmother is wearing a long white dress with a traditional embroidered scarf, and my grandfather is in a dark suit that looks slightly too big for him. They both look very serious, which was normal in photographs at that time, but if you look closely, you can see that my grandmother is trying not to smile.
+
+It was taken in 1972 by a professional photographer who travelled from the nearest town especially for the wedding, because very few families had cameras then.
+
+The reason it's so important to me is that it connects me with a part of my family's history that I never saw. My grandfather passed away before I was born, so this photo is one of the few ways I can imagine what he was like. My grandmother often tells me stories about that day while we look at it together, so for me the photo is not just an image, but a collection of memories that she has shared with me.`,
+
+  'b-clothes': `The piece of clothing I like wearing most is a dark green jacket that I've had for about three years. It's a kind of light waterproof jacket with lots of pockets and a hood.
+
+I got it from a small outdoor clothing shop in the city centre. I went in to buy a pair of gloves, but I saw the jacket on a rack near the door and immediately liked the colour. It was a bit expensive for me at the time, but the shop assistant told me it was made from recycled materials, which persuaded me to buy it.
+
+I wear it almost all the time in spring and autumn, when the weather can change quickly. It's warm enough for chilly mornings but light enough that I don't get too hot in the afternoon, and when it rains, the hood keeps me completely dry. I also take it whenever I travel, because I can fold it into a small bag.
+
+The main reason I like it is that it's so practical. I can keep my phone, keys and headphones in the pockets, so I often don't need to carry a bag. But I also have an emotional attachment to it now, because I've worn it on so many trips and adventures, including my first hiking trip in the mountains. Even though it's starting to look a bit old, I don't think I'll replace it any time soon.`,
+
+  'b-time': `I'd like to talk about the last week of my first year at university, which was probably the busiest week of my life so far.
+
+During that week, I had three final exams, in economics, statistics and English, and I also had to hand in a group project report of about four thousand words. To make things more complicated, I was working part-time in a café three evenings a week, and my younger sister had her school graduation, which I'd promised to help organise.
+
+To manage everything, I made a very detailed timetable, almost hour by hour. I got up at six every morning and studied for two hours before my classes, when my mind was fresh. I asked my manager at the café if I could swap one of my shifts, and luckily she agreed. For the group project, we divided the sections clearly and used an online document, so we could work on it at the same time without meeting.
+
+Afterwards, I felt completely exhausted, but also very relieved and quite proud of myself. I passed all three exams with good marks, and the project got one of the highest grades in the class. I slept for almost twelve hours the night after my last exam! The experience taught me that good planning and asking for help can make even a very difficult week manageable.`,
+
+  'b-news': `A piece of news that really surprised me was a story I read last year about a young woman from a small village in Uzbekistan who won an international science competition with an invention to clean water.
+
+I first heard about it on social media, when a friend shared a video about her, and then I read a longer article on a news website to find out more details.
+
+According to the article, she was only seventeen and had grown up in an area where clean drinking water was a serious problem. She designed a simple, cheap filter using local materials, including sand, charcoal and a special type of clay, which removed most of the harmful bacteria. She tested it for months at home, with help from a physics teacher at her school, and then entered it into a national competition before being selected for the international one, where she won first prize in her category.
+
+The reason it surprised me so much was that she achieved all this with very few resources. She didn't have access to a modern laboratory or expensive equipment, and she was competing against students from some of the best-funded schools in the world. It made me realise that creativity and determination can matter more than money, and it was genuinely inspiring to see someone my age solving a real problem for her community.`,
+
+  'b-languages': `I'd like to describe a time I used English successfully when I was travelling in Turkey last summer with my family.
+
+We were in Istanbul, and on the second day my younger brother suddenly got a high temperature and a bad ear ache, so we had to find a doctor quickly. My parents don't speak English, and none of us spoke Turkish, so I was the one who had to communicate.
+
+First, I spoke to the receptionist at our hotel, who recommended a small private clinic nearby and called them to make an appointment for us. At the clinic, I explained my brother's symptoms to the doctor in English: how long he'd had the temperature, where the pain was, and whether he had any allergies. The doctor asked me some questions, explained that it was an ear infection, and told me how often my brother should take the medicine. I also had to ask the pharmacist about the correct dose for a child.
+
+I felt nervous at the beginning, because I was worried about making a mistake with something so important. But when I realised that the doctor understood me perfectly and that I could understand her too, I felt incredibly relieved and proud. My parents were very impressed! That experience showed me that all those years of studying English had real, practical value, and it motivated me to keep improving.`,
+
+  'b-university': `A subject I'd really like to study in the future is environmental science, ideally at master's level after I finish my current degree in biology.
+
+It interests me because I think environmental problems are among the most serious challenges my generation will face. In Central Asia in particular, issues like water shortages, the disappearance of the Aral Sea and air pollution in big cities affect millions of people. I'd love to understand the science behind these problems in more depth, and more importantly, to learn about practical solutions.
+
+As for where I'd study it, I'm considering two options. One is a programme at a university in Tashkent that has recently started working with international partners, which would allow me to stay close to my family. The other is to apply for a scholarship to study abroad, possibly in Germany or the Netherlands, because both countries are known for their research into renewable energy and water management.
+
+I believe this subject could really help my career. Governments and international organisations are increasingly looking for specialists who can advise on environmental policy, and many companies now need experts to help them reduce their impact on nature. Ideally, I'd like to work on projects that improve water use in agriculture in my own country, because I feel that would be a meaningful way to use my knowledge.`,
 };
 for (const s of speakingBank) if (models[s.id]) s.part2.model = models[s.id];
 const part3Models = {

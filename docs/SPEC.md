@@ -120,7 +120,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 107 | **B1 tinglash +3** |  | 3 × 5 savol | ✅ |
 | 108 | **B1 o'qish +3** |  | 3 × 5 savol | ✅ |
 | 109 | **Task 1 namunalari +6** (qolgan jadvallar) |  | raqam tekshiruvidan o'tadi | ✅ |
-| 110 | **Speaking Part 2 namunalari +10** |  | ≥200 so'z, xatosiz | ⬜ |
+| 110 | **Speaking Part 2 namunalari +10** |  | ≥200 so'z, xatosiz | ✅ |
 | 111 | **Daraja testi +20 savol** | 60 savol — takrorlanish | 80 savol, har darajada ≥15; unit test | ⬜ |
 | 112 | **Minimal juftlar +3** (ʃ/tʃ, æ/ʌ, i:/aɪ) |  | 16 to'plam | ⬜ |
 | 113 | **Grammatika aralash testi** | Mavzular alohida — umumiy tekshiruv yo'q | Darajaga mos 15 tasodifiy savol barcha mavzulardan (pure tanlov, unit test), E2E | ⬜ |
@@ -261,3 +261,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **107-iteratsiya** — Tinglash +3 (B1): mehmonxonaga joylashish, radioda ingliz tili maslahatlari, shahar velosiped ijarasi (5×3 savol, aylantirilgan); jami 38 tinglash (B1×10); v=123.
 - **108-iteratsiya** — B1 o'qish +3: nega yoshlar ko'ngilli bo'ladi, plastiksiz bir oy, telefonsiz maktab (5×3 savol); jami 50 matn (B1×11); v=124.
 - **109-iteratsiya** — Task 1 namunalari +6: qayta ishlash, o'qish formatlari, avtomobillar soni, universitet fanlari, uyqu, jismoniy mashqlar (raqamlar jadval testidan o'tdi) — jami 62 namuna; v=125.
+- **110-iteratsiya** — Speaking Part 2 +10: qimmat xarid, ob-havo rejani buzgan kun, yordamchi qo'shni, amaliy san'at muzeyi, nikoh surati, sevimli kurtka, eng band hafta, hayratlantirgan yangilik, chet tilida muvaffaqiyat, kelajakdagi fan (≥200 so'z, xatosiz); jami 30 namuna; v=126.
