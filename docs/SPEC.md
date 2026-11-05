@@ -140,7 +140,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 127 | **Tinish belgilari treneri** | Writing'da vergul, apostrof, bosh harf xatolari | ≥42 element; #/drill ichida | ✅ |
 | 128 | **Gapni qayta tuzish (transformation) treneri** | Paraphrase — IELTS'ning asosiy ko'nikmasi | ≥42 element; #/drill ichida | ✅ |
 | 129 | **Lug'at +60**: oziq-ovqat va qishloq xo'jaligi, transport infratuzilmasi, til va muloqot | IELTS mavzulari | 3 mavzu × 20 so'z; takrorlanmaydi; ta'riflar ≤5% yo'q | ✅ |
-| 130 | **Lug'at +60**: tabiiy ofatlar, arxitektura va dizayn, sport va jismoniy tarbiya | IELTS mavzulari | 3 mavzu × 20 so'z | ⬜ |
+| 130 | **Lug'at +60**: tabiiy ofatlar, arxitektura va dizayn, sport va jismoniy tarbiya | IELTS mavzulari | 3 mavzu × 20 so'z | ✅ |
 | 131 | **B2 tinglash +4** | B2 tinglash kam (7 ta) | 4 matn × 5 savol, listening:true | ⬜ |
 | 132 | **C1 tinglash +4** | C1 tinglash kam (6 ta) | 4 matn × 5 savol | ⬜ |
 | 133 | **IELTS General Training Reading testi** | GT topshiruvchilar uchun alohida format | 3 bo'lim, 40 savol, 60 daq, band; E2E | ⬜ |
@@ -301,3 +301,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **127-iteratsiya** — Tinish belgilari treneri (#/drill?t=punct): 42 element — apostrof (it's/its, students'), bosh harf, vergul (However, which), bilvosita so'roq, run-on, 2,500 / 2.5; 3 variant, aylantirilgan; 11 trener / 544 element; v=141.
 - **128-iteratsiya** — Gapni qayta tuzish treneri (#/drill?t=trans): 42 parafraz — zamonlar, majhul nisbat, modal xulosalar, wish, inversiya, nominalizatsiya; bitta bo'sh joy, 4 variant; 12 trener / 586 element; 127-deploy keyinroq tasdiqlandi; v=142.
 - **129-iteratsiya** — Lug'at +60: Qishloq xo'jaligi (harvest, irrigation, livestock…), Infratuzilma (junction, congestion, toll, flyover…), Til va muloqot (fluent, dialect, interpreter, jargon…); 3 takror almashtirildi; ta'riflar qayta qurildi (3772); jami 759 so'z / 51 mavzu. E2E poygasi tuzatildi: path qadami bosh sahifadagi bir xil matnli havolani emas, h2 ni kutadi; v=143.
+- **130-iteratsiya** — Lug'at +60: Tabiiy ofatlar (earthquake, landslide, evacuate, aftershock…), Arxitektura va dizayn (dome, minaret, facade, courtyard…), Sport va jismoniy tarbiya (endurance, referee, league, kurash…); 6 takror + 4 ta ta'rifsiz ibora almashtirildi (qamrov ≤5%); jami 819 so'z / 54 mavzu; v=144.
