@@ -320,3 +320,9 @@ test('find-the-mistake trainer: one wrong chunk per sentence, chunks unique, pro
     assert.ok(q.prompt.includes(q.options.join(' ')) && q.answer >= 0, q.id);
   }
 });
+
+test('punctuation trainer: 3 distinct sentence options, the correct one differs from each wrong one', () => {
+  const pu = drillItems.filter((q) => q.trainer === 'punct');
+  assert.ok(pu.length >= 42);
+  for (const q of pu) assert.ok(q.options.length === 3 && new Set(q.options).size === 3 && q.answer >= 0, q.id);
+});

@@ -12,6 +12,7 @@ import { formSets } from './forms.js';
 import { depSets } from './deps.js';
 import { sentenceStressSets } from './sentence-stress.js';
 import { errorSets } from './errors.js';
+import { punctuationSets } from './punctuation.js';
 
 export const trainers = [
   { id: 'articles', icon: '🅰️', title: 'Artikl va predloglar', desc: 'a / an / the va in / on / at',
@@ -44,6 +45,9 @@ export const trainers = [
   { id: 'errors', icon: '🔍', title: 'Xatoni toping', desc: "She don't… · two book · married with…",
     intro: "O'zbek tilida so'zlashuvchilar eng ko'p qiladigan xatolar: do/does, he/she, ko'plik, artikl va predloglar. Gapdagi xato qismni toping — izohda to'g'ri varianti bor. Writing va Speaking'da Grammatical accuracy bali shu xatolardan pasayadi.",
     sets: errorSets },
+  { id: 'punct', icon: '✒️', title: 'Tinish belgilari', desc: "it's / its, students', However, …",
+    intro: "IELTS Writing'da apostrof, bosh harf va vergul xatolari Grammatical accuracy balini tushiradi. O'zbek tilidagidan farqli: tillar, kunlar va millatlar bosh harf bilan; 2,500 — minglik, 2.5 — kasr.",
+    sets: punctuationSets },
 ];
 
 export const drillSets = trainers.flatMap((t) => t.sets.map((s) => ({ ...s, trainer: t.id })));

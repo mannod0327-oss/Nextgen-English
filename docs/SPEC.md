@@ -137,7 +137,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 124 | **Grammatika B1–B2 +3** (although/despite, time clauses, the more… the more) | IELTS Writing'da bog'lash va murakkab gaplar | 3 mavzu × ≥4 mashq | ✅ |
 | 125 | **Grammatika C1 +3** (nominalisation, hedging, whereas/albeit) | Akademik uslub — Band 7+ | 3 mavzu × ≥4 mashq | ✅ |
 | 126 | **Xatoni top va tuzat treneri** | O'zbeklarning tipik xatolari (artikl, zamon, predlog) | ≥42 gap, 4 variantli; #/drill ichida; E2E | ✅ |
-| 127 | **Tinish belgilari treneri** | Writing'da vergul, apostrof, bosh harf xatolari | ≥42 element; #/drill ichida | ⬜ |
+| 127 | **Tinish belgilari treneri** | Writing'da vergul, apostrof, bosh harf xatolari | ≥42 element; #/drill ichida | ✅ |
 | 128 | **Gapni qayta tuzish (transformation) treneri** | Paraphrase — IELTS'ning asosiy ko'nikmasi | ≥42 element; #/drill ichida | ⬜ |
 | 129 | **Lug'at +60**: oziq-ovqat va qishloq xo'jaligi, transport infratuzilmasi, til va muloqot | IELTS mavzulari | 3 mavzu × 20 so'z; takrorlanmaydi; ta'riflar ≤5% yo'q | ⬜ |
 | 130 | **Lug'at +60**: tabiiy ofatlar, arxitektura va dizayn, sport va jismoniy tarbiya | IELTS mavzulari | 3 mavzu × 20 so'z | ⬜ |
@@ -298,3 +298,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **124-iteratsiya** — Grammatika +3: although/despite (B1), time clauses (B1), the more… the better (B2); jami 65 mavzu / 302 mashq; v=138.
 - **125-iteratsiya** — Grammatika +3 (C1): nominalisation, hedging, whereas/albeit/nevertheless; jami 68 mavzu / 317 mashq. Birinchi render 600 KB chegarasiga yetdi → readings.js dangasa yuklanadi, bosh sahifa uchun readings-index.js (skript + sinxron testi); 600→436 KB; v=139.
 - **126-iteratsiya** — Xatoni toping treneri (#/drill?t=errors): 42 gap × 4 bo'lak, o'zbeklarning tipik xatolari (do-support, he/she, ko'plik, predloglar), izohda to'g'ri variant; kontent testi + E2E 100%; 10 trener / 502 element; v=140.
+- **127-iteratsiya** — Tinish belgilari treneri (#/drill?t=punct): 42 element — apostrof (it's/its, students'), bosh harf, vergul (However, which), bilvosita so'roq, run-on, 2,500 / 2.5; 3 variant, aylantirilgan; 11 trener / 544 element; v=141.
