@@ -283,11 +283,11 @@ test('goalStatus: today %, 7-day week, streak of met days', () => {
   assert.equal(goalStatus({ '2026-10-29': 500 }, 20, '2026-10-29').pct, 100);
 });
 
-test('first render loads no IELTS mocks/banks/guides and stays under 600 KB of JS', async () => {
+test('first render loads no full texts, IELTS mocks/banks/guides and stays under 600 KB of JS', async () => {
   const { staticGraph } = await import('../scripts/initial-bytes.mjs');
   const g = staticGraph(new URL('../src/app.js', import.meta.url).pathname);
   const files = [...g.keys()].map((f) => f.replace(/.*\/src\//, ''));
-  for (const lazy of ['ielts-mock', 'ielts-guides', 'ielts-bank-', 'definitions', 'drills', 'collocations']) assert.ok(!files.some((f) => f.includes(lazy)), `${lazy} is on the first-render path`);
+  for (const lazy of ['data/readings.js', 'ielts-mock', 'ielts-guides', 'ielts-bank-', 'definitions', 'drills', 'collocations']) assert.ok(!files.some((f) => f.includes(lazy)), `${lazy} is on the first-render path`);
   const kb = [...g.values()].reduce((a, b) => a + b, 0) / 1024;
   assert.ok(kb < 600, `${kb.toFixed(0)} KB`);
 });

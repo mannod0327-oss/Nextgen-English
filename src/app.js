@@ -17,7 +17,7 @@ import { grammar } from './data/grammar.js';
 import { placementQuestions } from './data/placement.js';
 import { sampleExam } from './data/sample-exam.js';
 import { exams } from './data/exams.js';
-import { readings } from './data/readings.js';
+import { readingsIndex } from './data/readings-index.js';
 import { scenarios } from './data/dialogues.js';
 import { guideSections, guideUnits } from './data/grammar-guide.js';
 import { writing, writingCriteria, speaking, officialResources, toBand } from './data/ielts.js';
@@ -25,15 +25,16 @@ import { irregularVerbs } from './data/irregular-verbs.js';
 import { minimalPairs } from './data/minimal-pairs.js';
 
 // IELTS practice bank: hand-made tasks + bank items. Bank texts open in the reading view but are listed only in #/ielts.
-// The mocks, banks and guides (~390 KB) are not on the first-render path: loadIelts() imports them for the views in
+// The texts, mocks, banks and guides (~560 KB) are not on the first-render path: loadIelts() imports them for the views in
 // IELTS_VIEWS (route() waits for it) and is also started when the browser is idle, so the service worker caches them.
-let allTexts = readings, allWriting = writing, allSpeaking = speaking, mockTests = {}, guides = [], ieltsLists;
+let readings = [], allTexts = [], allWriting = writing, allSpeaking = speaking, mockTests = {}, guides = [], ieltsLists;
 let trainers = [], drillSets = [], drillItems = [], collocations = []; // drill centre + collocations: also lazy
 let ieltsPromise;
 const IELTS_VIEWS = new Set(['ielts', 'reading', 'progress', 'search', 'drill', 'articles', 'collocations', 'path']);
-const loadIelts = () => (ieltsPromise ??= Promise.all(['ielts-mock', 'ielts-guides', 'ielts-bank-speaking', 'ielts-bank-writing', 'ielts-bank-reading', 'ielts-bank-listening', 'drills', 'collocations']
+const loadIelts = () => (ieltsPromise ??= Promise.all(['readings', 'ielts-mock', 'ielts-guides', 'ielts-bank-speaking', 'ielts-bank-writing', 'ielts-bank-reading', 'ielts-bank-listening', 'drills', 'collocations']
   .map((f) => import(`./data/${f}.js`)))
-  .then(([m, g, { speakingBank }, { writingBank }, { readingBank }, { listeningBank }, d, c]) => {
+  .then(([r, m, g, { speakingBank }, { writingBank }, { readingBank }, { listeningBank }, d, c]) => {
+    ({ readings } = r);
     ({ trainers, drillSets, drillItems } = d);
     ({ collocations } = c);
     ({ mockTests } = m);
@@ -290,7 +291,7 @@ const views = {
       ['#/vocab', '🖼️', "Vizual lug'at", `${vocabulary.length} ta so'z · ${due} ta takrorlash kutmoqda`],
       ['#/immersion', '🌊', "Immersiya o'yini", "Tarjimasiz: rasmga mos so'zni toping"],
       ['#/grammar', '📐', 'Grammatika', `${guideUnits.length} unitli qo'llanma + ${grammar.length} ta mashqli mavzu`],
-      ['#/reading', '📰', "O'qish va tinglash", `${readings.length} ta matn va tinglash (A1–C1), savollar bilan`],
+      ['#/reading', '📰', "O'qish va tinglash", `${readingsIndex.length} ta matn va tinglash (A1–C1), savollar bilan`],
       ['#/verbs', '🔁', "Noto'g'ri fe'llar", `${irregularVerbs.length} ta fe'l: jadval, tinglash va V2/V3 testi`],
       ['#/sounds', '👂', 'Qiyin tovushlar', `${minimalPairs.length} juft tovush (w/v, θ/s, iː/ɪ…): eshiting va farqlang`],
       ['#/drill', '🎯', 'Mashqlar markazi', "Artikl, imlo, bog'lovchilar, urg'u, Task 1 tili, sinonimlar, so'z yasalishi, predloglar"],
@@ -301,7 +302,7 @@ const views = {
       ['#/exam', '⏱️', 'Imtihon simulyatori', "Taymer, navigatsiya, xatolar tahlili"],
       ['#/creator', '🛠️', 'Test yaratuvchi', "O'qituvchi uchun: test tuzish, variantlar, chop etish"],
     ];
-    const plan = dailyPlan({ date: today(), level: p.level, grammar, texts: readings, activity: store.get('activity', {})[today()] ?? [] });
+    const plan = dailyPlan({ date: today(), level: p.level, grammar, texts: readingsIndex, activity: store.get('activity', {})[today()] ?? [] });
     const planDone = plan.filter((t) => t.done).length;
     const wod = wordOfDay(today(), vocabulary, p.level);
     queueMicrotask(() => import('./data/definitions.js').then(({ definitions }) => {

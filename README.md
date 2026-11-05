@@ -165,6 +165,16 @@ node scripts/build-definitions.mjs dictionary.jsonl.gz
 npm test
 ```
 
+## Matnlar indeksi
+
+Bosh sahifa faqat `src/data/readings-index.js` dan foydalanadi (id, sarlavha, daraja). To'liq matnlar
+(`readings.js`) birinchi renderdan keyin dangasa yuklanadi. `readings.js` o'zgarsa, indeksni qayta yarating.
+Indeks eskirgan bo'lsa, `npm test` xato beradi:
+
+```bash
+node scripts/build-readings-index.mjs
+```
+
 ## Rivojlanish rejasi
 
 Keyingi funksiyalar va ularning qabul mezonlari: [docs/SPEC.md](docs/SPEC.md).
@@ -175,7 +185,7 @@ Keyingi funksiyalar va ularning qabul mezonlari: [docs/SPEC.md](docs/SPEC.md).
   modelni emas. U "nima eshitildi"ni o'lchaydi, intonatsiyani emas. Nutqni aniqlash Chrome/Edge'da
   ishlaydi; boshqa brauzerlarda aytilganni yozib tekshirish mumkin.
 - **Progress** bitta brauzerda saqlanadi (avtomatik sinxronizatsiya yo'q). Bosh sahifadagi 💾 "Zaxira nusxa" orqali JSON faylga yuklab olib, boshqa qurilmada tiklash mumkin.
-- **Kontent hajmi** (v=136): 48 mavzuda 699 so'z (frazali fe'llar va IELTS akademik so'zlari bilan), 65 grammatika mavzusi (302 mashq, A1–C1, jumladan "O'zbeklar ko'p qiladigan xatolar") + 145 unitli qo'llanma, 50 ta o'qish matni + 38 ta tinglash mashqi (463 savol), 9 ta trener (460 element), 198 ta kollokatsiya va idioma, 16 ta minimal juft to'plami, 30 ta Speech Lab vaziyati, 80 ta daraja savoli, 6 ta tayyor imtihon, IELTS: 15 ta to'liq sinov testi, 6 ta strategiya qo'llanmasi, 78 ta Writing topshirig'i (72 tasida Band 7 namuna), 60 ta Speaking cue card. To'liq tarix: [CHANGELOG.md](CHANGELOG.md).
+- **Kontent hajmi** (v=136): 48 mavzuda 699 so'z (frazali fe'llar va IELTS akademik so'zlari bilan), 68 grammatika mavzusi (317 mashq, A1–C1, jumladan "O'zbeklar ko'p qiladigan xatolar") + 145 unitli qo'llanma, 50 ta o'qish matni + 38 ta tinglash mashqi (463 savol), 9 ta trener (460 element), 198 ta kollokatsiya va idioma, 16 ta minimal juft to'plami, 30 ta Speech Lab vaziyati, 80 ta daraja savoli, 6 ta tayyor imtihon, IELTS: 15 ta to'liq sinov testi, 6 ta strategiya qo'llanmasi, 78 ta Writing topshirig'i (72 tasida Band 7 namuna), 60 ta Speaking cue card. To'liq tarix: [CHANGELOG.md](CHANGELOG.md).
 - **Qo'llanma sahifalarida** Nextgen'ga qaytish tugmasi yo'q — brauzerning "orqaga" tugmasidan foydalaning. Qo'llanmadagi mashq natijalari Nextgen XP'siga qo'shilmaydi.
   Yangi kontent `src/data/` fayllariga qo'shiladi; `npm test` uni avtomatik tekshiradi.
 - Lug'at rasmlari — emoji (litsenziyasiz). Haqiqiy rasmlar uchun `emoji` maydonini rasm URL bilan almashtirish kifoya.

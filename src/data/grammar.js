@@ -955,4 +955,58 @@ export const grammar = [
       { id: 'b2dc5', type: 'fill', prompt: 'The ___ you start, the sooner you finish. (erta, 1 so‘z)', answer: 'earlier', explanation: 'early → earlier.' },
     ],
   },
+  {
+    id: 'nominalisation', title: "Nominalizatsiya (fe'ldan otga — akademik uslub)", level: 'C1',
+    rule: "Akademik matnda harakat ko'pincha fe'l emas, OT bilan ifodalanadi: Prices increased sharply → There was a sharp increase in prices. The government decided… → The government's decision… Bu gapni ixcham va rasmiy qiladi (IELTS Writing — Lexical Resource va Grammatical Range). Fe'l → ot: increase → an increase, decline → a decline, reduce → a reduction, develop → development, fail → failure, choose → choice. Ravish → sifat: rose sharply → a sharp rise.",
+    table: [
+      ["fe'l → ot", 'Unemployment fell. → There was a fall in unemployment.'],
+      ['ravish → sifat', 'Sales grew rapidly. → Sales showed rapid growth.'],
+      ["gap → ot birikma", 'Because people use cars more… → The growing use of cars…'],
+      ['IELTS Task 1', 'a gradual decline in · a dramatic increase of 20%'],
+    ],
+    examples: ['The introduction of the new law reduced crime.', 'There has been a steady rise in house prices.', "The city's failure to invest led to problems."],
+    exercises: [
+      { id: 'c1nm1', type: 'single', prompt: 'Paraphrase: "Sales increased dramatically." → There was a dramatic ___ in sales.', options: ['increasing', 'increase', 'increased', 'increasingly'], answer: 1 },
+      { id: 'c1nm2', type: 'single', prompt: 'Paraphrase: "The council decided to close the park." → The council’s ___ to close the park surprised residents.', options: ['decision', 'deciding', 'decide', 'decisive'], answer: 0 },
+      { id: 'c1nm3', type: 'single', prompt: 'Which version is most academic?', options: ['Lots of people moved to cities, so cities got bigger.', 'Cities got bigger because people moved there.', 'Rapid urbanisation led to the expansion of cities.', 'People moved and cities became big.'], answer: 2 },
+      { id: 'c1nm4', type: 'single', prompt: 'reduce → a ___', options: ['reducing', 'reducement', 'reduce', 'reduction'], answer: 3 },
+      { id: 'c1nm5', type: 'fill', prompt: 'Prices fell slightly. → There was a ___ fall in prices. (1 so‘z)', answer: 'slight', explanation: 'Ravish (slightly) → sifat (slight).' },
+    ],
+  },
+  {
+    id: 'hedging', title: 'Hedging — ehtiyotkor fikr bildirish', level: 'C1',
+    rule: "Akademik yozuvda 100% ishonch bilan gapirish kamdan-kam: dalil bo'lmasa, fikr yumshatiladi (hedging). Vositalar: modal fe'llar (may, might, could), fe'llar (seem, appear, tend to, suggest), ravishlar (possibly, probably, arguably, generally), iboralar (It is likely that…, There is some evidence that…, To some extent…). Kuchli da'vo: Technology destroys family life ✗ → Technology may weaken family relationships to some extent ✓. IELTS Task 2'da bu Band 7+ belgisi.",
+    table: [
+      ['modal', 'This could lead to higher unemployment.'],
+      ["fe'l", 'Young people tend to spend more time online.'],
+      ['ravish', 'This is arguably the most serious problem.'],
+      ['ibora', 'It is likely that prices will rise. · To some extent, I agree.'],
+    ],
+    examples: ['The results appear to support this view.', 'There is some evidence that exercise improves memory.', 'Online learning may not suit every student.'],
+    exercises: [
+      { id: 'c1hd1', type: 'single', prompt: 'Which sentence is hedged (more cautious)?', options: ['Video games make children violent.', 'Video games always make children violent.', 'Video games may make some children more aggressive.', 'Video games definitely cause violence.'], answer: 2 },
+      { id: 'c1hd2', type: 'single', prompt: 'Teenagers ___ to spend more time on social media than adults.', options: ['tend', 'are tending', 'trend', 'tending'], answer: 0, explanation: 'tend to + V1 — odatda …adi.' },
+      { id: 'c1hd3', type: 'single', prompt: 'It is ___ that the number of electric cars will continue to grow.', options: ['likely', 'probably', 'maybe', 'possibly be'], answer: 0, explanation: 'It is likely that + gap.' },
+      { id: 'c1hd4', type: 'single', prompt: 'The data ___ to suggest a link between diet and mood.', options: ['seem', 'appears', 'appear', 'is appearing'], answer: 2, explanation: "data (ko'plik) + appear to." },
+      { id: 'c1hd5', type: 'fill', prompt: 'To ___ extent, I agree with this opinion. (1 so‘z)', answer: 'some', explanation: 'To some extent — ma’lum darajada.' },
+    ],
+  },
+  {
+    id: 'contrast-linkers', title: 'whereas / while / albeit / nevertheless', level: 'C1',
+    rule: "Rasmiy qarama-qarshilik vositalari. whereas / while — ikki faktni solishtirish (bitta gap ichida): Men prefer football, whereas women prefer tennis. albeit — 'garchi …bo'lsa-da', ot yoki sifat bilan, gap EMAS: a useful, albeit expensive, solution. nevertheless / nonetheless — yangi gap boshida, nuqta yoki nuqtali verguldan keyin: The plan is risky. Nevertheless, it is worth trying. on the other hand — ikkinchi tomonni ko'rsatish. IELTS Task 1'da whereas juda foydali.",
+    table: [
+      ['whereas', 'Sales rose in May, whereas profits fell.'],
+      ['albeit + sifat/ot', 'The change was positive, albeit small.'],
+      ['nevertheless', 'It was expensive. Nevertheless, we bought it.'],
+      ['on the other hand', 'Cities offer jobs. On the other hand, they are crowded.'],
+    ],
+    examples: ['In 2000 coal was the main source, whereas by 2020 gas had overtaken it.', 'The project succeeded, albeit slowly.', 'The task is difficult; nonetheless, it is possible.'],
+    exercises: [
+      { id: 'c1cx1', type: 'single', prompt: 'Spending on food rose, ___ spending on clothes fell.', options: ['albeit', 'nevertheless', 'whereas', 'despite'], answer: 2 },
+      { id: 'c1cx2', type: 'single', prompt: 'It was a useful, ___ short, meeting.', options: ['whereas', 'albeit', 'however', 'although of'], answer: 1, explanation: 'albeit + sifat.' },
+      { id: 'c1cx3', type: 'single', prompt: 'The flat is small. ___, it is in a great location.', options: ['Nevertheless', 'Whereas', 'Albeit', 'Despite'], answer: 0 },
+      { id: 'c1cx4', type: 'single', prompt: 'Which sentence is WRONG?', options: ['He improved, albeit slowly.', 'Albeit it was raining, we left.', 'Rents are high, whereas salaries are low.', 'It is hard. Nonetheless, I will try.'], answer: 1, explanation: "albeit dan keyin to'liq gap kelmaydi." },
+      { id: 'c1cx5', type: 'fill', prompt: 'Some people love cities; others, on the ___ hand, prefer villages. (1 so‘z)', answer: 'other' },
+    ],
+  },
 ];

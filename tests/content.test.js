@@ -306,3 +306,8 @@ test('ielts bank: General Training letters — 6 tasks with three registers, eve
     if (w.type.endsWith('(formal)')) assert.match(w.model, /Yours faithfully/, `${w.id}: Dear Sir or Madam → Yours faithfully`);
   }
 });
+
+test('readings-index.js matches readings.js (run scripts/build-readings-index.mjs after editing texts)', async () => {
+  const { readingsIndex } = await import('../src/data/readings-index.js');
+  assert.deepEqual(readingsIndex, readings.map(({ id, title, level, listening }) => ({ id, title, level, listening: !!listening })));
+});
