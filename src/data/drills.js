@@ -13,6 +13,7 @@ import { depSets } from './deps.js';
 import { sentenceStressSets } from './sentence-stress.js';
 import { errorSets } from './errors.js';
 import { punctuationSets } from './punctuation.js';
+import { transformSets } from './transform.js';
 
 export const trainers = [
   { id: 'articles', icon: '🅰️', title: 'Artikl va predloglar', desc: 'a / an / the va in / on / at',
@@ -48,6 +49,9 @@ export const trainers = [
   { id: 'punct', icon: '✒️', title: 'Tinish belgilari', desc: "it's / its, students', However, …",
     intro: "IELTS Writing'da apostrof, bosh harf va vergul xatolari Grammatical accuracy balini tushiradi. O'zbek tilidagidan farqli: tillar, kunlar va millatlar bosh harf bilan; 2,500 — minglik, 2.5 — kasr.",
     sets: punctuationSets },
+  { id: 'trans', icon: '♻️', title: 'Gapni qayta tuzish', desc: "ago → for, active → passive, although → despite",
+    intro: "Ikkinchi gap birinchisi bilan bir xil ma'noni bersin. Bu parafraz — IELTS'ning asosiy ko'nikmasi: Reading savollari matnni boshqa so'zlar bilan aytadi, Writing esa turli grammatik tuzilmalarni baholaydi.",
+    sets: transformSets },
 ];
 
 export const drillSets = trainers.flatMap((t) => t.sets.map((s) => ({ ...s, trainer: t.id })));

@@ -294,7 +294,7 @@ const views = {
       ['#/reading', '📰', "O'qish va tinglash", `${readingsIndex.length} ta matn va tinglash (A1–C1), savollar bilan`],
       ['#/verbs', '🔁', "Noto'g'ri fe'llar", `${irregularVerbs.length} ta fe'l: jadval, tinglash va V2/V3 testi`],
       ['#/sounds', '👂', 'Qiyin tovushlar', `${minimalPairs.length} juft tovush (w/v, θ/s, iː/ɪ…): eshiting va farqlang`],
-      ['#/drill', '🎯', 'Mashqlar markazi', "Artikl, imlo, bog'lovchilar, urg'u, Task 1 tili, sinonimlar, so'z yasalishi, predloglar, xatoni topish, tinish belgilari"],
+      ['#/drill', '🎯', 'Mashqlar markazi', "Artikl, imlo, bog'lovchilar, urg'u, Task 1 tili, sinonimlar, so'z yasalishi, predloglar, xatoni topish, tinish belgilari, parafraz"],
       ['#/collocations', '🧩', 'Kollokatsiyalar', 'make/do/take, sifat+ot, frazali fe’llar, idiomalar — test bilan'],
       ['#/ielts', '🎓', 'IELTS tayyorlov', `Listening, Reading, ${writing.length} ta Writing, ${speaking.length} ta Speaking, ball hisoblagich`],
       ['#/speech', '🎙️', 'Nutq laboratoriyasi', "Real vaziyatlar, talaffuzni 0–100% baholash"],
