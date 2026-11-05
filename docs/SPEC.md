@@ -134,7 +134,7 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 | 121 | **Mock Test 15**                                                                               |                                                                                        | 40+40 original savol                                                                                                                                                                                      | ✅    |
 | 122 | **Yakuniy tekshiruv va hujjatlar**                                                             | 100 iteratsiyadan keyin umumiy holat                                                   | To'liq regressiya, README/CHANGELOG yangilash, yakuniy hisobot                                                                                                                                            | ✅    |
 | 123 | **Grammatika A1–A2 +3** (prepositions of place, some/any, adjective order) | Boshlang'ichlar uchun asos | 3 mavzu × ≥4 mashq, kontent testi o'tadi | ✅ |
-| 124 | **Grammatika B1–B2 +3** (although/despite, time clauses, the more… the more) | IELTS Writing'da bog'lash va murakkab gaplar | 3 mavzu × ≥4 mashq | ⬜ |
+| 124 | **Grammatika B1–B2 +3** (although/despite, time clauses, the more… the more) | IELTS Writing'da bog'lash va murakkab gaplar | 3 mavzu × ≥4 mashq | ✅ |
 | 125 | **Grammatika C1 +3** (nominalisation, hedging, whereas/albeit) | Akademik uslub — Band 7+ | 3 mavzu × ≥4 mashq | ⬜ |
 | 126 | **Xatoni top va tuzat treneri** | O'zbeklarning tipik xatolari (artikl, zamon, predlog) | ≥42 gap, 4 variantli; #/drill ichida; E2E | ⬜ |
 | 127 | **Tinish belgilari treneri** | Writing'da vergul, apostrof, bosh harf xatolari | ≥42 element; #/drill ichida | ⬜ |
@@ -295,3 +295,4 @@ O'zbek tilida so'zlashuvchi o'quvchini A1 dan IELTS 7+ gacha olib boradigan, int
 - **121-iteratsiya** — Mock 15: pottery class, Ugam visitor centre, crafts & tourism, animal sleep; Rishtan ceramics, car-free centres, memory palace; 21 MCQ rotated; v=136.
 - **122-iteratsiya** — Yakuniy: 69 unit/kontent testi + to'liq E2E (mobil, a11y, offline) o'tdi; birinchi render <600 KB; CHANGELOG.md (iteratsiyalar 23–122) va README kontent hajmi yangilandi; v=136.
 - **123-iteratsiya** — Grammatika +3: prepositions of place (A1), some/any/no (A2), adjective order (A2) — 15 mashq; jami 62 mavzu / 287 mashq; v=137.
+- **124-iteratsiya** — Grammatika +3: although/despite (B1), time clauses (B1), the more… the better (B2); jami 65 mavzu / 302 mashq; v=138.

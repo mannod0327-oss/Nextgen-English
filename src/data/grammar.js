@@ -901,4 +901,58 @@ export const grammar = [
       { id: 'a2ao5', type: 'single', prompt: 'Choose the correct order:', options: ['a new small house', 'a small new house', 'a house small new', 'a new house small'], answer: 1, explanation: "O'lcham → yosh." },
     ],
   },
+  {
+    id: 'concession', title: 'although / though / despite / in spite of', level: 'B1',
+    rule: "Qarama-qarshilik (…ga qaramay). although / even though / though + to'liq gap (ega + fe'l): Although it was raining, we went out. despite / in spite of + OT yoki -ing (gap emas!): Despite the rain, we went out. Despite feeling tired, she finished the essay. Gap qo'shish kerak bo'lsa: despite the fact that + gap. Xato: Despite it was raining ✗. even though — kuchliroq ta'kid. IELTS Writing'da: Although technology has many benefits, it also creates problems.",
+    table: [
+      ['although + gap', 'Although he is rich, he lives simply.'],
+      ['despite + ot', 'Despite the traffic, we arrived on time.'],
+      ['in spite of + -ing', 'In spite of studying hard, he failed.'],
+      ['despite the fact that + gap', 'Despite the fact that it was late, they kept working.'],
+    ],
+    examples: ['Even though I was tired, I helped my mother.', 'Despite its high price, the phone sold well.', 'The film was good, though it was too long.'],
+    exercises: [
+      { id: 'b1cn1', type: 'single', prompt: '___ it was cold, the children played outside.', options: ['Despite', 'In spite of', 'Although', 'Because of'], answer: 2, explanation: "Keyin to'liq gap (it was cold) → Although." },
+      { id: 'b1cn2', type: 'single', prompt: '___ the bad weather, the plane took off on time.', options: ['Although', 'Despite', 'Even though', 'Though'], answer: 1, explanation: 'Keyin ot (the bad weather) → Despite.' },
+      { id: 'b1cn3', type: 'single', prompt: 'In spite of ___ hard, she didn’t pass the test.', options: ['she studied', 'study', 'studied', 'studying'], answer: 3, explanation: 'in spite of + -ing.' },
+      { id: 'b1cn4', type: 'single', prompt: 'Which sentence is correct?', options: ['Despite it was late, we stayed.', 'Despite the fact that it was late, we stayed.', 'Although of the late hour, we stayed.', 'In spite it was late, we stayed.'], answer: 1, explanation: 'despite the fact that + gap.' },
+      { id: 'b1cn5', type: 'fill', prompt: 'I enjoyed the trip ___ though it rained every day. (1 so‘z)', answer: 'even', explanation: 'even though + gap.' },
+    ],
+  },
+  {
+    id: 'time-clauses', title: "Vaqt ergash gaplari (when, until, as soon as, before, after)", level: 'B1',
+    rule: "Kelajak haqida gapirganda when, as soon as, until, before, after, once dan keyin will EMAS, Present Simple ishlatiladi: I'll call you when I arrive (when I will arrive ✗). Harakat tugashini ta'kidlash uchun Present Perfect: I'll tell you as soon as I've finished. Asosiy gapda will bo'ladi. until — …gacha (harakat davom etadi): Wait here until I come back. while — …ayni paytda.",
+    table: [
+      ['when + Present Simple', "I'll phone you when I get home."],
+      ['as soon as', 'As soon as the lesson ends, we will go.'],
+      ['until', "Don't leave until the teacher arrives."],
+      ['after + Present Perfect', "I'll watch TV after I've done my homework."],
+    ],
+    examples: ['Before you leave, close the window.', 'We will start when everyone is here.', "I won't stop until I find it."],
+    exercises: [
+      { id: 'b1tc1', type: 'single', prompt: "I'll send you a message when I ___ in Tashkent.", options: ['will arrive', 'arrive', 'arrived', 'am going to arrive'], answer: 1, explanation: 'when + Present Simple (kelajak ma’nosida).' },
+      { id: 'b1tc2', type: 'single', prompt: 'Please wait here ___ I come back.', options: ['until', 'by', 'during', 'since'], answer: 0, explanation: 'until — …gacha.' },
+      { id: 'b1tc3', type: 'single', prompt: 'As soon as the rain ___, we will go for a walk.', options: ['will stop', 'stopped', 'stops', 'is stopping'], answer: 2 },
+      { id: 'b1tc4', type: 'single', prompt: "You can go out after you ___ your homework.", options: ['will finish', "'ve finished", 'finishing', 'will have finished'], answer: 1, explanation: 'Tugallanganlik → Present Perfect.' },
+      { id: 'b1tc5', type: 'fill', prompt: 'Turn off the lights ___ you leave the room. (oldin, 1 so‘z)', answer: 'before', explanation: 'before — …dan oldin.' },
+    ],
+  },
+  {
+    id: 'double-comparatives', title: 'The more…, the better (qiyosiy juftliklar)', level: 'B2',
+    rule: "Ikki narsa birga o'zgarganda: The + qiyosiy daraja + ega + fe'l, the + qiyosiy daraja + ega + fe'l. The more you read, the better your vocabulary becomes. The sooner, the better (qisqa shakl). Ot bilan: The more money he earns, the more he spends. Ketma-ket o'sish: bigger and bigger, more and more expensive. IELTS Task 1: The population grew more and more rapidly.",
+    table: [
+      ['the + adj-er …, the + adj-er …', 'The older he gets, the wiser he becomes.'],
+      ['the more + ot', 'The more practice you do, the more confident you feel.'],
+      ['qisqa shakl', 'The sooner, the better.'],
+      ['… and …', 'Houses are getting more and more expensive.'],
+    ],
+    examples: ['The harder you work, the more you achieve.', 'The less sugar you eat, the healthier you are.', 'The city is getting bigger and bigger.'],
+    exercises: [
+      { id: 'b2dc1', type: 'single', prompt: 'The more you practise, ___ you will speak.', options: ['the better', 'better', 'the best', 'more better'], answer: 0 },
+      { id: 'b2dc2', type: 'single', prompt: '___ the exam is, the more you need to prepare.', options: ['More difficult', 'The most difficult', 'The more difficult', 'Most difficult'], answer: 2 },
+      { id: 'b2dc3', type: 'single', prompt: 'Flats in Tashkent are getting ___.', options: ['expensive and expensive', 'more expensive and more', 'most and most expensive', 'more and more expensive'], answer: 3 },
+      { id: 'b2dc4', type: 'single', prompt: 'The less you sleep, ___ you feel.', options: ['the worse', 'the worst', 'worse', 'the bad'], answer: 0 },
+      { id: 'b2dc5', type: 'fill', prompt: 'The ___ you start, the sooner you finish. (erta, 1 so‘z)', answer: 'earlier', explanation: 'early → earlier.' },
+    ],
+  },
 ];
