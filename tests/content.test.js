@@ -311,3 +311,12 @@ test('readings-index.js matches readings.js (run scripts/build-readings-index.mj
   const { readingsIndex } = await import('../src/data/readings-index.js');
   assert.deepEqual(readingsIndex, readings.map(({ id, title, level, listening }) => ({ id, title, level, listening: !!listening })));
 });
+
+test('find-the-mistake trainer: one wrong chunk per sentence, chunks unique, prompt is the sentence', () => {
+  const er = drillItems.filter((q) => q.trainer === 'errors');
+  assert.ok(er.length >= 42);
+  for (const q of er) {
+    assert.equal(new Set(q.options).size, q.options.length, q.id);
+    assert.ok(q.prompt.includes(q.options.join(' ')) && q.answer >= 0, q.id);
+  }
+});

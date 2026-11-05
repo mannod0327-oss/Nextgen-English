@@ -1,0 +1,61 @@
+// "Find the mistake" trainer (original): each sentence is split into 4 chunks, exactly one is wrong. The mistakes are the
+// ones Uzbek speakers make most (no articles in Uzbek, -da for in/on/at, no do-support, he/she = u, no plural after numbers…).
+// Row: [id, wrong chunk, uz explanation with the correction, chunks]. Options keep sentence order (keepOrder).
+
+const rows = [
+  ['er1', "don't", "she/he/it bilan doesn't: She doesn't like tea.", ['She', "don't", 'like', 'green tea.']],
+  ['er2', 'is go', 'Present Simple: He goes to work by bus.', ['He', 'is go', 'to work', 'by bus.']],
+  ['er3', 'in', 'Kun bilan on: on Monday.', ['We have', 'English', 'in', 'Monday.']],
+  ['er4', 'book', "Sondan keyin ko'plik: two books.", ['I bought', 'two', 'book', 'yesterday.']],
+  ['er5', 'She', 'Erkak → he: My brother is a doctor. He works…', ['My brother', 'is a doctor.', 'She', 'works in Tashkent.']],
+  ['er6', 'teacher', 'Kasb oldidan a: She is a teacher.', ['My mother', 'is', 'teacher', 'at a school.']],
+  ['er7', 'did went', 'did + V1: Where did you go?', ['Where', 'did went', 'you', 'last summer?']],
+  ['er8', 'am agree', "agree — fe'l, am kerak emas: I agree with you.", ['I', 'am agree', 'with', 'your opinion.']],
+  ['er9', 'since', 'Davomiylik → for: for three years.', ['I have lived', 'here', 'since', 'three years.']],
+  ['er10', 'more better', 'better — allaqachon qiyosiy: much better.', ['This phone', 'is', 'more better', 'than mine.']],
+  ['er11', 'informations?', 'information — sanalmaydi: some information.', ['Can you give', 'me', 'more', 'informations?']],
+  ['er12', 'at', 'Shahar bilan in: in Samarkand.', ['My uncle', 'lives', 'at', 'Samarkand.']],
+  ['er13', 'can to', 'Modal + V1 (to siz): I can swim.', ['I', 'can to', 'swim', 'very well.']],
+  ['er14', 'explain me', 'explain something to me: Can you explain it to me?', ['Could you', 'explain me', 'this', 'rule?']],
+  ['er15', 'have', 'Yosh → be: I am 20 years old.', ['I', 'have', '20 years', 'old.']],
+  ['er16', 'very', "very + fe'l emas: I like it very much / I really like it.", ['I', 'very', 'like', 'this film.']],
+  ['er17', 'speaks', 'Modal + V1: She can speak English.', ['She', 'can', 'speaks', 'English well.']],
+  ['er18', 'the life', "Umumiy ma'noda artiklsiz: Life is beautiful.", ['I think', 'the life', 'is', 'beautiful.']],
+  ['er19', 'married with', 'married to: She is married to a doctor.', ['My sister', 'is', 'married with', 'an engineer.']],
+  ['er20', 'people is', "people — ko'plik: people are.", ['A lot of', 'people is', 'waiting', 'outside.']],
+  ['er21', 'to see', 'look forward to + -ing: I look forward to seeing you.', ['I look', 'forward', 'to see', 'you soon.']],
+  ['er22', 'the', "Fanlar umumiy ma'noda artiklsiz: I study mathematics.", ['At university', 'I study', 'the', 'mathematics.']],
+  ['er23', 'make', 'do homework: I do my homework.', ['Every evening', 'I', 'make', 'my homework.']],
+  ['er24', 'listen', 'listen TO: She likes to listen to music.', ['She', 'likes to', 'listen', 'music.']],
+  ['er25', 'every days.', 'every + birlik: every day.', ['I', 'go', 'to the gym', 'every days.']],
+  ['er26', 'was', "Ko'plik → were: We were at home.", ['Yesterday', 'we', 'was', 'at home.']],
+  ['er27', 'didn’t went', "didn't + V1: I didn't go.", ['I', 'didn’t went', 'to school', 'yesterday.']],
+  ['er28', 'an advice', 'advice — sanalmaydi: some advice / a piece of advice.', ['Can I', 'give you', 'an advice', 'about IELTS?']],
+  ['er29', 'How', "Ismni so'rash → What: What is your name?", ['How', 'is', 'your', 'name?']],
+  ['er30', 'interesting', "Odam his qiladi → -ed: I'm interested in history.", ['I am', 'very', 'interesting', 'in history.']],
+  ['er31', 'it will rain,', 'if + Present Simple: If it rains, we will stay at home.', ['If', 'it will rain,', 'we', 'will stay at home.']],
+  ['er32', 'discuss about', "discuss + to'g'ridan-to'g'ri: discuss the problem.", ["Let's", 'discuss about', 'this', 'problem.']],
+  ['er33', 'it', 'Ega allaqachon bor: The film was boring.', ['The film', 'it', 'was', 'boring.']],
+  ['er34', 'Which', "Vaqtni so'rash → What time: What time is it?", ['Which', 'time', 'is', 'it now?']],
+  ['er35', 'feel myself', 'feel + sifat: I feel very tired (feel myself emas).', ['Today', 'I', 'feel myself', 'very tired.']],
+  ['er36', 'enter to', 'enter + joy (to siz): enter the room.', ['Please', 'enter to', 'the room', 'quietly.']],
+  ['er37', 'more', "Bir bo'g'inli sifat → -er: This shop is cheaper.", ['This shop', 'is', 'more', 'cheap.']],
+  ['er38', 'has', "Ko'plik + have: My parents have a new car.", ['My parents', 'has', 'a new', 'car.']],
+  ['er39', 'on', 'Oy bilan in: in May.', ['My birthday', 'is', 'on', 'May.']],
+  ['er40', 'doesn’t', "Ega they → don't: They don't speak Russian.", ['They', 'doesn’t', 'speak', 'Russian.']],
+  ['er41', 'There is', "Ko'plik → There are: There are many parks.", ['There is', 'many', 'parks', 'in our city.']],
+  ['er42', 'said me', 'say something TO sb yoki tell sb: He told me about the exam.', ['He', 'said me', 'about', 'the exam.']],
+];
+
+export const errorSets = [
+  {
+    id: 'errors', title: 'Xatoni toping', keepOrder: true,
+    rules: [
+      ['do-support', "so'roq va inkorda do/does/did + V1", "Where did you go? · She doesn't like…"],
+      ['he / she', "o'zbekchada 'u' bitta — inglizchada jinsga qarab", 'My brother… he · My sister… she'],
+      ["ko'plik", 'sondan keyin -s; people, information, advice', 'two books · people are · some advice'],
+      ['predlog', 'in shahar/oy, on kun, at nuqta; listen to, married to', 'in May · on Monday · at the stop'],
+    ],
+    items: rows.map(([id, wrong, uz, chunks]) => [id, `Qaysi qismda xato bor? «${chunks.join(' ')}»`, wrong, uz, chunks]),
+  },
+];

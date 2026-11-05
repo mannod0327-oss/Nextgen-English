@@ -11,6 +11,7 @@ import { synonymSets } from './synonyms.js';
 import { formSets } from './forms.js';
 import { depSets } from './deps.js';
 import { sentenceStressSets } from './sentence-stress.js';
+import { errorSets } from './errors.js';
 
 export const trainers = [
   { id: 'articles', icon: '🅰️', title: 'Artikl va predloglar', desc: 'a / an / the va in / on / at',
@@ -40,6 +41,9 @@ export const trainers = [
   { id: 'sstress', icon: '📢', title: "Gap urg'usi", desc: '— A red car? — No, a BLUE car.',
     intro: "Inglizchada gapdagi YANGI yoki QARAMA-QARSHI ma'lumot kuchli aytiladi. Savolga qarab, javobdagi qaysi so'zni urg'u bilan aytishni tanlang — Speaking'dagi intonatsiya va Listening'dagi tuzatishlarni (No, FIFTY) eshitish uchun.",
     sets: sentenceStressSets },
+  { id: 'errors', icon: '🔍', title: 'Xatoni toping', desc: "She don't… · two book · married with…",
+    intro: "O'zbek tilida so'zlashuvchilar eng ko'p qiladigan xatolar: do/does, he/she, ko'plik, artikl va predloglar. Gapdagi xato qismni toping — izohda to'g'ri varianti bor. Writing va Speaking'da Grammatical accuracy bali shu xatolardan pasayadi.",
+    sets: errorSets },
 ];
 
 export const drillSets = trainers.flatMap((t) => t.sets.map((s) => ({ ...s, trainer: t.id })));
